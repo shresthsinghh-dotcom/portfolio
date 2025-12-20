@@ -10,7 +10,7 @@
 
 /* Dark theme overrides */
 body.dark-mode {
-  --bg-color: #111111;
+  --bg-color: #ffffff;
   --text-color: #e1e1e1;
   --link-color: #90caf9;
   --btn-bg: #3949ab;

@@ -40,3 +40,87 @@ footer {
   padding: 10px 0;
   font-size: 14px;
 }
+
+/* CSS - paste into your stylesheet */
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.carousel-btn {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+}
+.carousel-btn:focus { outline: 3px solid #b3d4ff; }
+
+.carousel-viewport {
+  width: 320px;
+  height: 320px;
+  perspective: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 900px) {
+  .carousel-viewport { width: 420px; height: 420px; }
+}
+
+.carousel-card {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(.2,.9,.2,1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  overflow: hidden;
+}
+
+.carousel-card.flipped { transform: rotateY(180deg); }
+
+.carousel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: block;
+}
+
+/* Back face (if you want different content when flipped) */
+.carousel-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+
+/* Indicator */
+.carousel-indicator {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #444;
+}
+.carousel-indicator .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #ddd;
+  border-radius: 50%;
+  margin: 0 4px;
+  transition: background 0.3s;
+}

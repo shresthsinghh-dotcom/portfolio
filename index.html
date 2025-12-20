@@ -23,6 +23,21 @@
   <main>
     <h1>Welcome</h1>
     <p>This is the home page of my portfolio site.</p>
+    <div class="carousel" id="carousel" aria-label="Image carousel">
+      <button class="carousel-btn prev" id="prevBtn" aria-label="Previous image">&larr;</button>
+
+      <div class="carousel-viewport" id="viewport" tabindex="0" role="region" aria-live="polite">
+        <div class="carousel-card" id="card">
+          <img src="images/photo1.jpg" alt="Profile image 1" id="carouselImage" loading="lazy" />
+        </div>
+      </div>
+
+      <button class="carousel-btn next" id="nextBtn" aria-label="Next image">&rarr;</button>
+    </div>
+
+    <!-- Optional: small indicator -->
+    <div class="carousel-indicator" id="indicator" aria-hidden="true"></div>
+
   </main>
 
   <footer>

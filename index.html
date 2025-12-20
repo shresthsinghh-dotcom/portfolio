@@ -20,28 +20,42 @@
     </nav>
   </header>
 
-  <main>
-    <h1>Welcome</h1>
-    <p>This is the home page of my portfolio site.</p>
-    <div class="carousel" id="carousel" aria-label="Image carousel">
-      <button class="carousel-btn prev" id="prevBtn" aria-label="Previous image">&larr;</button>
+  <main class="home-section">
 
-      <div class="carousel-viewport" id="viewport" tabindex="0" role="region" aria-live="polite">
-        <div class="carousel-card" id="card">
-          <img src="images/photo1.jpg" alt="Profile image 1" id="carouselImage" loading="lazy" />
-        </div>
-      </div>
-
-      <button class="carousel-btn next" id="nextBtn" aria-label="Next image">&rarr;</button>
+  <!-- Carousel Container -->
+  <div class="carousel-container">
+    <div id="carousel" class="carousel">
+      <img src="images/1ne.jpg" class="carousel-img" alt="Profile image 1">
+      <img src="images/2wo.jpg" class="carousel-img" alt="Profile image 2">
+      <img src="images/3hree.jpg" class="carousel-img" alt="Profile image 3">
+      <img src="images/4our.jpg" class="carousel-img" alt="Profile image 4">
+      <img src="images/5ive.jpg" class="carousel-img" alt="Profile image 5">
+      <img src="images/6ix.jpg" class="carousel-img" alt="Profile image 6">
     </div>
+    <button id="prevBtn" class="carousel-btn">‹</button>
+    <button id="nextBtn" class="carousel-btn">›</button>
+  </div>
 
-    <!-- Optional: small indicator -->
-    <div class="carousel-indicator" id="indicator" aria-hidden="true"></div>
+  <!-- Blurb -->
+  <section class="intro-blurb">
+    <p>Hello! My name is Shresth, and I am a first year Mechanical Engineering student at Duke University with a strong interest in mechanical design, aerospace systems, materials, and engineering analysis. This website serves as a portfolio of my academic, technical, and project-based work.</p>
 
-  </main>
+    <p>In the past, I have worked on a ball launcher, a rocket nose cone, and a satellite image analyser. These experiences have allowed me to develop skills in CAD, FEA, prototyping, experimental testing, Python, and many others, while working in collaborative, multidisciplinary environments.</p>
+
+    <p>Currently, I am focused on certifying in various disciplines and the spring semester where I am continuing to build both technical depth and problem-solving ability. I am particularly interested in projects that challenge me! Looking ahead, I plan to pursue research, internships, advanced coursework, and certifications with the goal of contributing to engineering efforts that combine rigorous analysis, experimentation, and real-world impact. I see this portfolio as a living record of my growth as an engineer and a place to document the progression of my ideas, skills, and work over time.</p>
+  </section>
+
+  <!-- Resume Link -->
+  <div class="resume-link">
+    <a href="ShresthSinghResume.pdf" target="_blank">View My Resume</a>
+  </div>
+
+</main>
+
 
   <footer>
     <p>&copy; 2025 Shresth Singh</p>
   </footer>
+  <script src="carousel.js"></script>
 </body>
 </html>

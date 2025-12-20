@@ -1,15 +1,21 @@
 // JS - paste into script.js or at the end of <body>
 (() => {
-  const images = [
-    'images/photo1.jpg',
-    'images/photo2.jpg',
-    'images/photo3.jpg'
-  ]; // <-- replace with your filenames
+        const images = [
+        'images/1ne.jpg',
+        'images/2wo.jpg',
+        'images/3hree.jpg',
+        'images/4our.jpg',
+        'images/5ive.jpg',
+        'images/6ix.jpg'
+        ];
 
-  const alts = [
-    'Profile image 1',
-    'Profile image 2',
-    'Profile image 3'
+        const alts = [
+        'Profile image 1',
+        'Profile image 2',
+        'Profile image 3',
+        'Profile image 4',
+        'Profile image 5',
+        'Profile image 6'
   ]; // optional alt text list (same length as images)
 
   let index = 0;

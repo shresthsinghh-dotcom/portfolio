@@ -54,8 +54,8 @@ footer {
 .carousel-container {
   position: relative;
   margin: 0 auto 30px auto;
-  max-width: 500px;
-  height: 350px;
+  max-width: 350px;
+  height: 600Spx;
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);

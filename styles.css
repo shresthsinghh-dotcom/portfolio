@@ -6,35 +6,126 @@
   --btn-bg: #1a73e8;
   --btn-text: #ffffff;
   --section-bg: #f8f8f8;
+  --header-bg: #222222;            /* optional; can override for theme */
+  --nav-link-hover-bg: #e8e8e8;
+  --nav-link-hover-color: #1a73e8;
 }
 
 /* Dark theme overrides */
 body.dark-mode {
-  --bg-color: #ffffff;
+  --bg-color: #111111;
   --text-color: #e1e1e1;
   --link-color: #90caf9;
-  --btn-bg: #3949ab;
+  --btn-bg: #1a73e8;               /* <- changed to blue per your request */
   --btn-text: #ffffff;
   --section-bg: #1c1c1c;
+  --header-bg: #111111;
+  --nav-link-hover-bg: rgba(255,255,255,0.06);
+  --nav-link-hover-color: #90caf9;
 }
 
-/* Apply variables globally */
+/* Global body (merged) */
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
+/* Links */
 a {
   color: var(--link-color);
 }
 
-/* Make resume button adapt */
-.btn-resume {
-  background-color: var(--btn-bg);
-  color: var(--btn-text);
+/* Header / navbar */
+header {
+  background-color: var(--header-bg);
+  padding: 10px 20px;
 }
 
+/* Base navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-color);
+  padding: 8px 20px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/* Left nav links (single definition) */
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 18px;
+}
+
+.nav-list li { margin-right: 0; } /* gap covers spacing */
+
+.nav-list a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--text-color);
+  padding: 8px 12px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-list a:hover {
+  background-color: var(--nav-link-hover-bg);
+  color: var(--nav-link-hover-color);
+}
+
+/* Right-aligned call to action buttons */
+.nav-cta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Shared button styles (use variables so theme toggles affect these) */
+.nav-button,
+.btn-resume {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+  font-size: 16px;
+}
+
+/* Resume-specific sizing */
+.btn-resume {
+  padding: 14px 24px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+/* Hover states */
+.btn-resume:hover,
+.nav-button:hover {
+  background-color: /* subtle darker variant can be provided by user or use same */ var(--btn-bg);
+  color: var(--btn-text);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Alternate nav-button hover (white with colored border) */
+.nav-button:hover {
+  background-color: #ffffff;
+  color: var(--btn-bg);
+  border: 2px solid var(--btn-bg);
+}
+
+/* Theme toggle button */
 .theme-toggle-btn {
   background: transparent;
   border: 2px solid var(--text-color);
@@ -51,60 +142,15 @@ a {
   color: var(--btn-text);
 }
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  background-color: #222;
-  padding: 10px 20px;
-}
-
-.nav-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.nav-list li {
-  margin-right: 15px;
-}
-
-.nav-list a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
-
-.nav-list a:hover {
-  color: #ffdd57;
-}
-
-main {
-  padding: 20px;
-}
-
-footer {
-  background-color: #f3f3f3;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 14px;
-}
-
-/* --- Enhanced Home Page Styles --- */
-
+/* Hero / Intro */
 .home-section.enhanced {
   max-width: 1000px;
   margin: auto;
   padding: 20px 16px;
   font-family: "Segoe UI", sans-serif;
-  color: #222;
+  color: var(--text-color);
 }
 
-/* Hero / Intro */
 .hero-section {
   display: flex;
   justify-content: center;
@@ -143,6 +189,12 @@ footer {
   height: 360px;
   object-fit: cover;
   display: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 .carousel-btn {
@@ -158,61 +210,44 @@ footer {
   border-radius: 4px;
 }
 
-#prevBtn { left: 8px; }
-#nextBtn { right: 8px; }
-
-.carousel-btn:hover {
-  background: rgba(0, 0, 0, 0.85);
-}
-
-/* Hero text */
+/* Hero text (single consolidated block) */
 .hero-text {
   max-width: 520px;
 }
 
 .hero-text h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 10px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-}
-
-.intro-strong {
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin-bottom: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
   color: #1a1a1a;
 }
 
 .hero-text p {
-  line-height: 1.6;
+  font-size: 1.15rem;
+  line-height: 1.65;
   margin-bottom: 12px;
-  font-size: 16px;
+  color: #333;
 }
 
-/* Resume link styled as a button */
-.btn-resume {
-  display: inline-block;
-  padding: 14px 24px;
-  background-color: #1a73e8;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  border-radius: 6px;
-  transition: background-color 0.2s ease;
+/* Responsive overrides */
+@media (max-width: 768px) {
+  .hero-text h1 { font-size: 2.4rem; }
+}
+@media (max-width: 480px) {
+  .hero-text h1 { font-size: 2rem; }
 }
 
-.btn-resume:hover {
-  background-color: #145ab8;
-}
-
-/* Mission / subtext */
-.mission-section {
+/* Misc structural pieces */
+.main { padding: 20px; } /* if you used <main>, keep the selector main { padding: 20px; } instead */
+footer {
+  background-color: #f3f3f3;
   text-align: center;
-  margin-top: 20px;
-  padding: 12px 0;
+  padding: 10px 0;
+  font-size: 14px;
 }
+
+.mission-section { text-align: center; margin-top: 20px; padding: 12px 0; }
 
 .mission-text {
   font-size: 1.15rem;
@@ -221,6 +256,7 @@ footer {
   border-top: 1px solid #ddd;
   padding-top: 16px;
 }
+
 /* Fade-in scroll animation */
 .fade-in {
   opacity: 0;
@@ -233,61 +269,23 @@ footer {
   transform: translateY(0);
 }
 
-.btn-resume {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn-resume:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-}
-
+/* Section divider */
 .section-divider {
   border-bottom: 3px solid #efefef;
   margin: 30px auto;
   width: 60%;
   max-width: 400px;
 }
-.hero-text h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #1a1a1a;
-  letter-spacing: 1px;
-}
 
-.hero-text p {
-  font-size: 1.15rem;
-  line-height: 1.65;
-  color: #333;
-}
-
-@media (max-width: 768px) {
-  .hero-text h1 {
-    font-size: 2.4rem;
-  }
-}
-@media (max-width: 480px) {
-  .hero-text h1 {
-    font-size: 2rem;
-  }
-}
-
-.carousel-img {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.carousel-img:hover {
-  transform: scale(1.03);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
-}
+/* Back to top */
 .back-to-top {
   position: fixed;
   bottom: 30px;
   right: 30px;
   padding: 12px 16px;
   font-size: 20px;
-  background: #1a73e8;
-  color: white;
+  background: var(--btn-bg);
+  color: var(--btn-text);
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -295,6 +293,4 @@ footer {
   transition: opacity 0.3s;
 }
 
-.back-to-top.visible {
-  opacity: 1;
-}
+.back-to-top.visible { opacity: 1; }

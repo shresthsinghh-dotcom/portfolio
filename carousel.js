@@ -50,3 +50,19 @@ window.addEventListener("scroll", () => {
 backToTopBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+const themeBtn = document.getElementById("themeToggle");
+
+// Load saved theme from localStorage
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-mode");
+  themeBtn.textContent = "Light Mode";
+}
+
+themeBtn.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  const isDark = document.body.classList.contains("dark-mode");
+  themeBtn.textContent = isDark ? "Light Mode" : "Dark Mode";
+
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});

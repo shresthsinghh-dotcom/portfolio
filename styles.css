@@ -1,3 +1,56 @@
+/* Theme color variables */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --link-color: #1a73e8;
+  --btn-bg: #1a73e8;
+  --btn-text: #ffffff;
+  --section-bg: #f8f8f8;
+}
+
+/* Dark theme overrides */
+body.dark-mode {
+  --bg-color: #111111;
+  --text-color: #e1e1e1;
+  --link-color: #90caf9;
+  --btn-bg: #3949ab;
+  --btn-text: #ffffff;
+  --section-bg: #1c1c1c;
+}
+
+/* Apply variables globally */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  color: var(--link-color);
+}
+
+/* Make resume button adapt */
+.btn-resume {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  border: 2px solid var(--text-color);
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-left: 12px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;

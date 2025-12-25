@@ -1,11 +1,45 @@
 /*
-
 TemplateMo 549 Business Oriented
-
 https://templatemo.com/tm-549-business-oriented
-
 */
 
+/* ============================= */
+/* SERVICES IMAGE & LAYOUT FIXES */
+/* ============================= */
+
+/* Constrain service images to a reasonable size while keeping them responsive */
+.tm-services-img {
+  width: 140px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+/* Make images slightly smaller on small screens */
+@media (max-width: 575.98px) {
+  .tm-services-img {
+    width: 110px;
+    height: 80px;
+  }
+}
+
+/* Services layout container */
+.tm-services-box {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.9rem;
+}
+
+/* Limit image height inside service boxes */
+.tm-services-box img {
+  max-height: 140px;
+}
+
+/* ============================= */
+/* BASE STYLES */
+/* ============================= */
 
 body {
     font-family: 'Open Sans', Arial, sans-serif;
@@ -38,6 +72,10 @@ p {
 .tm-box-bordered { border: 1px solid #9C9D9E; }
 .container-fluid { max-width: 1480px; }
 
+/* ============================= */
+/* LOGO & PARALLAX */
+/* ============================= */
+
 .tm-logo {
     position: absolute;
     top: 0;
@@ -61,6 +99,7 @@ p {
 }
 
 .tm-logo-text { font-size: 2rem; }
+
 #parallax-1 { min-height: 690px; }
 #parallax-2 { min-height: 590px; }
 #parallax-3 { min-height: 400px; }
@@ -69,6 +108,10 @@ p {
     background: transparent;
     position: relative;
 }
+
+/* ============================= */
+/* NAVIGATION */
+/* ============================= */
 
 #tm-main-nav {    
     padding: 0;
@@ -100,8 +143,13 @@ p {
     border-bottom: 8px solid #0099FF;
 }
 
+/* ============================= */
+/* TYPOGRAPHY & UTILITIES */
+/* ============================= */
+
 .tm-intro { max-width: 580px; }
 h4 { font-size: 1.5rem; }
+
 .tm-text-primary { color: #0099FF; }
 .tm-text-primary-link { color: #0099FF; }
 .tm-text-primary-link:hover { color: rgb(15, 133, 211); }
@@ -111,22 +159,19 @@ h4 { font-size: 1.5rem; }
     align-items: flex-start;
 }
 
-.tm-services-box {
-    display: flex;
-    align-items: flex-start;
-}
-
 .tm-strategy-img { margin-right: 30px; }
-.tm-services-img { margin-right: 40px; }
 .tm-strategy-text { max-width: 480px; }
+
 .mb-6 { margin-bottom: 120px; }
 .mb-7 { margin-bottom: 140px; }
 .mb-8 { margin-bottom: 80px; }
 .mb-60 { margin-bottom: 60px; }
 .mb-10 { margin-bottom: 100px; }
 .mb-25 { margin-bottom: 250px; }
+
 .mt-6 { margin-top: 90px; }
 .mt-7 { margin-top: 140px; }
+
 .tm-px-3 {
     padding-left: 30px;
     padding-right: 30px;
@@ -137,13 +182,16 @@ h4 { font-size: 1.5rem; }
 }
 
 .tm-text-gray { color: #666; }
+
 .tm-bg-gray { background-color: #F2F2F2; }
 .tm-bg-gray-dark { background-color: #EDEEEF; }
 .tm-bg-white { background-color: rgba(255,255,255,0.6); }
 .tm-bg-black-transparent { background-color: rgba(0,0,0,0.5 ); }
+
 .tm-box { padding: 50px; }
 .tm-box-2 { padding: 50px; max-width: 500px; }
 .tm-box-3 { padding: 70px 35px;}
+
 i { color: #ABC; }
 
 .tm-overlay {
@@ -155,6 +203,10 @@ i { color: #ABC; }
     display: flex;
     align-items: center;
 }
+
+/* ============================= */
+/* BUTTONS */
+/* ============================= */
 
 .btn {
     padding: 15px 50px;
@@ -172,6 +224,10 @@ i { color: #ABC; }
     border-color: #2f80d0;
 }
 
+/* ============================= */
+/* FOOTER & SOCIAL */
+/* ============================= */
+
 footer {
     margin-top: 70px;
     margin-bottom: 70px;
@@ -179,6 +235,7 @@ footer {
 
 .tm-link-primary { color: #0099FF; }
 .tm-link-primary:hover { color: #2f80d0; }
+
 .fa-15x { font-size: 1.5em; }
 
 .tm-social-icon {
@@ -197,146 +254,27 @@ footer {
 .tm-social-link i { transition: all 0.3s ease; }
 .tm-social-link:hover i { color: #0099FF; }
 
-/* Hover effect */
-.tm-about-person-layout {
-    margin-bottom: 0;  
+/* ============================= */
+/* CONTACT */
+/* ============================= */
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    height: 520px;
     width: 100%;
-    height: auto;  
-    max-width: 460px;    
-}
-
-.tm-about-person {
-	position: relative;
-    overflow: hidden;
-    max-height: 420px;     
-	background: #3085a3;
-	text-align: center;
-	cursor: pointer;
-}
-
-.tm-about-person img {
-	position: relative;
-	display: block;
-	min-height: 100%;
-	max-width: 100%;
-	opacity: 0.8;
-}
-
-.tm-about-person figcaption {
-	padding: 15px;
-	color: #fff;
-	font-size: 1.25em;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-.tm-about-person figcaption::before,
-.tm-about-person figcaption::after {
-	pointer-events: none;
-}
-
-.tm-about-person figcaption,
-.tm-about-person figcaption > a {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-/* Anchor will cover the whole item by default */
-/* For some effects it will show as a button */
-.tm-about-person figcaption > a {
-	z-index: 1000;
-	text-indent: 200%;
-	white-space: nowrap;
-	font-size: 0;
-	opacity: 0;
-}
-
-.tm-about-person h2 { font-weight: 300; }
-.tm-about-person h2 span { font-weight: 600; }
-
-.tm-about-person h2,
-.tm-about-person p {
-	margin: 0;
-}
-
-.tm-about-person p {
-	letter-spacing: 1px;
-    font-size: 68.5%;
-    color: #fff;
-}
-
-/*---------------*/
-/***** Milo *****/
-/*---------------*/
-
-figure.effect-milo { background: #2e5d5a; }
-
-figure.effect-milo img {
-	max-width: none;
-	width: -webkit-calc(100% + 60px);
-	width: calc(100% + 60px);
-	opacity: 1;
-	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s;
-	-webkit-transform: translate3d(-30px,0,0) scale(1.12);
-	transform: translate3d(-30px,0,0) scale(1.12);
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-}
-
-figure.effect-milo:hover img {
-	opacity: 0.5;
-	-webkit-transform: translate3d(0,0,0) scale(1);
-	transform: translate3d(0,0,0) scale(1);
-}
-
-figure.effect-milo h2 {
-    font-size: 1.2rem;
-	position: absolute;
-    left: 0;
-    right: 0;
-	bottom: 0;
-    padding: 20px;
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(45, 92, 89, 0.5));
-}
-
-figure.effect-milo p {
-	padding: 0 10px 0 0;
-	border-right: 1px solid #fff;
-	text-align: right;
-	opacity: 0;
-	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s;
-	-webkit-transform: translate3d(-40px,0,0);
-	transform: translate3d(-40px,0,0);
-}
-
-figure.effect-milo:hover p {
-	opacity: 1;
-	-webkit-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
-}
-
-/* Contact */
-.mapouter{
-    position:relative;
-    text-align:right;
-    height:520px;
-    width:100%;
 }
 
 .gmap_canvas {
-    overflow:hidden;
-    background:none!important;
-    height:520px;
-    width:100%;
+    overflow: hidden;
+    background: none!important;
+    height: 520px;
+    width: 100%;
 }
 
 .tm-contact-form-box { max-width: 485px; }
 .tm-address-box { max-width: 860px; }
+
 .form-group { margin-bottom: 40px; }
 
 .form-control {
@@ -362,12 +300,12 @@ select:not([multiple]) {
 #contactSelect { border-radius: 0 }
 .tm-address-text { max-width: 650px; }
 
+/* ============================= */
+/* RESPONSIVE NAV */
+/* ============================= */
+
 @media (max-width: 1199px) {
     .tm-box-3 { margin-bottom: 2rem; }
-}
-
-@media (min-width: 992px) and (max-width: 1100px) {
-    .tm-services-img { width: 220px; }
 }
 
 @media (max-width: 992px) {
@@ -382,7 +320,7 @@ select:not([multiple]) {
     }
 
     .navbar-toggler i { color: #0099FF; }
-    
+
     .navbar-collapse {
         position: fixed;
         right: 15px;
@@ -401,34 +339,16 @@ select:not([multiple]) {
     .tm-box-s { max-width: 480px; }
 }
 
-@media (max-width: 565px) {
-    .tm-services-box {
-        flex-direction: column;
-    }
+/* ============================= */
+/* CAROUSEL */
+/* ============================= */
 
-    .tm-services-img {
-        margin-right: 0;
-        margin-bottom: 30px;
-    }
-}
-
-@media (max-width: 430px) {
-    .tm-strategy-box { flex-direction: column; }
-
-    .tm-strategy-img {
-        margin-right: 0;
-        margin-bottom: 30px;
-    }
-}
-
-/* Carousel container */
 #carousel {
-  position: relative; /* required for absolute-positioned slides */
+  position: relative;
   overflow: hidden;
-  min-height: 240px; /* adjust to your image height or use aspect-ratio */
+  min-height: 240px;
 }
 
-/* Images */
 #carousel .carousel-img {
   display: block;
   width: 100%;
@@ -440,7 +360,6 @@ select:not([multiple]) {
   will-change: opacity, transform;
 }
 
-/* Buttons (simple positioning) */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -453,8 +372,11 @@ select:not([multiple]) {
   font-size: 1.6rem;
   cursor: pointer;
 }
+
 #prevBtn { left: 8px; }
 #nextBtn { right: 8px; }
 
-/* Hide outline only visually but keep accessible focus */
-.carousel-btn:focus { outline: 2px solid #fff; outline-offset: 2px; }
+.carousel-btn:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}

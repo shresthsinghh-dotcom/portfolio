@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Business Oriented CSS Template</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" /> <!-- https://getbootstrap.com/ -->
-    <link href="fontawesome/css/all.min.css" rel="stylesheet" /> <!-- https://fontawesome.com/ -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home — Shresth Singh</title>
+
+    <!-- Template + utilities -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="fontawesome/css/all.min.css" rel="stylesheet" />
     <link href="css/templatemo-business-oriented.css" rel="stylesheet" />
+
+    <!-- Your custom styles (keeps your carousel, buttons, etc.) -->
+    <link rel="stylesheet" href="styles.css" />
 </head>
-<!--
-
-TemplateMo 549 Business Oriented
-
-https://templatemo.com/tm-549-business-oriented
-
--->
 <body>
+    <!-- Parallax header from template (keeps logo) -->
     <div id="parallax-1" class="parallax-window" data-parallax="scroll" data-image-src="img/biz-oriented-header.jpg">
         <div class="container-fluid">
             <div class="row">
@@ -31,105 +28,82 @@ https://templatemo.com/tm-549-business-oriented
             </div>
         </div>
     </div>
+
+    <!-- Navigation (your links integrated into template nav) -->
     <div class="tm-nav-container-outer">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <nav class="navbar navbar-expand-lg" id="tm-main-nav">
-                        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbar-nav" 
+                    <nav class="navbar navbar-expand-lg" id="tm-main-nav" role="navigation" aria-label="Main navigation">
+                        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbar-nav"
                             aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="dark-blue-text"><i class="fas fa-bars"></i></span>
                         </button>
+
                         <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
                             <ul class="navbar-nav ml-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link tm-nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="services.html">Services</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="about.html">About</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="contact.html">Contact</a>
-                                </li>
-                            </ul>                            
-                        </div>                        
+                                <li class="nav-item active"><a class="nav-link tm-nav-link" href="fallse_index.html" aria-current="page">Home</a></li>
+                                <li class="nav-item"><a class="nav-link tm-nav-link" href="engineering.html">Engineering Experience</a></li>
+                                <li class="nav-item"><a class="nav-link tm-nav-link" href="programming.html">Programming Experience</a></li>
+                                <li class="nav-item"><a class="nav-link tm-nav-link" href="philosophy.html">Philosophical Experience</a></li>
+                                <li class="nav-item"><a class="nav-link tm-nav-link" href="leadership.html">Leadership Experience</a></li>
+                            </ul>
+                        </div>
                     </nav>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Main content area (your hero + mission integrated into template container) -->
     <div class="container-fluid mt-7">
         <div class="row mb-6">
-            <section class="col-lg-6 mb-lg-0 mb-5">
-                <div class="tm-intro">
-                    <h3 class="tm-title-gray mb-4">What is a Business Oriented Website?</h3>
-                    <hr class="mb-5 tm-hr">
-                    <p class="mb-5">Header is a parallax background just like in <a href="https://templatemo.com/tm-547-real-dynamic" target="_blank">Real Dynamic design</a> on TemplateMo. Business Oriented HTML Template is specifically designed for your corporate website.</p>
-                    <p class="mb-5">You can download and use this template for your commercial purpose. Please do not re-distribute the template ZIP file on any template collection website.</p>
-                    <img src="img/biz-oriented-1.jpg" alt="Company Background Image" class="img-fluid tm-mb-3">
-                </div>
-            </section>
-            <section class="col-lg-6">
-                <h3 class="tm-title-gray mb-4">New Focused Strategies</h3>
-                <hr class="mb-5 tm-hr">
-                <div class="tm-strategy-box mb-5">
-                    <img src="img/strategy-1.jpg" alt="Image" class="img-fluid tm-strategy-img">
-                    <div>
-                        <h4 class="tm-text-primary">Maecenas molestie varius ipsum</h4>
-                        <p class="tm-strategy-text">Quisque consectetur ipsum justo, sed posuere massa pretium nec. In scelerisque, odio et maximus feugiat, nisl libero porta turpis, quis imperdiet odio.</p>
+            <main class="col-12">
+                <!-- Your hero section -->
+                <section class="hero-section">
+                    <div class="hero-content d-flex flex-column flex-lg-row align-items-center">
+                        <!-- Images / Carousel -->
+                        <div class="hero-images mr-lg-5 mb-4 mb-lg-0 position-relative">
+                            <div id="carousel" class="carousel">
+                                <img src="images/1ne.jpg" class="carousel-img" alt="Profile image 1">
+                                <img src="images/2wo.JPG" class="carousel-img" alt="Profile image 2">
+                                <img src="images/3hree.JPG" class="carousel-img" alt="Profile image 3">
+                                <img src="images/4our.JPG" class="carousel-img" alt="Profile image 4">
+                                <img src="images/6ix.jpg" class="carousel-img" alt="Profile image 5">
+                            </div>
+                            <button id="prevBtn" class="carousel-btn" aria-label="Previous image">‹</button>
+                            <button id="nextBtn" class="carousel-btn" aria-label="Next image">›</button>
+                        </div>
+
+                        <!-- Text -->
+                        <div class="hero-text">
+                            <h1>Hello, I’m Shresth Singh</h1>
+                            <p class="intro-strong">Mechanical Engineering student at Duke University — passionate about design, aerospace, materials, and engineering analysis.</p>
+                            <p>Hello! My name is Shresth, and I am a first year Mechanical Engineering student at Duke University with a strong interest in mechanical design, aerospace systems, materials, and engineering analysis. This website serves as a portfolio of my academic, technical, and project-based work.</p>
+                            <a href="ShresthSinghResume.pdf" class="btn-resume btn btn-primary" target="_blank" rel="noopener">View My Resume</a>
+                        </div>
                     </div>
-                </div>
-                <div class="tm-strategy-box mb-5">
-                    <img src="img/strategy-2.jpg" alt="Image" class="img-fluid tm-strategy-img">
-                    <div>
-                        <h4 class="tm-text-primary">Etiam consequat placerat convallis</h4>
-                        <p class="tm-strategy-text">Fusce non diam vel diam egestas accumsan quis aliquam metus. Nulla porta ullamcorper mauris maximus feugiat. Donec ac tincidunt dui.</p>
-                    </div>
-                </div>
-                <div class="tm-strategy-box mb-5">
-                    <img src="img/strategy-3.jpg" alt="Image" class="img-fluid tm-strategy-img">
-                    <div>
-                        <h4 class="tm-text-primary">Aenean varius velit eu ligula</h4>
-                        <p class="tm-strategy-text">Suspendisse gravida, ipsum a gravida euismod, metus enim hendrerit ante, vel hendrerit sapien sem non nisl. Maecenas tempus risus ipsum.</p>
-                    </div>
-                </div>
-            </section>
+                </section>
+
+                <div class="section-divider"></div>
+
+                <!-- Mission -->
+                <section class="mission-section">
+                    <p class="mission-text">I build things that solve problems — from mechanical prototypes to data tools — and I share my progress here.</p>
+                </section>
+            </main>
         </div>
-        <!-- Services -->
+
+        <!-- Optional: keep template services row (commented out) or remove if not needed -->
+        <!--
         <div class="row mb-7">
-            <div class="col-lg-4 col-md-6">
-                <div class="tm-bg-gray tm-box">
-                    <div class="text-center mb-3">
-                        <i class="fas fa-cloud-sun fa-5x p-5"></i>
-                    </div>
-                    <h4 class="tm-text-primary tm-h3 mb-5">Suspendisse at nunc leo</h4>
-                    <p>Phasellus malesuada aliquam arcu, et ultricies metus scelerisque id. Curabitur finibus ornare blandit. Donec a luctus nulla. Vivamus ac felis sapien.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="tm-bg-gray tm-box">
-                    <div class="text-center mb-3">
-                        <i class="fas fa-spa fa-5x p-5"></i>
-                    </div>
-                    <h4 class="tm-text-primary tm-h3 mb-5">Etiam viverra elit vel efficitur</h4>
-                    <p>Nunc ultrices imperdiet orci, a ultrices orci luctus vel. Etiam consequat placerat convallis. Donec consequat consectetur est, eget pretium nisl.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <img src="img/biz-oriented-2.jpg" alt="Image" class="img-fluid">
-                <div class="tm-box tm-box-s">
-                    <p class="tm-mb-5">Suspendisse gravida, ipsum a gravida euismod, metus enim hendrerit ante, vel hendrerit sapien sem non nisl. Maecenas tempus risus ipsum.</p>
-                </div>
-            </div>
+            ... (template service boxes if you want to reuse)
         </div>
+        -->
     </div>
 
-    <div id="parallax-2" class="parallax-window parallax-window-2" data-parallax="scroll"
-        data-image-src="img/biz-oriented-footer.jpg">
+    <!-- Parallax footer section from template -->
+    <div id="parallax-2" class="parallax-window parallax-window-2" data-parallax="scroll" data-image-src="img/biz-oriented-footer.jpg">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -143,11 +117,11 @@ https://templatemo.com/tm-549-business-oriented
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="container-fluid">
         <div class="row">
             <p class="col-lg-9 col-md-8 mb-5 mb-md-0">
-                Copyright &copy; 2020 <span class="tm-text-primary">Business Oriented</span>
-                - designed by <a rel="nofollow" target="_parent" href="https://templatemo.com" class="tm-link-primary">TemplateMo</a>
+                Copyright &copy; 2025 <span class="tm-text-primary">Shresth Singh</span>
             </p>
             <div class="col-lg-3 col-md-4 text-right">
                 <a rel="nofollow" target="_blank" href="https://fb.com/templatemo" class="tm-social-link">
@@ -163,16 +137,36 @@ https://templatemo.com/tm-549-business-oriented
         </div>
     </footer>
 
+    <!-- Scripts (keeps template scripts + your carousel) -->
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/parallax.min.js"></script> <!-- https://pixelcog.github.io/parallax.js/ -->
+    <script src="js/parallax.min.js"></script>
     <script src="js/tooplate-script.js"></script>
+
+    <!-- Your carousel script (keeps your behavior) -->
+    <script src="carousel.js"></script>
+
     <script>
+        // initialize parallax (keeps template behavior)
         $(document).ready(function () {
             $('#parallax-1').parallax({ imageSrc: 'img/biz-oriented-header.jpg' });
             $('#parallax-2').parallax({ imageSrc: 'img/biz-oriented-footer.jpg' });
         });
-    </script>
-</body>
 
+        // Back-to-top button (keeps your element if you style it in styles.css)
+        (function () {
+            var btn = document.getElementById('backToTop');
+            if (!btn) return;
+            btn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) btn.style.display = 'block';
+                else btn.style.display = 'none';
+            });
+        })();
+    </script>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+</body>
 </html>

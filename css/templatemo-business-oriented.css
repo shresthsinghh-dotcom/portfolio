@@ -420,3 +420,41 @@ select:not([multiple]) {
         margin-bottom: 30px;
     }
 }
+
+/* Carousel container */
+#carousel {
+  position: relative; /* required for absolute-positioned slides */
+  overflow: hidden;
+  min-height: 240px; /* adjust to your image height or use aspect-ratio */
+}
+
+/* Images */
+#carousel .carousel-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+/* Buttons (simple positioning) */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+#prevBtn { left: 8px; }
+#nextBtn { right: 8px; }
+
+/* Hide outline only visually but keep accessible focus */
+.carousel-btn:focus { outline: 2px solid #fff; outline-offset: 2px; }

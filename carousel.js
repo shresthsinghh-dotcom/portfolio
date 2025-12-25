@@ -1,102 +1,89 @@
-// =========================
-// Carousel with fade animation
-// =========================
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.getElementById('carousel');
+  const images = Array.from(document.querySelectorAll('#carousel .carousel-img'));
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  let currentIndex = 0;
+  let autoplayInterval = null; // set to a number (ms) to enable autoplay, or null to disable
+  const AUTOPLAY_MS = 4000;
 
-const images = document.querySelectorAll('.carousel-img');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-let currentIndex = 0;
+  if (!carousel || images.length === 0) {
+    // Nothing to do if carousel or images are missing
+    return;
+  }
 
-function updateCarousel() {
-  images.forEach((img, index) => {
-    img.style.opacity = (index === currentIndex) ? '1' : '0';
-    img.style.transform = (index === currentIndex) ? 'translateX(0)' : 'translateX(20px)';
-    img.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  // Ensure carousel container is positioned for absolute children
+  carousel.style.position = carousel.style.position || 'relative';
+  carousel.style.overflow = carousel.style.overflow || 'hidden';
+
+  // Initialize image styles
+  images.forEach((img, idx) => {
     img.style.position = 'absolute';
+    img.style.top = '0';
+    img.style.left = '0';
+    img.style.width = '100%';
+    img.style.height = 'auto';
+    img.style.opacity = idx === currentIndex ? '1' : '0';
+    img.style.transform = idx === currentIndex ? 'translateX(0)' : 'translateX(20px)';
+    img.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    img.setAttribute('aria-hidden', idx === currentIndex ? 'false' : 'true');
+    img.style.pointerEvents = 'none';
   });
-}
 
-nextBtn && nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % images.length;
-  updateCarousel();
-});
+  function showIndex(newIndex) {
+    if (images.length === 0) return;
+    newIndex = ((newIndex % images.length) + images.length) % images.length; // safe wrap
+    images.forEach((img, idx) => {
+      const isActive = idx === newIndex;
+      img.style.opacity = isActive ? '1' : '0';
+      img.style.transform = isActive ? 'translateX(0)' : 'translateX(20px)';
+      img.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+    });
+    currentIndex = newIndex;
+  }
 
-prevBtn && prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  updateCarousel();
-});
+  function next() {
+    showIndex(currentIndex + 1);
+  }
 
-updateCarousel();
+  function prev() {
+    showIndex(currentIndex - 1);
+  }
 
-// =========================
-// IntersectionObserver for scroll fade-ins
-// =========================
+  // Attach handlers if buttons exist
+  if (nextBtn) nextBtn.addEventListener('click', () => { next(); resetAutoplay(); });
+  if (prevBtn) prevBtn.addEventListener('click', () => { prev(); resetAutoplay(); });
 
-const observerOptions = {
-  threshold: 0.1
-};
+  // Keyboard support: left / right arrows
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { next(); resetAutoplay(); }
+    if (e.key === 'ArrowLeft') { prev(); resetAutoplay(); }
+  });
 
-const fadeObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      fadeObserver.unobserve(entry.target);
+  // Optional autoplay
+  function startAutoplay() {
+    if (AUTOPLAY_MS && !autoplayInterval) {
+      autoplayInterval = setInterval(next, AUTOPLAY_MS);
     }
-  });
-}, observerOptions);
-
-document.querySelectorAll('.fade-in').forEach(el => {
-  fadeObserver.observe(el);
-});
-
-// =========================
-// Back to Top Button
-// =========================
-
-const backToTopBtn = document.getElementById("backToTop");
-
-window.addEventListener("scroll", () => {
-  backToTopBtn && backToTopBtn.classList.toggle("visible", window.scrollY > 400);
-});
-
-backToTopBtn && backToTopBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-// =========================
-// Theme Toggle
-// =========================
-
-const themeBtn = document.getElementById("themeToggle");
-
-// Apply saved theme from localStorage
-if (themeBtn && localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark-mode");
-  themeBtn.textContent = "Light Mode";
-}
-
-themeBtn && themeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  const isDark = document.body.classList.contains("dark-mode");
-  themeBtn.textContent = isDark ? "Light Mode" : "Dark Mode";
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-});
-
-// Add smooth transition for theme switching
-document.body.style.transition = "background 0.4s ease, color 0.4s ease";
-
-// =========================
-// Optional: Smooth page anchor scroll
-// Only if the target exists on this page
-// =========================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const targetId = this.getAttribute('href').substring(1);
-    const targetEl = document.getElementById(targetId);
-
-    if (targetEl) {
-      e.preventDefault();
-      targetEl.scrollIntoView({ behavior: 'smooth' });
+  }
+  function stopAutoplay() {
+    if (autoplayInterval) {
+      clearInterval(autoplayInterval);
+      autoplayInterval = null;
     }
-  });
+  }
+  function resetAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  // Pause on hover/focus for accessibility
+  carousel.addEventListener('mouseenter', stopAutoplay);
+  carousel.addEventListener('mouseleave', startAutoplay);
+  carousel.addEventListener('focusin', stopAutoplay);
+  carousel.addEventListener('focusout', startAutoplay);
+
+  // Start
+  showIndex(currentIndex);
+  startAutoplay();
 });

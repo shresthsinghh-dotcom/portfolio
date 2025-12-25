@@ -9,8 +9,8 @@ https://templatemo.com/tm-549-business-oriented
 
 /* Constrain service images to a reasonable size while keeping them responsive */
 .tm-services-img {
-  width: 140px;
-  height: 100px;
+  width: 600px;
+  height: 338px;
   object-fit: cover;
   border-radius: 6px;
   flex-shrink: 0;
@@ -19,8 +19,8 @@ https://templatemo.com/tm-549-business-oriented
 /* Make images slightly smaller on small screens */
 @media (max-width: 575.98px) {
   .tm-services-img {
-    width: 110px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
 }
 
@@ -32,10 +32,7 @@ https://templatemo.com/tm-549-business-oriented
   padding: 0.9rem;
 }
 
-/* Limit image height inside service boxes */
-.tm-services-box img {
-  max-height: 140px;
-}
+
 
 /* ============================= */
 /* BASE STYLES */

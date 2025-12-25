@@ -10,15 +10,16 @@
 <body>
 
   <header>
-    <nav class="navbar">
+        <nav id="mainNav">
       <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="engineering.html">Engineering Experience</a></li>
-        <li><a href="programming.html">Programming Experience</a></li>
-        <li><a href="philosophy.html">Philosophical Experience</a></li>
-        <li><a href="leadership.html">Leadership Experience</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#engineering">Engineering</a></li>
+        <li><a href="#programming">Programming</a></li>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#leadership">Leadership</a></li>
       </ul>
     </nav>
+
   </header>
 
   <main class="main">
@@ -34,13 +35,15 @@
     <!-- ========================= -->
     <section class="engineering-section">
 
-      <h2>Engineering Experience</h2>
+      <h2>Adaptive Ball Launcher – Human-Centered Mechanical Design Project</h2>
 
       <article class="project-block">
 
         <p class="project-description">
-          Brief description of the engineering experience, tools used, constraints,
-          and engineering objectives. This text should contextualize the media below.
+          I designed and prototyped an electronically operated, adaptive ball launcher intended to enable independent play for children with motor impairments. The goal of this project was to create a solution that was not only functional, but accessible, affordable, durable, and easily replicable using off-the-shelf components.
+          I began by applying the engineering design process, defining the problem through user and client analysis with input from caregivers and pediatric occupational therapists. From this, I translated qualitative user needs into quantitative design criteria, including activation force, launch distance, adaptability to different projectiles, durability, modularity, and cost constraints. I used pairwise comparison methods to prioritize these criteria and guide design trade-offs.
+          I then designed the mechanical system in Onshape, developing a modular, spring-actuated mechanism that converts stored potential energy into a consistent launch motion. I integrated electronic control using Arduino, allowing for low-force activation suitable for users with limited motor control. Throughout development, I applied tolerancing principles, documented decisions through technical memos, and iteratively refined the design based on testing data.
+          I conducted quantitative and qualitative testing to validate performance, achieving consistent launch accuracy and stable operation across multiple conditions. This project strengthened my skills in mechanical system design, prototyping, human-centered engineering, technical documentation, and iterative testing, while reinforcing the importance of designing technology that is both effective and inclusive.
         </p>
 
         <!-- Images -->
@@ -50,31 +53,30 @@
           <div class="image-grid">
 
             <figure>
-              <img src="team.HEIC" alt="Engineering work image placeholder">
+              <img src="images/my_team.JPG" alt="Engineering work image placeholder">
               <figcaption>
-                Detailed caption explaining what this image shows, the system component,
-                and its engineering significance.
+                The team I worked with on this project.
               </figcaption>
             </figure>
 
             <figure>
-              <img src="low_fi" alt="Engineering work image placeholder">
+              <img src="images/low_fi.jpeg" alt="Engineering work image placeholder">
               <figcaption>
-                Detailed caption describing another angle, test setup, or subsystem.
+                Our first attempt at a low-fidelity prototype to test the launching mechanism. We used basic materials like cardboard and rubber bands to create a simple trebuchet-style launcher. We quickly realized this wasn't particularly safe for children and pivoted direction.
               </figcaption>
             </figure>
 
             <figure>
-              <img src="medium_fidelity" alt="Engineering work image placeholder">
+              <img src="images/medium_fidelity.jpg" alt="Engineering work image placeholder">
               <figcaption>
-                Detailed caption describing another angle, test setup, or subsystem.
+                Our second attempt at a medium-fidelity prototype, incorporating more refined mechanical components and spring-actuated controls. It was a lot more reliable than our first prototype, but still had issues with consistency and safety. We gathered feedback from occupational therapists and made further design adjustments.
               </figcaption>
             </figure>
 
             <figure>
-              <img src="ball_launcher" alt="Engineering work image placeholder">
+              <img src="images/ball_launcher.jpeg" alt="Engineering work image placeholder">
               <figcaption>
-                Detailed caption describing another angle, test setup, or subsystem.
+                The final ball launcher prototype, showcasing the completed design with all subsystems integrated. A linear drive system powered by an Arduino microcontroller allows for low-force activation, making it accessible for children with motor impairments. The modular design enables easy adjustments for different projectile types and user needs.
               </figcaption>
             </figure>
           </div>
@@ -82,94 +84,40 @@
 
         <!-- Documentation -->
             <section class="engineering-subsection">
-          <h3>Technical Documentation</h3>
+                <h3>Technical Documentation</h3>
 
-          <p class="media-description">
-            This documentation details the design rationale, system architecture,
-            calculations, and validation procedures associated with this work.
-          </p>
+            <p class="media-description">
+              This poster summarizes the design process, key features, and testing results of the adaptive ball launcher project. It highlights the human-centered design approach, mechanical and electronic systems, and performance validation.
+            </p>
 
-          <!-- Embedded PDF ONLY -->
-          <iframe
-            src="docs/PLACEHOLDER.pdf"
-            width="100%"
-            height="500"
-            type="application/pdf"
-            title="Technical Documentation PDF">
-          </iframe>
-
-        </section>
-
-
-        <!-- Video -->
-        <section class="engineering-subsection">
-          <h3>Video Demonstration</h3>
-
-          <p class="media-description">
-            Demonstration video showing the system in operation, testing, or validation.
-          </p>
-
-          <video
-            width="100%"
-            controls
-            preload="metadata">
-            <source src="#" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-
-        </section>
-
-      </article>
-    </section>
+            <iframe
+              class="pdf-embed"
+              src="images/Poster.pdf"
+              type="application/pdf"
+              title="Technical Documentation PDF">
+            </iframe>
+          </section>
 
     <!-- ========================= -->
     <!-- ENGINEERING PROJECTS -->
     <!-- ========================= -->
-    <section class="engineering-section">
+    <section class="engineering-subsection">
+      <h3>Video Demonstration</h3>
 
-      <h2>Engineering Projects</h2>
+      <p class="media-description">
+            This video demonstrates the functionality of the adaptive ball launcher, showcasing its low-force activation, and highlighting the user-centered design features that make it accessible for children with motor impairments. It includes footage of the launcher in action, as well as explanations of the design process and testing outcomes.
+      </p>
 
-      <!-- Repeat this article block for EACH project -->
-      <article class="project-block">
-
-        <p class="project-description">
-          Project overview explaining the problem statement, design approach,
-          constraints, and outcomes.
-        </p>
-
-        <!-- Images -->
-        <section class="engineering-subsection">
-          <h3>Pictures of My Work</h3>
-
-          <div class="image-grid">
-            <figure>
-              <img src="#" alt="Project image placeholder">
-              <figcaption>
-                Caption explaining the project hardware/software implementation.
-              </figcaption>
-            </figure>
-          </div>
-        </section>
-        <!-- Video -->
-        <section class="engineering-subsection">
-          <h3>Video Demonstration</h3>
-
-          <p class="media-description">
-            Operational demonstration or results showcase.
-          </p>
-
-          <video
-            width="100%"
-            controls
-            preload="metadata">
-            <source src="#" type="video/mp4">
-          </video>
-
-        </section>
-
-      </article>
-
+      <video
+        class="project-video"
+        controls
+        preload="metadata">
+        <source src="images/video_launcher.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </section>
+
+      <button id="backToTop">Back to Top</button>
 
   </main>
 

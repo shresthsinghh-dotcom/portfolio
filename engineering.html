@@ -45,20 +45,15 @@
             </div>
         </div>
     </div>
-</div>                        
-</nav>                    
-</div>
-</div>
-</div>
-</div>
-<div class="container-fluid mt-6 mb-6">
+
+       <div class="container-fluid px-4 px-md-5 py-5 tm-bg-gray">
   <div class="row align-items-center">
 
     <!-- Left: 33% -->
-    <div class="col-md-4">
-      <h2 class="tm-text-primary mb-0">
+    <div class="col-md-4 d-flex justify-content-center align-items-center mb-4 mb-md-0">
+      <h1 class="tm-text-primary text-center mb-0">
         My Engineering
-      </h2>
+      </h1>
     </div>
 
     <!-- Right: 67% -->
@@ -73,15 +68,10 @@
 
   </div>
 </div>
-</div>                        
-</nav>                    
-</div>
-</div>
-</div>
-</div>
 
+<br>
 <section>
-  <br><br>
+<div class="container-fluid px-3 px-md-5 mt-6">
   <div class="text-center">
   <h3 class="tm-title-gray mb-4">
     Adaptive Ball Launcher for Accessible Independent Play
@@ -109,7 +99,11 @@
       <img src="images/low_fi.jpeg" alt="Low fidelity prototype" class="tm-services-img" loading="lazy">
       <div class="mt-3">
         <h4 class="tm-text-primary mb-1">Low-Fidelity Prototype</h4>
-        <p class="tm-strategy-text mb-0">Once we di</p>
+        <p class="tm-strategy-text mb-0">Once we discussed our design criteria with our clients, we decided 
+            to build a low-fidelity prototype to test our initial concepts and gather feedback early in the design process.
+            What you see is a very basic trebutchet-style launcher made from cardboard and rubber bands. We quickly 
+            realized that this design wouldn't be very safe for use with our clients.
+        </p>
       </div>
     </div>
   </div>
@@ -119,22 +113,32 @@
       <img src="images/medium_fidelity.jpg" alt="Medium fidelity prototype" class="tm-services-img" loading="lazy">
       <div class="mt-3">
         <h4 class="tm-text-primary mb-1">Medium-Fidelity Prototype</h4>
-        <p class="tm-strategy-text mb-0">Medium</p>
+        <p class="tm-strategy-text mb-0">We then built a medium-fidelity prototype using a more robust frame and a 
+            spring-loaded mechanism, which allowed us to test the launch force and trajectory more accurately. We 
+        liked this design a lot more, and used this framework for the high-fidelity design.</p>
       </div>
     </div>
   </div>
 
-  <div class="col-md-6 mb-4">
-    <div class="tm-services-box" style="flex-direction: column; align-items: flex-start;">
-      <img src="images/ball_launcher.jpeg" alt="High fidelity ball launcher" class="tm-services-img" loading="lazy">
-      <div class="mt-3">
-        <h4 class="tm-text-primary mb-1">Final Prototype</h4>
-        <p class="tm-strategy-text mb-0">High</p>
-      </div>
+ <div class="col-md-6 mb-4">
+  <div class="tm-services-box" style="flex-direction: column; align-items: flex-start;">
+    <img src="images/ball_launcher.jpeg"
+         alt="High fidelity ball launcher"
+         class="tm-services-img"
+         loading="lazy">
+
+    <div class="mt-3">
+      <h4 class="tm-text-primary mb-1">Final Prototype</h4>
+      <p class="tm-strategy-text mb-0">
+        This is the final prototype, fully integrated with a modular frame and low-force activation. It uses an Arduino 
+        curcuit to turn a linear drive, which allows a user to lauch the the ball with minimal force. 
+      </p>
     </div>
   </div>
+</div>
 
 </div>
+  <div class="row gx-3 gx-md-4">
 
 
         <div class="row mb-6">
@@ -167,12 +171,16 @@
                 
             </div>
             <div class="col-lg-5">
-                <img src="img/services-1.jpg" alt="Image" class="img-fluid">
+                <img src="images/plug.png" alt="Image" class="img-fluid">
                 <div class="tm-bg-gray-dark tm-box-2">
-                    <h4 class="tm-text-primary tm-h3 mb-4">Fusce sollicitudin arcu et tortor</h4>
-                    <p class="mb-5">Cras rhoncus tempor consequat. Donec convallis orci id scelerisque convallis. Suspendisse varius sapien mauris.</p>
-                    <p class="mb-5">Quisque accumsan lorem sed bibendum vehicula. Aenean gravida, nunc ac bibendum bibendum.</p>
-                    <p>Donec convallis orci id scelerisque convallis. Suspendisse varius sapien mauris. Proin accumsan.</p>
+                    <h4 class="tm-text-primary tm-h3 mb-4">The Gates</h4>
+                    <p class="mb-5">As the screw in the linear drive turns, it pulls back the highlighted plug, which, in turn, pulls
+                        back the "gates". The gates hold in place another plug, which is attached to the spring. 
+                    </p>
+                    <p class="mb-5">When the gates are pulled back a specific distance, they hit a bar, releasing them,
+                        which allows the spring to launch the ball. Thus, the user hits but one button and the ball is launched!
+    
+                    </p>
                 </div>
             </div>
         </div>

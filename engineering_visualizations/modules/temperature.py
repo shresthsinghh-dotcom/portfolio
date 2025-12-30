@@ -1,156 +1,158 @@
-#!/usr/bin/env python3
 """
-temperature.py
+temperature.py (Streamlit-ready)
 
-Utilities to load, compute, and plot surface temperature (°F) from the lwir11 band
-of a GeoTIFF. `load_and_compute` can be imported and used without producing plots,
-while `plot_from_array` handles visualization.
+Utilities to load, compute, and visualize surface temperature (°F) from the lwir11
+band of a GeoTIFF. Designed for use in a Streamlit app.
 
-Usage (imported):
-    from temperature import load_and_compute, plot_from_array
-    fahrenheit = load_and_compute("durham_summer24.tif")
-    plot_from_array(fahrenheit, threshold_f=95.0)
-
-Standalone:
-    python temperature.py
+Core design:
+- All computation is separated from UI.
+- No hardcoded file paths.
+- No plt.show().
+- One public entry point: run().
 """
-from typing import Tuple, Optional
+
+from typing import Optional, Tuple
 
 import rasterio as rio
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Constants from dataset metadata (sensor / dataset provided values).
-# SCALE/OFFSET convert raw LWIR counts -> Kelvin according to dataset documentation.
+# Dataset-specific constants (from metadata)
 SCALE = 0.00341802
 OFFSET = 149.0
 
 
-def load_and_compute(path: str) -> np.ndarray:
+def load_and_compute(uploaded_tiff) -> np.ndarray:
     """
-    Load the LWIR band from `path`, fill missing values, convert raw counts -> °F.
+    Load the LWIR band from an uploaded GeoTIFF and compute surface temperature (°F).
 
-    Simple explanation:
-      - Reads band 5 (lwir11) from the GeoTIFF.
-      - Replaces missing pixels (nodata or zeros) with the median of valid pixels.
-      - Applies dataset scale/offset to convert to Kelvin, then converts Kelvin -> °F.
+    Steps:
+      - Reads band 5 (lwir11).
+      - Replaces missing pixels (nodata or zeros) with median of valid pixels.
+      - Converts raw counts -> Kelvin -> Fahrenheit.
 
     Parameters
     ----------
-    path : str
-        Path to the GeoTIFF containing the lwir11 band (assumed at band index 5).
+    uploaded_tiff : Streamlit UploadedFile
+        Uploaded GeoTIFF containing the lwir11 band.
 
     Returns
     -------
     np.ndarray
-        2D array (float) with surface temperatures in degrees Fahrenheit.
-
-    Raises
-    ------
-    RuntimeError
-        If no valid pixels are found to compute a median.
-    rasterio.errors.RasterioIOError
-        If the file cannot be opened.
+        2D array of surface temperatures in degrees Fahrenheit.
     """
-    # Read the raw band and nodata metadata. We keep raw as whatever dtype it comes as.
-    with rio.open(path) as src:
-        raw = src.read(5)                 # expected LWIR band (2D array)
-        nodata = src.meta.get("nodata")   # may be None or a numeric value
 
-    # Build a mask of valid pixels. If nodata is present, treat that as invalid.
-    # Otherwise (common in these datasets), treat zero as missing.
+    # Open directly from file-like object
+    with rio.open(uploaded_tiff) as src:
+        raw = src.read(5)               # LWIR band (2D)
+        nodata = src.meta.get("nodata")
+
+    # Determine valid pixels
     if nodata is not None:
         valid_mask = raw != nodata
     else:
         valid_mask = raw != 0
 
-    # Convert valid values to float and compute median; need at least one valid pixel.
     valid_vals = raw[valid_mask].astype(float)
     if valid_vals.size == 0:
-        raise RuntimeError("No valid pixels found in the lwir11 band to compute median.")
+        raise RuntimeError(
+            "No valid pixels found in the lwir11 band to compute temperature."
+        )
+
     median_val = float(np.median(valid_vals))
 
-    # Fill missing pixels with the median, convert to float for arithmetic.
+    # Fill missing pixels
     raw_filled = raw.astype(float)
     raw_filled[~valid_mask] = median_val
 
-    # Convert raw counts -> Kelvin using SCALE/OFFSET, then Kelvin -> Fahrenheit.
-    # Combined into one expression for clarity:
+    # Raw counts -> Kelvin -> Fahrenheit
     fahrenheit = (raw_filled * SCALE + OFFSET - 273.15) * 9.0 / 5.0 + 32.0
 
     return fahrenheit
 
 
-def plot_from_array(fahrenheit: np.ndarray, threshold_f: float = 120.0, title: Optional[str] = None) -> Tuple[int, float]:
+def plot_temperature(
+    fahrenheit: np.ndarray,
+    threshold_f: float = 120.0,
+    title: Optional[str] = None,
+) -> Tuple[plt.Figure, int, float]:
     """
-    Plot a 2D Fahrenheit temperature array and overlay pixels above `threshold_f`.
-
-    Simple explanation:
-      - Shows the temperature map with an inferno colormap.
-      - Overlays a semi-transparent red mask where temperature > threshold.
-      - Prints and returns the count and percentage of pixels above threshold.
+    Create a temperature visualization with an overlay above a threshold.
 
     Parameters
     ----------
     fahrenheit : np.ndarray
-        2D array of temperatures in °F (float).
-    threshold_f : float, optional
-        Threshold in °F for overlay and statistics (default 120.0).
-    title : str or None, optional
-        Optional title to place on the figure. If None, no title is added.
+        2D temperature array (°F).
+    threshold_f : float
+        Threshold in °F for overlay and statistics.
+    title : str or None
+        Optional figure title.
 
     Returns
     -------
-    Tuple[int, float]
-        (count_above_threshold, percent_above_threshold)
+    Tuple[Figure, int, float]
+        (matplotlib Figure, count_above_threshold, percent_above_threshold)
     """
-    # Basic statistics
+
     count = int(np.count_nonzero(fahrenheit > threshold_f))
     pct = 100.0 * count / float(fahrenheit.size) if fahrenheit.size > 0 else 0.0
-    print(f"Pixels > {threshold_f:.1f}°F : {count}  ({pct:.2f}%)")
 
-    # Plot the temperature array
     fig, ax = plt.subplots(figsize=(9, 7))
-    im = ax.imshow(fahrenheit, cmap="inferno", origin="upper", interpolation="nearest")
 
-    # Overlay: semi-transparent red mask where temperature exceeds threshold
+    im = ax.imshow(
+        fahrenheit,
+        cmap="inferno",
+        origin="upper",
+        interpolation="nearest"
+    )
+
+    # Overlay mask for high-temperature regions
     mask = (fahrenheit > threshold_f).astype(float)
-    ax.imshow(mask, cmap="Reds", origin="upper", interpolation="nearest", alpha=0.35, vmin=0, vmax=1)
+    ax.imshow(
+        mask,
+        cmap="Reds",
+        origin="upper",
+        interpolation="nearest",
+        alpha=0.35,
+        vmin=0,
+        vmax=1
+    )
 
-    # Colorbar labeling
     cbar = fig.colorbar(im, ax=ax, fraction=0.036, pad=0.04)
     cbar.set_label("Temperature (°F)")
 
-    # Optional title (omit by default to allow report captions instead)
     if title:
         ax.set_title(title)
 
     ax.axis("off")
-    plt.tight_layout()
-    plt.show()
+    fig.tight_layout()
 
-    return count, pct
+    return fig, count, pct
 
 
-def main(path: str) -> None:
+def run(uploaded_tiff, threshold_f: float = 120.0):
     """
-    Minimal CLI entry point: compute and plot temperatures for the provided file.
+    Streamlit-facing entry point.
 
     Parameters
     ----------
-    path : str
-        Path to the GeoTIFF file to analyze.
+    uploaded_tiff : Streamlit UploadedFile
+        Uploaded GeoTIFF file.
+    threshold_f : float
+        Temperature threshold (°F).
 
     Returns
     -------
-    None
+    Tuple[Figure, int, float]
+        Figure and statistics for Streamlit rendering.
     """
-    fahrenheit = load_and_compute(path)
-    # Use a default threshold for the demo; callers can use plot_from_array directly.
-    plot_from_array(fahrenheit, threshold_f=120.0, title=None)
 
+    fahrenheit = load_and_compute(uploaded_tiff)
 
-if __name__ == "__main__":
-    # Example runs for the two region files used in the project
-    main("land_cover_québec.tif")
-    main("land_cover_alberta.tif")
+    fig, count, pct = plot_temperature(
+        fahrenheit,
+        threshold_f=threshold_f,
+        title=None
+    )
+
+    return fig, count, pct

@@ -1,6 +1,6 @@
 # app.py
 import streamlit as st
-
+import matplotlib.pyplot as plt
 from engineering_visualizations.modules.smoothing_algorithm import run as smooth_run
 from engineering_visualizations.modules.temperature import run as temp_run
 from engineering_visualizations.modules.integrated_analysis import run as integrated_run
@@ -121,47 +121,50 @@ elif tool == "Surface Temperature Analysis":
         except Exception as e:
             st.error("Error running temperature analysis.")
             st.exception(e)
-    elif tool == "NDVI × Temperature (Integrated Analysis)":
+elif tool == "NDVI × Temperature (Integrated Analysis)":
+    st.header("NDVI × Temperature — Integrated Analysis")
 
-        st.header("NDVI × Temperature — Integrated Analysis")
+    n_regions = st.sidebar.slider("Regions per axis", 4, 40, 10)
+    show_preview = st.sidebar.checkbox("Show RGB preview", value=True)
 
-        st.write(
-            "Aggregates NDVI and surface temperature into region-averages, computes covariance, "
-            "and shows an RGB preview plus a scatter of region means."
-        )
+    if uploaded is not None:
+        try:
+            with st.spinner("Running integrated analysis..."):
+                results = integrated_run(uploaded, n_regions=n_regions, show_preview=show_preview)
+                st.write("Returned keys:", results.keys())
+                st.write("RGB fig is None:", results["rgb_fig"] is None)
 
-        n_regions = st.sidebar.slider(
-            "Regions per axis",
-            min_value=4,
-            max_value=40,
-            value=10,
-            step=1
-        )
+                # If the module returned an 'error' dict, show it
+            if results.get("error"):
+                    err = results["error"]
+                    # err may be the diag dict
+                    if isinstance(err, dict) and "traceback" in err:
+                        st.error(f"Integrated analysis failed: {err.get('error')}")
+                        st.text_area("Traceback (debug)", err.get("traceback"), height=300)
+                    else:
+                        st.error(f"Integrated analysis failed: {err}")
+                    st.stop()
 
-        show_preview = st.sidebar.checkbox("Show RGB preview", value=True)
+            if results.get("rgb_fig") is not None:
+                st.subheader("RGB Preview")
+                st.pyplot(results["rgb_fig"])
+                plt.close(results["rgb_fig"])
 
-        if uploaded is not None:
-            try:
-                with st.spinner("Running integrated analysis..."):
-                    results = integrated_run(uploaded, n_regions=n_regions, show_preview=show_preview)
+            st.subheader("NDVI vs Temperature (region means)")
+            st.pyplot(results["scatter_fig"])
+            plt.close(results["scatter_fig"])
 
-                if results["rgb_fig"] is not None:
-                    st.subheader("RGB Preview")
-                    st.pyplot(results["rgb_fig"])
+            st.markdown(
+            f"**Regions:** {n_regions} × {n_regions}  \n"
+            f"**Covariance (clean pairs):** {results.get('covariance_clean'):.4f}"
+            )
 
-                st.subheader("NDVI vs Temperature (region means)")
-                st.pyplot(results["scatter_fig"])
-
-                st.markdown(
-                    f"**Regions:** {n_regions} × {n_regions}  \n"
-                    f"**Covariance (clean pairs):** {results['covariance_clean']:.4f}"
-                )
-
-            except Exception as e:
-                st.error("Error running integrated analysis.")
-                st.exception(e)
+        except Exception as e:
+            st.error("Unexpected error in app while running integrated analysis.")
+            st.exception(e)
     else:
         st.info("Upload a GeoTIFF with the expected band ordering (NIR, Red, Green, Blue, LWIR).")
+
 
 
 # ---------------------------------------------------------

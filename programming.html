@@ -1,39 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Programming Experience</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Engineering Analysis</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="fontawesome/css/all.min.css" rel="stylesheet" />
+    <link href="css/templatemo-business-oriented.css" rel="stylesheet" />
 </head>
 
 <body>
 
-  <header>
-        <nav id="mainNav">
-      <ul class="nav-list">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#engineering">Engineering</a></li>
-        <li><a href="#programming">Programming</a></li>
-        <li><a href="#philosophy">Philosophy</a></li>
-        <li><a href="#leadership">Leadership</a></li>
-      </ul>
-    </nav>
+    <!-- HEADER / HERO -->
+    <div id="parallax-1" class="parallax-window" data-parallax="scroll" data-image-src="img/biz-oriented-header.jpg">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="tm-logo">
+                        <i class="fas fa-industry fa-5x mr-5"></i>
+                        <span class="text-uppercase tm-logo-text">Engineering Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  </header>
+    <!-- NAVIGATION -->
+    <div class="tm-nav-container-outer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg" id="tm-main-nav">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbar-nav">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link tm-nav-link" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link tm-nav-link" href="#">Engineering</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link tm-nav-link" href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <main class="main">
-    <h1>Programming Experience</h1>
-    <p>
-      Describe your coding skills, languages you use, open-source contributions, or project demos.
-    </p>
-    <button id="backToTop">Back to Top</button>
+    <!-- ========================= -->
+    <!-- STREAMLIT EMBED SECTION -->
+    <!-- ========================= -->
+    <div class="container-fluid mt-7 mb-7">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-11 col-md-12">
 
-  </main>
+                <h2 class="tm-title-gray text-center mb-4">
+                    Interactive Satellite Image Analysis
+                </h2>
+                <hr class="tm-hr mb-5">
 
-  <footer>
-    <p>&copy; 2025 Shresth Singh</p>
-  </footer>
+                <p class="text-center mb-5" style="max-width: 900px; margin: 0 auto;">
+                    This interactive application showcases my final EGR105 project.
+                    It allows users to explore satellite imagery through image smoothing,
+                    surface temperature analysis, NDVI computation, and integrated
+                    NDVI–temperature relationships using real geospatial datasets.
+                </p>
+
+                <div class="embed-responsive embed-responsive-16by9"
+                     style="border-radius: 8px; overflow: hidden;">
+                    <iframe
+                        class="embed-responsive-item"
+                        src="https://shresth.streamlit.app/"
+                        allowfullscreen
+                        loading="lazy"
+                        style="border: none;">
+                    </iframe>
+                </div>
+
+                <p class="text-center mt-4">
+                    <a href="https://shresth.streamlit.app/" target="_blank" rel="noopener">
+                        Open the interactive tool in a new tab
+                    </a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- COMMENTED OUT SECTIONS -->
+    <!-- ========================= -->
+
+    <!--
+    <div class="container-fluid mt-7">
+        <div class="row mb-4">
+            <section class="col-lg-4 mb-8 tm-px-3">
+                <div class="tm-box-bordered p-5">
+                    <h3 class="tm-title-gray mb-3">Message from the CEO</h3>
+                    ...
+                </div>
+            </section>
+        </div>
+    </div>
+    -->
+
+    <!--
+    <div id="parallax-3" class="parallax-window parallax-window-2"
+         data-parallax="scroll" data-image-src="img/biz-oriented-footer-3.jpg">
+        ...
+    </div>
+    -->
+
+    <!--
+    <div class="container-fluid mt-7">
+        <div class="row">
+            <div class="col-lg-5 col-md-6 mb-4">
+                <h3 class="tm-title-gray mb-4">About the business oriented</h3>
+                ...
+            </div>
+        </div>
+    </div>
+    -->
+
+    <!-- FOOTER -->
+    <footer class="container-fluid">
+        <div class="row">
+            <p class="col-lg-9 col-md-8 mb-5 mb-md-0">
+                &copy; 2025 Shresth Singh — Engineering Portfolio
+            </p>
+            <div class="col-lg-3 col-md-4 text-right">
+                <a href="https://linkedin.com" class="tm-social-link">
+                    <i class="fab fa-linkedin fa-2x tm-social-icon"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/tooplate-script.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#parallax-1').parallax({ imageSrc: 'img/biz-oriented-header.jpg' });
+        });
+    </script>
 
 </body>
 </html>

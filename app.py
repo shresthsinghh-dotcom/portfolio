@@ -1,27 +1,31 @@
 # app.py
 import streamlit as st
 import matplotlib.pyplot as plt
+
 from engineering_visualizations.modules.smoothing_algorithm import run as smooth_run
 from engineering_visualizations.modules.temperature import run as temp_run
 from engineering_visualizations.modules.integrated_analysis import run as integrated_run
+from engineering_visualizations.modules.compare_regions_streamlit import run as compare_run
+
+
+# ---------------------------------------------------------
+# Helper: rewind uploaded file (CRITICAL)
+# ---------------------------------------------------------
+def rewind(uploaded):
+    try:
+        uploaded.seek(0)
+    except Exception:
+        pass
 
 
 # ---------------------------------------------------------
 # Page configuration
 # ---------------------------------------------------------
-st.set_page_config(
-    page_title="Engineering Visualizations",
-    layout="wide"
-)
-
+st.set_page_config(page_title="Engineering Visualizations", layout="wide")
 st.title("Interactive Engineering Visualizations")
 
 st.markdown(
-    """
-    This application showcases Python-based engineering tools for image processing
-    and geospatial analysis. Each module demonstrates a complete computational
-    pipeline, from raw data ingestion to visualization.
-    """
+    "Python-based engineering tools for image processing and geospatial analysis."
 )
 
 # ---------------------------------------------------------
@@ -33,11 +37,11 @@ tool = st.sidebar.selectbox(
     "Choose a tool",
     [
         "Image Smoothing",
-        "Surface Temperature Analysis",
+        "Temperature Analysis",
         "NDVI × Temperature (Integrated Analysis)",
+        "NDVI / Temp Explorer (Web UI)",
     ]
 )
-
 
 uploaded = st.sidebar.file_uploader(
     "Upload an image or GeoTIFF",
@@ -45,133 +49,144 @@ uploaded = st.sidebar.file_uploader(
 )
 
 # ---------------------------------------------------------
-# IMAGE SMOOTHING TOOL
+# IMAGE SMOOTHING
 # ---------------------------------------------------------
 if tool == "Image Smoothing":
 
-    st.header("Image Smoothing Algorithm")
+    st.header("Image Smoothing")
 
-    st.write(
-        "Applies a spatial averaging filter to each RGB channel to reduce noise "
-        "while preserving overall image structure."
+    kernel_size = st.sidebar.slider(
+        "Smoothing kernel size",
+        min_value=3,
+        max_value=9,     # clamped for performance
+        step=2,
+        value=3
     )
 
-    show_original = st.sidebar.checkbox(
-        "Show original image",
-        value=True
-    )
+    if uploaded:
+        rewind(uploaded)
+        fig_orig, fig_smooth = smooth_run(
+            uploaded,
+            kernel_size=kernel_size
+        )
 
-    if uploaded is not None:
-        try:
-            with st.spinner("Running smoothing algorithm..."):
-                fig_orig, fig_smooth = smooth_run(uploaded)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("Original")
+            st.pyplot(fig_orig, use_container_width=True)
+            plt.close(fig_orig)
 
-            if show_original:
-                st.subheader("Original Image")
-                st.pyplot(fig_orig)
-
-            st.subheader("Smoothed Image")
-            st.pyplot(fig_smooth)
-
-        except Exception as e:
-            st.error("Error running image smoothing.")
-            st.exception(e)
+        with col2:
+            st.subheader(f"Smoothed (k={kernel_size})")
+            st.pyplot(fig_smooth, use_container_width=True)
+            plt.close(fig_smooth)
     else:
-        st.info("Upload an image to run the smoothing algorithm.")
+        st.info("Upload an image.")
 
 # ---------------------------------------------------------
-# TEMPERATURE ANALYSIS TOOL
+# TEMPERATURE ANALYSIS
 # ---------------------------------------------------------
-elif tool == "Surface Temperature Analysis":
+elif tool == "Temperature Analysis":
 
-    st.header("Surface Temperature Analysis")
-
-    st.write(
-        "Computes surface temperature (°F) from the LWIR band of a GeoTIFF "
-        "and highlights regions exceeding a user-defined threshold."
-    )
+    st.header("Temperature Analysis")
 
     threshold_f = st.sidebar.slider(
-        "Temperature threshold (°F)",
-        min_value=80.0,
-        max_value=140.0,
-        value=120.0,
-        step=1.0
+        "Temperature threshold (°F)", 80.0, 140.0, 120.0
     )
 
-    if uploaded is not None:
-        try:
-            with st.spinner("Computing surface temperature..."):
-                fig, count, pct = temp_run(
-                    uploaded,
-                    threshold_f=threshold_f
-                )
+    if uploaded:
+        rewind(uploaded)
+        fig, count, pct = temp_run(uploaded, threshold_f=threshold_f)
 
-            st.subheader("Temperature Map")
-            st.pyplot(fig)
+        col1, col2 = st.columns([3, 1])
+        with col1:
+            st.pyplot(fig, use_container_width=True)
+            plt.close(fig)
 
-            st.markdown(
-                f"""
-                **Pixels above {threshold_f:.1f}°F**  
-                Count: **{count}**  
-                Percentage: **{pct:.2f}%**
-                """
+        with col2:
+            st.metric(
+                label="Above Threshold",
+                value=f"{count}",
+                delta=f"{pct:.2f}%"
             )
+    else:
+        st.info("Upload a GeoTIFF.")
 
-        except Exception as e:
-            st.error("Error running temperature analysis.")
-            st.exception(e)
+# ---------------------------------------------------------
+# INTEGRATED ANALYSIS
+# ---------------------------------------------------------
 elif tool == "NDVI × Temperature (Integrated Analysis)":
-    st.header("NDVI × Temperature — Integrated Analysis")
+
+    st.header("NDVI × Temperature — Integrated")
 
     n_regions = st.sidebar.slider("Regions per axis", 4, 40, 10)
     show_preview = st.sidebar.checkbox("Show RGB preview", value=True)
 
-    if uploaded is not None:
-        try:
-            with st.spinner("Running integrated analysis..."):
-                results = integrated_run(uploaded, n_regions=n_regions, show_preview=show_preview)
-                st.write("Returned keys:", results.keys())
-                st.write("RGB fig is None:", results["rgb_fig"] is None)
+    if uploaded:
+        rewind(uploaded)
+        results = integrated_run(
+            uploaded,
+            n_regions=n_regions,
+            show_preview=show_preview
+        )
 
-                # If the module returned an 'error' dict, show it
-            if results.get("error"):
-                    err = results["error"]
-                    # err may be the diag dict
-                    if isinstance(err, dict) and "traceback" in err:
-                        st.error(f"Integrated analysis failed: {err.get('error')}")
-                        st.text_area("Traceback (debug)", err.get("traceback"), height=300)
-                    else:
-                        st.error(f"Integrated analysis failed: {err}")
-                    st.stop()
+        if results.get("rgb_fig"):
+            col1, col2 = st.columns(2)
 
-            if results.get("rgb_fig") is not None:
+            with col1:
                 st.subheader("RGB Preview")
-                st.pyplot(results["rgb_fig"])
+                st.pyplot(results["rgb_fig"], use_container_width=True)
                 plt.close(results["rgb_fig"])
 
-            st.subheader("NDVI vs Temperature (region means)")
-            st.pyplot(results["scatter_fig"])
-            plt.close(results["scatter_fig"])
+            with col2:
+                st.subheader("NDVI vs Temperature")
+                st.pyplot(results["scatter_fig"], use_container_width=True)
+                plt.close(results["scatter_fig"])
 
-            st.markdown(
-            f"**Regions:** {n_regions} × {n_regions}  \n"
-            f"**Covariance (clean pairs):** {results.get('covariance_clean'):.4f}"
-            )
-
-        except Exception as e:
-            st.error("Unexpected error in app while running integrated analysis.")
-            st.exception(e)
+        st.metric(
+            label="Covariance (clean pairs)",
+            value=f"{results['covariance_clean']:.4f}"
+        )
     else:
-        st.info("Upload a GeoTIFF with the expected band ordering (NIR, Red, Green, Blue, LWIR).")
+        st.info("Upload a GeoTIFF.")
 
+# ---------------------------------------------------------
+# TKINTER → STREAMLIT UI
+# ---------------------------------------------------------
+elif tool == "NDVI / Temp Explorer (Web UI)":
 
+    st.header("NDVI / Temperature Explorer")
+
+    view_mode = st.sidebar.selectbox(
+        "View",
+        ["rgb", "ndvi", "temp", "scatter"]
+    )
+
+    ndvi_thresh = st.sidebar.slider("NDVI threshold", 0.0, 1.0, 0.2)
+    temp_thresh = st.sidebar.slider("Temperature threshold (°F)", 70.0, 130.0, 95.0)
+
+    if uploaded:
+        rewind(uploaded)
+        results = compare_run(
+            uploaded,
+            view_mode=view_mode,
+            ndvi_thresh=ndvi_thresh,
+            temp_thresh=temp_thresh
+        )
+
+        col1, col2 = st.columns([3, 1])
+        with col1:
+            st.pyplot(results["figure"], use_container_width=True)
+            plt.close(results["figure"])
+
+        with col2:
+            if "correlation" in results:
+                st.metric("Pearson r", f"{results['correlation']:.3f}")
+    else:
+        st.info("Upload a GeoTIFF.")
 
 # ---------------------------------------------------------
 # Footer
 # ---------------------------------------------------------
 st.markdown("---")
-st.markdown(
-    "📎 **Source code available on GitHub**  \n"
-    "_This application was built using Python, NumPy, rasterio, matplotlib, and Streamlit._"
-)
+st.markdown("_Built with Python, NumPy, rasterio, matplotlib, and Streamlit._")

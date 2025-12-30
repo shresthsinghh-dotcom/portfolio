@@ -1,165 +1,133 @@
-"""
-temperature.py (Streamlit-ready)
-
-Utilities to load, compute, and visualize surface temperature (°F) from the lwir11
-band of a GeoTIFF. Designed for use in a Streamlit app.
-
-Core design:
-- All computation is separated from UI.
-- No hardcoded file paths.
-- No plt.show().
-- One public entry point: run().
-"""
-
-from typing import Optional, Tuple
-
-import rasterio as rio
+# temperature.py
+from typing import Tuple, Optional, Union
+import io
 import numpy as np
 import matplotlib.pyplot as plt
+import rasterio as rio
 
-# Dataset-specific constants (from metadata)
+# Dataset constants (as before)
 SCALE = 0.00341802
 OFFSET = 149.0
 
-def rewind(file_like):
+
+def _rewind(obj):
+    """Seek back to start for file-like UploadedFile objects."""
     try:
-        file_like.seek(0)
+        obj.seek(0)
     except Exception:
         pass
 
 
-def load_and_compute(uploaded_tiff) -> np.ndarray:
+def _is_path(obj) -> bool:
+    return isinstance(obj, str)
+
+
+def load_and_compute(src: Union[str, "file-like"]) -> np.ndarray:
     """
-    Load the LWIR band from an uploaded GeoTIFF and compute surface temperature (°F).
-
-    Steps:
-      - Reads band 5 (lwir11).
-      - Replaces missing pixels (nodata or zeros) with median of valid pixels.
-      - Converts raw counts -> Kelvin -> Fahrenheit.
-
-    Parameters
-    ----------
-    uploaded_tiff : Streamlit UploadedFile
-        Uploaded GeoTIFF containing the lwir11 band.
-
-    Returns
-    -------
-    np.ndarray
-        2D array of surface temperatures in degrees Fahrenheit.
+    Load the LWIR band and convert to °F. Accepts path or file-like object.
+    Returns a 2D float ndarray (°F).
     """
+    # If file-like, rewind before reading
+    if not _is_path(src):
+        _rewind(src)
 
-    # Open directly from file-like object
-    rewind(uploaded_tiff)
-    with rio.open(uploaded_tiff) as src:
-        raw = src.read(5)
-    nodata = src.meta.get("nodata")
+    # Open with rasterio (works with both path and file-like)
+    with rio.open(src) as f:
+        # try band index 5, fallback to last band if file differs
+        count = f.count
+        band_index = 5 if count >= 5 else count
+        raw = f.read(band_index)  # shape: (H, W)
 
-    # Determine valid pixels
+        # nodata value if present
+        nodata = f.meta.get("nodata", None)
+
+    # Ensure raw is float for arithmetic
+    raw = raw.astype(float)
+
+    # Mask: treat nodata if available, else treat zeros as missing
     if nodata is not None:
         valid_mask = raw != nodata
     else:
         valid_mask = raw != 0
 
-    valid_vals = raw[valid_mask].astype(float)
+    valid_vals = raw[valid_mask]
     if valid_vals.size == 0:
-        raise RuntimeError(
-            "No valid pixels found in the lwir11 band to compute temperature."
-        )
+        # If no valid pixels, raise an informative error
+        raise RuntimeError("No valid LWIR pixels found to compute temperature.")
 
     median_val = float(np.median(valid_vals))
 
-    # Fill missing pixels
-    raw_filled = raw.astype(float)
+    # Fill missing with median and convert -> Kelvin -> Fahrenheit
+    raw_filled = raw.copy()
     raw_filled[~valid_mask] = median_val
 
-    # Raw counts -> Kelvin -> Fahrenheit
-    fahrenheit = (raw_filled * SCALE + OFFSET - 273.15) * 9.0 / 5.0 + 32.0
-
+    kelvin = raw_filled * SCALE + OFFSET
+    fahrenheit = (kelvin - 273.15) * 9.0 / 5.0 + 32.0
     return fahrenheit
 
 
-def plot_temperature(
-    fahrenheit: np.ndarray,
-    threshold_f: float = 120.0,
-    title: Optional[str] = None,
-) -> Tuple[plt.Figure, int, float]:
+def plot_from_array(fahrenheit: np.ndarray,
+                    threshold_f: float = 120.0,
+                    title: Optional[str] = None,
+                    fig_size: Tuple[int, int] = (7, 5)
+                    ) -> Tuple[plt.Figure, int, float]:
     """
-    Create a temperature visualization with an overlay above a threshold.
-
-    Parameters
-    ----------
-    fahrenheit : np.ndarray
-        2D temperature array (°F).
-    threshold_f : float
-        Threshold in °F for overlay and statistics.
-    title : str or None
-        Optional figure title.
-
-    Returns
-    -------
-    Tuple[Figure, int, float]
-        (matplotlib Figure, count_above_threshold, percent_above_threshold)
+    Create a matplotlib figure of the temperature array, overlay mask for > threshold,
+    and return (figure, count_above, percent_above).
     """
+    if not isinstance(fahrenheit, np.ndarray):
+        raise TypeError("fahrenheit must be a numpy.ndarray")
 
-    count = int(np.count_nonzero(fahrenheit > threshold_f))
-    pct = 100.0 * count / float(fahrenheit.size) if fahrenheit.size > 0 else 0.0
+    # compute counts
+    mask_above = fahrenheit > threshold_f
+    count = int(np.count_nonzero(mask_above))
+    total = int(fahrenheit.size)
+    pct = 100.0 * count / float(total) if total > 0 else 0.0
 
-    fig, ax = plt.subplots(figsize=(9, 7))
+    # create figure (no plt.show())
+    fig, ax = plt.subplots(figsize=fig_size)
+    im = ax.imshow(fahrenheit, cmap="inferno", origin="upper", interpolation="nearest")
+    ax.axis("off")
+    if title:
+        ax.set_title(title)
 
-    im = ax.imshow(
-        fahrenheit,
-        cmap="inferno",
-        origin="upper",
-        interpolation="nearest"
-    )
-
-    # Overlay mask for high-temperature regions
-    mask = (fahrenheit > threshold_f).astype(float)
-    ax.imshow(
-        mask,
-        cmap="Reds",
-        origin="upper",
-        interpolation="nearest",
-        alpha=0.35,
-        vmin=0,
-        vmax=1
-    )
+    # overlay semi-transparent mask (use masked array so non-thresholded pixels are transparent)
+    ax.imshow(np.ma.masked_where(~mask_above, mask_above), cmap="Reds", alpha=0.35, origin="upper")
 
     cbar = fig.colorbar(im, ax=ax, fraction=0.036, pad=0.04)
     cbar.set_label("Temperature (°F)")
 
-    if title:
-        ax.set_title(title)
-
-    ax.axis("off")
     fig.tight_layout()
 
     return fig, count, pct
 
 
-def run(uploaded_tiff, threshold_f: float = 120.0):
+def run(src: Union[str, "file-like"], threshold_f: float = 120.0) -> Tuple[plt.Figure, int, float]:
     """
-    Streamlit-facing entry point.
-
-    Parameters
-    ----------
-    uploaded_tiff : Streamlit UploadedFile
-        Uploaded GeoTIFF file.
-    threshold_f : float
-        Temperature threshold (°F).
-
-    Returns
-    -------
-    Tuple[Figure, int, float]
-        Figure and statistics for Streamlit rendering.
+    Streamlit-friendly entrypoint.
+    Accepts either a path (str) or a Streamlit UploadedFile (file-like).
+    Returns (figure, count_above_threshold, percent_above_threshold).
     """
+    # Rewind if file-like
+    if not _is_path(src):
+        _rewind(src)
 
-    fahrenheit = load_and_compute(uploaded_tiff)
+    # Compute temperatures
+    fahrenheit = load_and_compute(src)
 
-    fig, count, pct = plot_temperature(
-        fahrenheit,
-        threshold_f=threshold_f,
-        title=None
-    )
-
+    # Use a reasonable figure size so Streamlit can scale it
+    fig, count, pct = plot_from_array(fahrenheit, threshold_f=threshold_f, fig_size=(7, 5))
     return fig, count, pct
+
+
+# CLI convenience (optional)
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) < 2:
+        print("Usage: python temperature.py <path-to-tif> [threshold_f]")
+        raise SystemExit(1)
+    path = sys.argv[1]
+    thresh = float(sys.argv[2]) if len(sys.argv) >= 3 else 120.0
+    fig, count, pct = run(path, threshold_f=thresh)
+    print(f"Count above {thresh}: {count} ({pct:.2f}%)")
+    fig.show()

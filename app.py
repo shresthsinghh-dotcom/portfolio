@@ -32,11 +32,11 @@ st.markdown(
 # Built-in datasets (EDIT PATHS AS NEEDED)
 # ---------------------------------------------------------
 DATASETS = {
-    "Alberta — Land Cover": "data/land_cover_alberta.tif",
-    "Québec — Land Cover": "data/land_cover_quebec.tif",
-    "Durham — Summer 2024": "data/durham_summer24.tif",
-    "Urban Sample": "data/sample_urban.tif",
-    "Rural Sample": "data/sample_rural.tif",
+    "Rural Sample": "engineering_visualizations/data/canada_surface.tif",
+    "Urban Sample": "engineering_visualizations/data/durham_summer24.tif",
+    "Alberta 2024": "engineering_visualizations/data/land_cover_alberta.tif",
+    "Québec": "engineering_visualizations/data/land_cover_québec.tif",
+    "Surface Water": "engineering_visualizations/data/surface_water.tif",
 }
 
 # ---------------------------------------------------------

@@ -39,7 +39,12 @@ def run(uploaded_image, kernel_size: int = 3):
     Returns (original_fig, smoothed_fig).
     """
 
-    filename = uploaded_image.name.lower()
+    # Support both UploadedFile and file path
+    if isinstance(uploaded_image, str):
+        filename = uploaded_image.lower()
+    else:
+        filename = uploaded_image.name.lower()
+
 
     # ---------------------------------------------------------
     # TIFF

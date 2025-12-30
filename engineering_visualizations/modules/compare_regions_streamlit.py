@@ -69,14 +69,14 @@ def run(uploaded_tif, view_mode: str, ndvi_thresh: float, temp_thresh: float) ->
             stretch_to_uint8(green),
             stretch_to_uint8(blue),
         ))
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(6, 4))
         ax.imshow(rgb)
         ax.axis("off")
         results["figure"] = fig
 
     # ---------- NDVI ----------
     elif view_mode == "ndvi":
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(6, 4))
         im = ax.imshow(ndvi, cmap="RdYlGn", vmin=-1, vmax=1)
         ax.imshow(np.ma.masked_where(ndvi < ndvi_thresh, ndvi),
                   cmap="Greens", alpha=0.3)
@@ -87,7 +87,7 @@ def run(uploaded_tif, view_mode: str, ndvi_thresh: float, temp_thresh: float) ->
 
     # ---------- TEMPERATURE ----------
     elif view_mode == "temp":
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(6, 4))
         im = ax.imshow(temp, cmap="inferno")
         ax.imshow(np.ma.masked_where(temp < temp_thresh, temp),
                   cmap="Reds", alpha=0.3)
@@ -98,7 +98,7 @@ def run(uploaded_tif, view_mode: str, ndvi_thresh: float, temp_thresh: float) ->
 
     # ---------- SCATTER ----------
     elif view_mode == "scatter":
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(6, 4))
         ax.scatter(ndvi.ravel(), temp.ravel(), s=5, alpha=0.5)
         ax.set_xlabel("NDVI")
         ax.set_ylabel("Temperature (°F)")

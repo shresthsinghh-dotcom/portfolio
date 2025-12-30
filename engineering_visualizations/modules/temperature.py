@@ -21,6 +21,12 @@ import matplotlib.pyplot as plt
 SCALE = 0.00341802
 OFFSET = 149.0
 
+def rewind(file_like):
+    try:
+        file_like.seek(0)
+    except Exception:
+        pass
+
 
 def load_and_compute(uploaded_tiff) -> np.ndarray:
     """
@@ -43,9 +49,10 @@ def load_and_compute(uploaded_tiff) -> np.ndarray:
     """
 
     # Open directly from file-like object
+    rewind(uploaded_tiff)
     with rio.open(uploaded_tiff) as src:
-        raw = src.read(5)               # LWIR band (2D)
-        nodata = src.meta.get("nodata")
+        raw = src.read(5)
+    nodata = src.meta.get("nodata")
 
     # Determine valid pixels
     if nodata is not None:

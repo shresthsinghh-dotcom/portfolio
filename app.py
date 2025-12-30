@@ -9,11 +9,11 @@ from engineering_visualizations.modules.compare_regions_streamlit import run as 
 
 
 # ---------------------------------------------------------
-# Helper: rewind uploaded file (CRITICAL)
+# Helper
 # ---------------------------------------------------------
-def rewind(uploaded):
+def rewind(src):
     try:
-        uploaded.seek(0)
+        src.seek(0)
     except Exception:
         pass
 
@@ -25,8 +25,40 @@ st.set_page_config(page_title="Engineering Visualizations", layout="wide")
 st.title("Interactive Engineering Visualizations")
 
 st.markdown(
-    "Python-based engineering tools for image processing and geospatial analysis."
+    "Interactive engineering tools for image processing and geospatial analysis."
 )
+
+# ---------------------------------------------------------
+# Built-in datasets (EDIT PATHS AS NEEDED)
+# ---------------------------------------------------------
+DATASETS = {
+    "Alberta — Land Cover": "data/land_cover_alberta.tif",
+    "Québec — Land Cover": "data/land_cover_quebec.tif",
+    "Durham — Summer 2024": "data/durham_summer24.tif",
+    "Urban Sample": "data/sample_urban.tif",
+    "Rural Sample": "data/sample_rural.tif",
+}
+
+# ---------------------------------------------------------
+# Sidebar: input selection
+# ---------------------------------------------------------
+st.sidebar.header("Input Data")
+
+dataset_name = st.sidebar.selectbox(
+    "Choose a built-in dataset",
+    list(DATASETS.keys())
+)
+
+uploaded = st.sidebar.file_uploader(
+    "Or upload your own TIFF / image",
+    type=["jpg", "jpeg", "png", "tif", "tiff"]
+)
+
+# Decide input source
+if uploaded is not None:
+    input_source = uploaded
+else:
+    input_source = DATASETS[dataset_name]
 
 # ---------------------------------------------------------
 # Sidebar: tool selection
@@ -43,11 +75,6 @@ tool = st.sidebar.selectbox(
     ]
 )
 
-uploaded = st.sidebar.file_uploader(
-    "Upload an image or GeoTIFF",
-    type=["jpg", "jpeg", "png", "tif", "tiff"]
-)
-
 # ---------------------------------------------------------
 # IMAGE SMOOTHING
 # ---------------------------------------------------------
@@ -58,19 +85,17 @@ if tool == "Image Smoothing":
     kernel_size = st.sidebar.slider(
         "Smoothing kernel size",
         min_value=3,
-        max_value=9,     # clamped for performance
+        max_value=9,
         step=2,
         value=3
     )
 
-    if uploaded:
-        rewind(uploaded)
-        fig_orig, fig_smooth = smooth_run(
-            uploaded,
-            kernel_size=kernel_size
-        )
+    if input_source:
+        rewind(input_source)
+        fig_orig, fig_smooth = smooth_run(input_source, kernel_size=kernel_size)
 
         col1, col2 = st.columns(2)
+
         with col1:
             st.subheader("Original")
             st.pyplot(fig_orig, use_container_width=True)
@@ -80,37 +105,35 @@ if tool == "Image Smoothing":
             st.subheader(f"Smoothed (k={kernel_size})")
             st.pyplot(fig_smooth, use_container_width=True)
             plt.close(fig_smooth)
-    else:
-        st.info("Upload an image.")
 
 # ---------------------------------------------------------
 # TEMPERATURE ANALYSIS
 # ---------------------------------------------------------
 elif tool == "Temperature Analysis":
 
-    st.header("Temperature Analysis")
+    st.header("Surface Temperature Analysis")
 
     threshold_f = st.sidebar.slider(
-        "Temperature threshold (°F)", 80.0, 140.0, 120.0
+        "Temperature threshold (°F)",
+        80.0, 140.0, 120.0
     )
 
-    if uploaded:
-        rewind(uploaded)
-        fig, count, pct = temp_run(uploaded, threshold_f=threshold_f)
+    if input_source:
+        rewind(input_source)
+        fig, count, pct = temp_run(input_source, threshold_f=threshold_f)
 
         col1, col2 = st.columns([3, 1])
+
         with col1:
             st.pyplot(fig, use_container_width=True)
             plt.close(fig)
 
         with col2:
             st.metric(
-                label="Above Threshold",
+                label="Pixels above threshold",
                 value=f"{count}",
                 delta=f"{pct:.2f}%"
             )
-    else:
-        st.info("Upload a GeoTIFF.")
 
 # ---------------------------------------------------------
 # INTEGRATED ANALYSIS
@@ -122,10 +145,10 @@ elif tool == "NDVI × Temperature (Integrated Analysis)":
     n_regions = st.sidebar.slider("Regions per axis", 4, 40, 10)
     show_preview = st.sidebar.checkbox("Show RGB preview", value=True)
 
-    if uploaded:
-        rewind(uploaded)
+    if input_source:
+        rewind(input_source)
         results = integrated_run(
-            uploaded,
+            input_source,
             n_regions=n_regions,
             show_preview=show_preview
         )
@@ -147,8 +170,6 @@ elif tool == "NDVI × Temperature (Integrated Analysis)":
             label="Covariance (clean pairs)",
             value=f"{results['covariance_clean']:.4f}"
         )
-    else:
-        st.info("Upload a GeoTIFF.")
 
 # ---------------------------------------------------------
 # TKINTER → STREAMLIT UI
@@ -165,16 +186,17 @@ elif tool == "NDVI / Temp Explorer (Web UI)":
     ndvi_thresh = st.sidebar.slider("NDVI threshold", 0.0, 1.0, 0.2)
     temp_thresh = st.sidebar.slider("Temperature threshold (°F)", 70.0, 130.0, 95.0)
 
-    if uploaded:
-        rewind(uploaded)
+    if input_source:
+        rewind(input_source)
         results = compare_run(
-            uploaded,
+            input_source,
             view_mode=view_mode,
             ndvi_thresh=ndvi_thresh,
             temp_thresh=temp_thresh
         )
 
         col1, col2 = st.columns([3, 1])
+
         with col1:
             st.pyplot(results["figure"], use_container_width=True)
             plt.close(results["figure"])
@@ -182,8 +204,6 @@ elif tool == "NDVI / Temp Explorer (Web UI)":
         with col2:
             if "correlation" in results:
                 st.metric("Pearson r", f"{results['correlation']:.3f}")
-    else:
-        st.info("Upload a GeoTIFF.")
 
 # ---------------------------------------------------------
 # Footer

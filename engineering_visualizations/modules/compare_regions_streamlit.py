@@ -49,7 +49,10 @@ def run(uploaded_tif, view_mode: str, ndvi_thresh: float, temp_thresh: float) ->
     Streamlit entry point replacing the Tkinter UI.
     """
 
-    uploaded_tif.seek(0)
+    # Support both UploadedFile and file path
+    if not isinstance(uploaded_tif, str):
+        uploaded_tif.seek(0)
+
     with rasterio.open(uploaded_tif) as src:
         nir = src.read(1).astype(float)
         red = src.read(2).astype(float)
@@ -57,7 +60,10 @@ def run(uploaded_tif, view_mode: str, ndvi_thresh: float, temp_thresh: float) ->
         blue = src.read(4).astype(float)
 
     ndvi = compute_ndvi(red, nir)
-    uploaded_tif.seek(0)
+    # Support both UploadedFile and file path
+    if not isinstance(uploaded_tif, str):
+        uploaded_tif.seek(0)
+
     temp = load_and_compute(uploaded_tif)
 
     results = {}
@@ -69,14 +75,14 @@ def run(uploaded_tif, view_mode: str, ndvi_thresh: float, temp_thresh: float) ->
             stretch_to_uint8(green),
             stretch_to_uint8(blue),
         ))
-        fig, ax = plt.subplots(figsize=(6, 4))
+        fig, ax = plt.subplots(figsize=(5, 3.5))
         ax.imshow(rgb)
         ax.axis("off")
         results["figure"] = fig
 
     # ---------- NDVI ----------
     elif view_mode == "ndvi":
-        fig, ax = plt.subplots(figsize=(6, 4))
+        fig, ax = plt.subplots(figsize=(5, 3.5))
         im = ax.imshow(ndvi, cmap="RdYlGn", vmin=-1, vmax=1)
         ax.imshow(np.ma.masked_where(ndvi < ndvi_thresh, ndvi),
                   cmap="Greens", alpha=0.3)
@@ -87,7 +93,7 @@ def run(uploaded_tif, view_mode: str, ndvi_thresh: float, temp_thresh: float) ->
 
     # ---------- TEMPERATURE ----------
     elif view_mode == "temp":
-        fig, ax = plt.subplots(figsize=(6, 4))
+        fig, ax = plt.subplots(figsize=(5, 3.5))
         im = ax.imshow(temp, cmap="inferno")
         ax.imshow(np.ma.masked_where(temp < temp_thresh, temp),
                   cmap="Reds", alpha=0.3)
@@ -98,12 +104,11 @@ def run(uploaded_tif, view_mode: str, ndvi_thresh: float, temp_thresh: float) ->
 
     # ---------- SCATTER ----------
     elif view_mode == "scatter":
-        fig, ax = plt.subplots(figsize=(6, 4))
+        fig, ax = plt.subplots(figsize=(5, 3.5))
         ax.scatter(ndvi.ravel(), temp.ravel(), s=5, alpha=0.5)
         ax.set_xlabel("NDVI")
         ax.set_ylabel("Temperature (°F)")
         r = pearsonr_masked(ndvi.ravel(), temp.ravel())
-        ax.set_title(f"NDVI vs Temperature (r = {r:.3f})")
         results["figure"] = fig
         results["correlation"] = r
 

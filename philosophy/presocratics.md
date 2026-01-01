@@ -1,5 +1,5 @@
 # Foundations of Western Thought: The Presocratics  
-_Last updated: [YOU FILL IN]_
+ Last updated: January 1st, 2026. 
 
 This document examines the earliest philosophical attempts to explain reality
 without appeal to mythology. The Presocratics establish the metaphysical
@@ -25,193 +25,193 @@ There are a few broad concepts covered in the work. I found it beneficial to gro
 
 Heraclitus served as a contrast to the idea of metaphysics; believing that the only law this universe was governed by was its lawlessness. Everything was in flux, without stasis, and this idea is Panta Rhei. The following sections first describe his belief of Logos.
 
-_Fragment 1 - We know what it means to be_ **_better_**_, and yet we choose not to, for this is what it means to be human: to be_ **_capable_** _of higher thought and limited only in_ **_action_**_._
+ Fragment 1 - We know what it means to be  ** better ** , and yet we choose not to, for this is what it means to be human: to be  ** capable **  of higher thought and limited only in  ** action ** . 
 
-_Fragment 2 - We think we are all our own genius; the ubiquitous truth is the_ **_only_** _reality._
+ Fragment 2 - We think we are all our own genius; the ubiquitous truth is the  ** only **  reality. 
 
-_Fragment 7 - Everything is of_ **_Logos_**_, and thus has essence. If everything changed and burned, their essence would still be distinguished by our nostrils._
+ Fragment 7 - Everything is of  ** Logos ** , and thus has essence. If everything changed and burned, their essence would still be distinguished by our nostrils. 
 
 Fragment 50 - **One** truth, Logos, exists. There isn't anything more to Heraclitus.
 
-_Fragment 52 - Time builds and burns; it is_ **_unfeeling_** _to you as a child to sandcastles._
+ Fragment 52 - Time builds and burns; it is  ** unfeeling **  to you as a child to sandcastles. 
 
-_Fragment 64 - The thunderbolt, as in Zeus, as in Logos, runs in_ **_all_** _things._
+ Fragment 64 - The thunderbolt, as in Zeus, as in Logos, runs in  ** all **  things. 
 
-_Fragment 84 - Stasis is the_ **_death_** _of life; true stability is found in dynamic existence._
+ Fragment 84 - Stasis is the  ** death **  of life; true stability is found in dynamic existence. 
 
-_Fragments 90-91 - The universe is_ **_fire_**_, it gives and takes, it advances and retires._
+ Fragments 90-91 - The universe is  ** fire ** , it gives and takes, it advances and retires. 
 
-_Fragments 92-94 - Truth is rarely apparent, and truth is the divine order to which_ **_everything_** _yields._
+ Fragments 92-94 - Truth is rarely apparent, and truth is the divine order to which  ** everything **  yields. 
 
-_Fragments 124-126 - What looks to be disordered trash to man is the true cyclical_ **_beauty_** _of the universe._
+ Fragments 124-126 - What looks to be disordered trash to man is the true cyclical  ** beauty **  of the universe. 
 
 ## The Unity of Opposites
 
-_Logos_, as described by Heraclitus, was universal, ubiquitous, and ever changing. Thus, life was also universally in flux. That which is in constant change cannot possibly have an "opposite. This is where the fragments once again dismiss a common idea in society: opposites.
+ Logos , as described by Heraclitus, was universal, ubiquitous, and ever changing. Thus, life was also universally in flux. That which is in constant change cannot possibly have an "opposite. This is where the fragments once again dismiss a common idea in society: opposites.
 
-_Fragment 10 - Opposites are parts of a_ **_larger_** _whole (Logos). Work/Rest, Night/Day, Balance/Discord are but necessary parts of the whole universe._
+ Fragment 10 - Opposites are parts of a  ** larger **  whole (Logos). Work/Rest, Night/Day, Balance/Discord are but necessary parts of the whole universe. 
 
-_Fragment 23 - Without_ **_injustice_**_, man would not know justice._
+ Fragment 23 - Without  ** injustice ** , man would not know justice. 
 
-_Fragments 57-60 - He who follows the universal truth, Logos, believes in the_ **_Unity of Opposites_**_. Those which are most unlike each other on the surface are still related under the surface._
+ Fragments 57-60 - He who follows the universal truth, Logos, believes in the  ** Unity of Opposites ** . Those which are most unlike each other on the surface are still related under the surface. 
 
-_Fragments 65-66 - Fire represents the underlying flux of the universe;_ **_nothing_** _remains._
+ Fragments 65-66 - Fire represents the underlying flux of the universe;  ** nothing **  remains. 
 
-_Fragment 67 -_ **_Everything_** _is underlyingly connected._
+ Fragment 67 -  ** Everything **  is underlyingly connected. 
 
-_Fragment 102- To the universe, everything has a purpose; it is_ **_man_** _who "judges" things good or bad._
+ Fragment 102- To the universe, everything has a purpose; it is  ** man **  who "judges" things good or bad. 
 
 ## Panta Rhei
 
 Naturally, Heraclitus believed that Logos governed the whole universe. Thus, arguably his entire work could be delineated as just Logos. However, it is more useful to look at the specifics he chose to mention. Of these, Panta Rhei (everything flows) is probably the most famous aspect of his fragments. Let us thus discuss change.
 
-_Fragment 6 - Though things repeat, nothing is truly the same twice._ **_Life_** _is in constant flux._
+ Fragment 6 - Though things repeat, nothing is truly the same twice.  ** Life **  is in constant flux. 
 
-_Fragment 12 - One can't ever live the same experience_ **_twice_**_._
+ Fragment 12 - One can't ever live the same experience  ** twice ** . 
 
-_Fragment 49a - Everything is_ **_changing_**_; nothing will be the same._
+ Fragment 49a - Everything is  ** changing ** ; nothing will be the same. 
 
 ## The Tears of The Thinker
 
 Another view put forth in these fragments is the irrelevance of human opinions. Heraclitus was deeply wary of the falsehoods that stories carried, and thus resented those that placed fictitious ideas above the rational truth. Specifically, the idea that value was inherent was deeply rejected by Logos. The majority of these fragments revolve around Heraclitus' critique of what he saw in men, which is why he is know today as the weeping philosopher.
 
-_Fragment 3 - We can only view the world through_ **_our_** _own perception._
+ Fragment 3 - We can only view the world through  ** our **  own perception. 
 
-_Fragment 4 - If fulfilling needs equates to joy, then surely oxen are_ **_happy_** _when they find bitter vetches to eat._
+ Fragment 4 - If fulfilling needs equates to joy, then surely oxen are  ** happy **  when they find bitter vetches to eat. 
 
-_Fragment 8 - If is often not what we want that ends up being what we_ **_need_**_._
+ Fragment 8 - If is often not what we want that ends up being what we  ** need ** . 
 
-_Fragment 9 -Gold is to man as straw is to an ass. Value is_ **_subjective_**_._
+ Fragment 9 -Gold is to man as straw is to an ass. Value is  ** subjective ** . 
 
-_Fragment 13 - …to seek_ **_worldly_** _pleasures._
+ Fragment 13 - …to seek  ** worldly **  pleasures. 
 
-_Fragment 17 - Many believe they learned their lessons, yet attentively failing to see the_ **_root_** _of their problems._
+ Fragment 17 - Many believe they learned their lessons, yet attentively failing to see the  ** root **  of their problems. 
 
-_Fragment 20 - Life is a cycle of_ **_meaningless_** _symbols._
+ Fragment 20 - Life is a cycle of  ** meaningless **  symbols. 
 
-_Fragment 22 - Everything is subjective. For but a few grams of gold, man_ **_destroys_** _mountains of earth._
+ Fragment 22 - Everything is subjective. For but a few grams of gold, man  ** destroys **  mountains of earth. 
 
-_Fragment 27 - Few choose the path of internal peace. Most are_ **_lost_** _to the world._
+ Fragment 27 - Few choose the path of internal peace. Most are  ** lost **  to the world. 
 
-_Fragment 32 - Even as early as pre-Socratic Greece doubted the idea of_ **_god_**_._
+ Fragment 32 - Even as early as pre-Socratic Greece doubted the idea of  ** god ** . 
 
-_Fragment 33 - Better to follow the universal_ **_truth_** _than to follow the masses._
+ Fragment 33 - Better to follow the universal  ** truth **  than to follow the masses. 
 
-_Fragment 34 -Deaf cannot perceive sound the way the_ **_fool_** _cannot perceive knowledge._
+ Fragment 34 -Deaf cannot perceive sound the way the  ** fool **  cannot perceive knowledge. 
 
-_Fragment 35 - He who loves wisdom must_ **_understand_** _and appreciate many things indeed._
+ Fragment 35 - He who loves wisdom must  ** understand **  and appreciate many things indeed. 
 
-_Fragment 39 -_ **_Most_** _men are bad._
+ Fragment 39 -  ** Most **  men are bad. 
 
-_Fragment 40 - Accumulation of knowledge is_ **_not the same_** _as understanding._
+ Fragment 40 - Accumulation of knowledge is  ** not the same **  as understanding. 
 
-_Fragment 41 - Wisdom isn't polymathy, but rather knowing the_ **_one_** _universal truth._
+ Fragment 41 - Wisdom isn't polymathy, but rather knowing the  ** one **  universal truth. 
 
-_Fragment 43 - Cruelty is pointless and_ **_dangerous_** _to the structure of human society._
+ Fragment 43 - Cruelty is pointless and  ** dangerous **  to the structure of human society. 
 
-_Fragment 46 - Surface level thought, like surface level sight, is a deceitful_ **_sickness_**_._
+ Fragment 46 - Surface level thought, like surface level sight, is a deceitful  ** sickness ** . 
 
-_Fragment 47 - Semantics and conjecture do_ **_little_** _to perceive the deeper truth._
+ Fragment 47 - Semantics and conjecture do  ** little **  to perceive the deeper truth. 
 
-_Fragment 56 - Those who fail to see underlying truths fall_ **_victim_** _to superficial lies._
+ Fragment 56 - Those who fail to see underlying truths fall  ** victim **  to superficial lies. 
 
-_Fragment 61 - Nothing is_ **_inherently_** _useful; that which gives life to fish, gives death to man._
+ Fragment 61 - Nothing is  ** inherently **  useful; that which gives life to fish, gives death to man. 
 
-_Fragment 54 - Reality's_ **_underlying_** _harmony is closer to the truth than what is apparent. ._
+ Fragment 54 - Reality's  ** underlying **  harmony is closer to the truth than what is apparent. . 
 
-_Fragment 70 - Humans opinions are_ **_symbolic_** _and meaningless without the universal truth._
+ Fragment 70 - Humans opinions are  ** symbolic **  and meaningless without the universal truth. 
 
-_Fragments 71-73 - Without the truth, which he experiences every day, he has_ **_lost_** _his way._
+ Fragments 71-73 - Without the truth, which he experiences every day, he has  ** lost **  his way. 
 
-_Fragment 74 - Tradition is_ **_meaningless_** _if accepted without rational justification._
+ Fragment 74 - Tradition is  ** meaningless **  if accepted without rational justification. 
 
-_Fragment 77 - A weakened, 'moist" soul falls prey to alcohol, and the dry soul finds_ **_truth_**_._
+ Fragment 77 - A weakened, 'moist" soul falls prey to alcohol, and the dry soul finds  ** truth ** . 
 
-_Fragments 78-79 - Men are to god what children are to men._ **_Blind_** _to the truth._
+ Fragments 78-79 - Men are to god what children are to men.  ** Blind **  to the truth. 
 
-_Fragment 81 - Rhetoric is the_ **_prince of liars_**_._
+ Fragment 81 - Rhetoric is the  ** prince of liars ** . 
 
-_Fragment 86 - The wise aren't known, because the common man praises not truth but_ **_belief_**_._
+ Fragment 86 - The wise aren't known, because the common man praises not truth but  ** belief ** . 
 
-_Fragment 87 - The fool hangs onto every new story, instead of_ **_grounding_** _his deeper beliefs._
+ Fragment 87 - The fool hangs onto every new story, instead of  ** grounding **  his deeper beliefs. 
 
-_Fragment 89 - The wise have one Logos, but each sleeping fool lives in a world of his_ **_own_**_._
+ Fragment 89 - The wise have one Logos, but each sleeping fool lives in a world of his  ** own ** . 
 
-_Fragment 95 - People try to keep superficial composure, and yet drink_ **_undoes_** _their lying tongues._
+ Fragment 95 - People try to keep superficial composure, and yet drink  ** undoes **  their lying tongues. 
 
-_Fragment 97 - Fear, ignorance, and anger stem from_ **_unfamiliarity_**_, instinctively rejecting the unknown._
+ Fragment 97 - Fear, ignorance, and anger stem from  ** unfamiliarity ** , instinctively rejecting the unknown. 
 
-_Fragment 104 - The masses lack true wisdom, because they follow the_ **_shallow_** _many over the wise few._
+ Fragment 104 - The masses lack true wisdom, because they follow the  ** shallow **  many over the wise few. 
 
-_Fragment 107 - The eyes and ears of those without wisdom are_ **_useless_** _to be communicated with._
+ Fragment 107 - The eyes and ears of those without wisdom are  ** useless **  to be communicated with. 
 
-_Fragment 108 - Accumulating knowledge from others is_ **_not_** _pursuing wisdom._
+ Fragment 108 - Accumulating knowledge from others is  ** not **  pursuing wisdom. 
 
-_Fragments 117-118 - The drunk man has a moist soul;_ **_estranging_** _himself from the dry fire that is Logos._
+ Fragments 117-118 - The drunk man has a moist soul;  ** estranging **  himself from the dry fire that is Logos. 
 
-_Fragments 127-128 - Organized religion is paradoxical and_ **_blind_** _to the real divine truth._
+ Fragments 127-128 - Organized religion is paradoxical and  ** blind **  to the real divine truth. 
 
-_Fragment 129 - Even though Pythagoras was a man of deep knowledge, mere knowledge is_ **_not_** _wisdom._
+ Fragment 129 - Even though Pythagoras was a man of deep knowledge, mere knowledge is  ** not **  wisdom. 
 
 ## War is the Father
 
 War was considered by Heraclitus to be the father of all in civilization, and strife his blade of justice. Thus, in these fragments the importance of war and coercion for the sake of order is highlighted.
 
-_Fragment 11 - War and strife are necessary for order; the people_ **_must_** _be coerced to obey._
+ Fragment 11 - War and strife are necessary for order; the people  ** must **  be coerced to obey. 
 
-_Fragment 24 - War is the_ **_father_** _of all. Strife is the path to order, strife is the path to justice._
+ Fragment 24 - War is the  ** father **  of all. Strife is the path to order, strife is the path to justice. 
 
-_Fragment 44 - Strife is necessary to achieve law, for laws are the_ **_walls_** _between civilization and the animals._
+ Fragment 44 - Strife is necessary to achieve law, for laws are the  ** walls **  between civilization and the animals. 
 
-_Fragment 53 - War has made everything. Without strife, man could not achieve_ **_anything_**_._
+ Fragment 53 - War has made everything. Without strife, man could not achieve  ** anything ** . 
 
 ## Discipline IS the Son
 
 One's duty to virtue and to his civilization were expressed heavily as discipline. Though civility came from War (thus making it the father) it would not be preserved without being passed down through discipline, making it the son.
 
-_Fragment 16 - You cannot_ **_hide_** _from duty, for the light of virtue never sets._
+ Fragment 16 - You cannot  ** hide **  from duty, for the light of virtue never sets. 
 
-_Fragment 18 - If you cannot_ **_imagine_** _it, you cannot achieve it._
+ Fragment 18 - If you cannot  ** imagine **  it, you cannot achieve it. 
 
-_Fragment 25 - The greater the death, the greater is_ **_deemed_** _the life._
+ Fragment 25 - The greater the death, the greater is  ** deemed **  the life. 
 
-_Fragment 26 - One can try to hide from virtue, but justice finds its reckoning_ **_eventually_**_._
+ Fragment 26 - One can try to hide from virtue, but justice finds its reckoning  ** eventually ** . 
 
-_Fragment 45 - The human soul is_ **_limitless_**_. If one tapped into it, then their mind will join it._
+ Fragment 45 - The human soul is  ** limitless ** . If one tapped into it, then their mind will join it. 
 
-_Fragment 49 - One is ten thousand to me, if he be the_ **_best_**_._
+ Fragment 49 - One is ten thousand to me, if he be the  ** best ** . 
 
-_Fragment 55 - Gained knowledge is more valuable through_ **_first-hand_** _experience_
+ Fragment 55 - Gained knowledge is more valuable through  ** first-hand **  experience 
 
-_Fragment 85 - Abstinence is incredibly_ **_difficult_**_, yet giving into is giving up ones soul._
+ Fragment 85 - Abstinence is incredibly  ** difficult ** , yet giving into is giving up ones soul. 
 
-_Fragment 101 - Delphi says: "Know thyself". Heraclitus answers: "_**_I have sought for myself_**_"._
+ Fragment 101 - Delphi says: "Know thyself". Heraclitus answers: " ** I have sought for myself ** ". 
 
-_Fragment 101a - What you_ **_see_** _is much more trustworthy than what you hear._
+ Fragment 101a - What you  ** see **  is much more trustworthy than what you hear. 
 
-_Fragment 109 - It's better to_ **_conceal_** _ignorance than to expose it._
+ Fragment 109 - It's better to  ** conceal **  ignorance than to expose it. 
 
-_Fragments 110-112 - Want drives desire; sickness provides value to health, dark to light, and so forth. Thus, by choosing_ **_not to indulge_** _in worldly pleasures allows one to find deeper joy; it is the highest virtue._
+ Fragments 110-112 - Want drives desire; sickness provides value to health, dark to light, and so forth. Thus, by choosing  ** not to indulge **  in worldly pleasures allows one to find deeper joy; it is the highest virtue. 
 
-_Fragment 113. Logos is available to all, and accessible to those that look for the_ **_truth_**_._
+ Fragment 113. Logos is available to all, and accessible to those that look for the  ** truth ** . 
 
-_Fragments 114-115. Truly wise govern themselves_ **_through Logos_**_, like a city to its own fundamental laws._
+ Fragments 114-115. Truly wise govern themselves  ** through Logos ** , like a city to its own fundamental laws. 
 
-_Fragment 116 - It behooves the wise man to learn_ **_self-control_**_, and to know oneself._
+ Fragment 116 - It behooves the wise man to learn  ** self-control ** , and to know oneself. 
 
-_Fragment 119 - A man's choices and actions determine his_ **_fate_**_, not the gods or luck._
+ Fragment 119 - A man's choices and actions determine his  ** fate ** , not the gods or luck. 
 
 ## Death
 
 Some of the most interesting and specific of these fragments were about death. This work attempts to reconcile it as not the end of life, but rather a reflection of it. If we are asleep, and we see things and experience them, we awake to the realization that what is seen in slumber is but a dream. Heraclitus extrapolated this idea to argue, that much like how what is lived in slumber is a dream, life experience is but death, awaiting. And at the end of one's life, they would realize that life was death all along, much like how one realizes a dream is just that once they awaken.
 
-_Fragment 21 - If all seen in slumber is a dream, then perhaps all we see in life is_ **_death staring us in the face_**_._
+ Fragment 21 - If all seen in slumber is a dream, then perhaps all we see in life is  ** death staring us in the face ** . 
 
-_Fragment 62 - As dreams were sleep,_ **_life is death_**_. Thus, to be mortal, you lived the immortals death(life), and died the immortals life(death)._
+ Fragment 62 - As dreams were sleep,  ** life is death ** . Thus, to be mortal, you lived the immortals death(life), and died the immortals life(death). 
 
 Thus conclude the fragments of Heraclitus. Though he was not the first (this is widely believed to be Thales), his fragments are of the earliest written record. It is from here the earliest first-hand root of western philosophical thought is attributed, and it is from here our journey has begun.
 
-# Fragments of Parmenides' _On nature_
+# Fragments of Parmenides'  On nature 
 
 The next text that we will encounter upon our journey are the fragments of Parmenides. A contemporary of Heraclitus, he is deemed the father of Metaphysics, establishing the first interpretation of the universe as an ordered set of laws.
 

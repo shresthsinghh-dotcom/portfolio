@@ -1,39 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Engineering Experience</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About Me</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="fontawesome/css/all.min.css" rel="stylesheet" />
+    <link href="css/templatemo-business-oriented.css" rel="stylesheet" />
 </head>
 
 <body>
 
-  <header>
-        <nav id="mainNav">
-      <ul class="nav-list">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#engineering">Engineering</a></li>
-        <li><a href="#programming">Programming</a></li>
-        <li><a href="#philosophy">Philosophy</a></li>
-        <li><a href="#leadership">Leadership</a></li>
-      </ul>
-    </nav>
+    <!-- HEADER / HERO -->
+    <div id="parallax-1" class="parallax-window" data-parallax="scroll" data-image-src="img/biz-oriented-header.jpg">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="tm-logo">
+                        <i class="fas fa-industry fa-5x mr-5"></i>
+                        <span class="text-uppercase tm-logo-text">Who Am I?</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  </header>
+    <!-- NAVIGATION -->
+    <div class="tm-nav-container-outer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg" id="tm-main-nav">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbar-nav">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item"><a class="nav-link tm-nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link tm-nav-link" href="engineering.html">Engineering</a></li>
+                                <li class="nav-item"><a class="nav-link tm-nav-link" href="programming.html">Programming</a></li>
+                                <li class="nav-item"><a class="nav-link tm-nav-link" href="leadership.html">Leadership</a></li>
+                                <li class="nav-item active"><a class="nav-link tm-nav-link" href="philosophy.html" aria-current="page">About Me</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <main class="main">
-    <h1>Philosophical Experience</h1>
-    <p>
-      Provide essays, perspectives, or relevant readings that reflect your philosophical thinking.
-    </p>
-    <button id="backToTop">Back to Top</button>
+    <!-- ========================= -->
+<!-- CONNECT & LEARN MORE -->
+<!-- ========================= -->
+<div class="container-fluid mt-6 mb-2">
+    <div class="row justify-content-center">
+        <div class="col-xl-8 col-lg-9 col-md-11 text-center">
 
-  </main>
+            <h3 class="tm-title-gray mb-4">
+                Let’s Connect
+            </h3>
+            <hr class="tm-hr mb-5 mx-auto">
 
-  <footer>
-    <p>&copy; 2025 Shresth Singh</p>
-  </footer>
+            <p class="mb-4">
+                If you’re interested in learning more about my academic work, technical projects,
+                or professional background, there are several ways to explore further.
+            </p>
+
+            <p class="mb-4">
+                You can view my résumé and project highlights on the <strong>Home</strong> page,
+                connect with me professionally on <strong>LinkedIn</strong> using the link in the
+                footer below, or reach out directly using the contact form on this page.
+            </p>
+
+            <p>
+                I’m always open to conversations about research, collaboration, and new
+                opportunities. Even if you have an album recommendation, a philosophical debate, or just want to say hello,
+                feel free to get in touch!
+            </p>
+
+        </div>
+    </div>
+</div>
+
+    <!-- ========================= -->
+    <!-- CONTACT FORM (UNCHANGED) -->
+    <!-- ========================= -->
+  <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="tm-contact-form"
+  >
+
+      <!-- Required hidden field -->
+      <input type="hidden" name="form-name" value="contact">
+
+      <!-- Honeypot (spam protection) -->
+      <input type="hidden" name="bot-field">
+
+      <div class="form-group">
+          <input
+              type="text"
+              name="name"
+              class="form-control rounded-0"
+              placeholder="Name"
+              required>
+      </div>
+
+      <div class="form-group">
+          <input
+              type="email"
+              name="email"
+              class="form-control rounded-0"
+              placeholder="Email"
+              required>
+      </div>
+
+      <div class="form-group">
+          <textarea
+              rows="8"
+              name="message"
+              class="form-control rounded-0"
+              placeholder="Message"
+              required></textarea>
+      </div>
+
+      <div class="form-group mb-0">
+          <button type="submit" class="btn btn-primary rounded-0 d-block mx-auto">
+              Submit
+          </button>
+      </div>
+
+  </form>
+
+<!-- ========================= -->
+<!-- TRANSITION: CONTACT TO PHILOSOPHY -->
+<!-- ========================= -->
+<div class="container-fluid mt-1 mb-6">
+    <div class="row justify-content-center">
+        <div class="col-xl-8 col-lg-9 col-md-11 text-center">
+
+            <h3 class="tm-title-gray mb-4">
+                Beyond the Resume
+            </h3>
+            <hr class="tm-hr mb-5 mx-auto">
+
+            <p class="mb-4">
+                While my academic and technical work reflects how I approach problem-solving,
+                my philosophical and creative pursuits reflect <em>why</em> I approach problems
+                the way I do.
+            </p>
+
+            <p class="mb-4">
+                The following sections explore how my thinking has been shaped outside of
+                traditional coursework—through philosophy, reflection, and music. These
+                experiences influence how I reason about complexity, ethics, creativity,
+                and long-term impact, and they inform the way I collaborate, design systems,
+                and engage with the world.
+            </p>
+
+            <p>
+                Together, these pieces offer a more complete picture of my identity as both
+                a student and a person.
+            </p>
+
+        </div>
+    </div>
+</div>
+
+    <!-- ========================= -->
+    <!-- MY PHILOSOPHICAL JOURNEY -->
+    <!-- ========================= -->
+    <div class="container-fluid mt-2 mb-2">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-11 col-md-12">
+
+                <h2 class="tm-title-gray text-center mb-4">
+                    My Philosophical Journey
+                </h2>
+                <hr class="tm-hr mb-5">
+
+                <div class="embed-responsive embed-responsive-16by9"
+                     style="border-radius: 8px; overflow: hidden;">
+                    <iframe
+                        class="embed-responsive-item"
+                        src="docs/philosophical_journey.pdf"
+                        style="border: none;"
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- MY JOURNEY THROUGH MUSIC -->
+    <!-- ========================= -->
+    <div class="container-fluid mt-7 mb-1">
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-11 col-md-12">
+
+                <h2 class="tm-title-gray text-center mb-4">
+                    My Journey Through Music
+                </h2>
+                <hr class="tm-hr mb-5">
+
+                <div class="embed-responsive embed-responsive-16by9"
+                     style="border-radius: 8px; overflow: hidden;">
+                    <iframe
+                        class="embed-responsive-item"
+                        src="docs/journey_through_music.pdf"
+                        style="border: none;"
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer class="container-fluid">
+        <div class="row">
+            <p class="col-lg-9 col-md-8 mb-5 mb-md-0">
+                &copy; 2025 Shresth Singh — About Me
+            </p>
+            <div class="col-lg-3 col-md-4 text-right">
+                <a href="https://www.linkedin.com/in/shresth-singh-achieve/" class="tm-social-link">
+                    <i class="fab fa-linkedin fa-2x tm-social-icon"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/tooplate-script.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#parallax-1').parallax({ imageSrc: 'img/biz-oriented-header.jpg' });
+        });
+    </script>
 
 </body>
 </html>

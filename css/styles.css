@@ -1,0 +1,145 @@
+/* ================================================= */
+/* SHARED SITE STYLES — Shresth Singh Portfolio      */
+/* Purpose: Non-template, semantic, maintainable CSS */
+/* ================================================= */
+
+/* ------------------------------------------------- */
+/* GLOBAL OVERRIDES / UTILITIES                      */
+/* ------------------------------------------------- */
+
+/* Prevent accidental horizontal scroll */
+body {
+    overflow-x: hidden;
+}
+
+/* Ensure consistent paragraph rhythm */
+p {
+    line-height: 1.9;
+}
+
+/* Section divider utility */
+.section-divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 4rem 0;
+}
+
+/* ------------------------------------------------- */
+/* LEADERSHIP MEDIA (SEMANTIC CONTENT TYPE)          */
+/* ------------------------------------------------- */
+
+/*
+Leadership media are narrative-driven visuals.
+They are intentionally distinct from services,
+engineering images, and generic content images.
+*/
+
+.leadership-media {
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Primary leadership media: high-salience role */
+.leadership-media--primary {
+    height: 400px;
+    object-fit: cover;
+}
+
+/* Secondary leadership media: supporting roles */
+.leadership-media--secondary {
+    height: 300px;
+    object-fit: contain;
+    background-color: #f8f8f8;
+}
+
+/* Responsive tuning for leadership media */
+@media (max-width: 768px) {
+    .leadership-media--primary {
+        height: 280px;
+    }
+
+    .leadership-media--secondary {
+        height: 220px;
+    }
+}
+
+/* ------------------------------------------------- */
+/* CAROUSEL (HOME PAGE)                              */
+/* ------------------------------------------------- */
+
+#carousel {
+    position: relative;
+    overflow: hidden;
+    min-height: 240px;
+}
+
+#carousel .carousel-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    will-change: opacity, transform;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 0.8rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+#prevBtn { left: 8px; }
+#nextBtn { right: 8px; }
+
+.carousel-btn:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+/* ------------------------------------------------- */
+/* CTA BUTTON EXTENSIONS                             */
+/* ------------------------------------------------- */
+
+/*
+Used for non-template CTAs that need stronger emphasis
+without diverging visually from Bootstrap.
+*/
+
+.btn-resume {
+    margin-top: 1rem;
+}
+
+/* ------------------------------------------------- */
+/* EMBEDDED CONTENT (IFRAMES)                        */
+/* ------------------------------------------------- */
+
+/* Prevent iframe overflow issues */
+iframe {
+    max-width: 100%;
+    border: none;
+}
+
+/* ------------------------------------------------- */
+/* FUTURE EXTENSION AREA                             */
+/* ------------------------------------------------- */
+
+/*
+Place future shared styles here:
+- Programming visuals
+- Engineering diagrams
+- Philosophy embeds
+- Accessibility refinements
+*/

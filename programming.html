@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Engineering Analysis</title>
+    <title>Programming — Shresth Singh</title>
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="fontawesome/css/all.min.css" rel="stylesheet" />
@@ -21,14 +22,14 @@
                 <div class="col-12">
                     <div class="tm-logo">
                         <i class="fas fa-industry fa-5x mr-5"></i>
-                        <span class="text-uppercase tm-logo-text">My Programming </span>
+                        <span class="text-uppercase tm-logo-text">My Programming</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- NAVIGATION -->
+    <!-- NAVIGATION (same-tab by design) -->
     <div class="tm-nav-container-outer">
         <div class="container-fluid">
             <div class="row">
@@ -40,12 +41,12 @@
                         </button>
                         <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
                             <ul class="navbar-nav ml-auto">
-                                <li class="nav-item"><a class="nav-link tm-nav-link" href="index.html" >Home</a></li>
-                                <li class="nav-item"><a class="nav-link tm-nav-link" href="engineering.html"  >Engineering</a></li>
-                                <li class="nav-item active"><a class="nav-link tm-nav-link" href="programming.html" aria-current="page">Programming</a></li>
+                                <li class="nav-item"><a class="nav-link tm-nav-link" href="index.html">Home</a></li>
+                                <li class="nav-item"><a class="nav-link tm-nav-link" href="engineering.html">Engineering</a></li>
+                                <li class="nav-item active"><a class="nav-link tm-nav-link" href="programming.html"
+                                        aria-current="page">Programming</a></li>
                                 <li class="nav-item"><a class="nav-link tm-nav-link" href="leadership.html">Leadership</a></li>
                                 <li class="nav-item"><a class="nav-link tm-nav-link" href="philosophy.html">About Me</a></li>
-                                </li>
                             </ul>
                         </div>
                     </nav>
@@ -55,7 +56,34 @@
     </div>
 
     <!-- ========================= -->
-    <!-- STREAMLIT EMBED SECTION -->
+    <!-- PROGRAMMING OVERVIEW -->
+    <!-- ========================= -->
+    <div class="container-fluid mt-7 mb-6">
+        <div class="row justify-content-center">
+            <div class="col-xl-9 col-lg-10 col-md-12">
+
+                <h3 class="tm-title-gray text-center mb-4">
+                    Programming Overview
+                </h3>
+                <hr class="tm-hr mb-5 mx-auto">
+
+                <p class="text-center mb-4">
+                    My programming work focuses on applying computation to support engineering analysis,
+                    data processing, and visualization. I primarily work in Python, using structured code
+                    to analyze datasets, build interactive tools, and communicate technical results clearly.
+                </p>
+
+                <p class="text-center mb-0">
+                    This page highlights programming projects that complement my mechanical engineering work,
+                    particularly in the areas of data analysis, modeling, and visualization.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- STREAMLIT PROJECT -->
     <!-- ========================= -->
     <div class="container-fluid mt-7 mb-7">
         <div class="row justify-content-center">
@@ -67,11 +95,13 @@
                 <hr class="tm-hr mb-5">
 
                 <p class="text-center mb-5" style="max-width: 900px; margin: 0 auto;">
-                    This interactive application showcases my final EGR105 project.
-                    It allows users to explore satellite imagery through image smoothing,
-                    surface temperature analysis, NDVI computation, and integrated
-                    NDVI–temperature relationships using real geospatial datasets. If streamlit takes a while to load,
-                    please be patient as the server may be waking up from inactivity.
+                    This interactive application demonstrates a Python-based workflow for satellite image
+                    analysis, including image smoothing, surface temperature computation, NDVI calculation,
+                    and integrated NDVI–temperature analysis using real geospatial datasets.
+                </p>
+
+                <p class="text-center mb-5 text-muted">
+                    Note: The interactive tool may take a few seconds to load if the server is resuming from inactivity.
                 </p>
 
                 <div class="embed-responsive embed-responsive-16by9"
@@ -86,49 +116,16 @@
                 </div>
 
                 <p class="text-center mt-4">
-                <a href="https://shresth.streamlit.app/" target="_blank" rel="noopener">
-                  Open the interactive tool in a new tab
-                </a>
+                    <a href="https://shresth.streamlit.app/"
+                       target="_blank"
+                       rel="noopener">
+                        View Interactive Analysis
+                    </a>
                 </p>
 
             </div>
         </div>
     </div>
-
-    <!-- ========================= -->
-    <!-- COMMENTED OUT SECTIONS -->
-    <!-- ========================= -->
-
-    <!--
-    <div class="container-fluid mt-7">
-        <div class="row mb-4">
-            <section class="col-lg-4 mb-8 tm-px-3">
-                <div class="tm-box-bordered p-5">
-                    <h3 class="tm-title-gray mb-3">Message from the CEO</h3>
-                    ...
-                </div>
-            </section>
-        </div>
-    </div>
-    -->
-
-    <!--
-    <div id="parallax-3" class="parallax-window parallax-window-2"
-         data-parallax="scroll" data-image-src="img/biz-oriented-footer-3.jpg">
-        ...
-    </div>
-    -->
-
-    <!--
-    <div class="container-fluid mt-7">
-        <div class="row">
-            <div class="col-lg-5 col-md-6 mb-4">
-                <h3 class="tm-title-gray mb-4">About the business oriented</h3>
-                ...
-            </div>
-        </div>
-    </div>
-    -->
 
     <!-- FOOTER -->
     <footer class="container-fluid">
@@ -137,7 +134,10 @@
                 &copy; 2025 Shresth Singh — Programming Portfolio
             </p>
             <div class="col-lg-3 col-md-4 text-right">
-                <a href="https://www.linkedin.com/in/shresth-singh-achieve/" class="tm-social-link">
+                <a href="https://www.linkedin.com/in/shresth-singh-achieve/"
+                   class="tm-social-link"
+                   target="_blank"
+                   rel="noopener">
                     <i class="fab fa-linkedin fa-2x tm-social-icon"></i>
                 </a>
             </div>

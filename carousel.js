@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   let autoplayInterval = null; // set to a number (ms) to enable autoplay, or null to disable
   const AUTOPLAY_MS = 4000;
 
+document.documentElement.classList.add("js");
+
   if (!carousel || images.length === 0) {
     // Nothing to do if carousel or images are missing
     return;

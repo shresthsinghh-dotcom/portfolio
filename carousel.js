@@ -126,6 +126,18 @@ document.addEventListener("DOMContentLoaded", () => {
     revealSections.forEach(section => section.classList.add("is-visible"));
   }
 
+  // Immediate reveal for sections already in view
+  revealSections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    const inView =
+      rect.top < window.innerHeight * 0.85 &&
+      rect.bottom > 0;
+
+    if (inView) {
+      section.classList.add("is-visible");
+    }
+  });
+
   /* =========================================================
      ACTIVE NAV HIGHLIGHT (SAFE NO-OP IF UNUSED)
      ========================================================= */

@@ -87,3 +87,64 @@ document.addEventListener('DOMContentLoaded', () => {
   showIndex(currentIndex);
   startAutoplay();
 });
+
+// ======================================
+// Section Reveal + Active Nav Highlight
+// ======================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ------------------------------
+       SECTION REVEAL
+    ------------------------------ */
+    const revealSections = document.querySelectorAll(".reveal-section");
+
+    const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target); // reveal once
+                }
+            });
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    revealSections.forEach(section => {
+        revealObserver.observe(section);
+    });
+
+    /* ------------------------------
+       ACTIVE NAV HIGHLIGHT
+    ------------------------------ */
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".tm-nav-link");
+
+    const navObserver = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute("id");
+
+                    navLinks.forEach(link => {
+                        link.classList.remove("active-section");
+                        if (link.getAttribute("href").includes(id)) {
+                            link.classList.add("active-section");
+                        }
+                    });
+                }
+            });
+        },
+        {
+            threshold: 0.6
+        }
+    );
+
+    sections.forEach(section => {
+        navObserver.observe(section);
+    });
+
+});

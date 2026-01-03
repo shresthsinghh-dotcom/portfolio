@@ -4,17 +4,13 @@
 document.documentElement.classList.add("js");
 
 /* =========================================================
-   DEBUG GUARD (safe, silent in production)
+   DEBUG GUARD
    ========================================================= */
 (function () {
-  const DEBUG = false; // set to true ONLY if debugging locally
-
+  const DEBUG = false;
   function log(...args) {
-    if (DEBUG && window.console) {
-      console.log("[Site JS]", ...args);
-    }
+    if (DEBUG && window.console) console.log("[Site JS]", ...args);
   }
-
   window.__siteDebugLog = log;
 })();
 
@@ -24,11 +20,10 @@ document.documentElement.classList.add("js");
 document.addEventListener("DOMContentLoaded", () => {
 
   const log = window.__siteDebugLog || function () {};
-
   log("DOM loaded, JS active");
 
   /* =========================================================
-     CAROUSEL LOGIC (UNCHANGED, SAFE)
+     CAROUSEL LOGIC
      ========================================================= */
   const carousel = document.getElementById("carousel");
   const images = Array.from(document.querySelectorAll("#carousel .carousel-img"));
@@ -100,10 +95,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================================
-     SECTION REVEAL (PROGRESSIVE & SAFE)
+     SECTION REVEAL — FIXED ORDER (IMMEDIATE FIRST)
      ========================================================= */
   const revealSections = document.querySelectorAll(".reveal-section");
 
+  // 1. Immediately reveal anything already in view
+  revealSections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    const inView =
+      rect.top < window.innerHeight * 0.85 &&
+      rect.bottom > 0;
+
+    if (inView) {
+      section.classList.add("is-visible");
+    }
+  });
+
+  // 2. Then create the observer
   if ("IntersectionObserver" in window && revealSections.length > 0) {
     log("Reveal observer active");
 
@@ -121,25 +129,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     revealSections.forEach(section => revealObserver.observe(section));
   } else {
-    // Fallback: reveal everything immediately
-    log("IntersectionObserver unavailable — fallback reveal");
     revealSections.forEach(section => section.classList.add("is-visible"));
   }
 
-  // Immediate reveal for sections already in view
-  revealSections.forEach(section => {
-    const rect = section.getBoundingClientRect();
-    const inView =
-      rect.top < window.innerHeight * 0.85 &&
-      rect.bottom > 0;
-
-    if (inView) {
-      section.classList.add("is-visible");
-    }
-  });
-
   /* =========================================================
-     ACTIVE NAV HIGHLIGHT (SAFE NO-OP IF UNUSED)
+     ACTIVE NAV HIGHLIGHT
      ========================================================= */
   const trackedSections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".tm-nav-link");

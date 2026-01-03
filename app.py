@@ -39,17 +39,20 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("Interactive Visualizations ")
+st.title("Interactive Engineering Visualizations")
 
 st.markdown(
-    "Welcome to my final project for EGR105! Working with a team of fellow students, I " \
-    "was tasked with analysing satellite imagery data to extract meaningful insights. " \
-    "As the semester progressed, we developed this project over several milestones. " \
-    "Feel free to explore the various tools and visualizations we've created using the sidebar on the left!" \
-    "There are 5 datasets for you to use, or you can upload your own GeoTIFF or image file. " \
-    "There are also 4 different tools to choose from, each building off of the previous tool. I have only documented my contributions to this project and those of my team members that were essential to the final product. " \
-    "Enjoy exploring the data!" \
+    "This project was developed as part of an undergraduate engineering course, "
+    "where I worked with a team to analyze satellite imagery and extract quantitative "
+    "environmental insights using Python-based tools. Over several milestones, we "
+    "designed a modular analysis pipeline supporting image preprocessing, surface "
+    "temperature evaluation, and vegetation analysis.\n\n"
+    "My contributions focused on data processing pipelines, analytical visualization, "
+    "and the development of interactive analysis tools. The application supports multiple "
+    "built-in datasets as well as user-uploaded GeoTIFF or image files. Use the sidebar "
+    "to explore each analysis tool."
 )
+
 
 # ---------------------------------------------------------
 # Built-in datasets (EDIT PATHS AS NEEDED)
@@ -92,9 +95,9 @@ tool = st.sidebar.selectbox(
     "Choose a tool",
     [
         "Image Smoothing",
-        "Temperature Analysis",
-        "Analysis",
-        "Web UI",
+        "Surface Temperature Analysis",
+        "Integrated Analysis",
+        "Interactive Analysis UI",
     ]
 )
 
@@ -105,11 +108,12 @@ if tool == "Image Smoothing":
 
     st.header("Image Smoothing")
     st.markdown(
-    "Let's briefly take a look at this first tool: Image Smoothing. When this tool is run, you will see two images." \
-    "The left image is the original input image, while the right image has been smoothed using a simple averaging filter. " \
-    "You can adjust the size of the smoothing kernel using the slider in the sidebar. " \
-    "Larger kernel sizes will result in a more blurred image. This is the foundational tool necessary for the rest of the analysis. Enjoy working with this tool!" \
-    )
+    "This tool applies spatial smoothing to satellite imagery using an adjustable "
+    "averaging kernel. The original image is shown alongside the smoothed output to "
+    "illustrate the effect of kernel size on noise reduction and feature clarity. "
+    "This preprocessing step serves as a foundation for subsequent analyses."
+)
+
     kernel_size = st.sidebar.slider(
         "Smoothing kernel size",
         min_value=3,
@@ -137,14 +141,16 @@ if tool == "Image Smoothing":
 # ---------------------------------------------------------
 # TEMPERATURE ANALYSIS
 # ---------------------------------------------------------
-elif tool == "Temperature Analysis":
+elif tool == "Surface Temperature Analysis":
 
     st.header("Surface Temperature Analysis")
     st.markdown(
-    "This tool is used to analyze surface temperature data. You may notice a slider that controls the temperature threshold. " \
-    "You can adjust this threshold, which will show you how many pixels are above or below the selected value. " \
-    "This is the second milestone tool necessary for the rest of the analysis. Enjoy working with it!" \
-    )
+        "This integrated analysis examines the relationship between vegetation density "
+        "(NDVI) and surface temperature across spatial regions. Adjusting the number of "
+        "regions per axis allows exploration of covariance behavior at different spatial "
+        "scales, supporting quantitative interpretation of environmental patterns."
+)
+
     threshold_f = st.sidebar.slider(
         "Temperature threshold (°F)",
         80.0, 140.0, 120.0
@@ -170,7 +176,7 @@ elif tool == "Temperature Analysis":
 # ---------------------------------------------------------
 # INTEGRATED ANALYSIS
 # ---------------------------------------------------------
-elif tool == "Analysis":
+elif tool == "Integrated Analysis":
 
     st.header("NDVI × Temperature — Integrated")
     st.markdown(
@@ -221,16 +227,16 @@ elif tool == "Analysis":
 # ---------------------------------------------------------
 # TKINTER → STREAMLIT UI
 # ---------------------------------------------------------
-elif tool == "Web UI":
+elif tool == "Interactive Analysis UI":
 
     st.header("NDVI / Temperature Explorer")
     st.markdown(
-        "This is the final milestone of the project. The images can be analyzed in a number of ways using this tool. "
-        "You can adjust the display to have the simple RGB display, an NDVI display, the temperature threshold, "
-        "and a scatterplot of the covariance. You can adjust temperature thresholds and NDVI thresholds to see how "
-        "they affect the analysis. Though the code I wrote actually built a Tkinter interface for this tool, "
-        "I ported it to Streamlit for your viewing pleasure. Enjoy my project!"
+        "This interactive interface consolidates all prior analysis tools into a unified "
+        "visual exploration environment. Users can examine RGB imagery, NDVI maps, "
+        "temperature thresholds, and correlation plots while adjusting key parameters "
+        "to observe their effect on the analysis results."
     )
+
 
     # UI labels (canonical) → internal keys (required by module)
     VIEW_MAP = {
@@ -274,3 +280,4 @@ elif tool == "Web UI":
 # ---------------------------------------------------------
 st.markdown("---")
 st.markdown("_Built with Python, NumPy, rasterio, matplotlib, and Streamlit._")
+

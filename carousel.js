@@ -1,152 +1,158 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const carousel = document.getElementById('carousel');
-  const images = Array.from(document.querySelectorAll('#carousel .carousel-img'));
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-  let currentIndex = 0;
-  let autoplayInterval = null; // set to a number (ms) to enable autoplay, or null to disable
-  const AUTOPLAY_MS = 4000;
-
+/* =========================================================
+   GLOBAL JS FLAG — MUST RUN IMMEDIATELY
+   ========================================================= */
 document.documentElement.classList.add("js");
 
-  if (!carousel || images.length === 0) {
-    // Nothing to do if carousel or images are missing
-    return;
-  }
+/* =========================================================
+   DEBUG GUARD (safe, silent in production)
+   ========================================================= */
+(function () {
+  const DEBUG = false; // set to true ONLY if debugging locally
 
-  // Ensure carousel container is positioned for absolute children
-  carousel.style.position = carousel.style.position || 'relative';
-  carousel.style.overflow = carousel.style.overflow || 'hidden';
-
-  // Initialize image styles
-  images.forEach((img, idx) => {
-    img.style.position = 'absolute';
-    img.style.top = '0';
-    img.style.left = '0';
-    img.style.width = '100%';
-    img.style.height = 'auto';
-    img.style.opacity = idx === currentIndex ? '1' : '0';
-    img.style.transform = idx === currentIndex ? 'translateX(0)' : 'translateX(20px)';
-    img.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    img.setAttribute('aria-hidden', idx === currentIndex ? 'false' : 'true');
-    img.style.pointerEvents = 'none';
-  });
-
-  function showIndex(newIndex) {
-    if (images.length === 0) return;
-    newIndex = ((newIndex % images.length) + images.length) % images.length; // safe wrap
-    images.forEach((img, idx) => {
-      const isActive = idx === newIndex;
-      img.style.opacity = isActive ? '1' : '0';
-      img.style.transform = isActive ? 'translateX(0)' : 'translateX(20px)';
-      img.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-    });
-    currentIndex = newIndex;
-  }
-
-  function next() {
-    showIndex(currentIndex + 1);
-  }
-
-  function prev() {
-    showIndex(currentIndex - 1);
-  }
-
-  // Attach handlers if buttons exist
-  if (nextBtn) nextBtn.addEventListener('click', () => { next(); resetAutoplay(); });
-  if (prevBtn) prevBtn.addEventListener('click', () => { prev(); resetAutoplay(); });
-
-  // Keyboard support: left / right arrows
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') { next(); resetAutoplay(); }
-    if (e.key === 'ArrowLeft') { prev(); resetAutoplay(); }
-  });
-
-  // Optional autoplay
-  function startAutoplay() {
-    if (AUTOPLAY_MS && !autoplayInterval) {
-      autoplayInterval = setInterval(next, AUTOPLAY_MS);
+  function log(...args) {
+    if (DEBUG && window.console) {
+      console.log("[Site JS]", ...args);
     }
   }
-  function stopAutoplay() {
-    if (autoplayInterval) {
-      clearInterval(autoplayInterval);
-      autoplayInterval = null;
-    }
-  }
-  function resetAutoplay() {
-    stopAutoplay();
-    startAutoplay();
-  }
 
-  // Pause on hover/focus for accessibility
-  carousel.addEventListener('mouseenter', stopAutoplay);
-  carousel.addEventListener('mouseleave', startAutoplay);
-  carousel.addEventListener('focusin', stopAutoplay);
-  carousel.addEventListener('focusout', startAutoplay);
+  window.__siteDebugLog = log;
+})();
 
-  // Start
-  showIndex(currentIndex);
-  startAutoplay();
-});
-
-// ======================================
-// Section Reveal + Active Nav Highlight
-// ======================================
-
+/* =========================================================
+   DOM READY
+   ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ------------------------------
-       SECTION REVEAL
-    ------------------------------ */
-    const revealSections = document.querySelectorAll(".reveal-section");
+  const log = window.__siteDebugLog || function () {};
+
+  log("DOM loaded, JS active");
+
+  /* =========================================================
+     CAROUSEL LOGIC (UNCHANGED, SAFE)
+     ========================================================= */
+  const carousel = document.getElementById("carousel");
+  const images = Array.from(document.querySelectorAll("#carousel .carousel-img"));
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  let currentIndex = 0;
+  let autoplayInterval = null;
+  const AUTOPLAY_MS = 4000;
+
+  if (carousel && images.length > 0) {
+    log("Carousel initialized");
+
+    carousel.style.position ||= "relative";
+    carousel.style.overflow ||= "hidden";
+
+    images.forEach((img, idx) => {
+      img.style.position = "absolute";
+      img.style.top = "0";
+      img.style.left = "0";
+      img.style.width = "100%";
+      img.style.height = "auto";
+      img.style.opacity = idx === currentIndex ? "1" : "0";
+      img.style.transform = idx === currentIndex ? "translateX(0)" : "translateX(20px)";
+      img.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+      img.setAttribute("aria-hidden", idx === currentIndex ? "false" : "true");
+      img.style.pointerEvents = "none";
+    });
+
+    function showIndex(newIndex) {
+      newIndex = ((newIndex % images.length) + images.length) % images.length;
+      images.forEach((img, idx) => {
+        const active = idx === newIndex;
+        img.style.opacity = active ? "1" : "0";
+        img.style.transform = active ? "translateX(0)" : "translateX(20px)";
+        img.setAttribute("aria-hidden", active ? "false" : "true");
+      });
+      currentIndex = newIndex;
+    }
+
+    function next() { showIndex(currentIndex + 1); }
+    function prev() { showIndex(currentIndex - 1); }
+
+    if (nextBtn) nextBtn.addEventListener("click", next);
+    if (prevBtn) prevBtn.addEventListener("click", prev);
+
+    function startAutoplay() {
+      if (!autoplayInterval && AUTOPLAY_MS) {
+        autoplayInterval = setInterval(next, AUTOPLAY_MS);
+      }
+    }
+
+    function stopAutoplay() {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      }
+    }
+
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
+    carousel.addEventListener("focusin", stopAutoplay);
+    carousel.addEventListener("focusout", startAutoplay);
+
+    showIndex(currentIndex);
+    startAutoplay();
+  } else {
+    log("Carousel not found — skipping");
+  }
+
+  /* =========================================================
+     SECTION REVEAL (PROGRESSIVE & SAFE)
+     ========================================================= */
+  const revealSections = document.querySelectorAll(".reveal-section");
+
+  if ("IntersectionObserver" in window && revealSections.length > 0) {
+    log("Reveal observer active");
 
     const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("is-visible");
-                    observer.unobserve(entry.target); // reveal once
-                }
-            });
-        },
-        {
-            threshold: 0.15
-        }
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
     );
 
-    revealSections.forEach(section => {
-        revealObserver.observe(section);
-    });
+    revealSections.forEach(section => revealObserver.observe(section));
+  } else {
+    // Fallback: reveal everything immediately
+    log("IntersectionObserver unavailable — fallback reveal");
+    revealSections.forEach(section => section.classList.add("is-visible"));
+  }
 
-    /* ------------------------------
-       ACTIVE NAV HIGHLIGHT
-    ------------------------------ */
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".tm-nav-link");
+  /* =========================================================
+     ACTIVE NAV HIGHLIGHT (SAFE NO-OP IF UNUSED)
+     ========================================================= */
+  const trackedSections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".tm-nav-link");
+
+  if ("IntersectionObserver" in window && trackedSections.length > 0) {
+    log("Nav highlight observer active");
 
     const navObserver = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute("id");
-
-                    navLinks.forEach(link => {
-                        link.classList.remove("active-section");
-                        if (link.getAttribute("href").includes(id)) {
-                            link.classList.add("active-section");
-                        }
-                    });
-                }
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            navLinks.forEach(link => {
+              link.classList.toggle(
+                "active-section",
+                link.getAttribute("href")?.includes(id)
+              );
             });
-        },
-        {
-            threshold: 0.6
-        }
+          }
+        });
+      },
+      { threshold: 0.6 }
     );
 
-    sections.forEach(section => {
-        navObserver.observe(section);
-    });
+    trackedSections.forEach(section => navObserver.observe(section));
+  }
 
 });

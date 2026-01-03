@@ -148,22 +148,29 @@ Place future shared styles here:
 /* ============================= */
 
 /* Default: content visible */
+/* ============================= */
+/* Progressive Section Reveal    */
+/* ============================= */
+
+/* Default: content is visible */
 .reveal-section {
-    opacity: 1;
-    transform: none;
+  opacity: 1;
+  transform: none;
 }
 
-/* Enhanced when JS is active */
-.js .reveal-section {
-    opacity: 0;
-    transform: translateY(20px);
+/* Only hide content if JS is confirmed */
+html.js .reveal-section {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-.js .reveal-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+/* Reveal when observed */
+html.js .reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
 
 /* ============================= */
 /* ACTIVE NAV SECTION STATE      */

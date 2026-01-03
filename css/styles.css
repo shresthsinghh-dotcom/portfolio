@@ -55,6 +55,35 @@ p {
 }
 
 /* ------------------------------------------------- */
+/* HERO LAYOUT — CENTER EVERYTHING                   */
+/* ------------------------------------------------- */
+
+/* Center the entire hero block */
+.hero-content {
+    display: flex;
+    justify-content: center;      /* centers carousel + text as a group */
+    align-items: center;
+    text-align: center;           /* ensures children align nicely */
+    width: 100%;
+    flex-wrap: wrap;              /* prevents overflow on small screens */
+}
+
+/* Center the carousel container */
+.hero-images {
+    margin: 0 auto;
+    max-width: 350px;             /* visually balanced width */
+    width: 100%;
+    text-align: center;
+}
+
+/* Center the text block */
+.hero-text {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ------------------------------------------------- */
 /* CAROUSEL (HOME PAGE)                              */
 /* ------------------------------------------------- */
 
@@ -62,10 +91,6 @@ p {
     position: relative;
     overflow: hidden;
     min-height: 260px; /* prevents collapse when reveal-section hides text */
-}
-
-.hero-images {
-    min-width: 280px; /* ensures carousel always keeps its width */
 }
 
 #carousel .carousel-img {
@@ -79,6 +104,7 @@ p {
     will-change: opacity, transform;
 }
 
+/* Carousel buttons */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -126,6 +152,7 @@ iframe {
     opacity: 1;
     transform: none;
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    text-align: center;
 }
 
 /* Hide only when JS is confirmed */
@@ -147,4 +174,10 @@ html.js .reveal-section.is-visible {
 .tm-nav-link.active-section {
     color: #0099FF;
     font-weight: 600;
+}
+
+.nav-solid {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(6px);
+    transition: background 0.3s ease;
 }

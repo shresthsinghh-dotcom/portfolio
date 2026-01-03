@@ -2,6 +2,10 @@
    CAROUSEL LOGIC — Shresth Singh Portfolio
    ========================================================= */
 
+let currentIndex = 0;
+let autoplayInterval = null;
+const AUTOPLAY_MS = 4000;
+
 document.addEventListener("DOMContentLoaded", () => {
   const log = window.__siteDebugLog || function () {};
 
@@ -9,10 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const images = Array.from(document.querySelectorAll("#carousel .carousel-img"));
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
-
-  let currentIndex = 0;
-  let autoplayInterval = null;
-  const AUTOPLAY_MS = 4000;
 
   if (!carousel || images.length === 0) {
     log("Carousel not found — skipping");
@@ -74,4 +74,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showIndex(currentIndex);
   startAutoplay();
+});
+
+/* =========================================================
+   BFCache RESTORE HANDLER — FIXES BROKEN LAYOUT ON BACK NAV
+   ========================================================= */
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted) {
+    // Stop any old intervals
+    if (autoplayInterval) {
+      clearInterval(autoplayInterval);
+      autoplayInterval = null;
+    }
+
+    // Reset carousel state
+    currentIndex = 0;
+
+    // Re-run initialization safely
+    const images = document.querySelectorAll("#carousel .carousel-img");
+    images.forEach((img, idx) => {
+      img.style.opacity = idx === 0 ? "1" : "0";
+      img.style.transform = idx === 0 ? "translateX(0)" : "translateX(20px)";
+      img.setAttribute("aria-hidden", idx === 0 ? "false" : "true");
+    });
+
+    // Restart autoplay
+    autoplayInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      images.forEach((img, idx) => {
+        const active = idx === currentIndex;
+        img.style.opacity = active ? "1" : "0";
+        img.style.transform = active ? "translateX(0)" : "translateX(20px)";
+        img.setAttribute("aria-hidden", active ? "false" : "true");
+      });
+    }, AUTOPLAY_MS);
+  }
 });

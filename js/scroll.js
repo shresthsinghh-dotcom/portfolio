@@ -15,6 +15,30 @@ document.documentElement.classList.add("js");
 })();
 
 /* =========================================================
+   BFCache RESTORE HANDLER — MUST BE OUTSIDE DOMContentLoaded
+   ========================================================= */
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted) {
+    // Re-run reveal logic
+    document.querySelectorAll(".reveal-section").forEach(el => {
+      el.classList.remove("is-visible");
+    });
+    requestAnimationFrame(() => {
+      document.querySelectorAll(".reveal-section").forEach(el => {
+        el.classList.add("is-visible");
+      });
+    });
+
+    // Re-run navbar logic
+    const navOuter = document.querySelector(".tm-nav-container-outer");
+    if (navOuter) {
+      if (window.scrollY > 80) navOuter.classList.add("nav-solid");
+      else navOuter.classList.remove("nav-solid");
+    }
+  }
+});
+
+/* =========================================================
    DOM READY
    ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
@@ -61,12 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
      ========================================================= */
   const revealSections = document.querySelectorAll(".reveal-section");
 
-  // Optional stagger for premium feel
   revealSections.forEach((section, i) => {
     section.style.transitionDelay = `${i * 60}ms`;
   });
 
-  // Immediate reveal for anything already in view
   revealSections.forEach(section => {
     const rect = section.getBoundingClientRect();
     const inView =
@@ -78,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Observer for progressive reveal
   if ("IntersectionObserver" in window && revealSections.length > 0) {
     const revealObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -125,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================================
-     LAZY-LOADING IMAGES (BOOSTS PERFORMANCE)
+     LAZY-LOADING IMAGES
      ========================================================= */
   const lazyImages = document.querySelectorAll("img[loading='lazy']");
   if ("IntersectionObserver" in window) {

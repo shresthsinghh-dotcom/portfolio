@@ -73,7 +73,7 @@ p {
     margin: 0 auto;
     max-width: 350px;             /* visually balanced width */
     width: 100%;
-    text-align: center;
+    text-align: right;
 }
 
 /* Center the text block */
@@ -91,6 +91,7 @@ p {
     position: relative;
     overflow: hidden;
     min-height: 260px; /* prevents collapse when reveal-section hides text */
+    align-items: right;
 }
 
 #carousel .carousel-img {

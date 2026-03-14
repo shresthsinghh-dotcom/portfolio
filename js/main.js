@@ -4,6 +4,27 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* --- THEME TOGGLE ---------------------------------------- */
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+  }
+  // If no saved preference, default is dark (no data-theme attribute needed)
+
+  const toggleBtn = document.querySelector('.theme-toggle');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      if (next === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+      localStorage.setItem('theme', next);
+    });
+  }
+
   /* --- NAV SCROLL EFFECT ----------------------------------- */
   const nav = document.querySelector('.site-nav');
   if (nav) {
@@ -22,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
       toggle.classList.toggle('open');
       links.classList.toggle('open');
     });
-    // Close on link click
     links.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         toggle.classList.remove('open');

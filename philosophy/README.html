@@ -1,244 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Philosophical Journey — Orientation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Philosophical Orientation — Shresth Singh</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .breadcrumb { display:flex; align-items:center; gap:0.5rem; font-family:var(--f-display); font-size:0.85rem; color:var(--c-text-dim); padding:1.2rem 0; }
+    .breadcrumb a { color:var(--c-text-dim); text-decoration:none; } .breadcrumb a:hover { color:var(--c-accent); }
+    .breadcrumb .sep { opacity:0.4; }
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/templatemo-business-oriented.css" rel="stylesheet">
-    <link href="../css/styles.css" rel="stylesheet">
+    .essay-card { background:var(--c-surface); border:1px solid var(--c-border); border-radius:var(--radius-lg); padding:2rem; transition:transform .3s var(--ease-out),box-shadow .3s; display:flex; flex-direction:column; text-decoration:none; }
+    .essay-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,0.25); }
+    [data-theme="light"] .essay-card:hover { box-shadow:0 16px 40px rgba(100,80,160,0.1); }
+    .essay-card .era-tag { font-family:var(--f-display); font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--c-accent); margin-bottom:0.75rem; }
+    .essay-card h3 { font-size:1.25rem; margin-bottom:0.6rem; }
+    .essay-card p { color:var(--c-text-dim); font-size:0.95rem; flex:1; }
+    .essay-card .card-link { display:inline-flex; align-items:center; gap:0.4rem; font-family:var(--f-display); font-weight:600; font-size:0.88rem; color:var(--c-accent); margin-top:1.25rem; transition:gap .25s; }
+    .essay-card:hover .card-link { gap:0.7rem; }
+
+    .reading-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; }
+    .philosopher-card { background:var(--c-surface); border:1px solid var(--c-border); border-radius:var(--radius); padding:1.25rem 1.5rem; }
+    .philosopher-card h4 { font-size:1rem; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.5rem; }
+    .philosopher-card .status-dot { width:8px;height:8px;border-radius:50%;flex-shrink:0; }
+    .status-dot.read { background:var(--c-accent); } .status-dot.planned { background:var(--c-text-dim); opacity:0.4; }
+    .philosopher-card ul { list-style:none; padding:0; margin:0; }
+    .philosopher-card li { font-size:0.9rem; color:var(--c-text-dim); padding:0.2rem 0; display:flex; align-items:center; gap:0.5rem; }
+    .philosopher-card li .check { color:var(--c-accent); font-size:0.85rem; flex-shrink:0; }
+    .philosopher-card li .pending { color:var(--c-text-dim); opacity:0.35; font-size:0.85rem; flex-shrink:0; }
+
+    .status-banner { background:var(--c-surface); border:1px solid var(--c-border); border-radius:var(--radius-lg); padding:2rem; text-align:center; }
+    .status-banner p { color:var(--c-text-dim); margin-bottom:0.5rem; }
+    .planned-tags { display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; margin-top:1rem; }
+    .planned-tag { font-family:var(--f-display); font-weight:500; font-size:0.78rem; padding:0.35rem 0.8rem; border-radius:20px; background:var(--c-accent-glow); border:1px solid rgba(52,211,153,0.2); color:var(--c-accent); }
+    [data-theme="light"] .planned-tag { border-color:rgba(124,92,191,0.25); }
+  </style>
 </head>
-
-
 <body>
 
-<main class="container-fluid mt-7 mb-7">
-    <div class="row justify-content-center">
-        <div class="col-xl-10 col-lg-11 col-md-12">
-
-<h1 id="philosophical-journey-orientation">Philosophical Journey — Orientation</h1>
-<p><em>Last updated: January 1st, 2026.</em></p>
-
-<p>This document serves as the <strong>orientation and intellectual map</strong> for my philosophical studies.
-It is not a comprehensive argument, nor a finished essay. Instead, it explains the scope,
-direction, and organizing logic of an ongoing body of work.</p>
-<hr>
-<h2 id="scope-of-the-project">Scope of the Project</h2>
-<p>In search of the truth, we have thought a great deal. To be wise is to make the best decisions, and to live the best life. I do not know the right path; all I know is that the attempt to find it must be closer to wisdom than ignorance. Thus I embark upon this journey.     </p>
-<p>The goal is to traverse over 2,500 years of knowledge gathered from three central strongholds of thought: The West, The East, and the South. Thus we begin with the West, where we will cover nearly a millennium, touching over the fundamentals of thought, concluding this first leg of our journey upon the wane of the Roman Empire, with its last great emperor, Marcus Aurelius. Sometime in 500 BCE, lies the first work we will explore. </p>
-<p>→ <strong><a href="presocratics.html">The Presocratic Generation (~500 BCE)</a></strong></p>
-<hr>
-<hr>
-<h2 id="method-of-study">Method of Study</h2>
-<p>Though many thinkers far more learned than I have written interpretations of these dense ancient texts,
-my aim is not to inherit conclusions but to <strong>earn them</strong>. Accordingly, this project prioritizes <strong>primary sources</strong> (in translation), approached slowly and comparatively, with sustained effort to understand both the arguments themselves and the problems to which they respond.</p>
-<p>A defining challenge of ancient philosophy is that many of its most influential figures left behind <strong>ideas without surviving texts</strong>. In these cases, understanding must proceed indirectly: through the testimony of successors, the criticisms of rivals, and the practical consequences of doctrines as they were lived rather than merely asserted. Figures such as Antisthenes, Aristippus, Euclid of Megara, Zeno, and Chrysippus are therefore studied not as isolated authors, but as <strong>structural nodes</strong> within a larger intellectual genealogy.</p>
-<p>This project emphasizes:</p>
-<ul>
-<li><strong>Primary texts over summaries</strong></li>
-<li><strong>Internal tensions within traditions</strong>, rather than harmonized accounts</li>
-<li><strong>Comparison across schools</strong>, rather than isolated interpretation</li>
-<li><strong>Minimal but sufficient reading</strong>, calibrated to achieve a graduate-level conceptual grasp without drifting into specialist minutiae</li>
-</ul>
-<p>The goal is not encyclopedic coverage, but <strong>structural understanding</strong>: to know what problems were being addressed, what solutions were offered, and why certain traditions endured while others fractured or collapsed.</p>
-<hr>
-<h2 id="why-this-begins-with-the-presocratics">Why This Begins with the Presocratics</h2>
-<p>The earliest documented attempts to answer the question <em>“What is?”</em> emerge with <strong>Heraclitus</strong> and <strong>Parmenides</strong>. These thinkers mark the decisive break from mythological explanation toward <strong>rational metaphysical inquiry</strong>. Rather than narrating the cosmos through divine genealogy, they ask after being, change, necessity, and reason itself.</p>
-<p>Heraclitus emphasizes <strong>flux, opposition, and logos</strong>—a rational order within change.
-Parmenides insists on <strong>being, unity, and logical necessity</strong>, denying that true change is intelligible at all.</p>
-<p>Together, they establish the foundational metaphysical problem of Western philosophy:
-<strong>How can reason grasp a world that appears to change?</strong></p>
-<p>Every major philosophical development that follows—Plato’s Forms, Aristotle’s substance, Stoic logos, and even skepticism—can be understood as a response to the tension first articulated here. For this reason, the project begins with these two figures as <strong>the twin trunks</strong> of the philosophical tree.</p>
-<hr>
-<h2 id="socratic-turn">Socratic Turn</h2>
-<p>Socrates represents the most radical reorientation in the history of philosophy:
-a shift from <strong>cosmology to ethics</strong>, from asking <em>what the world is</em> to asking <em>how one ought to live</em>.</p>
-<p>Importantly, Socrates does not resolve the metaphysical dispute between Heraclitus and Parmenides. Instead, he <strong>sidesteps it</strong>, insisting that clarity about virtue, justice, courage, piety, and the good life is more urgent than speculative accounts of nature. Philosophy becomes not a theory of the cosmos, but a <strong>practice of moral examination</strong>.</p>
-<p>The Socratic dialogue reframes philosophy in three decisive ways:</p>
-<ol>
-<li><strong>Method</strong> – through elenchus (refutation), philosophy becomes a discipline of questioning rather than teaching doctrine</li>
-<li><strong>Focus</strong> – ethical character and judgment take precedence over explanation of the natural world</li>
-<li><strong>Aim</strong> – philosophy becomes a way of life, not merely an intellectual pursuit</li>
-</ol>
-<p>This turn fractures philosophy into multiple viable trajectories. Socrates himself leaves no writings; what follows is not a single inheritance, but a <strong>branching</strong>. Plato, Xenophon, Antisthenes, Aristippus, and Euclid of Megara all claim Socrates—and draw radically different conclusions from him. Understanding these divergences is essential to understanding why Stoicism emerges in the form it does.</p>
-<hr>
-<h2 id="long-term-direction">Long-Term Direction</h2>
-<p>The long-term direction of this project is not to treat <strong>Stoicism as a conclusion</strong>, but as a <strong>convergence point</strong>.</p>
-<p>Stoicism does not arise ex nihilo, nor does it merely repeat earlier doctrines. It selectively inherits:</p>
-<ul>
-<li><strong>Heraclitean physics</strong> (logos, flux, rational order)</li>
-<li><strong>Socratic ethics</strong> (virtue, examination, moral seriousness)</li>
-<li><strong>Cynic moral sufficiency</strong> (virtue alone is good)</li>
-<li><strong>Megarian logical rigor</strong> (assent, contradiction, discipline of reason)</li>
-<li><strong>Responses to Academic skepticism</strong> (defense of knowledge and action)</li>
-</ul>
-<p>At the same time, Stoicism defines itself <em>against</em> competing solutions:</p>
-<ul>
-<li>Cyrenaic immediacy of pleasure</li>
-<li>Epicurean withdrawal and anti-providence</li>
-<li>Platonic metaphysical transcendence</li>
-<li>Aristotelian dependence on external goods</li>
-</ul>
-<p>Roman Stoicism—culminating in Seneca, Epictetus, and Marcus Aurelius—represents the moment when this synthesis is <strong>tested under the conditions of real power, suffering, and responsibility</strong>. It is not the end of philosophy, but the point at which ancient Western philosophy is fully <strong>internalized</strong>, becoming an inward discipline capable of surviving without institutional support, metaphysical certainty, or political idealism.</p>
-<hr>
-<h2 id="status-of-the-work">Status of the Work</h2>
-<p>This is a <strong>living document</strong>. Sections will be revised, expanded, clarified, and occasionally restructured as understanding deepens. The aim is not finality, but fidelity—to the problems, to the texts, and to the intellectual honesty required to engage them seriously.</p>
-<p>Where this project ends is less important than <strong>how rigorously it proceeds</strong>.</p>
-<hr>
-<h1 id="body-of-philosophical-works-i-have-read">Body of Philosophical Works I Have Read</h1>
-<h2 id="heraclitus">Heraclitus</h2>
-<ul>
-<li><em>Fragments</em></li>
-</ul>
-<h2 id="parmenides">Parmenides</h2>
-<ul>
-<li><em>On Nature</em></li>
-</ul>
-<p>If you are curious about my interpretations or questions arising from these texts, see:</p>
-<p>→ <strong>The Presocratic Generation (~500 BCE)</strong></p>
-<hr>
-<h2 id="plato-socratic-dialogues">Plato &amp; Socratic Dialogues</h2>
-<ul>
-<li><em>The Apology</em></li>
-<li><em>Euthyphro</em></li>
-</ul>
-<hr>
-<h1 id="body-of-philosophical-works-i-plan-to-read">Body of Philosophical Works I Plan To Read</h1>
-<h2 id="plato-socratic-dialogues">Plato &amp; Socratic Dialogues</h2>
-<ul>
-<li><em>Protagoras</em></li>
-<li><em>Laches</em></li>
-<li><em>The Republic</em></li>
-<li><em>Crito</em></li>
-<li><em>Phaedo</em></li>
-<li><em>Ion</em></li>
-<li><em>Meno</em></li>
-<li><em>Symposium</em></li>
-<li><em>Parmenides</em></li>
-</ul>
-<hr>
-<h2 id="aristotle">Aristotle</h2>
-<ul>
-<li><em>Nicomachean Ethics</em></li>
-<li><em>Politics</em></li>
-<li><em>De Anima</em></li>
-<li><em>Metaphysics</em></li>
-<li><em>Rhetoric</em></li>
-</ul>
-<hr>
-<h2 id="antisthenes">Antisthenes</h2>
-<ul>
-<li><em>Lives of Eminent Philosophers</em>, Book VI (Antisthenes)</li>
-</ul>
-<p><strong>Contrast with:</strong></p>
-<ul>
-<li>Plato — <em>Republic</em> (Forms, rational soul, metaphysical grounding of virtue)</li>
-<li>Aristippus — <em>Lives of Eminent Philosophers</em>, Book II (Aristippus)</li>
-</ul>
-<p><strong>Confirm with:</strong></p>
-<ul>
-<li>Diogenes of Sinope (radicalization)</li>
-<li>Zeno of Citium (systematization)</li>
-<li>Epictetus (ethical interiorization)</li>
-</ul>
-<hr>
-<h2 id="aristippus">Aristippus</h2>
-<ul>
-<li>Diogenes Laërtius — Book II (Aristippus)</li>
-<li>Xenophon — <em>Memorabilia</em>, Book II (selected sections involving Aristippus)</li>
-</ul>
-<hr>
-<h2 id="epicurus">Epicurus</h2>
-<ul>
-<li><em>Letter to Menoeceus</em></li>
-<li><em>Principal Doctrines</em></li>
-</ul>
-<hr>
-<h2 id="euclid">Euclid</h2>
-<ul>
-<li><em>Lives of Eminent Philosophers</em>, Book II (Euclid of Megara)</li>
-</ul>
-<p><strong>Contrast with:</strong></p>
-<ul>
-<li>Parmenides</li>
-<li><em>Euthyphro</em></li>
-<li><em>Laches</em></li>
-</ul>
-<hr>
-<h2 id="megarians">Megarians</h2>
-<ul>
-<li><em>Lives of Eminent Philosophers</em>, Book II</li>
-<li><em>Memorabilia</em>, Book II</li>
-<li>The Liar Paradox</li>
-<li>The Sorites (Heap) Paradox</li>
-<li>Diodorus’ Master Argument</li>
-</ul>
-<hr>
-<h2 id="cyrenaics">Cyrenaics</h2>
-<ul>
-<li><em>Lives of Eminent Philosophers</em>, Book II</li>
-</ul>
-<hr>
-<h2 id="xenophon">Xenophon</h2>
-<ul>
-<li><em>Memorabilia</em></li>
-<li><em>Apology of Socrates</em></li>
-</ul>
-<hr>
-<h2 id="academy">Academy</h2>
-<ul>
-<li>Cicero — <em>De finibus bonorum et malorum</em>, Book II</li>
-</ul>
-<hr>
-<h2 id="cicero">Cicero</h2>
-<ul>
-<li><em>De finibus bonorum et malorum</em></li>
-<li><em>Academica</em></li>
-<li><em>Tusculan Disputations</em></li>
-</ul>
-<hr>
-<h2 id="zeno">Zeno</h2>
-<ul>
-<li><em>Lives of Eminent Philosophers</em>, Book VII (Zeno)</li>
-</ul>
-<p><strong>Synthesis of:</strong></p>
-<ul>
-<li>Antisthenes (virtue-only ethics)</li>
-<li>Euclid / Megarians (logic)</li>
-<li>Cyrenaics (hedonism rejected)</li>
-<li>Academy (skeptical pressure)</li>
-<li>Heraclitus (physics)</li>
-</ul>
-<hr>
-<h2 id="chrysippus">Chrysippus</h2>
-<ul>
-<li>Cicero — <em>De finibus</em> (Stoic books)</li>
-<li>Diogenes Laërtius — Book VII (Stoic doctrine)</li>
-<li>Sextus Empiricus — <em>Against the Logicians</em></li>
-</ul>
-<hr>
-<h2 id="seneca">Seneca</h2>
-<ul>
-<li><em>Letters to Lucilius</em></li>
-</ul>
-<hr>
-<h2 id="epictetus">Epictetus</h2>
-<ul>
-<li><em>Enchiridion</em></li>
-<li><em>Discourses</em></li>
-</ul>
-<hr>
-<h2 id="marcus-aurelius">Marcus Aurelius</h2>
-<ul>
-<li><em>Meditations</em></li>
-</ul>
-
-        </div>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo"><span class="logo-dot"></span> Shresth Singh</a>
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
     </div>
-</main>
+  </nav>
 
+  <div style="padding-top:5rem;"><div class="container-main">
+    <div class="breadcrumb">
+      <a href="../philosophy.html">About Me</a><span class="sep">›</span>
+      <span style="color:var(--c-heading);">Philosophical Orientation</span>
+    </div>
+  </div></div>
 
+  <!-- INTRO -->
+  <section style="padding:2rem 0 var(--s-section);">
+    <div class="container-main" style="max-width:800px; text-align:center;">
+      <div class="reveal">
+        <h1 style="margin-bottom:1rem;">Philosophical Orientation</h1>
+        <hr class="divider divider--center">
+        <p style="color:var(--c-text-dim); font-size:1.05rem; line-height:1.8;">
+          In search of the truth, we have thought a great deal. To be wise is to make the best decisions, and to live the best life. I do not know the right path; all I know is that the attempt to find it must be closer to wisdom than ignorance. Thus I embark upon this journey.
+        </p>
+        <p style="color:var(--c-text-dim); font-size:1.05rem; line-height:1.8; margin-top:1rem;">
+          The goal is to traverse over 2,500 years of knowledge gathered from three central strongholds of thought: the West, the East, and the South. We begin with the West, covering nearly a millennium and concluding upon the wane of the Roman Empire with its last great emperor, Marcus Aurelius.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESSAYS -->
+  <section style="padding:var(--s-section) 0; background:var(--c-bg-alt); border-top:1px solid var(--c-border); border-bottom:1px solid var(--c-border);">
+    <div class="container-main">
+      <div style="text-align:center; margin-bottom:2.5rem;" class="reveal">
+        <span class="section-label" style="justify-content:center; display:flex;">Essays</span>
+        <h2>Writings &amp; Interpretations</h2>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.5rem;">
+        <a href="presocratics.html" class="essay-card reveal">
+          <span class="era-tag">~500 BCE</span>
+          <h3>The Presocratic Generation</h3>
+          <p>An exploration of the earliest attempts to explain reality — through Heraclitus' Logos and Parmenides' Being — and the fundamental conflict between change and permanence.</p>
+          <span class="card-link">Read essay &rarr;</span>
+        </a>
+        <a href="socratic-dialogues.html" class="essay-card reveal reveal-delay-1">
+          <span class="era-tag">~400–350 BCE</span>
+          <h3>Socratic Dialogues</h3>
+          <p>The transition from metaphysical speculation to explicit ethical questioning — through Socrates' trial, the Euthyphro dilemma, and the revolutionary method of dialectic inquiry.</p>
+          <span class="card-link">Read essay &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- READING LIST -->
+  <section class="section-padding">
+    <div class="container-main">
+      <div style="text-align:center; margin-bottom:2.5rem;" class="reveal">
+        <span class="section-label" style="justify-content:center; display:flex;">Library</span>
+        <h2>Body of Philosophical Works</h2>
+        <hr class="divider divider--center">
+      </div>
+      <div class="reading-grid">
+        <div class="philosopher-card reveal"><h4><span class="status-dot read"></span> Heraclitus</h4><ul><li><span class="check">✓</span> Fragments</li></ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot read"></span> Parmenides</h4><ul><li><span class="check">✓</span> On Nature</li></ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot read"></span> Plato &amp; Socratic Dialogues</h4><ul>
+          <li><span class="check">✓</span> The Apology</li>
+          <li><span class="check">✓</span> Euthyphro</li>
+          <li><span class="check">✓</span> Protagoras</li>
+          <li><span class="pending">○</span> Charmides</li>
+          <li><span class="pending">○</span> Laches</li>
+          <li><span class="pending">○</span> Lysis</li>
+          <li><span class="pending">○</span> Gorgias</li>
+          <li><span class="pending">○</span> Ion</li>
+          <li><span class="pending">○</span> Crito</li>
+          <li><span class="pending">○</span> Phaedo</li>
+          <li><span class="pending">○</span> Meno</li>
+          <li><span class="pending">○</span> Symposium</li>
+          <li><span class="pending">○</span> Phaedrus</li>
+          <li><span class="pending">○</span> Cratylus</li>
+          <li><span class="pending">○</span> Theaetetus</li>
+          <li><span class="pending">○</span> The Republic</li>
+          <li><span class="pending">○</span> Timaeus</li>
+          <li><span class="pending">○</span> Critias</li>
+          <li><span class="pending">○</span> Statesman</li>
+          <li><span class="pending">○</span> Sophist</li>
+          <li><span class="pending">○</span> Philebus</li>
+          <li><span class="pending">○</span> Laws</li>
+          <li><span class="pending">○</span> Parmenides</li>
+        </ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Aristotle</h4><ul>
+          <li><span class="pending">○</span> Nicomachean Ethics</li>
+          <li><span class="pending">○</span> Politics</li>
+          <li><span class="pending">○</span> De Anima</li>
+          <li><span class="pending">○</span> Metaphysics</li>
+          <li><span class="pending">○</span> Rhetoric</li>
+        </ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Antisthenes</h4><ul>
+          <li><span class="pending">○</span> Lives of Eminent Philosophers, Book VI</li>
+        </ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Aristippus</h4><ul>
+          <li><span class="pending">○</span> Diogenes Laërtius, Book II</li>
+          <li><span class="pending">○</span> Xenophon — Memorabilia, Book II</li>
+        </ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Epicurus</h4><ul>
+          <li><span class="pending">○</span> Letter to Menoeceus</li>
+          <li><span class="pending">○</span> Principal Doctrines</li>
+        </ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Euclid &amp; Megarians</h4><ul>
+          <li><span class="pending">○</span> Lives of Eminent Philosophers, Book II</li>
+          <li><span class="pending">○</span> Memorabilia, Book II</li>
+          <li><span class="pending">○</span> The Liar Paradox</li>
+          <li><span class="pending">○</span> The Sorites (Heap) Paradox</li>
+          <li><span class="pending">○</span> Diodorus' Master Argument</li>
+        </ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Cyrenaics</h4><ul>
+          <li><span class="pending">○</span> Lives of Eminent Philosophers, Book II</li>
+        </ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Xenophon</h4><ul>
+          <li><span class="pending">○</span> Memorabilia</li>
+          <li><span class="pending">○</span> Apology of Socrates</li>
+        </ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Academy</h4><ul>
+          <li><span class="pending">○</span> De finibus bonorum et malorum, Book II</li>
+        </ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Cicero</h4><ul>
+          <li><span class="pending">○</span> De finibus bonorum et malorum</li>
+          <li><span class="pending">○</span> Academica</li>
+          <li><span class="pending">○</span> Tusculan Disputations</li>
+        </ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Zeno</h4><ul>
+          <li><span class="pending">○</span> Lives of Eminent Philosophers, Book VII</li>
+        </ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Chrysippus</h4><ul>
+          <li><span class="pending">○</span> Cicero — De finibus (Stoic books)</li>
+          <li><span class="pending">○</span> Diogenes Laërtius — Book VII</li>
+          <li><span class="pending">○</span> Sextus Empiricus — Against the Logicians</li>
+        </ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Seneca</h4><ul>
+          <li><span class="pending">○</span> Letters to Lucilius</li>
+        </ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Epictetus</h4><ul>
+          <li><span class="pending">○</span> Enchiridion</li>
+          <li><span class="pending">○</span> Discourses</li>
+        </ul></div>
+        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Marcus Aurelius</h4><ul>
+          <li><span class="pending">○</span> Meditations</li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATUS -->
+  <section style="padding:var(--s-section) 0; background:var(--c-bg-alt); border-top:1px solid var(--c-border); border-bottom:1px solid var(--c-border);">
+    <div class="container-main" style="max-width:700px;">
+      <div class="status-banner reveal">
+        <span class="section-label" style="justify-content:center; display:flex;">Status</span>
+        <h3 style="margin-bottom:1rem;">An Open-Ended Project</h3>
+        <p>This philosophy project is intentionally open-ended. Revisions reflect growth, not indecision. New essays and interpretations are added as readings progress.</p>
+        <p style="font-size:0.92rem; margin-top:1rem; margin-bottom:0.5rem;"><strong style="color:var(--c-heading);">Planned additions:</strong></p>
+        <div class="planned-tags">
+          <span class="planned-tag">Aristotle</span>
+          <span class="planned-tag">Epicureanism</span>
+          <span class="planned-tag">Early Stoicism</span>
+          <span class="planned-tag">Roman Stoics</span>
+          <span class="planned-tag">Comparative Traditions</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="container-main"><div class="footer-inner">
+    <p class="footer-copy">&copy; 2025 Shresth Singh — Philosophy</p>
+    <div class="footer-social"><a href="https://www.linkedin.com/in/shresth-singh-achieve/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
+  </div></div></footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
+  <script src="../js/main.js"></script>
 </body>
 </html>

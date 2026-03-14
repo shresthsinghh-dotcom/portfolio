@@ -965,6 +965,27 @@ p { margin-bottom: 1rem; }
   .contact-grid { grid-template-columns: 1fr; }
 }
 
+/* --- MINI CAROUSELS (Duke Aero, etc.) ----------------------- */
+.mini-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity .6s var(--ease-out);
+}
+
+.mini-slide.active { opacity: 1; }
+
+@media (max-width: 768px) {
+  [data-carousel] ~ div,
+  div[style*="order: 1"],
+  div[style*="order: 2"] {
+    order: unset !important;
+  }
+}
+
 /* --- REMOVE OLD TEMPLATE OVERRIDES -------------------------- */
 .parallax-window,
 .parallax-window-2,

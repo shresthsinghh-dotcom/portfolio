@@ -57,6 +57,96 @@
     </div>
   </section>
 
+  <!-- DUKE AERO -->
+  <section style="padding: var(--s-section) 0; background: var(--c-bg-alt); border-top: 1px solid var(--c-border); border-bottom: 1px solid var(--c-border);">
+    <div class="container-main">
+      <div style="text-align:center; margin-bottom: 3rem;" class="reveal">
+        <span class="section-label">Team Project</span>
+        <h2>Duke Aero</h2>
+        <hr class="divider divider--center">
+      </div>
+
+      <!-- TOP: Nose Cone — image LEFT -->
+      <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; padding-bottom: var(--s-section); border-bottom: 1px solid var(--c-border);">
+        <div class="mini-carousel" data-carousel>
+          <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3/4; border: 1px solid var(--c-border); background: var(--c-surface);">
+            <img src="images/Female_mold.png" class="mini-slide active" alt="Female mold" loading="lazy">
+            <img src="images/Male_mold.png" class="mini-slide" alt="Male mold" loading="lazy">
+            <img src="images/Final_Nose_Cone.png" class="mini-slide" alt="Final nose cone" loading="lazy">
+            <div style="position:absolute; bottom:1rem; right:1rem; display:flex; gap:0.4rem; z-index:5;">
+              <button class="carousel-btn" data-prev aria-label="Previous">&#8249;</button>
+              <button class="carousel-btn" data-next aria-label="Next">&#8250;</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="section-label">Nose Cone</span>
+          <h3 style="margin-bottom: 1rem;">Mold Design &amp; Fabrication</h3>
+          <hr class="divider">
+          <p style="color: var(--c-text-dim);">
+            As one of the rocket's most aerodynamically critical components, the nose cone required precise geometry and a high-quality surface finish. I led the design and fabrication effort, starting with a Von Kármán profile modeled in CAD to minimize transonic drag. The full-scale plug was 3D-printed in sections and assembled into a continuous mandrel, which served as the master geometry for mold creation.
+          </p>
+          <p style="color: var(--c-text-dim);">
+            I then laid fiberglass over the plug to produce a two-piece female mold with a smooth inner surface. The final nose cone was fabricated by laying carbon fiber into the female mold and curing under vacuum bag pressure, achieving a dimensional tolerance of less than 1 mm across the full part length. This process was developed from scratch to comply with updated competition regulations for the current season.
+          </p>
+        </div>
+      </div>
+
+      <!-- MIDDLE: Forged Parts — image RIGHT -->
+      <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; padding: var(--s-section) 0; border-bottom: 1px solid var(--c-border);">
+        <div style="order: 2;">
+          <div class="mini-carousel" data-carousel>
+            <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 2/1; border: 1px solid var(--c-border); background: var(--c-surface);">
+              <img src="images/Forged.png" class="mini-slide active" alt="Forged component top" loading="lazy">
+              <img src="images/Forged2.png" class="mini-slide" alt="Forged component bottom" loading="lazy">
+              <div style="position:absolute; bottom:1rem; right:1rem; display:flex; gap:0.4rem; z-index:5;">
+                <button class="carousel-btn" data-prev aria-label="Previous">&#8249;</button>
+                <button class="carousel-btn" data-next aria-label="Next">&#8250;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="order: 1;">
+          <span class="section-label">Components</span>
+          <h3 style="margin-bottom: 1rem;">Forged Structural Parts</h3>
+          <hr class="divider">
+          <p style="color: var(--c-text-dim);">
+            The airbrake system demanded components that were both structurally rigid and lightweight enough to deploy reliably at high velocity. I designed and fabricated the airbrake paddles using a forged carbon fiber composite process: chopped carbon fiber was combined with epoxy resin and compression-molded in a two-part aluminum-reinforced mold under controlled pressure and temperature.
+          </p>
+          <p style="color: var(--c-text-dim);">
+            This approach produced near-net-shape parts with consistent fiber distribution and high strength-to-weight ratios. Each paddle was post-processed, inspected for dimensional accuracy, and fit-checked against the airbrake deployment assembly to verify clearances and actuation geometry.
+          </p>
+        </div>
+      </div>
+
+      <!-- BOTTOM: Carbon Tube — image LEFT -->
+      <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; padding-top: var(--s-section);">
+        <div class="mini-carousel" data-carousel>
+          <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 2/1; border: 1px solid var(--c-border); background: var(--c-surface);">
+            <img src="images/Carbon_to_tube.png" class="mini-slide active" alt="Carbon fiber sheet to tube" loading="lazy">
+            <img src="images/Tube_Creation.png" class="mini-slide" alt="Tube creation process" loading="lazy">
+            <div style="position:absolute; bottom:1rem; right:1rem; display:flex; gap:0.4rem; z-index:5;">
+              <button class="carousel-btn" data-prev aria-label="Previous">&#8249;</button>
+              <button class="carousel-btn" data-next aria-label="Next">&#8250;</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="section-label">Airframe</span>
+          <h3 style="margin-bottom: 1rem;">Carbon Fiber Tube Layup</h3>
+          <hr class="divider">
+          <p style="color: var(--c-text-dim);">
+            The body tubes form the primary airframe structure and must withstand significant axial and bending loads during flight. I co-led the tube fabrication effort, which involved wrapping pre-cut carbon fiber sheets around a precision-machined cylindrical mandrel, applying a wet layup of epoxy resin, and vacuum-bagging the assembly to consolidate the laminate and remove excess resin.
+          </p>
+          <p style="color: var(--c-text-dim);">
+            After curing, the tubes were trimmed to final length and inspected for surface quality and wall thickness uniformity. These tubes directly comprise the flight-ready airframe sections used by Duke Aero in competition.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- BALL LAUNCHER PROJECT -->
   <section class="projects-section">
     <div class="container-main">
@@ -141,7 +231,10 @@
           <h2 style="margin-bottom: 1rem;">Custom Plug Assembly</h2>
           <hr class="divider">
           <p style="color: var(--c-text-dim);">
-            When designing the plug assembly for the ball launcher, I used CAD software to create a detailed model that balanced manufacturability with performance requirements. Essentially, the plug is attached to a linear drive mechanism that pulls it back against a spring, when enough tension is built up againts the gates, the plug releases, allowing the springs to shoot the ball forward. The design process involved iterating on the geometry to ensure a secure fit, smooth operation, and ease of assembly while maintaining the necessary strength and durability for repeated use.
+            I designed the plug assembly in CAD as a three-part mechanism: the plug body, the gate linkage, and the shooter channel. The plug interfaces with a linear drive system via a threaded connection, which retracts the gates and shooter rearward against a preloaded spring. Upon release, the stored elastic energy drives the gates forward through the shooter channel, launching the ball with consistent force and trajectory.
+          </p>
+          <p style="color: var(--c-text-dim);">
+            The geometry was iterated to minimize friction in the gate travel path and ensure reliable disengagement at the trigger point. Tolerances on the threaded interface and guide rails were held tight to prevent misalignment under repeated cycling.
           </p>
         </div>
       </div>

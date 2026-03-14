@@ -103,4 +103,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nextBtn) nextBtn.addEventListener('click', () => { show(idx + 1); startAuto(); });
   }
 
+  /* --- MINI CAROUSELS (Duke Aero, etc.) -------------------- */
+  document.querySelectorAll('[data-carousel]').forEach(wrap => {
+    const slides = wrap.querySelectorAll('.mini-slide');
+    const prev   = wrap.querySelector('[data-prev]');
+    const next   = wrap.querySelector('[data-next]');
+    let i = 0;
+    let auto;
+
+    const go = (n) => {
+      slides.forEach(s => s.classList.remove('active'));
+      i = (n + slides.length) % slides.length;
+      slides[i].classList.add('active');
+    };
+
+    const startAuto = () => {
+      clearInterval(auto);
+      auto = setInterval(() => go(i + 1), 5000);
+    };
+
+    go(0);
+    startAuto();
+
+    if (prev) prev.addEventListener('click', () => { go(i - 1); startAuto(); });
+    if (next) next.addEventListener('click', () => { go(i + 1); startAuto(); });
+  });
+
 });

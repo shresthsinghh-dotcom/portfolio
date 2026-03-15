@@ -19,34 +19,74 @@
     .essay-card .card-link { display:inline-flex; align-items:center; gap:0.4rem; font-family:var(--f-display); font-weight:600; font-size:0.88rem; color:var(--c-accent); margin-top:1.25rem; transition:gap .25s; }
     .essay-card:hover .card-link { gap:0.7rem; }
 
-    .reading-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; }
-    .philosopher-card { background:var(--c-surface); border:1px solid var(--c-border); border-radius:var(--radius); padding:1.25rem 1.5rem; }
-    .philosopher-card h4 { font-size:1rem; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.5rem; }
-    .philosopher-card .status-dot { width:8px;height:8px;border-radius:50%;flex-shrink:0; }
-    .status-dot.read { background:var(--c-accent); } .status-dot.planned { background:var(--c-text-dim); opacity:0.4; }
-    .philosopher-card ul { list-style:none; padding:0; margin:0; }
-    .philosopher-card li { font-size:0.9rem; color:var(--c-text-dim); padding:0.2rem 0; display:flex; align-items:center; gap:0.5rem; }
-    .philosopher-card li .check { color:var(--c-accent); font-size:0.85rem; flex-shrink:0; }
-    .philosopher-card li .pending { color:var(--c-text-dim); opacity:0.35; font-size:0.85rem; flex-shrink:0; }
-
     .status-banner { background:var(--c-surface); border:1px solid var(--c-border); border-radius:var(--radius-lg); padding:2rem; text-align:center; }
     .status-banner p { color:var(--c-text-dim); margin-bottom:0.5rem; }
     .planned-tags { display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; margin-top:1rem; }
     .planned-tag { font-family:var(--f-display); font-weight:500; font-size:0.78rem; padding:0.35rem 0.8rem; border-radius:20px; background:var(--c-accent-glow); border:1px solid rgba(52,211,153,0.2); color:var(--c-accent); }
     [data-theme="light"] .planned-tag { border-color:rgba(124,92,191,0.25); }
+
+    /* === TREE === */
+    .tree-section { padding:var(--s-section) 0; overflow-x:auto; }
+    .tree { display:flex; flex-direction:column; align-items:center; gap:0; min-width:900px; padding:0 1rem; }
+    .tree-era { font-family:var(--f-display); font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--c-accent); margin:2.5rem 0 0.75rem; text-align:center; }
+    .tree-era:first-child { margin-top:0; }
+
+    .tree-row { display:flex; justify-content:center; gap:1.5rem; position:relative; flex-wrap:nowrap; }
+
+    .tree-connector { display:flex; justify-content:center; padding:0.75rem 0; }
+    .tree-connector .vline { width:1px; height:28px; background:var(--c-border); }
+
+    .tree-fan { display:flex; flex-direction:column; align-items:center; padding:0.5rem 0; }
+    .tree-fan .hline { height:1px; background:var(--c-border); }
+    .tree-fan .drops { display:flex; justify-content:space-between; }
+    .tree-fan .drop { width:1px; height:16px; background:var(--c-border); }
+
+    .p-card {
+      background:var(--c-surface);
+      border:1px solid var(--c-border);
+      border-radius:var(--radius);
+      padding:0.9rem 1.1rem;
+      min-width:130px;
+      max-width:200px;
+      text-align:center;
+      transition: transform .25s var(--ease-out), box-shadow .25s;
+      cursor:default;
+    }
+    .p-card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.2); }
+    [data-theme="light"] .p-card:hover { box-shadow:0 8px 24px rgba(100,80,160,0.1); }
+    .p-card.read { border-color:var(--c-accent); border-width:1.5px; }
+    .p-card h5 { font-family:var(--f-display); font-weight:600; font-size:0.88rem; color:var(--c-heading); margin-bottom:0.4rem; line-height:1.2; }
+    .p-card .p-era { font-family:var(--f-display); font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--c-accent); margin-bottom:0.35rem; }
+    .p-card ul { list-style:none; padding:0; margin:0; }
+    .p-card li { font-size:0.78rem; color:var(--c-text-dim); padding:0.1rem 0; display:flex; align-items:center; justify-content:center; gap:0.3rem; }
+    .p-card li .ck { color:var(--c-accent); font-size:0.75rem; }
+    .p-card li .pn { color:var(--c-text-dim); opacity:0.35; font-size:0.75rem; }
+
+    .influence-note {
+      font-family:var(--f-body);
+      font-size:0.75rem;
+      color:var(--c-text-dim);
+      opacity:0.6;
+      text-align:center;
+      margin-top:0.5rem;
+      font-style:italic;
+    }
+
+    @media (max-width:960px) {
+      .tree { min-width:unset; }
+      .tree-row { flex-wrap:wrap; justify-content:center; }
+    }
   </style>
 </head>
 <body>
 
-  <nav class="site-nav">
-    <div class="nav-inner">
-      <a href="../index.html" class="nav-logo"><span class="logo-dot"></span> Shresth Singh</a>
-      <button class="theme-toggle" aria-label="Toggle theme">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      </button>
-    </div>
-  </nav>
+  <nav class="site-nav"><div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><span class="logo-dot"></span> Shresth Singh</a>
+    <button class="theme-toggle" aria-label="Toggle theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </div></nav>
 
   <div style="padding-top:5rem;"><div class="container-main">
     <div class="breadcrumb">
@@ -95,101 +135,210 @@
     </div>
   </section>
 
-  <!-- READING LIST -->
-  <section class="section-padding">
+  <!-- PHILOSOPHICAL TREE -->
+  <section class="tree-section">
     <div class="container-main">
       <div style="text-align:center; margin-bottom:2.5rem;" class="reveal">
-        <span class="section-label" style="justify-content:center; display:flex;">Library</span>
-        <h2>Body of Philosophical Works</h2>
+        <span class="section-label" style="justify-content:center; display:flex;">Lineage</span>
+        <h2>The Philosophical Tree</h2>
         <hr class="divider divider--center">
+        <p style="color:var(--c-text-dim); max-width:600px; margin:0 auto;">Cards with an accent border mark thinkers whose works I have read. Each card contains the associated reading list.</p>
       </div>
-      <div class="reading-grid">
-        <div class="philosopher-card reveal"><h4><span class="status-dot read"></span> Heraclitus</h4><ul><li><span class="check">✓</span> Fragments</li></ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot read"></span> Parmenides</h4><ul><li><span class="check">✓</span> On Nature</li></ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot read"></span> Plato &amp; Socratic Dialogues</h4><ul>
-          <li><span class="check">✓</span> The Apology</li>
-          <li><span class="check">✓</span> Euthyphro</li>
-          <li><span class="check">✓</span> Protagoras</li>
-          <li><span class="pending">○</span> Charmides</li>
-          <li><span class="pending">○</span> Laches</li>
-          <li><span class="pending">○</span> Lysis</li>
-          <li><span class="pending">○</span> Gorgias</li>
-          <li><span class="pending">○</span> Ion</li>
-          <li><span class="pending">○</span> Crito</li>
-          <li><span class="pending">○</span> Phaedo</li>
-          <li><span class="pending">○</span> Meno</li>
-          <li><span class="pending">○</span> Symposium</li>
-          <li><span class="pending">○</span> Phaedrus</li>
-          <li><span class="pending">○</span> Cratylus</li>
-          <li><span class="pending">○</span> Theaetetus</li>
-          <li><span class="pending">○</span> The Republic</li>
-          <li><span class="pending">○</span> Timaeus</li>
-          <li><span class="pending">○</span> Critias</li>
-          <li><span class="pending">○</span> Statesman</li>
-          <li><span class="pending">○</span> Sophist</li>
-          <li><span class="pending">○</span> Philebus</li>
-          <li><span class="pending">○</span> Laws</li>
-          <li><span class="pending">○</span> Parmenides</li>
-        </ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Aristotle</h4><ul>
-          <li><span class="pending">○</span> Nicomachean Ethics</li>
-          <li><span class="pending">○</span> Politics</li>
-          <li><span class="pending">○</span> De Anima</li>
-          <li><span class="pending">○</span> Metaphysics</li>
-          <li><span class="pending">○</span> Rhetoric</li>
-        </ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Antisthenes</h4><ul>
-          <li><span class="pending">○</span> Lives of Eminent Philosophers, Book VI</li>
-        </ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Aristippus</h4><ul>
-          <li><span class="pending">○</span> Diogenes Laërtius, Book II</li>
-          <li><span class="pending">○</span> Xenophon — Memorabilia, Book II</li>
-        </ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Epicurus</h4><ul>
-          <li><span class="pending">○</span> Letter to Menoeceus</li>
-          <li><span class="pending">○</span> Principal Doctrines</li>
-        </ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Euclid &amp; Megarians</h4><ul>
-          <li><span class="pending">○</span> Lives of Eminent Philosophers, Book II</li>
-          <li><span class="pending">○</span> Memorabilia, Book II</li>
-          <li><span class="pending">○</span> The Liar Paradox</li>
-          <li><span class="pending">○</span> The Sorites (Heap) Paradox</li>
-          <li><span class="pending">○</span> Diodorus' Master Argument</li>
-        </ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Cyrenaics</h4><ul>
-          <li><span class="pending">○</span> Lives of Eminent Philosophers, Book II</li>
-        </ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Xenophon</h4><ul>
-          <li><span class="pending">○</span> Memorabilia</li>
-          <li><span class="pending">○</span> Apology of Socrates</li>
-        </ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Academy</h4><ul>
-          <li><span class="pending">○</span> De finibus bonorum et malorum, Book II</li>
-        </ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Cicero</h4><ul>
-          <li><span class="pending">○</span> De finibus bonorum et malorum</li>
-          <li><span class="pending">○</span> Academica</li>
-          <li><span class="pending">○</span> Tusculan Disputations</li>
-        </ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Zeno</h4><ul>
-          <li><span class="pending">○</span> Lives of Eminent Philosophers, Book VII</li>
-        </ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Chrysippus</h4><ul>
-          <li><span class="pending">○</span> Cicero — De finibus (Stoic books)</li>
-          <li><span class="pending">○</span> Diogenes Laërtius — Book VII</li>
-          <li><span class="pending">○</span> Sextus Empiricus — Against the Logicians</li>
-        </ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Seneca</h4><ul>
-          <li><span class="pending">○</span> Letters to Lucilius</li>
-        </ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Epictetus</h4><ul>
-          <li><span class="pending">○</span> Enchiridion</li>
-          <li><span class="pending">○</span> Discourses</li>
-        </ul></div>
-        <div class="philosopher-card reveal"><h4><span class="status-dot planned"></span> Marcus Aurelius</h4><ul>
-          <li><span class="pending">○</span> Meditations</li>
-        </ul></div>
-      </div>
+
+      <div class="tree reveal">
+
+        <!-- PRESOCRATICS -->
+        <div class="tree-era">~500 BCE · Presocratics</div>
+        <div class="tree-row">
+          <div class="p-card read">
+            <h5>Heraclitus</h5>
+            <ul><li><span class="ck">✓</span> Fragments</li></ul>
+          </div>
+          <div class="p-card read">
+            <h5>Parmenides</h5>
+            <ul><li><span class="ck">✓</span> On Nature</li></ul>
+          </div>
+        </div>
+
+        <div class="tree-connector"><div class="vline"></div></div>
+        <p class="influence-note">Both influence Socrates</p>
+
+        <!-- SOCRATES -->
+        <div class="tree-era">~470–399 BCE · The Socratic Turn</div>
+        <div class="tree-row">
+          <div class="p-card" style="border-color:var(--c-accent); border-style:dashed;">
+            <h5>Socrates</h5>
+            <ul><li style="font-style:italic; opacity:0.5;">No surviving texts</li></ul>
+          </div>
+        </div>
+
+        <div class="tree-connector"><div class="vline"></div></div>
+        <p class="influence-note">Students branch into rival schools</p>
+
+        <!-- SOCRATIC STUDENTS -->
+        <div class="tree-era">~400 BCE · Socratic Students</div>
+        <div class="tree-row">
+          <div class="p-card">
+            <h5>Antisthenes</h5>
+            <p class="p-era">Cynic founder</p>
+            <ul><li><span class="pn">○</span> Lives, Book VI</li></ul>
+          </div>
+          <div class="p-card">
+            <h5>Euclid of Megara</h5>
+            <p class="p-era">Megarian school</p>
+            <ul><li><span class="pn">○</span> Lives, Book II</li></ul>
+          </div>
+          <div class="p-card read">
+            <h5>Plato</h5>
+            <p class="p-era">Academy</p>
+            <ul>
+              <li><span class="ck">✓</span> The Apology</li>
+              <li><span class="ck">✓</span> Euthyphro</li>
+              <li><span class="ck">✓</span> Protagoras</li>
+              <li><span class="pn">○</span> Crito</li>
+              <li><span class="pn">○</span> Phaedo</li>
+              <li><span class="pn">○</span> Meno</li>
+              <li><span class="pn">○</span> Symposium</li>
+              <li><span class="pn">○</span> The Republic</li>
+              <li style="font-size:0.7rem; opacity:0.4; margin-top:0.2rem;">+ 14 more planned</li>
+            </ul>
+          </div>
+          <div class="p-card">
+            <h5>Xenophon</h5>
+            <p class="p-era">Historian</p>
+            <ul>
+              <li><span class="pn">○</span> Memorabilia</li>
+              <li><span class="pn">○</span> Apology of Socrates</li>
+            </ul>
+          </div>
+          <div class="p-card">
+            <h5>Aristippus</h5>
+            <p class="p-era">Cyrenaic founder</p>
+            <ul>
+              <li><span class="pn">○</span> Lives, Book II</li>
+              <li><span class="pn">○</span> Memorabilia, Book II</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tree-connector"><div class="vline"></div></div>
+
+        <!-- SECOND GENERATION -->
+        <div class="tree-era">~350 BCE · Second Generation</div>
+        <div class="tree-row">
+          <div class="p-card">
+            <h5>Diogenes of Sinope</h5>
+            <p class="p-era">Radical Cynic</p>
+            <ul><li style="font-style:italic; opacity:0.5;">Via Antisthenes</li></ul>
+          </div>
+          <div class="p-card">
+            <h5>Megarians</h5>
+            <p class="p-era">Logic &amp; Paradoxes</p>
+            <ul>
+              <li><span class="pn">○</span> The Liar Paradox</li>
+              <li><span class="pn">○</span> Sorites Paradox</li>
+              <li><span class="pn">○</span> Master Argument</li>
+            </ul>
+          </div>
+          <div class="p-card">
+            <h5>Aristotle</h5>
+            <p class="p-era">Via Plato</p>
+            <ul>
+              <li><span class="pn">○</span> Nicomachean Ethics</li>
+              <li><span class="pn">○</span> Politics</li>
+              <li><span class="pn">○</span> De Anima</li>
+              <li><span class="pn">○</span> Metaphysics</li>
+              <li><span class="pn">○</span> Rhetoric</li>
+            </ul>
+          </div>
+          <div class="p-card">
+            <h5>Academy</h5>
+            <p class="p-era">Skeptical turn</p>
+            <ul><li><span class="pn">○</span> De finibus, Book II</li></ul>
+          </div>
+          <div class="p-card">
+            <h5>Cyrenaics</h5>
+            <p class="p-era">Via Aristippus</p>
+            <ul><li><span class="pn">○</span> Lives, Book II</li></ul>
+          </div>
+        </div>
+
+        <div class="tree-connector"><div class="vline"></div></div>
+        <p class="influence-note">Multiple streams converge into Stoicism</p>
+
+        <!-- HELLENISTIC -->
+        <div class="tree-era">~300 BCE · Hellenistic Schools</div>
+        <div class="tree-row">
+          <div class="p-card">
+            <h5>Zeno of Citium</h5>
+            <p class="p-era">Founded Stoicism</p>
+            <ul><li><span class="pn">○</span> Lives, Book VII</li></ul>
+          </div>
+          <div class="p-card">
+            <h5>Epicurus</h5>
+            <p class="p-era">Counter-tradition</p>
+            <ul>
+              <li><span class="pn">○</span> Letter to Menoeceus</li>
+              <li><span class="pn">○</span> Principal Doctrines</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tree-connector"><div class="vline"></div></div>
+
+        <!-- SYSTEMATIZATION -->
+        <div class="tree-era">~250 BCE · Systematization</div>
+        <div class="tree-row">
+          <div class="p-card">
+            <h5>Chrysippus</h5>
+            <p class="p-era">Stoic logic</p>
+            <ul>
+              <li><span class="pn">○</span> De finibus (Stoic books)</li>
+              <li><span class="pn">○</span> Lives, Book VII</li>
+              <li><span class="pn">○</span> Against the Logicians</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tree-connector"><div class="vline"></div></div>
+
+        <!-- TRANSMISSION -->
+        <div class="tree-era">~100 BCE · Transmission to Rome</div>
+        <div class="tree-row">
+          <div class="p-card">
+            <h5>Cicero</h5>
+            <p class="p-era">Roman transmitter</p>
+            <ul>
+              <li><span class="pn">○</span> De finibus</li>
+              <li><span class="pn">○</span> Academica</li>
+              <li><span class="pn">○</span> Tusculan Disputations</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tree-connector"><div class="vline"></div></div>
+
+        <!-- ROMAN STOICS -->
+        <div class="tree-era">~50–180 CE · Roman Stoicism</div>
+        <div class="tree-row">
+          <div class="p-card">
+            <h5>Seneca</h5>
+            <ul><li><span class="pn">○</span> Letters to Lucilius</li></ul>
+          </div>
+          <div class="p-card">
+            <h5>Epictetus</h5>
+            <ul>
+              <li><span class="pn">○</span> Enchiridion</li>
+              <li><span class="pn">○</span> Discourses</li>
+            </ul>
+          </div>
+          <div class="p-card">
+            <h5>Marcus Aurelius</h5>
+            <ul><li><span class="pn">○</span> Meditations</li></ul>
+          </div>
+        </div>
+
+      </div><!-- /tree -->
     </div>
   </section>
 

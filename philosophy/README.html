@@ -51,10 +51,36 @@
       text-align:center;
       transition: transform .25s var(--ease-out), box-shadow .25s;
       cursor:default;
+      position:relative;
     }
-    .p-card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.2); }
-    [data-theme="light"] .p-card:hover { box-shadow:0 8px 24px rgba(100,80,160,0.1); }
+    .p-card:hover { transform:translateY(-2px); box-shadow:0 4px 20px var(--c-accent-glow), 0 8px 30px rgba(0,0,0,0.15); }
+    [data-theme="light"] .p-card:hover { box-shadow:0 4px 20px var(--c-accent-glow), 0 8px 30px rgba(100,80,160,0.08); }
     .p-card.read { border-color:var(--c-accent); border-width:1.5px; }
+
+    /* Linked cards */
+    a.p-card-link { text-decoration:none; display:block; cursor:pointer; }
+    a.p-card-link .p-card { cursor:pointer; }
+    a.p-card-link:hover .p-card { border-color:var(--c-accent); }
+
+    /* Tooltip for unlinked cards */
+    .p-card[data-tooltip]:hover::after {
+      content:attr(data-tooltip);
+      position:absolute;
+      bottom:calc(100% + 8px);
+      left:50%;
+      transform:translateX(-50%);
+      font-family:var(--f-display);
+      font-size:0.72rem;
+      font-weight:500;
+      color:var(--c-heading);
+      background:var(--c-surface-2);
+      border:1px solid var(--c-border);
+      padding:0.3rem 0.7rem;
+      border-radius:6px;
+      white-space:nowrap;
+      z-index:10;
+      pointer-events:none;
+    }
     .p-card h5 { font-family:var(--f-display); font-weight:600; font-size:0.88rem; color:var(--c-heading); margin-bottom:0.4rem; line-height:1.2; }
     .p-card .p-era { font-family:var(--f-display); font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--c-accent); margin-bottom:0.35rem; }
     .p-card ul { list-style:none; padding:0; margin:0; }
@@ -111,30 +137,6 @@
     </div>
   </section>
 
-  <!-- ESSAYS -->
-  <section style="padding:var(--s-section) 0; background:var(--c-bg-alt); border-top:1px solid var(--c-border); border-bottom:1px solid var(--c-border);">
-    <div class="container-main">
-      <div style="text-align:center; margin-bottom:2.5rem;" class="reveal">
-        <span class="section-label" style="justify-content:center; display:flex;">Essays</span>
-        <h2>Writings &amp; Interpretations</h2>
-      </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:1.5rem;">
-        <a href="presocratics.html" class="essay-card reveal">
-          <span class="era-tag">~500 BCE</span>
-          <h3>The Presocratic Generation</h3>
-          <p>An exploration of the earliest attempts to explain reality — through Heraclitus' Logos and Parmenides' Being — and the fundamental conflict between change and permanence.</p>
-          <span class="card-link">Read essay &rarr;</span>
-        </a>
-        <a href="socratic-dialogues.html" class="essay-card reveal reveal-delay-1">
-          <span class="era-tag">~400–350 BCE</span>
-          <h3>Socratic Dialogues</h3>
-          <p>The transition from metaphysical speculation to explicit ethical questioning — through Socrates' trial, the Euthyphro dilemma, and the revolutionary method of dialectic inquiry.</p>
-          <span class="card-link">Read essay &rarr;</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- PHILOSOPHICAL TREE -->
   <section class="tree-section">
     <div class="container-main">
@@ -142,7 +144,7 @@
         <span class="section-label" style="justify-content:center; display:flex;">Lineage</span>
         <h2>The Philosophical Tree</h2>
         <hr class="divider divider--center">
-        <p style="color:var(--c-text-dim); max-width:600px; margin:0 auto;">Cards with an accent border mark thinkers whose works I have read. Each card contains the associated reading list.</p>
+        <p style="color:var(--c-text-dim); max-width:600px; margin:0 auto;">Cards with an accent border mark thinkers whose works I have read. Click any card to read the associated essay — those still in progress will say so.</p>
       </div>
 
       <div class="tree reveal">
@@ -150,14 +152,14 @@
         <!-- PRESOCRATICS -->
         <div class="tree-era">~500 BCE · Presocratics</div>
         <div class="tree-row">
-          <div class="p-card read">
+          <a href="presocratics.html" class="p-card-link"><div class="p-card read">
             <h5>Heraclitus</h5>
             <ul><li><span class="ck">✓</span> Fragments</li></ul>
-          </div>
-          <div class="p-card read">
+          </div></a>
+          <a href="presocratics.html" class="p-card-link"><div class="p-card read">
             <h5>Parmenides</h5>
             <ul><li><span class="ck">✓</span> On Nature</li></ul>
-          </div>
+          </div></a>
         </div>
 
         <div class="tree-connector"><div class="vline"></div></div>
@@ -166,10 +168,10 @@
         <!-- SOCRATES -->
         <div class="tree-era">~470–399 BCE · The Socratic Turn</div>
         <div class="tree-row">
-          <div class="p-card" style="border-color:var(--c-accent); border-style:dashed;">
+          <a href="socratic-dialogues.html" class="p-card-link"><div class="p-card" style="border-color:var(--c-accent); border-style:dashed;">
             <h5>Socrates</h5>
             <ul><li style="font-style:italic; opacity:0.5;">No surviving texts</li></ul>
-          </div>
+          </div></a>
         </div>
 
         <div class="tree-connector"><div class="vline"></div></div>
@@ -178,17 +180,17 @@
         <!-- SOCRATIC STUDENTS -->
         <div class="tree-era">~400 BCE · Socratic Students</div>
         <div class="tree-row">
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Antisthenes</h5>
             <p class="p-era">Cynic founder</p>
             <ul><li><span class="pn">○</span> Lives, Book VI</li></ul>
           </div>
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Euclid of Megara</h5>
             <p class="p-era">Megarian school</p>
             <ul><li><span class="pn">○</span> Lives, Book II</li></ul>
           </div>
-          <div class="p-card read">
+          <a href="socratic-dialogues.html" class="p-card-link"><div class="p-card read">
             <h5>Plato</h5>
             <p class="p-era">Academy</p>
             <ul>
@@ -202,8 +204,8 @@
               <li><span class="pn">○</span> The Republic</li>
               <li style="font-size:0.7rem; opacity:0.4; margin-top:0.2rem;">+ 14 more planned</li>
             </ul>
-          </div>
-          <div class="p-card">
+          </div></a>
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Xenophon</h5>
             <p class="p-era">Historian</p>
             <ul>
@@ -211,7 +213,7 @@
               <li><span class="pn">○</span> Apology of Socrates</li>
             </ul>
           </div>
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Aristippus</h5>
             <p class="p-era">Cyrenaic founder</p>
             <ul>
@@ -226,12 +228,12 @@
         <!-- SECOND GENERATION -->
         <div class="tree-era">~350 BCE · Second Generation</div>
         <div class="tree-row">
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Diogenes of Sinope</h5>
             <p class="p-era">Radical Cynic</p>
             <ul><li style="font-style:italic; opacity:0.5;">Via Antisthenes</li></ul>
           </div>
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Megarians</h5>
             <p class="p-era">Logic &amp; Paradoxes</p>
             <ul>
@@ -240,7 +242,7 @@
               <li><span class="pn">○</span> Master Argument</li>
             </ul>
           </div>
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Aristotle</h5>
             <p class="p-era">Via Plato</p>
             <ul>
@@ -251,12 +253,12 @@
               <li><span class="pn">○</span> Rhetoric</li>
             </ul>
           </div>
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Academy</h5>
             <p class="p-era">Skeptical turn</p>
             <ul><li><span class="pn">○</span> De finibus, Book II</li></ul>
           </div>
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Cyrenaics</h5>
             <p class="p-era">Via Aristippus</p>
             <ul><li><span class="pn">○</span> Lives, Book II</li></ul>
@@ -269,12 +271,12 @@
         <!-- HELLENISTIC -->
         <div class="tree-era">~300 BCE · Hellenistic Schools</div>
         <div class="tree-row">
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Zeno of Citium</h5>
             <p class="p-era">Founded Stoicism</p>
             <ul><li><span class="pn">○</span> Lives, Book VII</li></ul>
           </div>
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Epicurus</h5>
             <p class="p-era">Counter-tradition</p>
             <ul>
@@ -289,7 +291,7 @@
         <!-- SYSTEMATIZATION -->
         <div class="tree-era">~250 BCE · Systematization</div>
         <div class="tree-row">
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Chrysippus</h5>
             <p class="p-era">Stoic logic</p>
             <ul>
@@ -305,7 +307,7 @@
         <!-- TRANSMISSION -->
         <div class="tree-era">~100 BCE · Transmission to Rome</div>
         <div class="tree-row">
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Cicero</h5>
             <p class="p-era">Roman transmitter</p>
             <ul>
@@ -321,18 +323,18 @@
         <!-- ROMAN STOICS -->
         <div class="tree-era">~50–180 CE · Roman Stoicism</div>
         <div class="tree-row">
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Seneca</h5>
             <ul><li><span class="pn">○</span> Letters to Lucilius</li></ul>
           </div>
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Epictetus</h5>
             <ul>
               <li><span class="pn">○</span> Enchiridion</li>
               <li><span class="pn">○</span> Discourses</li>
             </ul>
           </div>
-          <div class="p-card">
+          <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Marcus Aurelius</h5>
             <ul><li><span class="pn">○</span> Meditations</li></ul>
           </div>

@@ -97,6 +97,35 @@
         <div style="order: 2;">
           <div class="mini-carousel" data-carousel>
             <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 2/1; border: 1px solid var(--c-border); background: var(--c-surface);">
+              <img src="Rocket_Nose_Cone.png" class="mini-slide active" alt="Forged component top" loading="lazy">
+              <img src="Equivalent_Stress.png" class="mini-slide" alt="Forged component bottom" loading="lazy">'
+              <img src="Equivalent_Elastic_Strain.png" class="mini-slide active" alt="Forged component top" loading="lazy">
+              <img src="Total_Deformation.png" class="mini-slide" alt="Forged component bottom" loading="lazy">'
+              <div style="position:absolute; bottom:1rem; right:1rem; display:flex; gap:0.4rem; z-index:5;">
+                <button class="carousel-btn" data-prev aria-label="Previous">&#8249;</button>
+                <button class="carousel-btn" data-next aria-label="Next">&#8250;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="order: 1;">
+          <span class="section-label">Nose Cone Simulation</span>
+          <h3 style="margin-bottom: 1rem;">Finite Element Analysis</h3>
+          <hr class="divider">
+          <p style="color: var(--c-text-dim);">
+            Before constructing the nose cone, I had to ensure that its shape would actually hold up to the stresses of supersonic flight. Thus, I took the CAD file and uploaded it to ANSYS workbench, assigned its various components the right materials, and conducted a number of important finite element analyses for stress and deformation.
+          </p>
+          <p style="color: var(--c-text-dim);">
+            Note that the first image is the cone itself; the tip is 6061 arospace-grade aluminum with high strength-to-weight ratios. The rest of the cone is woven carbon fiber. The images show the equivalent stress, equivalent elastic strain, and total deformation under the applied load. 
+          </p>
+        </div>
+      </div>
+
+      <!-- MIDDLE: Forged Parts — image RIGHT -->
+      <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; padding: var(--s-section) 0; border-bottom: 1px solid var(--c-border);">
+        <div style="order: 2;">
+          <div class="mini-carousel" data-carousel>
+            <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 2/1; border: 1px solid var(--c-border); background: var(--c-surface);">
               <img src="images/Forged.png" class="mini-slide active" alt="Forged component top" loading="lazy">
               <img src="images/Forged2.png" class="mini-slide" alt="Forged component bottom" loading="lazy">
               <div style="position:absolute; bottom:1rem; right:1rem; display:flex; gap:0.4rem; z-index:5;">

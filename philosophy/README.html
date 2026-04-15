@@ -102,6 +102,36 @@
       .tree { min-width:unset; }
       .tree-row { flex-wrap:wrap; justify-content:center; }
     }
+
+    .progress-tracker {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin: 0 auto 2.5rem;
+      max-width: 800px;
+      padding: 1.25rem;
+      background: var(--c-surface);
+      border-radius: var(--radius);
+      border: 1px solid rgba(var(--c-accent-rgb, 150,100,255), 0.15);
+    }
+    .progress-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .progress-item .p-label {
+      font-family: var(--f-display);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--c-accent);
+    }
+    .progress-item .p-value {
+      font-size: 0.92rem;
+      color: var(--c-text);
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -137,6 +167,30 @@
     </div>
   </section>
 
+  <!-- PROGRESS TRACKER -->
+  <section style="padding:0 0 var(--s-section);">
+    <div class="container-main">
+      <div class="reveal progress-tracker">
+        <div class="progress-item">
+          <span class="p-label">Currently Reading</span>
+          <span class="p-value">Charmides</span>
+        </div>
+        <div class="progress-item">
+          <span class="p-label">Currently Interpreting</span>
+          <span class="p-value">Protagoras</span>
+        </div>
+        <div class="progress-item">
+          <span class="p-label">Currently Writing About</span>
+          <span class="p-value">Euthyphro</span>
+        </div>
+        <div class="progress-item">
+          <span class="p-label">Currently Revising</span>
+          <span class="p-value">The Apology</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PHILOSOPHICAL TREE -->
   <section class="tree-section">
     <div class="container-main">
@@ -156,7 +210,7 @@
             <h5>Heraclitus</h5>
             <ul><li><span class="ck">✓</span> Fragments</li></ul>
           </div></a>
-          <a href="presocratics.html" class="p-card-link"><div class="p-card read">
+          <a href="presocratics.html#parmenides" class="p-card-link"><div class="p-card read">
             <h5>Parmenides</h5>
             <ul><li><span class="ck">✓</span> On Nature</li></ul>
           </div></a>

@@ -10,8 +10,7 @@
     .breadcrumb a { color:var(--c-text-dim); text-decoration:none; } .breadcrumb a:hover { color:var(--c-accent); }
     .breadcrumb .sep { opacity:0.4; }
 
-    .essay-body { max-width:760px; margin:0 auto; }
-    .essay-body h2 { margin-top:3rem; margin-bottom:1rem; color:var(--c-accent); font-size:clamp(1.4rem,2.5vw,1.8rem); }
+    .essay-body { max-width:960px; margin:0 auto; }
     .essay-body h3 { margin-top:2.5rem; margin-bottom:0.8rem; font-size:clamp(1.1rem,2vw,1.4rem); }
     .essay-body p { color:var(--c-text-dim); line-height:1.85; margin-bottom:1.25rem; }
     .essay-body .prose { color:var(--c-text); }
@@ -20,7 +19,7 @@
       border-left:3px solid var(--c-accent);
       padding:0.8rem 1.25rem;
       margin:1rem 0;
-      background:var(--c-surface);
+      background:var(--c-bg);
       border-radius:0 var(--radius) var(--radius) 0;
     }
     .fragment .fnum {
@@ -40,6 +39,73 @@
       background:linear-gradient(90deg,var(--c-accent),transparent);
       border:none;
       margin:3rem 0;
+    }
+
+    /* --- COLLAPSIBLE SECTIONS --- */
+    .essay-section {
+      border:1px solid var(--c-border);
+      border-radius:var(--radius-lg);
+      margin-bottom:1.25rem;
+      background:var(--c-surface);
+      overflow:hidden;
+      transition:box-shadow .3s;
+    }
+    .essay-section:hover {
+      box-shadow:0 4px 20px var(--c-accent-glow);
+    }
+    .essay-section[open] {
+      box-shadow:0 4px 20px var(--c-accent-glow);
+    }
+    .essay-section summary {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1.25rem 1.5rem;
+      cursor:pointer;
+      font-family:var(--f-display);
+      font-weight:600;
+      font-size:clamp(1.1rem,2vw,1.35rem);
+      color:var(--c-heading);
+      list-style:none;
+      transition:background .25s;
+      user-select:none;
+    }
+    .essay-section summary::-webkit-details-marker { display:none; }
+    .essay-section summary::after {
+      content:'＋';
+      font-size:1.2rem;
+      color:var(--c-accent);
+      transition:transform .3s var(--ease-out);
+      flex-shrink:0;
+      margin-left:1rem;
+    }
+    .essay-section[open] summary::after {
+      content:'−';
+    }
+    .essay-section summary:hover {
+      background:rgba(255,255,255,0.03);
+    }
+    [data-theme="light"] .essay-section summary:hover {
+      background:rgba(100,80,160,0.04);
+    }
+    .essay-section summary .era-hint {
+      font-family:var(--f-display);
+      font-size:0.68rem;
+      font-weight:600;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+      color:var(--c-accent);
+      background:var(--c-accent-glow);
+      padding:0.2rem 0.55rem;
+      border-radius:4px;
+      margin-right:0.75rem;
+      flex-shrink:0;
+    }
+    .essay-section .section-content {
+      padding:0 1.5rem 1.5rem;
+    }
+    .essay-section .section-content h3 {
+      margin-top:2rem;
     }
   </style>
 </head>
@@ -66,261 +132,235 @@
       <div class="essay-body">
 
         <div class="reveal" style="text-align:center; margin-bottom:3rem;">
-          <span class="section-label" style="justify-content:center; display:flex;">~500 BCE</span>
+          <span class="section-label" style="justify-content:center; display:flex;">~630 BCE</span>
           <h1 style="margin-bottom:0.75rem;">The Presocratic Generation</h1>
           <p style="color:var(--c-text-dim); font-size:0.95rem;">Foundations of Western Thought</p>
           <hr class="divider divider--center">
+          <p style="color:var(--c-text-dim); font-size:0.95rem; max-width:600px; margin:0 auto;">Everything has a beginning. Or does it? Existentialist questions like this were the primary subject of inquiry for the presocratic generation. Over 2600 years ago, the first recorded thinker established the first real school of thought. It is here our journey begins.</p>
         </div>
 
-        <!-- MILESIAN SCHOOL -->
-        <div class="reveal">
-          <h2 id="milesian-school">The Milesian School</h2>
-          <p class="prose">	Everything has a beginning. Or does it? Existentialist questions like this were the primary subject of inquiry for the presocratic generation. Over 2600 years ago, the first recorded thinker established the first real school of thought. It is here our journey begins. </p>
+        <div class="reveal" style="display:flex; justify-content:flex-end; margin-bottom:1rem;">
+          <button id="toggleAll" onclick="toggleAllSections()" style="
+            font-family:var(--f-display);
+            font-weight:600;
+            font-size:0.8rem;
+            letter-spacing:0.06em;
+            padding:0.5rem 1.2rem;
+            border-radius:8px;
+            border:1px solid var(--c-border);
+            background:var(--c-surface);
+            color:var(--c-accent);
+            cursor:pointer;
+            transition:background .25s, border-color .25s;
+          ">Expand All</button>
         </div>
 
-        <hr class="section-divider">
-
-       <!-- THALES -->
-        <div class="reveal">
-          <h2 id="thales">Thales of Miletus</h2>
-          <div style="overflow:hidden; margin-bottom:1rem;">
-            <img src="../images/thales.png" alt="Bust of Thales of Miletus" loading="lazy" style="float:right; width:180px; margin:0 0 1rem 1.5rem; border-radius:var(--radius); opacity:0.85;">
-            <p class="prose">~624–546 BCE · Very little is known about Thales of Miletus. He is unanimously regarded, however, as the first real philosopher, as we imagine them in the western world. A deeply intelligent mathematician and orator, he made his fortune leveraging his knowledge and the connections he made in the local government as a result of said knowledge. No works of his survive today; in fact almost all we know of him is as a result of Aristotle's works and historians like Diogenes Laertius. We are left with but four snippets: </p>
+        <!-- THALES (open by default) -->
+        <details class="essay-section reveal" open>
+          <summary><span class="era-hint">~624 BCE</span> Thales</summary>
+          <div class="section-content">
+            <div style="overflow:hidden; margin-bottom:1rem;">
+              <img src="../images/thales.png" alt="Bust of Thales of Miletus" loading="lazy" style="float:right; width:180px; margin:0 0 1rem 1.5rem; border-radius:var(--radius); opacity:0.85;">
+              <p class="prose">~624–546 BCE · Very little is known about Thales of Miletus. He is unanimously regarded, however, as the first real philosopher, as we imagine them in the western world. A deeply intelligent mathematician and orator, he made his fortune leveraging his knowledge and the connections he made in the local government as a result of said knowledge. No works of his survive today; in fact almost all we know of him is as a result of Aristotle's works and historians like Diogenes Laertius. We are left with but four snippets:</p>
+            </div>
+            <div class="fragment"><span class="fnum">Fragment 1</span><p>The World derives from <strong>water</strong>.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 2</span><p>The World rests on <strong>water</strong>.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 3</span><p>The world is full of <strong>gods</strong>.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 4</span><p><strong>Soul</strong> produces motion.</p></div>
+            <p class="prose">Thales' belief in the universal property of water was justified through the fact that life cannot exist without it. He believed that everything was of water, came of water, and would return to water. It was the contemporary claim to assert the earth did not plummet because it was buoyant, floating upon water. Naturally, if everything is of water, then its divine nature cannot be denied. Thus, it makes sense that Thales claimed the world was full of gods, for it was composed of the divine. The last fragment appears to reference the Milesian idea that motion was proof of life, and thus the soul was the source of motion. Thales was foundational in the study of cosmology, and his teachings would lay the groundwork for the future generations of philosophers.</p>
           </div>
-          <div class="fragment"><span class="fnum">Fragment 1</span><p>The World derives from <strong>water</strong>.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 2</span><p>The World rests on <strong>water</strong>.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 3</span><p>The world is full of <strong>gods</strong>.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 4</span><p><strong>Soul</strong> produces motion.</p></div>
-          <p class="prose"> Thales' belief in the universal property of water was justified through the fact that life cannot exist without it. He believed that everything was of water, came of water, and would return to water. It was the contemporary claim to assert the earth did not plummet because it was buoyant, floating upon water. Naturally, if everything is of water, then its divine nature cannot be denied. Thus, it makes sense that Thales claimed the world was full of gods, for it was composed of the divine. The last fragment appears to reference the Milesian idea that motion was proof of life, and thus the soul was the source of motion. Thales was foundational in the study of cosmology, and his teachings would lay the groundwork for the future generations of philosophers.</p>
-        </div>
+        </details>
 
-        <hr class="section-divider">
-
-       <!-- ANAXIMANDER -->
-        <div class="reveal">
-          <h2 id="anaximander">Anaximander</h2>
-          <div style="overflow:hidden; margin-bottom:1rem;">
-            <img src="../images/Anaximander.png" alt="Anaximander, detail from The School of Athens" loading="lazy" style="float:left; width:140px; margin:0.2rem 1.5rem 1rem 0; border-radius:var(--radius); opacity:0.85;">
-            <p class="prose">~610–546 BCE · Even less is known about Anaximander of Miletus. He was either a student or an associate of Thales, and is credited with drawing one of the first maps of the world. Unlike Thales, who believed in a world made of water, Anaximander posits that the universe in its entirety was composed of "the infinite" (apeiron).</p>
-            <p class="prose">Anaximander furthered the development of early cosmology, mathematics, geography, and philosophy. He proposed an early theory of evolution, noting that man would not have survived as he is today, without having come from a different form of life. Though much of his thought was superseded, his contributions to the understanding of the universe remain significant.</p>
+        <!-- ANAXIMANDER -->
+        <details class="essay-section reveal">
+          <summary><span class="era-hint">~610 BCE</span> Anaximander</summary>
+          <div class="section-content">
+            <div style="overflow:hidden; margin-bottom:1rem;">
+              <img src="../images/Anaximander.png" alt="Anaximander, detail from The School of Athens" loading="lazy" style="float:left; width:140px; margin:0.2rem 1.5rem 1rem 0; border-radius:var(--radius); opacity:0.85;">
+              <p class="prose">~610–546 BCE · Even less is known about Anaximander of Miletus. He was either a student or an associate of Thales, and is credited with drawing one of the first maps of the world. Unlike Thales, who believed in a world made of water, Anaximander posits that the universe in its entirety was composed of "the infinite" (apeiron).</p>
+              <p class="prose">Anaximander furthered the development of early cosmology, mathematics, geography, and philosophy. He proposed an early theory of evolution, noting that man would not have survived as he is today, without having come from a different form of life. Though much of his thought was superseded, his contributions to the understanding of the universe remain significant.</p>
+            </div>
+            <figure style="text-align:center; margin:1.5rem 0;">
+              <img src="../images/world_map.webp" alt="Ancient world map showing Europe, Asia, and Libya" loading="lazy" style="width:100%; max-width:280px; border-radius:var(--radius); opacity:0.8; display:inline-block;">
+              <figcaption style="color:var(--c-text-dim); font-size:0.8rem; font-style:italic; margin-top:0.5rem;">Anaximander's map of the world.</figcaption>
+            </figure>
           </div>
-          <figure style="text-align:center; margin:1.5rem 0;">
-            <img src="../images/world_map.webp" alt="Ancient world map showing Europe, Asia, and Libya" loading="lazy" style="width:100%; max-width:280px; border-radius:var(--radius); opacity:0.8; display:inline-block;">
-            <figcaption style="color:var(--c-text-dim); font-size:0.8rem; font-style:italic; margin-top:0.5rem;">Anaximander's map of the world.</figcaption>
-          </figure>
-        </div>
+        </details>
 
-        <hr class="section-divider">
-
-<!-- ANAXIMENES -->
-        <div class="reveal">
-          <h2 id="anaximenes">Anaximenes</h2>
-          <div style="overflow:hidden;">
-            <img src="../images/anaximenes.png" alt="Engraving of Anaximenes of Miletus" loading="lazy" style="float:right; width:160px; margin:0.2rem 0 1rem 1.5rem; border-radius:var(--radius); opacity:0.85;">
-            <p class="prose">~546 BCE · The third of Miletus' great thinkers, Anaximenes was a student of Anaximander and threw his own hat into the ring of earthly creation. He combined the ideas of his predecessors to posit that air was the fundamental principle of the universe. In its standard distribution, air is what makes up the atmosphere, and what we traditionally think of it as. However, he also believed that when made denser and denser, "aer" would condense into mist, then into water, and ultimately into earth and stones. If it was rarefied, it would become fire. This theory, although not directly relevant in its impact upon the world today, was important in Anaximenes' real impact: the idea that known natural processes such as condensation and rarefaction could explain the transformations of matter.</p>
+        <!-- ANAXIMENES -->
+        <details class="essay-section reveal">
+          <summary><span class="era-hint">~546 BCE</span> Anaximenes</summary>
+          <div class="section-content">
+            <div style="overflow:hidden;">
+              <img src="../images/anaximenes.png" alt="Engraving of Anaximenes of Miletus" loading="lazy" style="float:right; width:160px; margin:0.2rem 0 1rem 1.5rem; border-radius:var(--radius); opacity:0.85;">
+              <p class="prose">~546 BCE · The third of Miletus' great thinkers, Anaximenes was a student of Anaximander and threw his own hat into the ring of earthly creation. He combined the ideas of his predecessors to posit that air was the fundamental principle of the universe. In its standard distribution, air is what makes up the atmosphere, and what we traditionally think of it as. However, he also believed that when made denser and denser, "aer" would condense into mist, then into water, and ultimately into earth and stones. If it was rarefied, it would become fire. This theory, although not directly relevant in its impact upon the world today, was important in Anaximenes' real impact: the idea that known natural processes such as condensation and rarefaction could explain the transformations of matter.</p>
+            </div>
           </div>
-        </div>
+        </details>
 
         <!-- PYTHAGORAS -->
-        <div class="reveal">
-          <h2 id="pythagoras">Pythagoras</h2>
-          <div style="overflow:hidden;">
-            <img src="../images/pythagoras.png" alt="Painting of Pythagoras holding a geometric solid" loading="lazy" style="float:left; width:180px; margin:0.2rem 1.5rem 1rem 0; border-radius:var(--radius); opacity:0.85;">
-            <p class="prose">~571–497 BCE · Although little is known of Pythagoras, he is widely considered the first true mathematician in the Western tradition. It is widely believed that although he wrote nothing himself, he was instrumental in establishing the Pythagorean school of thought. As a result, it is hard to distinguish his own ideas from those of his followers. Nevertheless, it is important to understand the basic principles of Pythagoreanism, as it provides an important basis for Sophist philosophy, coloring the backdrop that Socrates so famously stood against.</p>
-            <p class="prose">Even Pythagorean ideas were not without controversy, and even their contents are debated today. However, a few key concepts emerge upon further study. The primary belief is that numbers are in everything, and thus, numbers are elevated to a holy status. Everything, from music, to reality itself, is in its essence mathematical. Therefore, understanding numbers is to understand the fundamental nature of the universe. Philosophy was also thought to be a form of spiritual purification, which is why Pythagoras and the Pythagoreans pursued a life of simplicity and virtue. Other mathematical concepts were also especially notable to them, like the Pythagorean theorem.</p>
+        <details class="essay-section reveal">
+          <summary><span class="era-hint">~571 BCE</span> Pythagoras</summary>
+          <div class="section-content">
+            <div style="overflow:hidden;">
+              <img src="../images/pythagoras.png" alt="Painting of Pythagoras holding a geometric solid" loading="lazy" style="float:left; width:180px; margin:0.2rem 1.5rem 1rem 0; border-radius:var(--radius); opacity:0.85;">
+              <p class="prose">~571–497 BCE · Although little is known of Pythagoras, he is widely considered the first true mathematician in the Western tradition. It is widely believed that although he wrote nothing himself, he was instrumental in establishing the Pythagorean school of thought. As a result, it is hard to distinguish his own ideas from those of his followers. Nevertheless, it is important to understand the basic principles of Pythagoreanism, as it provides an important basis for Sophist philosophy, coloring the backdrop that Socrates so famously stood against.</p>
+              <p class="prose">Even Pythagorean ideas were not without controversy, and even their contents are debated today. However, a few key concepts emerge upon further study. The primary belief is that numbers are in everything, and thus, numbers are elevated to a holy status. Everything, from music, to reality itself, is in its essence mathematical. Therefore, understanding numbers is to understand the fundamental nature of the universe. Philosophy was also thought to be a form of spiritual purification, which is why Pythagoras and the Pythagoreans pursued a life of simplicity and virtue. Other mathematical concepts were also especially notable to them, like the Pythagorean theorem.</p>
+            </div>
+            <p class="prose">Pythagorean thought was more than a mathematical framework; it was literally a way of life, and its teachings regarded as religious doctrine. Though it was controversial, and scoffed at by philosophers like Heraclitus, it was influential and remains today one of the first attempts to implement philosophy into life.</p>
           </div>
-          <p class="prose">Pythagorean thought was more than a mathematical framework; it was literally a way of life, and its teachings regarded as religious doctrine. Though it was controversial, and scoffed at by philosophers like Heraclitus, it was influential and remains today one of the first attempts to implement philosophy into life.</p>
-        </div>
-
-        <hr class="section-divider">
+        </details>
 
         <!-- XENOPHANES -->
-        <div class="reveal">
-          <h2 id="xenophanes">Xenophanes</h2>
-          <p class="prose">~570–478 BCE · Essay coming soon</p>
-        </div>
-
-        <hr class="section-divider">
+        <details class="essay-section reveal">
+          <summary><span class="era-hint">~570 BCE</span> Xenophanes</summary>
+          <div class="section-content">
+            <p style="color:var(--c-text-dim); font-size:0.9rem; font-style:italic;">~570–478 BCE · Essay coming soon</p>
+          </div>
+        </details>
 
         <!-- HERACLITUS -->
-        <div class="reveal">
-          <h2 id="heraclitus">Fragments of Heraclitus</h2>
-          <p class="prose">Heraclitus wrote only one recorded work, and the fragments of it are only what remains. Though translations already exist, I decided to write these fragments down into even more condensed, layman sentences.</p>
-          <p>There are a few broad concepts covered in the work. I found it beneficial to group these fragmented concepts together, telling a more coherent story.</p>
-        </div>
+        <details class="essay-section reveal">
+          <summary><span class="era-hint">~540 BCE</span> Fragments of Heraclitus</summary>
+          <div class="section-content">
+            <p class="prose">Heraclitus wrote only one recorded work, and the fragments of it are only what remains. Though translations already exist, I decided to write these fragments down into even more condensed, layman sentences.</p>
+            <p>There are a few broad concepts covered in the work. I found it beneficial to group these fragmented concepts together, telling a more coherent story.</p>
 
-        <div class="reveal">
-          <h3>Logos</h3>
-          <p>Heraclitus served as a contrast to the idea of metaphysics; believing that the only law this universe was governed by was its lawlessness. Everything was in flux, without stasis, and this idea is Panta Rhei. The following sections first describe his belief of Logos.</p>
+            <h3>Logos</h3>
+            <p>Heraclitus served as a contrast to the idea of metaphysics; believing that the only law this universe was governed by was its lawlessness. Everything was in flux, without stasis, and this idea is Panta Rhei. The following sections first describe his belief of Logos.</p>
+            <div class="fragment"><span class="fnum">Fragment 1</span><p>We know what it means to be <strong>better</strong>, and yet we choose not to, for this is what it means to be human: to be <strong>capable</strong> of higher thought and limited only in <strong>action</strong>.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 2</span><p>We think we are all our own genius; the ubiquitous truth is the <strong>only</strong> reality.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 7</span><p>Everything is of <strong>Logos</strong>, and thus has essence. If everything changed and burned, their essence would still be distinguished by our nostrils.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 50</span><p><strong>One</strong> truth, Logos, exists. There isn't anything more to Heraclitus.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 52</span><p>Time builds and burns; it is <strong>unfeeling</strong> to you as a child to sandcastles.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 64</span><p>The thunderbolt, as in Zeus, as in Logos, runs in <strong>all</strong> things.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 84</span><p>Stasis is the <strong>death</strong> of life; true stability is found in dynamic existence.</p></div>
+            <div class="fragment"><span class="fnum">Fragments 90–91</span><p>The universe is <strong>fire</strong>, it gives and takes, it advances and retires.</p></div>
+            <div class="fragment"><span class="fnum">Fragments 92–94</span><p>Truth is rarely apparent, and truth is the divine order to which <strong>everything</strong> yields.</p></div>
+            <div class="fragment"><span class="fnum">Fragments 124–126</span><p>What looks to be disordered trash to man is the true cyclical <strong>beauty</strong> of the universe.</p></div>
 
-          <div class="fragment"><span class="fnum">Fragment 1</span><p>We know what it means to be <strong>better</strong>, and yet we choose not to, for this is what it means to be human: to be <strong>capable</strong> of higher thought and limited only in <strong>action</strong>.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 2</span><p>We think we are all our own genius; the ubiquitous truth is the <strong>only</strong> reality.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 7</span><p>Everything is of <strong>Logos</strong>, and thus has essence. If everything changed and burned, their essence would still be distinguished by our nostrils.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 50</span><p><strong>One</strong> truth, Logos, exists. There isn't anything more to Heraclitus.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 52</span><p>Time builds and burns; it is <strong>unfeeling</strong> to you as a child to sandcastles.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 64</span><p>The thunderbolt, as in Zeus, as in Logos, runs in <strong>all</strong> things.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 84</span><p>Stasis is the <strong>death</strong> of life; true stability is found in dynamic existence.</p></div>
-          <div class="fragment"><span class="fnum">Fragments 90–91</span><p>The universe is <strong>fire</strong>, it gives and takes, it advances and retires.</p></div>
-          <div class="fragment"><span class="fnum">Fragments 92–94</span><p>Truth is rarely apparent, and truth is the divine order to which <strong>everything</strong> yields.</p></div>
-          <div class="fragment"><span class="fnum">Fragments 124–126</span><p>What looks to be disordered trash to man is the true cyclical <strong>beauty</strong> of the universe.</p></div>
-        </div>
+            <h3>The Unity of Opposites</h3>
+            <p>Logos, as described by Heraclitus, was universal, ubiquitous, and ever changing. Thus, life was also universally in flux. That which is in constant change cannot possibly have an "opposite." This is where the fragments once again dismiss a common idea in society: opposites.</p>
+            <div class="fragment"><span class="fnum">Fragment 10</span><p>Opposites are parts of a <strong>larger</strong> whole (Logos). Work/Rest, Night/Day, Balance/Discord are but necessary parts of the whole universe.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 23</span><p>Without <strong>injustice</strong>, man would not know justice.</p></div>
+            <div class="fragment"><span class="fnum">Fragments 57–60</span><p>He who follows the universal truth, Logos, believes in the <strong>Unity of Opposites</strong>. Those which are most unlike each other on the surface are still related under the surface.</p></div>
+            <div class="fragment"><span class="fnum">Fragments 65–66</span><p>Fire represents the underlying flux of the universe; <strong>nothing</strong> remains.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 67</span><p><strong>Everything</strong> is underlyingly connected.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 102</span><p>To the universe, everything has a purpose; it is <strong>man</strong> who "judges" things good or bad.</p></div>
 
-        <div class="reveal">
-          <h3>The Unity of Opposites</h3>
-          <p>Logos, as described by Heraclitus, was universal, ubiquitous, and ever changing. Thus, life was also universally in flux. That which is in constant change cannot possibly have an "opposite." This is where the fragments once again dismiss a common idea in society: opposites.</p>
+            <h3>Panta Rhei</h3>
+            <p>Naturally, Heraclitus believed that Logos governed the whole universe. Thus, arguably his entire work could be delineated as just Logos. However, it is more useful to look at the specifics he chose to mention. Of these, Panta Rhei (everything flows) is probably the most famous aspect of his fragments.</p>
+            <div class="fragment"><span class="fnum">Fragment 6</span><p>Though things repeat, nothing is truly the same twice. <strong>Life</strong> is in constant flux.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 12</span><p>One can't ever live the same experience <strong>twice</strong>.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 49a</span><p>Everything is <strong>changing</strong>; nothing will be the same.</p></div>
 
-          <div class="fragment"><span class="fnum">Fragment 10</span><p>Opposites are parts of a <strong>larger</strong> whole (Logos). Work/Rest, Night/Day, Balance/Discord are but necessary parts of the whole universe.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 23</span><p>Without <strong>injustice</strong>, man would not know justice.</p></div>
-          <div class="fragment"><span class="fnum">Fragments 57–60</span><p>He who follows the universal truth, Logos, believes in the <strong>Unity of Opposites</strong>. Those which are most unlike each other on the surface are still related under the surface.</p></div>
-          <div class="fragment"><span class="fnum">Fragments 65–66</span><p>Fire represents the underlying flux of the universe; <strong>nothing</strong> remains.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 67</span><p><strong>Everything</strong> is underlyingly connected.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 102</span><p>To the universe, everything has a purpose; it is <strong>man</strong> who "judges" things good or bad.</p></div>
-        </div>
+            <h3>The Tears of the Thinker</h3>
+            <p>Another view put forth in these fragments is the irrelevance of human opinions. Heraclitus was deeply wary of the falsehoods that stories carried, and thus resented those that placed fictitious ideas above the rational truth. The majority of these fragments revolve around Heraclitus' critique of what he saw in men, which is why he is known today as the weeping philosopher.</p>
+            <div class="fragment"><span class="fnum">Fragment 3</span><p>We can only view the world through <strong>our</strong> own perception.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 4</span><p>If fulfilling needs equates to joy, then surely oxen are <strong>happy</strong> when they find bitter vetches to eat.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 9</span><p>Gold is to man as straw is to an ass. Value is <strong>subjective</strong>.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 35</span><p>He who loves wisdom must <strong>understand</strong> and appreciate many things indeed.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 40</span><p>Accumulation of knowledge is <strong>not the same</strong> as understanding.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 41</span><p>Wisdom isn't polymathy, but rather knowing the <strong>one</strong> universal truth.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 49</span><p>One is ten thousand to me, if he be the <strong>best</strong>.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 54</span><p>Reality's underlying harmony is closer to the truth than what is <strong>apparent</strong>.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 89</span><p>The wise have one Logos, but each sleeping fool lives in a world of his <strong>own</strong>.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 104</span><p>The masses lack true wisdom, because they follow the shallow many over the wise <strong>few</strong>.</p></div>
 
-        <div class="reveal">
-          <h3>Panta Rhei</h3>
-          <p>Naturally, Heraclitus believed that Logos governed the whole universe. Thus, arguably his entire work could be delineated as just Logos. However, it is more useful to look at the specifics he chose to mention. Of these, Panta Rhei (everything flows) is probably the most famous aspect of his fragments.</p>
+            <h3>War Is the Father</h3>
+            <p>War was considered by Heraclitus to be the father of all in civilization, and strife his blade of justice. Thus, in these fragments the importance of war and coercion for the sake of order is highlighted.</p>
+            <div class="fragment"><span class="fnum">Fragment 24</span><p>War is the <strong>father</strong> of all. Strife is the path to order, strife is the path to justice.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 44</span><p>Strife is necessary to achieve law, for laws are the <strong>walls</strong> between civilization and the animals.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 53</span><p>War has made everything. Without strife, man could not achieve <strong>anything</strong>.</p></div>
 
-          <div class="fragment"><span class="fnum">Fragment 6</span><p>Though things repeat, nothing is truly the same twice. <strong>Life</strong> is in constant flux.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 12</span><p>One can't ever live the same experience <strong>twice</strong>.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 49a</span><p>Everything is <strong>changing</strong>; nothing will be the same.</p></div>
-        </div>
+            <h3>Discipline Is the Son</h3>
+            <p>One's duty to virtue and to his civilization were expressed heavily as discipline. Though civility came from War (thus making it the father) it would not be preserved without being passed down through discipline, making it the son.</p>
+            <div class="fragment"><span class="fnum">Fragment 16</span><p>You cannot <strong>hide</strong> from duty, for the light of virtue never sets.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 45</span><p>The human soul is <strong>limitless</strong>. If one tapped into it, then their mind will join it.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 85</span><p>Abstinence is incredibly <strong>difficult</strong>, yet giving in is giving up one's soul.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 101</span><p>Delphi says: "Know thyself." Heraclitus answers: "<strong>I have sought for myself.</strong>"</p></div>
+            <div class="fragment"><span class="fnum">Fragments 110–112</span><p>Want drives desire; sickness provides value to health, dark to light, and so forth. Thus, by choosing <strong>not to indulge</strong> in worldly pleasures allows one to find deeper joy; it is the highest virtue.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 119</span><p>A man's choices and actions determine his <strong>fate</strong>, not the gods or luck.</p></div>
 
-        <div class="reveal">
-          <h3>The Tears of the Thinker</h3>
-          <p>Another view put forth in these fragments is the irrelevance of human opinions. Heraclitus was deeply wary of the falsehoods that stories carried, and thus resented those that placed fictitious ideas above the rational truth. The majority of these fragments revolve around Heraclitus' critique of what he saw in men, which is why he is known today as the weeping philosopher.</p>
-
-          <div class="fragment"><span class="fnum">Fragment 3</span><p>We can only view the world through <strong>our</strong> own perception.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 4</span><p>If fulfilling needs equates to joy, then surely oxen are <strong>happy</strong> when they find bitter vetches to eat.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 9</span><p>Gold is to man as straw is to an ass. Value is <strong>subjective</strong>.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 35</span><p>He who loves wisdom must <strong>understand</strong> and appreciate many things indeed.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 40</span><p>Accumulation of knowledge is <strong>not the same</strong> as understanding.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 41</span><p>Wisdom isn't polymathy, but rather knowing the <strong>one</strong> universal truth.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 49</span><p>One is ten thousand to me, if he be the <strong>best</strong>.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 54</span><p>Reality's underlying harmony is closer to the truth than what is <strong>apparent</strong>.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 89</span><p>The wise have one Logos, but each sleeping fool lives in a world of his <strong>own</strong>.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 104</span><p>The masses lack true wisdom, because they follow the shallow many over the wise <strong>few</strong>.</p></div>
-        </div>
-
-        <div class="reveal">
-          <h3>War Is the Father</h3>
-          <p>War was considered by Heraclitus to be the father of all in civilization, and strife his blade of justice. Thus, in these fragments the importance of war and coercion for the sake of order is highlighted.</p>
-
-          <div class="fragment"><span class="fnum">Fragment 24</span><p>War is the <strong>father</strong> of all. Strife is the path to order, strife is the path to justice.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 44</span><p>Strife is necessary to achieve law, for laws are the <strong>walls</strong> between civilization and the animals.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 53</span><p>War has made everything. Without strife, man could not achieve <strong>anything</strong>.</p></div>
-        </div>
-
-        <div class="reveal">
-          <h3>Discipline Is the Son</h3>
-          <p>One's duty to virtue and to his civilization were expressed heavily as discipline. Though civility came from War (thus making it the father) it would not be preserved without being passed down through discipline, making it the son.</p>
-
-          <div class="fragment"><span class="fnum">Fragment 16</span><p>You cannot <strong>hide</strong> from duty, for the light of virtue never sets.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 45</span><p>The human soul is <strong>limitless</strong>. If one tapped into it, then their mind will join it.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 85</span><p>Abstinence is incredibly <strong>difficult</strong>, yet giving in is giving up one's soul.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 101</span><p>Delphi says: "Know thyself." Heraclitus answers: "<strong>I have sought for myself.</strong>"</p></div>
-          <div class="fragment"><span class="fnum">Fragments 110–112</span><p>Want drives desire; sickness provides value to health, dark to light, and so forth. Thus, by choosing <strong>not to indulge</strong> in worldly pleasures allows one to find deeper joy; it is the highest virtue.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 119</span><p>A man's choices and actions determine his <strong>fate</strong>, not the gods or luck.</p></div>
-        </div>
-
-        <div class="reveal">
-          <h3>Death</h3>
-          <p>Some of the most interesting and specific of these fragments were about death. This work attempts to reconcile it as not the end of life, but rather a reflection of it. If we are asleep, and we see things and experience them, we awake to the realization that what is seen in slumber is but a dream. Heraclitus extrapolated this idea to argue that much like how what is lived in slumber is a dream, life experience is but death, awaiting.</p>
-
-          <div class="fragment"><span class="fnum">Fragment 21</span><p>If all seen in slumber is a dream, then perhaps all we see in life is <strong>death staring us in the face</strong>.</p></div>
-          <div class="fragment"><span class="fnum">Fragment 62</span><p>As dreams were sleep, <strong>life is death</strong>. Thus, to be mortal, you lived the immortal's death (life), and died the immortal's life (death).</p></div>
-
-          <p>Thus conclude the fragments of Heraclitus. Though he was not the first (this is widely believed to be Thales), his fragments are of the earliest written record. It is from here the earliest first-hand root of Western philosophical thought is attributed, and it is from here our journey has begun.</p>
-        </div>
-
-        <hr class="section-divider">
+            <h3>Death</h3>
+            <p>Some of the most interesting and specific of these fragments were about death. This work attempts to reconcile it as not the end of life, but rather a reflection of it. If we are asleep, and we see things and experience them, we awake to the realization that what is seen in slumber is but a dream. Heraclitus extrapolated this idea to argue that much like how what is lived in slumber is a dream, life experience is but death, awaiting.</p>
+            <div class="fragment"><span class="fnum">Fragment 21</span><p>If all seen in slumber is a dream, then perhaps all we see in life is <strong>death staring us in the face</strong>.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 62</span><p>As dreams were sleep, <strong>life is death</strong>. Thus, to be mortal, you lived the immortal's death (life), and died the immortal's life (death).</p></div>
+            <p>Thus conclude the fragments of Heraclitus. Though he was not the first (this is widely believed to be Thales), his fragments are of the earliest written record. It is from here the earliest first-hand root of Western philosophical thought is attributed, and it is from here our journey has begun.</p>
+          </div>
+        </details>
 
         <!-- PARMENIDES -->
-        <div class="reveal">
-          <h2 id="parmenides">Fragments of Parmenides' <em>On Nature</em></h2>
-          <p>The next text that we will encounter upon our journey are the fragments of Parmenides. A contemporary of Heraclitus, he is deemed the father of Metaphysics, establishing the first interpretation of the universe as an ordered set of laws.</p>
+        <details class="essay-section reveal">
+          <summary><span class="era-hint">~515 BCE</span> Fragments of Parmenides' On Nature</summary>
+          <div class="section-content">
+            <p>The next text that we will encounter upon our journey are the fragments of Parmenides. A contemporary of Heraclitus, he is deemed the father of Metaphysics, establishing the first interpretation of the universe as an ordered set of laws.</p>
 
-          <h3>Introduction</h3>
-          <p>Parmenides' teachings were delivered exclusively through verse, and thus lost to time. However, his poem, <em>On Nature</em>, remains the only fragment of his teachings left. It begins with an introduction, where Parmenides attributes his wisdom to being enlightened by the gods. It is noteworthy that here, it is said that the way of Justice and Light is considered far from the path of mortals.</p>
+            <h3>Introduction</h3>
+            <p>Parmenides' teachings were delivered exclusively through verse, and thus lost to time. However, his poem, <em>On Nature</em>, remains the only fragment of his teachings left. It begins with an introduction, where Parmenides attributes his wisdom to being enlightened by the gods. It is noteworthy that here, it is said that the way of Justice and Light is considered far from the path of mortals.</p>
 
-          <h3>On Truth</h3>
-          <p>He begins with On Truth, where Mother Nature instructs him of two "paths of research that are open to thinking." There is the path that "Being must be, and Non-being is not," and the one that "Being is not, and Non-Being must be."</p>
-          <p>The path of Being is the only one we can conceive. The other is the path of Non-Being, which cannot be constructed by the mind. This argument stipulates that there is no such thing as "not-is," because nothing can be thought of that has no being. This leads us to the conclusion that thinking and being are the same thing, and that the mind lies not in the devices of sensation.</p>
-          <p>The argument furthers itself here. If Being is non-corporeal, and leads to itself, then it doesn't matter where one starts. Parmenides argues that "Being approaches to Being," thus it is to him indifferent whence he begins, for thither again thou shalt find him returning. All thought derives itself from Being, and thus, an exploration of thought is an exploration of Being.</p>
-          <p>What is, is Being; what is not, is Non-Being. Being is indivisible, eternal, and perfect, because it is bound by great chains of limit. For it to be truly perfect, it must have an ending. What was and what shall be cannot be what is, for Being does not change. Intellect is eternal; sensation is illusory.</p>
-          <p>Infinity cannot be comprehended; it is senseless and meaningless, for it lacks naught. Being, like a sphere, is all alike distant from the center. One simply cannot find something outside of Being, because the very idea of thinking is Being. To think outside Being is to use Being to find Non-Being, which is absurd. Thus concludes On Truth.</p>
+            <h3>On Truth</h3>
+            <p>He begins with On Truth, where Mother Nature instructs him of two "paths of research that are open to thinking." There is the path that "Being must be, and Non-being is not," and the one that "Being is not, and Non-Being must be."</p>
+            <p>The path of Being is the only one we can conceive. The other is the path of Non-Being, which cannot be constructed by the mind. This argument stipulates that there is no such thing as "not-is," because nothing can be thought of that has no being. This leads us to the conclusion that thinking and being are the same thing, and that the mind lies not in the devices of sensation.</p>
+            <p>The argument furthers itself here. If Being is non-corporeal, and leads to itself, then it doesn't matter where one starts. Parmenides argues that "Being approaches to Being," thus it is to him indifferent whence he begins, for thither again thou shalt find him returning. All thought derives itself from Being, and thus, an exploration of thought is an exploration of Being.</p>
+            <p>What is, is Being; what is not, is Non-Being. Being is indivisible, eternal, and perfect, because it is bound by great chains of limit. For it to be truly perfect, it must have an ending. What was and what shall be cannot be what is, for Being does not change. Intellect is eternal; sensation is illusory.</p>
+            <p>Infinity cannot be comprehended; it is senseless and meaningless, for it lacks naught. Being, like a sphere, is all alike distant from the center. One simply cannot find something outside of Being, because the very idea of thinking is Being. To think outside Being is to use Being to find Non-Being, which is absurd. Thus concludes On Truth.</p>
 
-          <h3>On Opinion</h3>
-          <p>Men set up for themselves opposites of Fire/Light and Night/Darkness. Our minds account for this multiplicity, believing things can exist and change, which is proven above to be contradictory. Birth and Death are impossible, for to come from nothing or to become nothing is to believe that Being is of Non-Being.</p>
-          <p>Men falsely believe in the illusory idea of change, paradoxically acknowledging Being and Non-Being. Our primitive ideas of opposites hide the truth; all is only of the purity of Being, nothing ever more.</p>
-        </div>
+            <h3>On Opinion</h3>
+            <p>Men set up for themselves opposites of Fire/Light and Night/Darkness. Our minds account for this multiplicity, believing things can exist and change, which is proven above to be contradictory. Birth and Death are impossible, for to come from nothing or to become nothing is to believe that Being is of Non-Being.</p>
+            <p>Men falsely believe in the illusory idea of change, paradoxically acknowledging Being and Non-Being. Our primitive ideas of opposites hide the truth; all is only of the purity of Being, nothing ever more.</p>
+          </div>
+        </details>
 
-        <hr class="section-divider">
+        <!-- CONFLICT -->
+        <details class="essay-section reveal">
+          <summary><span class="era-hint">Synthesis</span> Conflict Emerges</summary>
+          <div class="section-content">
+            <p>Parmenides is considered the Father of Metaphysics. His ideas of Alethia (truth) versus Doxa (opinion) are a fundamental issue metaphysics attempts to grapple. Being is essentially the foundation of what is required for Metaphysics to even exist. This sets up one of the fundamental conflicts that exists in philosophy: Heraclitus' Logos, where change is universal and ever-present, or Parmenides' Aletheia, where nothing changes at all, because the stable universe is ever-present.</p>
+            <p>However, despite these seemingly exclusive regions of thought, they share several similarities. Both believe that the way of man is not the way of justice. Both disregard sensations for their universal truths. Parmenides' belief in a non-corporeal intellect is concurred with Heraclitus' Fragment 45.</p>
+            <p>Many such similarities can be found between the two; however, though their conclusions upon man and life are similar, the origins of their thought are ultimately irreconcilable. This is the first generation of philosophy, and already our journey is at a crossroads. Not to worry — these paths will cross again, and again, and likely again, long after you and I are gone and forgotten.</p>
+          </div>
+        </details>
 
-                <!-- CONFLICT -->
-        <div class="reveal">
-          <h2 id="conflict">Conflict Emerges</h2>
-          <p>Parmenides is considered the Father of Metaphysics. His ideas of Alethia (truth) versus Doxa (opinion) are a fundamental issue metaphysics attempts to grapple. Being is essentially the foundation of what is required for Metaphysics to even exist. This sets up one of the fundamental conflicts that exists in philosophy: Heraclitus' Logos, where change is universal and ever-present, or Parmenides' Aletheia, where nothing changes at all, because the stable universe is ever-present.</p>
-          <p>However, despite these seemingly exclusive regions of thought, they share several similarities. Both believe that the way of man is not the way of justice. Both disregard sensations for their universal truths. Parmenides' belief in a non-corporeal intellect is concurred with Heraclitus' Fragment 45.</p>
-          <p>Many such similarities can be found between the two; however, though their conclusions upon man and life are similar, the origins of their thought are ultimately irreconcilable. This is the first generation of philosophy, and already our journey is at a crossroads. Not to worry — these paths will cross again, and again, and likely again, long after you and I are gone and forgotten.</p>
-        </div>
+        <!-- COMING SOON STUBS -->
+        <details class="essay-section reveal">
+          <summary><span class="era-hint">~490 BCE</span> Zeno of Elea</summary>
+          <div class="section-content"><p style="color:var(--c-text-dim); font-size:0.9rem; font-style:italic;">~490–430 BCE · Essay coming soon</p></div>
+        </details>
 
-        <hr class="section-divider">
+        <details class="essay-section reveal">
+          <summary><span class="era-hint">~5th c.</span> Melissus of Samos</summary>
+          <div class="section-content"><p style="color:var(--c-text-dim); font-size:0.9rem; font-style:italic;">~5th c. BCE · Fragments survive · Shallow dive</p></div>
+        </details>
 
-        <!-- ZENO OF ELEA -->
-        <div class="reveal">
-          <h2 id="zeno">Zeno of Elea</h2>
-          <p style="color:var(--c-text-dim); font-size:0.9rem; font-style:italic;">~490–430 BCE · Essay coming soon</p>
-        </div>
+        <details class="essay-section reveal">
+          <summary><span class="era-hint">~500 BCE</span> Anaxagoras</summary>
+          <div class="section-content"><p style="color:var(--c-text-dim); font-size:0.9rem; font-style:italic;">~500–428 BCE · Essay coming soon</p></div>
+        </details>
 
-        <hr class="section-divider">
+        <details class="essay-section reveal">
+          <summary><span class="era-hint">~490 BCE</span> Empedocles</summary>
+          <div class="section-content"><p style="color:var(--c-text-dim); font-size:0.9rem; font-style:italic;">~490–430 BCE · Essay coming soon</p></div>
+        </details>
 
-        <!-- MELISSUS -->
-        <div class="reveal">
-          <h2 id="melissus">Melissus of Samos</h2>
-          <p style="color:var(--c-text-dim); font-size:0.9rem; font-style:italic;">~5th c. BCE · Fragments survive · Shallow dive</p>
-        </div>
+        <details class="essay-section reveal">
+          <summary><span class="era-hint">~480 BCE</span> Leucippus</summary>
+          <div class="section-content"><p style="color:var(--c-text-dim); font-size:0.9rem; font-style:italic;">~480–420 BCE · Fragments survive · Shallow dive</p></div>
+        </details>
 
-        <hr class="section-divider">
+        <details class="essay-section reveal">
+          <summary><span class="era-hint">~460 BCE</span> Democritus</summary>
+          <div class="section-content"><p style="color:var(--c-text-dim); font-size:0.9rem; font-style:italic;">~460–370 BCE · Fragments survive · Shallow dive</p></div>
+        </details>
 
-        <!-- ANAXAGORAS -->
-        <div class="reveal">
-          <h2 id="anaxagoras">Anaxagoras</h2>
-          <p style="color:var(--c-text-dim); font-size:0.9rem; font-style:italic;">~500–428 BCE · Essay coming soon</p>
-        </div>
-
-        <hr class="section-divider">
-
-        <!-- EMPEDOCLES -->
-        <div class="reveal">
-          <h2 id="empedocles">Empedocles</h2>
-          <p style="color:var(--c-text-dim); font-size:0.9rem; font-style:italic;">~490–430 BCE · Essay coming soon</p>
-        </div>
-
-        <hr class="section-divider">
-
-        <!-- LEUCIPPUS -->
-        <div class="reveal">
-          <h2 id="leucippus">Leucippus</h2>
-          <p style="color:var(--c-text-dim); font-size:0.9rem; font-style:italic;">~480–420 BCE · Fragments survive · Shallow dive</p>
-        </div>
-
-        <hr class="section-divider">
-
-        <!-- DEMOCRITUS -->
-        <div class="reveal">
-          <h2 id="democritus">Democritus</h2>
-          <p style="color:var(--c-text-dim); font-size:0.9rem; font-style:italic;">~460–370 BCE · Fragments survive · Shallow dive</p>
-        </div>
-
-        <hr class="section-divider">
-
-        <!-- BRIDGE TO PLATO -->
-        <div class="reveal">
-          <h2 id="toward-plato">Toward Plato</h2>
-          <p>Plato, the most prominent author of the next generation of philosophers, and a student of the great Socrates, wrote down many dialogues between Socrates and himself. He was heavily influenced by Parmenides, and many of his own ideas and thoughts were derived from Heraclitus as well.</p>
-          <p>Socrates, his teacher, is in reality the next after Parmenides and Heraclitus. Like the aforementioned, he taught through verse. Unlike them, however, nothing of his work was actually written down by himself, but rather by his student Plato. Thus, we explore several of Plato's dialogues, spanning 428–347 BCE.</p>
-        </div>
+        <!-- TOWARD PLATO -->
+        <details class="essay-section reveal">
+          <summary><span class="era-hint">Bridge</span> Toward Plato</summary>
+          <div class="section-content">
+            <p>Plato, the most prominent author of the next generation of philosophers, and a student of the great Socrates, wrote down many dialogues between Socrates and himself. He was heavily influenced by Parmenides, and many of his own ideas and thoughts were derived from Heraclitus as well.</p>
+            <p>Socrates, his teacher, is in reality the next after Parmenides and Heraclitus. Like the aforementioned, he taught through verse. Unlike them, however, nothing of his work was actually written down by himself, but rather by his student Plato. Thus, we explore several of Plato's dialogues, spanning 428–347 BCE.</p>
+          </div>
+        </details>
 
         <div class="reveal" style="margin-top:3rem; text-align:center;">
           <a href="socratic-dialogues.html" class="btn-primary-custom">Continue to Socratic Dialogues &rarr;</a>
@@ -337,5 +377,14 @@
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
   <script src="../js/main.js"></script>
+  <script>
+    function toggleAllSections() {
+      const sections = document.querySelectorAll('.essay-section');
+      const btn = document.getElementById('toggleAll');
+      const allOpen = [...sections].every(s => s.open);
+      sections.forEach(s => s.open = !allOpen);
+      btn.textContent = allOpen ? 'Expand All' : 'Collapse All';
+    }
+  </script>
 </body>
 </html>

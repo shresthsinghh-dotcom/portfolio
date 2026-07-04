@@ -103,35 +103,36 @@
       .tree-row { flex-wrap:wrap; justify-content:center; }
     }
 
-    .progress-tracker {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0.75rem;
-      margin: 0 auto 2.5rem;
-      max-width: 800px;
-      padding: 1.25rem;
-      background: var(--c-surface);
-      border-radius: var(--radius);
-      border: 1px solid rgba(var(--c-accent-rgb, 150,100,255), 0.15);
+    /* --- BOOKS INDEX --- */
+    .books-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.25rem; }
+    .book-index-card {
+      background:var(--c-surface);
+      border:1px solid var(--c-border);
+      border-radius:var(--radius-lg);
+      padding:1.5rem;
+      text-decoration:none;
+      display:flex;
+      flex-direction:column;
+      transition:transform .3s var(--ease-out), box-shadow .3s;
+      position:relative;
+      overflow:hidden;
     }
-    .progress-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
+    .book-index-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,0.25); }
+    [data-theme="light"] .book-index-card:hover { box-shadow:0 16px 40px rgba(100,80,160,0.1); }
+    .book-index-card.locked { opacity:0.65; }
+    .book-index-card .book-num {
+      font-family:var(--f-display); font-size:0.68rem; font-weight:600; letter-spacing:0.12em;
+      text-transform:uppercase; color:var(--c-accent); margin-bottom:0.5rem;
     }
-    .progress-item .p-label {
-      font-family: var(--f-display);
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--c-accent);
+    .book-index-card h4 { font-size:1.1rem; margin-bottom:0.5rem; color:var(--c-heading); }
+    .book-index-card p { font-size:0.85rem; color:var(--c-text-dim); margin-bottom:0.75rem; flex:1; }
+    .book-index-card .book-status {
+      font-family:var(--f-display); font-size:0.72rem; font-weight:600;
+      display:flex; align-items:center; gap:0.4rem;
     }
-    .progress-item .p-value {
-      font-size: 0.92rem;
-      color: var(--c-text);
-      font-style: italic;
-    }
+    .book-index-card .book-status.complete { color:var(--c-accent); }
+    .book-index-card .book-status.progress { color:var(--c-text-dim); }
+    .book-index-card .status-dot2 { width:6px; height:6px; border-radius:50%; background:currentColor; }
   </style>
 </head>
 <body>
@@ -153,51 +154,73 @@
 
   <!-- INTRO -->
   <section style="padding:2rem 0 var(--s-section);">
-    <div class="container-main" style="max-width:800px; text-align:center;">
-      <div class="reveal">
-        <h1 style="margin-bottom:1rem;">Philosophical Orientation</h1>
-        <hr class="divider divider--center">
-        <p style="color:var(--c-text-dim); font-size:1.05rem; line-height:1.8;">
-          Our existence troubles us. The mind, that bright spark,  possesses the unique ability to understand reality, yet that same reality extinguishes it so quickly. Coming to terms with this short existence that is the search for wisdom. To be wise is to live the best life. Though we know not the right path, the attempt to find it must be closer to wisdom than ignorance. Thus we embark upon this journey.
-
-        </p>
-        <p style="color:var(--c-text-dim); font-size:1.05rem; line-height:1.8; margin-top:1rem;">
-          The goal is to traverse over 2,600 years of knowledge gathered from the central strongholds of thought: the West and the East. We begin with the West, covering nearly a millennium and concluding upon the wane of the Roman Empire’s golden philosophical age with its last great emperor, Marcus Aurelius.
-        </p>
+    <div class="container-main" style="max-width:960px;">
+      <div class="reveal" style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:clamp(2rem,4vw,3.5rem); align-items:center;">
+        <div style="text-align:left;">
+          <h1 style="margin-bottom:1rem;">Philosophical Orientation</h1>
+          <hr class="divider">
+          <p style="color:var(--c-text-dim); font-size:1.05rem; line-height:1.8;">
+            In search of the truth, we have thought a great deal. To be wise is to make the best decisions, and to live the best life. I do not know the right path; all I know is that the attempt to find it must be closer to wisdom than ignorance. Thus I embark upon this journey.
+          </p>
+          <p style="color:var(--c-text-dim); font-size:1.05rem; line-height:1.8; margin-top:1rem;">
+            The goal is to traverse over 2,500 years of knowledge gathered from three central strongholds of thought: the West, the East, and the South. We begin with the West, covering nearly a millennium and concluding upon the wane of the Roman Empire with its last great emperor, Marcus Aurelius.
+          </p>
+        </div>
+        <div style="text-align:center;">
+          <img src="../images/world_map.webp" alt="Ancient world map showing Europe, Asia, and Libya surrounded by Ocean" loading="lazy" style="width:100%; max-width:360px; border-radius:var(--radius-lg); opacity:0.85;">
+          <p style="font-family:var(--f-display); font-size:0.7rem; color:var(--c-text-dim); opacity:0.5; margin-top:0.6rem; letter-spacing:0.05em;">The ancient world as known to the Greeks</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PROGRESS TRACKER -->
-  <section style="padding:0 0 var(--s-section);">
+  <!-- BOOKS INDEX -->
+  <section style="padding:var(--s-section) 0; background:var(--c-bg-alt); border-top:1px solid var(--c-border); border-bottom:1px solid var(--c-border);">
     <div class="container-main">
-      <div class="reveal progress-tracker">
-        <div class="progress-item">
-          <span class="p-label">Currently Reading</span>
-          <span class="p-value">Crito</span>
-        </div>
-        <div class="progress-item">
-          <span class="p-label">Currently Interpreting</span>
-          <span class="p-value">Protagoras</span>
-        </div>  
-        <div class="progress-item">
-          <span class="p-label">Currently Revising</span>
-          <span class="p-value">The Apology</span>
-        </div>
+      <div style="text-align:center; margin-bottom:2.5rem;" class="reveal">
+        <span class="section-label" style="justify-content:center; display:flex;">The Library</span>
+        <h2>Six Books, One Journey</h2>
+        <hr class="divider divider--center">
+        <p style="color:var(--c-text-dim); max-width:600px; margin:0 auto;">From the first cosmologists to the last Stoic emperor — each book is a continuous reading experience with its own chapters, figures, and appendices.</p>
       </div>
-            <div class="reveal progress-tracker">
-        <div class="progress-item">
-          <span class="p-label">Revised With</span>
-          <span class="p-value">A Companion to Ancient Philosophy</span>
-        </div>
-        <div class="progress-item">
-          <span class="p-label">Supplemented With</span>
-          <span class="p-value">The Cambridge Companion to Greek and Roman Philosophy</span>
-        </div>  
-        <div class="progress-item">
-          <span class="p-label">Interpreted With</span>
-          <span class="p-value">The Cambridge Companion to Plato</span>
-        </div>
+
+      <div class="books-grid reveal">
+        <a href="presocratics.html" class="book-index-card">
+          <span class="book-num">Book I</span>
+          <h4>The Presocratics</h4>
+          <p>Thales through Parmenides — the first attempts to explain reality through logic rather than myth.</p>
+          <span class="book-status complete"><span class="status-dot2"></span> 9 Chapters · Complete</span>
+        </a>
+        <a href="socrates.html" class="book-index-card">
+          <span class="book-num">Book II</span>
+          <h4>Socrates &amp; the Sophists</h4>
+          <p>The turn from cosmology to ethics — the Apology, Euthyphro, and the birth of the dialectic.</p>
+          <span class="book-status progress"><span class="status-dot2"></span> 2 of 3 Chapters Live</span>
+        </a>
+        <a href="plato.html" class="book-index-card locked">
+          <span class="book-num">Book III</span>
+          <h4>Plato's Academy</h4>
+          <p>The Republic, the Forms, and the architecture of the ideal soul and state.</p>
+          <span class="book-status progress"><span class="status-dot2"></span> Planned</span>
+        </a>
+        <a href="aristotle.html" class="book-index-card locked">
+          <span class="book-num">Book IV</span>
+          <h4>Aristotle</h4>
+          <p>Substance, virtue, and the systematic grounding of philosophy in the observable world.</p>
+          <span class="book-status progress"><span class="status-dot2"></span> Planned</span>
+        </a>
+        <a href="hellenistic.html" class="book-index-card locked">
+          <span class="book-num">Book V</span>
+          <h4>The Hellenistic Schools</h4>
+          <p>Cynics, Cyrenaics, Epicureans, and early Stoics stake their claims on how to live well.</p>
+          <span class="book-status progress"><span class="status-dot2"></span> Planned</span>
+        </a>
+        <a href="roman-stoicism.html" class="book-index-card locked">
+          <span class="book-num">Book VI</span>
+          <h4>Roman Stoicism</h4>
+          <p>Seneca, Epictetus, and Marcus Aurelius — Stoicism tested under real power and suffering.</p>
+          <span class="book-status progress"><span class="status-dot2"></span> Planned</span>
+        </a>
       </div>
     </div>
   </section>
@@ -209,133 +232,33 @@
         <span class="section-label" style="justify-content:center; display:flex;">Lineage</span>
         <h2>The Philosophical Tree</h2>
         <hr class="divider divider--center">
-        <p style="color:var(--c-text-dim); max-width:600px; margin:0 auto;">Cards with an accent border mark thinkers whose works I have read. Click any card to read the associated essay — those still in progress will say so.</p>
+        <p style="color:var(--c-text-dim); max-width:600px; margin:0 auto;">A quick map of who influenced whom. Cards with an accent border mark thinkers whose works I have read. Click any card to jump straight to that thinker's chapter.</p>
       </div>
 
       <div class="tree reveal">
 
-        <!-- MILESIAN SCHOOL -->
-        <div class="tree-era">~600 BCE · The Milesian School</div>
-        <div class="tree-row">
-          <a href="presocratics.html#thales" class="p-card-link"><div class="p-card read">
-            <h5>Thales</h5>
-            <p class="p-era">~624–546 BCE</p>
-
-          </div></a>
-          <a href="presocratics.html#anaximander" class="p-card-link"><div class="p-card read">
-            <h5>Anaximander</h5>
-            <p class="p-era">~610–546 BCE</p>
-
-          </div></a>
-          <a href="presocratics.html#anaximenes" class="p-card-link"><div class="p-card read">
-            <h5>Anaximenes</h5>
-            <p class="p-era">~546 BCE</p>
-
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-
-        <!-- SECOND WAVE PRESOCRATICS -->
-        <div class="tree-era">~570–500 BCE · Pythagorean &amp; Theological Turn</div>
-        <div class="tree-row">
-          <a href="presocratics.html#pythagoras" class="p-card-link"><div class="p-card">
-            <h5>Pythagoras</h5>
-            <p class="p-era">~571–497 BCE</p>
-
-          </div></a>
-          <a href="presocratics.html#xenophanes" class="p-card-link"><div class="p-card">
-            <h5>Xenophanes</h5>
-            <p class="p-era">~570–478 BCE</p>
-
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-
-        <!-- HERACLITUS & ELEATICS -->
-        <div class="tree-era">~500 BCE · Heraclitean &amp; Eleatic Schools</div>
+        <!-- PRESOCRATICS -->
+        <div class="tree-era">~500 BCE · Presocratics</div>
         <div class="tree-row">
           <a href="presocratics.html#heraclitus" class="p-card-link"><div class="p-card read">
             <h5>Heraclitus</h5>
-            <p class="p-era">~540–480 BCE</p>
             <ul><li><span class="ck">✓</span> Fragments</li></ul>
           </div></a>
           <a href="presocratics.html#parmenides" class="p-card-link"><div class="p-card read">
             <h5>Parmenides</h5>
-            <p class="p-era">~515–445 BCE</p>
             <ul><li><span class="ck">✓</span> On Nature</li></ul>
           </div></a>
-          <a href="presocratics.html#melissus" class="p-card-link"><div class="p-card">
-            <h5>Melissus</h5>
-            <p class="p-era">~5th c. BCE</p>
-            <ul><li><span class="pn">○</span> Fragments survive</li></ul>
-          </div></a>
         </div>
 
         <div class="tree-connector"><div class="vline"></div></div>
-
-        <!-- PLURALISTS & ATOMISTS -->
-        <div class="tree-era">~490–420 BCE · Pluralists &amp; Atomists</div>
-        <div class="tree-row">
-          <a href="presocratics.html#anaxagoras" class="p-card-link"><div class="p-card">
-            <h5>Anaxagoras</h5>
-            <p class="p-era">~500–428 BCE</p>
-            <ul>
-              <li><span class="pn">○</span> Fragments survive</li>
-              <li><span class="pn">○</span> Via Aristotle &amp; Laertius</li>
-            </ul>
-          </div></a>
-          <a href="presocratics.html#empedocles" class="p-card-link"><div class="p-card">
-            <h5>Empedocles</h5>
-            <p class="p-era">~490–430 BCE</p>
-            <ul>
-              <li><span class="pn">○</span> Fragments survive</li>
-              <li><span class="pn">○</span> Via Aristotle &amp; Laertius</li>
-            </ul>
-          </div></a>
-          <a href="presocratics.html#leucippus" class="p-card-link"><div class="p-card">
-            <h5>Leucippus</h5>
-            <p class="p-era">~480–420 BCE</p>
-            <ul><li><span class="pn">○</span> Fragments survive</li></ul>
-          </div></a>
-          <a href="presocratics.html#democritus" class="p-card-link"><div class="p-card">
-            <h5>Democritus</h5>
-            <p class="p-era">~460–370 BCE</p>
-            <ul><li><span class="pn">○</span> Fragments survive</li></ul>
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-
-        <!-- SOPHISTS -->
-        <div class="tree-era">~460–400 BCE · The Sophists</div>
-        <div class="tree-row">
-          <a href="socratic-dialogues.html#gorgias-sophist" class="p-card-link"><div class="p-card">
-            <h5>Gorgias</h5>
-            <p class="p-era">~483–375 BCE</p>
-            <ul>
-              <li><span class="pn">○</span> Encomium of Helen</li>
-            </ul>
-          </div></a>
-          <a href="socratic-dialogues.html#protagoras-sophist" class="p-card-link"><div class="p-card">
-            <h5>Protagoras</h5>
-            <p class="p-era">~485–415 BCE</p>
-            <ul>
-              <li><span class="pn">○</span> Via Plato's Protagoras</li>
-            </ul>
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-        <p class="influence-note">Presocratics &amp; Sophists converge on Socrates</p>
+        <p class="influence-note">Both influence Socrates</p>
 
         <!-- SOCRATES -->
         <div class="tree-era">~470–399 BCE · The Socratic Turn</div>
         <div class="tree-row">
-          <a href="socratic-dialogues.html" class="p-card-link"><div class="p-card" style="border-color:var(--c-accent); border-style:dashed;">
+          <a href="socrates.html" class="p-card-link"><div class="p-card" style="border-color:var(--c-accent); border-style:dashed;">
             <h5>Socrates</h5>
-            <ul><li style="font-style:italic; opacity:0.5;">No written texts</li></ul>
+            <ul><li style="font-style:italic; opacity:0.5;">No surviving texts</li></ul>
           </div></a>
         </div>
 
@@ -355,7 +278,7 @@
             <p class="p-era">Megarian school</p>
             <ul><li><span class="pn">○</span> Lives, Book II</li></ul>
           </div>
-          <a href="socratic-dialogues.html#apology" class="p-card-link"><div class="p-card read">
+          <a href="socrates.html" class="p-card-link"><div class="p-card read">
             <h5>Plato</h5>
             <p class="p-era">Academy</p>
             <ul>
@@ -407,7 +330,7 @@
               <li><span class="pn">○</span> Master Argument</li>
             </ul>
           </div>
-          <div class="p-card" data-tooltip="Essay coming soon">
+          <a href="aristotle.html" class="p-card-link"><div class="p-card">
             <h5>Aristotle</h5>
             <p class="p-era">Via Plato</p>
             <ul>
@@ -417,12 +340,12 @@
               <li><span class="pn">○</span> Metaphysics</li>
               <li><span class="pn">○</span> Rhetoric</li>
             </ul>
-          </div>
-          <div class="p-card" data-tooltip="Essay coming soon">
+          </div></a>
+          <a href="plato.html" class="p-card-link"><div class="p-card">
             <h5>Academy</h5>
             <p class="p-era">Skeptical turn</p>
             <ul><li><span class="pn">○</span> De finibus, Book II</li></ul>
-          </div>
+          </div></a>
           <div class="p-card" data-tooltip="Essay coming soon">
             <h5>Cyrenaics</h5>
             <p class="p-era">Via Aristippus</p>
@@ -436,19 +359,19 @@
         <!-- HELLENISTIC -->
         <div class="tree-era">~300 BCE · Hellenistic Schools</div>
         <div class="tree-row">
-          <div class="p-card" data-tooltip="Essay coming soon">
+          <a href="hellenistic.html" class="p-card-link"><div class="p-card">
             <h5>Zeno of Citium</h5>
             <p class="p-era">Founded Stoicism</p>
             <ul><li><span class="pn">○</span> Lives, Book VII</li></ul>
-          </div>
-          <div class="p-card" data-tooltip="Essay coming soon">
+          </div></a>
+          <a href="hellenistic.html" class="p-card-link"><div class="p-card">
             <h5>Epicurus</h5>
             <p class="p-era">Counter-tradition</p>
             <ul>
               <li><span class="pn">○</span> Letter to Menoeceus</li>
               <li><span class="pn">○</span> Principal Doctrines</li>
             </ul>
-          </div>
+          </div></a>
         </div>
 
         <div class="tree-connector"><div class="vline"></div></div>
@@ -456,7 +379,7 @@
         <!-- SYSTEMATIZATION -->
         <div class="tree-era">~250 BCE · Systematization</div>
         <div class="tree-row">
-          <div class="p-card" data-tooltip="Essay coming soon">
+          <a href="hellenistic.html" class="p-card-link"><div class="p-card">
             <h5>Chrysippus</h5>
             <p class="p-era">Stoic logic</p>
             <ul>
@@ -464,7 +387,7 @@
               <li><span class="pn">○</span> Lives, Book VII</li>
               <li><span class="pn">○</span> Against the Logicians</li>
             </ul>
-          </div>
+          </div></a>
         </div>
 
         <div class="tree-connector"><div class="vline"></div></div>
@@ -472,7 +395,7 @@
         <!-- TRANSMISSION -->
         <div class="tree-era">~100 BCE · Transmission to Rome</div>
         <div class="tree-row">
-          <div class="p-card" data-tooltip="Essay coming soon">
+          <a href="hellenistic.html" class="p-card-link"><div class="p-card">
             <h5>Cicero</h5>
             <p class="p-era">Roman transmitter</p>
             <ul>
@@ -480,7 +403,7 @@
               <li><span class="pn">○</span> Academica</li>
               <li><span class="pn">○</span> Tusculan Disputations</li>
             </ul>
-          </div>
+          </div></a>
         </div>
 
         <div class="tree-connector"><div class="vline"></div></div>
@@ -488,21 +411,21 @@
         <!-- ROMAN STOICS -->
         <div class="tree-era">~50–180 CE · Roman Stoicism</div>
         <div class="tree-row">
-          <div class="p-card" data-tooltip="Essay coming soon">
+          <a href="roman-stoicism.html" class="p-card-link"><div class="p-card">
             <h5>Seneca</h5>
             <ul><li><span class="pn">○</span> Letters to Lucilius</li></ul>
-          </div>
-          <div class="p-card" data-tooltip="Essay coming soon">
+          </div></a>
+          <a href="roman-stoicism.html" class="p-card-link"><div class="p-card">
             <h5>Epictetus</h5>
             <ul>
               <li><span class="pn">○</span> Enchiridion</li>
               <li><span class="pn">○</span> Discourses</li>
             </ul>
-          </div>
-          <div class="p-card" data-tooltip="Essay coming soon">
+          </div></a>
+          <a href="roman-stoicism.html" class="p-card-link"><div class="p-card">
             <h5>Marcus Aurelius</h5>
             <ul><li><span class="pn">○</span> Meditations</li></ul>
-          </div>
+          </div></a>
         </div>
 
       </div><!-- /tree -->

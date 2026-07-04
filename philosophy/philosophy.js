@@ -17,44 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateProgress();
   }
 
-  /* --- MOBILE TOC TOGGLE --- */
-  const tocToggle = document.querySelector('.toc-toggle');
-  const bookToc = document.querySelector('.book-toc');
-  if (tocToggle && bookToc) {
-    tocToggle.addEventListener('click', () => {
-      tocToggle.classList.toggle('open');
-      bookToc.classList.toggle('open');
-    });
-  }
-
-  /* --- TOC SCROLLSPY --- */
-  const tocLinks = document.querySelectorAll('.book-toc a');
-  const chapters = document.querySelectorAll('.chapter[id]');
-  if (tocLinks.length && chapters.length) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const id = entry.target.getAttribute('id');
-        const link = document.querySelector(`.book-toc a[href="#${id}"]`);
-        if (!link) return;
-        if (entry.isIntersecting) {
-          tocLinks.forEach(l => l.classList.remove('active'));
-          link.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-15% 0px -75% 0px', threshold: 0 });
-    chapters.forEach(ch => io.observe(ch));
-
-    // Close mobile TOC on link click
-    tocLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (tocToggle && bookToc) {
-          tocToggle.classList.remove('open');
-          bookToc.classList.remove('open');
-        }
-      });
-    });
-  }
-
   /* --- APPENDIX JUMP LINKS (smooth scroll + auto-open) --- */
   document.querySelectorAll('.appendix-jump').forEach(link => {
     link.addEventListener('click', (e) => {

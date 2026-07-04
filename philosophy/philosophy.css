@@ -58,88 +58,53 @@
 .book-meta-row span { display:flex; align-items:center; gap:0.4rem; }
 .book-meta-row .dot { width:5px; height:5px; border-radius:50%; background:var(--c-accent); flex-shrink:0; }
 
-/* --- TABLE OF CONTENTS (sticky floating) --------------------------- */
-.book-layout {
-  display:grid;
-  grid-template-columns: 220px minmax(0,1fr);
-  gap:clamp(1.5rem,4vw,3.5rem);
-  align-items:start;
-}
-.book-toc {
-  position:sticky;
-  top:6rem;
-  align-self:start;
+/* --- TABLE OF CONTENTS (plain block, top of book) ------------------ */
+.book-toc-block {
   background:var(--c-surface);
   border:1px solid var(--c-border);
   border-radius:var(--radius-lg);
-  padding:1.25rem 1rem;
-  max-height:calc(100vh - 8rem);
-  overflow-y:auto;
+  padding:1.75rem 2rem;
+  margin-bottom:3rem;
 }
-.book-toc .toc-label {
+.book-toc-block .toc-label {
   font-family:var(--f-display);
-  font-size:0.68rem;
+  font-size:0.72rem;
   font-weight:600;
   letter-spacing:0.12em;
   text-transform:uppercase;
   color:var(--c-accent);
-  padding:0 0.5rem 0.6rem;
   display:block;
+  margin-bottom:1rem;
 }
-.book-toc ol {
+.book-toc-block ol {
   list-style:none;
   margin:0; padding:0;
   counter-reset:toc-counter;
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+  gap:0.4rem 1.5rem;
 }
-.book-toc li { counter-increment:toc-counter; }
-.book-toc a {
+.book-toc-block li { counter-increment:toc-counter; }
+.book-toc-block a {
   display:flex;
   align-items:baseline;
-  gap:0.5rem;
-  padding:0.45rem 0.5rem;
-  border-radius:6px;
+  gap:0.6rem;
+  padding:0.4rem 0;
   font-family:var(--f-display);
-  font-size:0.82rem;
-  color:var(--c-text-dim);
+  font-size:0.92rem;
+  color:var(--c-text);
   text-decoration:none;
-  transition:background .2s, color .2s;
-  line-height:1.3;
+  transition:color .2s;
+  border-bottom:1px solid transparent;
 }
-.book-toc a::before {
+.book-toc-block a::before {
   content:counter(toc-counter, decimal-leading-zero);
-  font-size:0.68rem;
+  font-size:0.72rem;
   color:var(--c-accent);
-  opacity:0.7;
+  opacity:0.8;
   flex-shrink:0;
 }
-.book-toc a:hover { background:var(--c-accent-glow); color:var(--c-heading); }
-.book-toc a.active { background:var(--c-accent-glow); color:var(--c-accent); }
-
-.toc-toggle {
-  display:none;
-  width:100%;
-  align-items:center;
-  justify-content:space-between;
-  padding:0.85rem 1.1rem;
-  background:var(--c-surface);
-  border:1px solid var(--c-border);
-  border-radius:var(--radius);
-  font-family:var(--f-display);
-  font-weight:600;
-  font-size:0.85rem;
-  color:var(--c-heading);
-  cursor:pointer;
-  margin-bottom:1rem;
-}
-.toc-toggle .chev { transition:transform .25s var(--ease-out); color:var(--c-accent); }
-.toc-toggle.open .chev { transform:rotate(180deg); }
-
-@media (max-width:900px) {
-  .book-layout { grid-template-columns:1fr; }
-  .book-toc { position:static; max-height:none; display:none; margin-bottom:1.5rem; }
-  .book-toc.open { display:block; }
-  .toc-toggle { display:flex; }
-}
+.book-toc-block a:hover { color:var(--c-accent); }
 
 /* --- CHAPTER --------------------------------------------------------*/
 .chapter {
@@ -168,8 +133,8 @@
   margin-bottom:1.5rem;
 }
 .chapter-portrait {
-  width:110px;
-  height:110px;
+  width:150px;
+  height:150px;
   object-fit:cover;
   border-radius:var(--radius);
   border:1px solid var(--c-border);
@@ -260,8 +225,8 @@ figure.pfig {
   margin:1.75rem 0;
   text-align:center;
 }
-figure.pfig.float-left  { float:left; margin:0.2rem 1.5rem 1rem 0; max-width:260px; }
-figure.pfig.float-right { float:right; margin:0.2rem 0 1rem 1.5rem; max-width:260px; }
+figure.pfig.float-left  { float:left; margin:0.2rem 1.75rem 1.25rem 0; max-width:320px; }
+figure.pfig.float-right { float:right; margin:0.2rem 0 1.25rem 1.75rem; max-width:320px; }
 figure.pfig img {
   width:100%;
   border-radius:var(--radius);

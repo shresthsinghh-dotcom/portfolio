@@ -9,6 +9,35 @@
 .breadcrumb a:hover { color:var(--c-accent); }
 .breadcrumb .sep { opacity:0.4; }
 
+
+/* --- PAGE SCAFFOLD (shared by every book page) ----------------------*/
+.book-page { padding-top:5rem; }
+.breadcrumb .current { color:var(--c-heading); }
+.book-label { display:flex; justify-content:center; }
+.book-section { padding-top:2.5rem; }
+/* The reading column. Phase 3 typography tuning happens here, once. */
+.book-container { max-width:850px; }
+
+/* --- CHAPTER GLYPH (placeholder portrait for unillustrated chapters) */
+.chapter-glyph {
+  width:110px; height:110px;
+  border-radius:var(--radius);
+  border:1px solid var(--c-border);
+  background:var(--c-surface);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.chapter-glyph span {
+  font-family:var(--f-display);
+  font-size:1.6rem;
+  font-weight:600;
+  color:var(--c-accent);
+}
+.chapter-glyph.dim { opacity:0.5; }
+
+/* --- SPACING ---------------------------------------------------------*/
+.after-fragment { margin-top:1.75rem; }
+
 /* --- READING PROGRESS BAR ------------------------------------------ */
 .reading-progress {
   position:fixed;
@@ -227,6 +256,11 @@ figure.pfig {
 }
 figure.pfig.float-left  { float:left; margin:0.2rem 1.75rem 1.25rem 0; max-width:320px; }
 figure.pfig.float-right { float:right; margin:0.2rem 0 1.25rem 1.75rem; max-width:320px; }
+@media (max-width:640px) {
+  figure.pfig.float-left, figure.pfig.float-right {
+    float:none; max-width:100%; margin:1.5rem 0;
+  }
+}
 figure.pfig img {
   width:100%;
   border-radius:var(--radius);

@@ -16,7 +16,7 @@
 .book-label { display:flex; justify-content:center; }
 .book-section { padding-top:2.5rem; }
 /* The reading column. Phase 3 typography tuning happens here, once. */
-.book-container { max-width:850px; }
+.book-container { max-width:720px; }
 
 /* --- CHAPTER GLYPH (placeholder portrait for unillustrated chapters) */
 .chapter-glyph {
@@ -201,7 +201,7 @@
 
 /* --- CHAPTER --------------------------------------------------------*/
 .chapter {
-  padding:3rem 0;
+  padding:4.5rem 0;
   border-bottom:1px solid var(--c-border);
   scroll-margin-top:5.5rem;
 }
@@ -288,9 +288,21 @@
 .chapter-readtime svg { width:14px; height:14px; opacity:0.6; }
 
 .chapter-body { margin-top:1.75rem; }
-.chapter-body p { color:var(--c-text-dim); line-height:1.85; margin-bottom:1.25rem; }
+.chapter-body p { color:var(--c-text-dim); font-size:1.05rem; line-height:1.85; margin-bottom:1.25rem; }
 .chapter-body p.lead { color:var(--c-text); }
 .chapter-body h3 { margin-top:2.25rem; margin-bottom:0.8rem; font-size:clamp(1.05rem,2vw,1.3rem); }
+
+
+/* --- DROP CAP (chapter opening) --------------------------------------*/
+.chapter-body p.lead:not(.no-dropcap)::first-letter {
+  float:left;
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:3.3em;
+  line-height:0.8;
+  padding:0.09em 0.14em 0 0;
+  color:var(--c-accent);
+}
 
 /* --- QUOTATION / FRAGMENT -------------------------------------------*/
 .fragment {
@@ -346,6 +358,50 @@ figure.pfig figcaption::before {
 }
 .clearfix::after { content:''; display:table; clear:both; }
 
+
+/* full-width variant + zoom affordance */
+figure.pfig img, .chapter-portrait { cursor:zoom-in; }
+@media (min-width:1000px) {
+  figure.pfig.full { margin-left:-8%; margin-right:-8%; }
+}
+
+/* --- LIGHTBOX ---------------------------------------------------------*/
+.lightbox {
+  position:fixed; inset:0;
+  background:rgba(5,8,15,0.93);
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  z-index:3000; padding:2.5rem 1.5rem;
+  opacity:0; pointer-events:none;
+  transition:opacity .25s ease;
+}
+.lightbox.open { opacity:1; pointer-events:auto; }
+.lightbox img {
+  max-width:min(1100px, 94vw);
+  max-height:80vh;
+  border-radius:var(--radius);
+  border:1px solid rgba(255,255,255,0.15);
+}
+.lightbox .lb-cap {
+  margin-top:0.9rem;
+  color:#cbd5e1;
+  font-size:0.85rem;
+  font-style:italic;
+  text-align:center;
+  max-width:600px;
+}
+.lightbox .lb-close {
+  position:absolute; top:1.25rem; right:1.5rem;
+  width:42px; height:42px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,0.3);
+  background:none; color:#fff;
+  font-size:1.15rem; line-height:1;
+  cursor:pointer;
+  transition:border-color .2s, transform .2s;
+}
+.lightbox .lb-close:hover { border-color:#fff; transform:scale(1.05); }
+
 /* --- CALLOUT ----------------------------------------------------------*/
 .callout {
   border-left:3px solid var(--c-accent);
@@ -377,6 +433,79 @@ figure.pfig figcaption::before {
 }
 .comparison-col p { color:var(--c-text-dim); font-size:0.92rem; margin-bottom:0; line-height:1.7; }
 @media (max-width:640px) { .comparison { grid-template-columns:1fr; } }
+
+
+/* --- PULL QUOTE --------------------------------------------------------*/
+.pullquote { margin:3rem auto; max-width:540px; text-align:center; }
+.pullquote p {
+  font-family:var(--f-body);
+  font-style:italic;
+  font-size:1.45rem;
+  line-height:1.55;
+  color:var(--c-heading) !important;
+  margin:0 !important;
+}
+.pullquote p::before { content:'\201C'; color:var(--c-accent); margin-right:0.1em; }
+.pullquote p::after  { content:'\201D'; color:var(--c-accent); margin-left:0.1em; }
+.pullquote cite {
+  display:block; margin-top:0.9rem;
+  font-style:normal;
+  font-family:var(--f-display);
+  font-size:0.72rem; font-weight:600;
+  letter-spacing:0.16em; text-transform:uppercase;
+  color:var(--c-text-dim);
+}
+
+/* --- MARGIN NOTE (floats into the margin on wide screens) ---------------*/
+.margin-note {
+  margin:1.5rem 0;
+  padding:0.9rem 1.1rem;
+  background:var(--c-surface);
+  border:1px solid var(--c-border);
+  border-radius:var(--radius);
+  font-size:0.82rem;
+  line-height:1.6;
+  color:var(--c-text-dim);
+}
+.margin-note .mn-term {
+  display:block;
+  font-family:var(--f-display);
+  font-size:0.68rem; font-weight:600;
+  letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--c-accent);
+  margin-bottom:0.3rem;
+}
+@media (min-width:1360px) {
+  .margin-note {
+    float:right; clear:right;
+    width:220px;
+    margin:0.1rem -265px 1rem 1.5rem;
+  }
+}
+
+/* --- GLOSSARY TERM (hover / focus definition) -----------------------------*/
+.gloss {
+  border-bottom:1px dotted var(--c-accent);
+  cursor:help;
+  position:relative;
+}
+.gloss:hover::after, .gloss:focus-visible::after {
+  content:attr(data-def);
+  position:absolute;
+  bottom:135%; left:50%;
+  transform:translateX(-50%);
+  width:max-content; max-width:260px;
+  background:var(--c-surface);
+  border:1px solid var(--c-border);
+  border-radius:var(--radius);
+  padding:0.55rem 0.8rem;
+  font-family:var(--f-display);
+  font-size:0.78rem; font-style:normal;
+  line-height:1.5;
+  color:var(--c-text);
+  box-shadow:0 8px 24px rgba(0,0,0,0.25);
+  z-index:100;
+}
 
 /* --- APPENDIX (collapsible) -------------------------------------------*/
 .appendix-block {
@@ -518,6 +647,73 @@ p.hero-text + p.hero-text { margin-top:1rem; }
 .mb-15 { margin-bottom:1.5rem; }
 .mb-2  { margin-bottom:2rem; }
 
+
+/* --- MINI TOC (sticky contents, wide screens) --------------------------*/
+.mini-toc {
+  position:fixed;
+  top:7.5rem;
+  left:calc(50% - 360px - 265px);
+  width:225px;
+  display:none;
+  z-index:50;
+}
+@media (min-width:1280px) { .mini-toc { display:block; } }
+.mini-toc .mt-label {
+  font-family:var(--f-display);
+  font-size:0.68rem; font-weight:600;
+  letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--c-text-dim);
+  display:block; margin-bottom:0.75rem;
+}
+.mini-toc a {
+  display:block;
+  padding:0.32rem 0 0.32rem 0.85rem;
+  border-left:2px solid var(--c-border);
+  font-family:var(--f-display);
+  font-size:0.78rem;
+  color:var(--c-text-dim);
+  text-decoration:none;
+  transition:color .2s, border-color .2s;
+}
+.mini-toc a:hover { color:var(--c-accent); }
+.mini-toc a.active { border-left-color:var(--c-accent); color:var(--c-heading); }
+.mini-toc .mt-progress {
+  margin-top:1.1rem;
+  padding-left:0.85rem;
+  font-family:var(--f-display);
+  font-size:0.72rem;
+  color:var(--c-text-dim);
+}
+.mini-toc .mt-progress b { color:var(--c-accent); font-weight:600; }
+
+/* --- RESUME CHIP (on cover, injected when a bookmark exists) ------------*/
+.resume-chip {
+  font-family:var(--f-display);
+  font-weight:600; font-size:0.85rem;
+  color:var(--c-accent);
+  transition:opacity .2s;
+}
+.resume-chip:hover { opacity:0.8; }
+
+/* --- FOCUS MODE -----------------------------------------------------------*/
+.focus-btn {
+  position:fixed; bottom:1.5rem; right:1.5rem;
+  width:44px; height:44px;
+  border-radius:50%;
+  border:1px solid var(--c-border);
+  background:var(--c-surface);
+  color:var(--c-text-dim);
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  z-index:1500;
+  transition:color .2s, border-color .2s;
+}
+.focus-btn:hover, .focus-btn[aria-pressed="true"] { color:var(--c-accent); border-color:var(--c-accent); }
+.focus-btn svg { width:18px; height:18px; }
+body.focus-mode .site-nav,
+body.focus-mode .breadcrumb,
+body.focus-mode .mini-toc { display:none; }
+
 /* --- CHAPTER FOOT NAV ---------------------------------------------------*/
 .chapter-foot-nav {
   display:flex;
@@ -583,3 +779,18 @@ p.hero-text + p.hero-text { margin-top:1rem; }
 .coming-soon-item .lock svg { width:16px; height:16px; }
 .coming-soon-item .csi-text h5 { font-size:0.95rem; margin-bottom:0.15rem; color:var(--c-heading); }
 .coming-soon-item .csi-text p { font-size:0.8rem; color:var(--c-text-dim); margin:0; }
+
+
+/* --- PRINT (Phase 10.1) -------------------------------------------------*/
+@media print {
+  .site-nav, .breadcrumb, .reading-progress, .theme-toggle,
+  .cover-actions, .book-toc-block, .chapter-foot-nav, .book-end-nav,
+  .mini-toc, .focus-btn, .resume-chip { display:none !important; }
+  body { background:#fff !important; color:#1a1a1a !important; }
+  .book-header.book-cover { min-height:auto; padding:3rem 0 2rem; background:none; border:none; }
+  .book-header::before { display:none; }
+  .chapter { break-before:page; padding:2rem 0; border-bottom:none; }
+  .chapter-body p, .fragment p, .cover-epigraph { color:#333 !important; }
+  figure.pfig.float-left, figure.pfig.float-right { float:none; max-width:100%; margin:1.5rem 0; }
+  a { color:inherit; text-decoration:none; }
+}

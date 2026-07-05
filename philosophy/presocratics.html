@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Presocratics — Shresth Singh</title>
   <link rel="stylesheet" href="../css/styles.css?v=2">
-  <link rel="stylesheet" href="philosophy.css?v=4">
+  <link rel="stylesheet" href="philosophy.css?v=5">
 </head>
 <body>
 
@@ -50,8 +50,8 @@
     <div class="container-main book-container">
 
       <!-- TABLE OF CONTENTS -->
-      <div class="book-toc-block reveal" id="toc">
-        <span class="toc-label">Table of Contents</span>
+      <details class="book-toc-block reveal" id="toc" open>
+        <summary class="toc-label">Table of Contents</summary>
         <ol>
           <li><a href="#thales">Thales of Miletus</a></li>
           <li><a href="#anaximander">Anaximander</a></li>
@@ -63,7 +63,7 @@
           <li><a href="#parmenides">Parmenides</a></li>
           <li><a href="#conflict">Conflict Emerges</a></li>
         </ol>
-      </div>
+      </details>
 
       <!-- BOOK BODY -->
       <div class="book-body">
@@ -241,8 +241,13 @@
             </div>
             <span class="chapter-readtime">⏱ 3 min read</span>
 
-            <div class="chapter-body">
+            <div class="chapter-body clearfix">
               <p class="lead">Pythagoras is widely considered the first true mathematician in the Western tradition. Though he writes nothing himself, he is instrumental in establishing the Pythagorean school of thought. Nevertheless, through the writing of his followers, we learn that Pythagoras is also fascinated by the nature of reality. However, he is not satisfied with the empirical perspective.</p>
+
+              <figure class="pfig float-right">
+                <img src="../images/hammers.png" alt="Medieval woodcut of Pythagoras testing harmonic ratios with hammers, bells, glasses, and strings" loading="lazy">
+                <figcaption>Pythagoras' epiphany.</figcaption>
+              </figure>
 
               <p>One afternoon, Pythagoras, grappling with a math problem, walks past a blacksmith's shop. The blacksmith, busy at work, bangs his hammers upon an anvil, and on occasion, strikes hammers of different weights together. The harmonies they make are not random, and this catches the attention of one very mathematically-minded Pythagoras. He notes that when a hammer is struck by another half its size, an octave is emitted. When the ratio between two hammers is 3:2, a perfect fifth chord is emitted. 4:3 yields a fourth, and as the blacksmith forges his blade, Pythagoras forges a new understanding of reality.</p>
 
@@ -263,9 +268,7 @@
           <article class="chapter reveal" id="xenophanes">
             <span class="chapter-number">Chapter 06</span>
             <div class="chapter-head">
-              <div class="chapter-glyph">
-                <span>Ξ</span>
-              </div>
+              <img src="../images/xenophanes.jpg" alt="Engraving of Xenophanes of Colophon" class="chapter-portrait" loading="lazy">
               <div>
                 <h2>Xenophanes</h2>
                 <p class="chapter-dates">~570–478 BCE · Colophon</p>
@@ -279,12 +282,17 @@
             </div>
             <span class="chapter-readtime">⏱ 5 min read</span>
 
-            <div class="chapter-body">
+            <div class="chapter-body clearfix">
               <p class="lead">Xenophanes of Colophon is considered the spiritual successor to the Milesian trinity. His teachings, preserved today only through fragments, echo many Milesian ideas while placing a widened perspective upon them, a trait surely developed over a well-traveled life. Unlike Thales' four statements, these fragments are numerous and dense, allowing a deeper inquiry into Xenophanes' thought. Though many scholarly translations exist, several are centuries old, and so I have decided to render them in simpler terms with a modern audience in mind. Xenophanes is not merely a traveler or historian. He is a mirror. He turns humanity's arrogance upon itself, forcing us to contend with our gods, our champions, and ourselves.</p>
 
               <p>What makes Xenophanes curious is that his status as a philosopher is debated. Why? Sometime in his mid-twenties, Xenophanes leaves Colophon. He travels widely, observing Greek custom and spreading his own teachings. It becomes clear that he is a man of observation: knowledge must be grounded in reality. Yet he is not only concerned with cosmic truth, but with practical conduct. Many surviving fragments revolve around proper Greek decorum: how a symposium ought to be conducted, how wine ought to be diluted, and what manner of conversation befits a man of virtue.</p>
 
               <p>This is the source of the debate. Xenophanes' documentation of "proper" Greek tradition has led some modern readers to treat him less as a philosopher than as a bookkeeper of custom. Yet another view can easily be furthered: Xenophanes does exactly what a philosopher should. He demonstrates how one ought to live, in precise and careful detail. His traditionalist fragments illustrate both his vision of proper Greek existence and the details of his own wandering life. (<a class="appendix-jump" href="#appendix-i">See fragment appendix I</a>.)</p>
+
+              <figure class="pfig float-left">
+                <img src="../images/horses.jpg" alt="Rubens' Fall of Phaeton — gods and horses tumbling from the heavens" loading="lazy">
+                <figcaption>Xenophanes' gods of horses.</figcaption>
+              </figure>
 
               <p>Once one looks beyond those traditionalist fragments, a preacher and fiery critic emerges. His authoritative critiques of the society around him reveal a man unafraid of his intellectual rivals. To debate how one should live, and to question the dogma of one's day, are core tenets of Presocratic philosophy. These critiques form a sizable portion of his surviving work, and they lay early groundwork for the gadfly of Athens. (<a class="appendix-jump" href="#appendix-ii">See fragment appendix II</a>.)</p>
 
@@ -375,9 +383,7 @@
           <article class="chapter reveal" id="heraclitus">
             <span class="chapter-number">Chapter 07</span>
             <div class="chapter-head">
-              <div class="chapter-glyph">
-                <span>Η</span>
-              </div>
+              <img src="../images/heraclitus.jpg" alt="Bust traditionally identified as Heraclitus of Ephesus" class="chapter-portrait" loading="lazy">
               <div>
                 <h2>Heraclitus</h2>
                 <p class="chapter-dates">~540–480 BCE · Ephesus</p>
@@ -397,6 +403,11 @@
               <p>It is around Heraclitus' time that metaphysics begins to emerge as an explanation not merely for cosmology, but for existence itself. Rather than water, Apeiron, air, or mathematics, Heraclitus posits a new principle: Logos. Logos is the hidden law beneath the universe, the order by which change itself becomes intelligible. Although he teaches many other ideas, they revolve around this central thought. Existence is not order set in a metaphysical stone, but ordered change. Stasis belongs to death; movement belongs to life. What appears to us as disorder is not the absence of structure, but the form this grand structure takes when viewed by a limited mind. (<a class="appendix-jump" href="#appendix-logos">See fragment appendix: Logos</a>.)</p>
 
               <p>Later tradition compresses this insight into the phrase panta rhei: everything flows. Nothing remains fixed. Everything changes, forming whatever shape existence demands of it. One can step into a river but once, for the river is ever-changing, as is the one stepping into it. A universe of constant flux may appear disordered, but Heraclitus refuses this conclusion. Flux and order are not at odds with each other. Flux is the order. (<a class="appendix-jump" href="#appendix-pantarhei">See fragment appendix: Panta Rhei</a>.)</p>
+
+              <figure class="pfig full">
+                <img src="../images/river.png" alt="A mountain river in constant motion beneath shifting clouds" loading="lazy">
+                <figcaption>One can never step into the same river twice.</figcaption>
+              </figure>
 
               <p>This leads him to the unity of opposites. Human beings try to force clean divisions onto a universe governed by Logos, naming things good and bad, useful and harmful, just and unjust. Heraclitus resists these divisions. What we call opposites are bound together beneath the surface. They are not illusions, but relations: each becomes intelligible through the other. Heat means nothing without cold. Justice is invisible without injustice. Life is understood only against death. (<a class="appendix-jump" href="#appendix-opposites">See fragment appendix: The Unity of Opposites</a>.)</p>
 
@@ -644,6 +655,7 @@
         </div><!-- /book-body -->
 
       <div class="book-end-nav reveal">
+        <a href="README.html" class="cover-contents-link">The Library</a>
         <a href="socrates.html" class="btn-primary-custom">Continue to Book II: Socrates &amp; the Sophists &rarr;</a>
       </div>
 
@@ -657,6 +669,6 @@
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
   <script src="../js/main.js"></script>
-  <script src="philosophy.js?v=2"></script>
+  <script src="philosophy.js?v=3"></script>
 </body>
 </html>

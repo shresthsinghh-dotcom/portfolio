@@ -198,6 +198,18 @@
   flex-shrink:0;
 }
 .book-toc-block a:hover { color:var(--c-accent); }
+details.book-toc-block > summary { list-style:none; }
+details.book-toc-block > summary::-webkit-details-marker { display:none; }
+@media (max-width:760px) {
+  details.book-toc-block > summary {
+    cursor:pointer;
+    display:flex; justify-content:space-between; align-items:center;
+    user-select:none;
+  }
+  details.book-toc-block > summary::after { content:'\FF0B'; color:var(--c-accent); font-size:1rem; }
+  details.book-toc-block[open] > summary::after { content:'\2212'; }
+  details.book-toc-block:not([open]) > summary { margin-bottom:0; }
+}
 
 /* --- CHAPTER --------------------------------------------------------*/
 .chapter {
@@ -734,6 +746,14 @@ body.focus-mode .mini-toc { display:none; }
   transition:color .2s;
 }
 .chapter-foot-nav a:hover { color:var(--c-accent); }
+.chapter-foot-nav .foot-toc {
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:0.78rem;
+  color:var(--c-text-dim);
+  opacity:0.75;
+}
+.chapter-foot-nav .foot-toc:hover { color:var(--c-accent); opacity:1; }
 .chapter-foot-nav .prev { margin-right:auto; }
 .chapter-foot-nav .next { margin-left:auto; text-align:right; }
 
@@ -781,11 +801,85 @@ body.focus-mode .mini-toc { display:none; }
 .coming-soon-item .csi-text p { font-size:0.8rem; color:var(--c-text-dim); margin:0; }
 
 
+/* --- RUNNING HEADER (Book · current chapter, appears past the cover) ----*/
+.running-header {
+  position:fixed;
+  top:0; left:0; right:0;
+  height:3.6rem;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  gap:0.6rem;
+  z-index:1001;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .35s ease;
+  font-family:var(--f-display);
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--c-text-dim);
+}
+.running-header b { color:var(--c-accent); font-weight:600; }
+.running-header .rh-sep { opacity:0.4; }
+.running-header.visible { opacity:1; }
+@media (min-width:900px) { .running-header { display:flex; } }
+body.focus-mode .running-header { display:none; }
+
+/* --- BOOK TIMELINE (auto-built from chapter dates) -----------------------*/
+.book-timeline { margin:0 0 3.25rem; padding:0 1.25rem; display:none; }
+@media (min-width:700px) { .book-timeline { display:block; } }
+.book-timeline .tl-label {
+  font-family:var(--f-display);
+  font-size:0.68rem; font-weight:600;
+  letter-spacing:0.14em; text-transform:uppercase;
+  color:var(--c-text-dim);
+  display:block;
+}
+.tl-track { position:relative; height:2px; background:var(--c-border); margin:2.9rem 0 2.9rem; }
+.tl-dot {
+  position:absolute; top:50%;
+  transform:translate(-50%,-50%);
+  width:11px; height:11px;
+  border-radius:50%;
+  background:var(--c-bg);
+  border:2px solid var(--c-accent);
+  transition:transform .2s;
+}
+.tl-dot:hover, .tl-dot:focus-visible { transform:translate(-50%,-50%) scale(1.35); }
+.tl-name {
+  position:absolute; left:50%;
+  transform:translateX(-50%);
+  white-space:nowrap;
+  font-family:var(--f-display);
+  font-size:0.68rem;
+  color:var(--c-text-dim);
+  transition:color .2s;
+}
+.tl-dot.up .tl-name { bottom:15px; }
+.tl-dot.down .tl-name { top:15px; }
+.tl-dot:hover .tl-name, .tl-dot:focus-visible .tl-name { color:var(--c-accent); }
+.tl-ends {
+  display:flex; justify-content:space-between;
+  font-family:var(--f-display);
+  font-size:0.65rem;
+  color:var(--c-text-dim);
+  opacity:0.55;
+}
+
+/* --- THEME TRANSITIONS (Phase 10.3) ---------------------------------------*/
+body, .book-header, .book-toc-block, .fragment, .callout, .comparison-col,
+.appendix-block, .sub-appendix, .status-card, .chapter-glyph, .coming-soon-item,
+.margin-note, .mini-toc a, .focus-btn, .tl-dot, .p-card {
+  transition:background-color .35s ease, border-color .35s ease, color .35s ease;
+}
+
 /* --- PRINT (Phase 10.1) -------------------------------------------------*/
 @media print {
   .site-nav, .breadcrumb, .reading-progress, .theme-toggle,
   .cover-actions, .book-toc-block, .chapter-foot-nav, .book-end-nav,
-  .mini-toc, .focus-btn, .resume-chip { display:none !important; }
+  .mini-toc, .focus-btn, .resume-chip, .running-header, .book-timeline { display:none !important; }
   body { background:#fff !important; color:#1a1a1a !important; }
   .book-header.book-cover { min-height:auto; padding:3rem 0 2rem; background:none; border:none; }
   .book-header::before { display:none; }

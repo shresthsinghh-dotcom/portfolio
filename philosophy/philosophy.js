@@ -151,3 +151,96 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+
+/* ============================================================
+   BOOK EXTRAS — running header, timeline, TOC state, foot links
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  const bookBody = document.querySelector('.book-body');
+  if (!bookBody) return;
+  const chapters = [...document.querySelectorAll('.chapter[id]')];
+  const toc = document.getElementById('toc');
+
+  /* --- Collapsible TOC: open on desktop, closed on mobile --- */
+  if (toc && toc.tagName === 'DETAILS') {
+    toc.open = window.innerWidth > 760;
+  }
+
+  /* --- Chapter foot nav: inject a centered Contents link --- */
+  if (toc) {
+    document.querySelectorAll('.chapter-foot-nav').forEach(nav => {
+      const link = document.createElement('a');
+      link.className = 'foot-toc';
+      link.href = '#toc';
+      link.textContent = 'Contents';
+      const next = nav.querySelector('.next');
+      next ? nav.insertBefore(link, next) : nav.appendChild(link);
+    });
+  }
+
+  /* --- Running header: "BOOK I · Chapter" once past the cover --- */
+  const coverNum = document.querySelector('.cover-num');
+  const cover = document.querySelector('.book-cover');
+  if (coverNum && chapters.length) {
+    const rh = document.createElement('div');
+    rh.className = 'running-header';
+    rh.setAttribute('aria-hidden', 'true');
+    rh.innerHTML = '<b>' + coverNum.textContent.trim() + '</b><span class="rh-sep">\u00B7</span><span class="rh-ch"></span>';
+    document.body.appendChild(rh);
+    const rhCh = rh.querySelector('.rh-ch');
+
+    const miniLinks = () => document.querySelectorAll('.mini-toc a');
+    const spy2 = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          const t = en.target.querySelector('h2');
+          if (t) rhCh.textContent = t.textContent;
+          miniLinks().forEach(l => {
+            if (l.getAttribute('href') === '#' + en.target.id) l.setAttribute('aria-current', 'true');
+            else l.removeAttribute('aria-current');
+          });
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    chapters.forEach(ch => spy2.observe(ch));
+
+    const rhToggle = () => {
+      const threshold = cover ? cover.offsetTop + cover.offsetHeight : 500;
+      rh.classList.toggle('visible', window.scrollY > threshold && !!rhCh.textContent);
+    };
+    window.addEventListener('scroll', rhToggle, { passive: true });
+    rhToggle();
+  }
+
+  /* --- Timeline: auto-built from chapter dates --- */
+  if (toc && chapters.length > 2) {
+    const points = chapters.map(ch => {
+      const d = ch.querySelector('.chapter-dates');
+      const t = ch.querySelector('h2');
+      const m = d && d.textContent.match(/(\d{3})/);
+      return m ? { id: ch.id, name: t ? t.textContent : ch.id, year: parseInt(m[1], 10) } : null;
+    }).filter(Boolean);
+
+    const oldest = points.length ? Math.max(...points.map(p => p.year)) : 0;
+    const newest = points.length ? Math.min(...points.map(p => p.year)) : 0;
+    if (points.length > 2 && oldest !== newest) {
+      const tl = document.createElement('div');
+      tl.className = 'book-timeline';
+      tl.innerHTML = '<span class="tl-label">Timeline</span><div class="tl-track"></div>' +
+        '<div class="tl-ends"><span>~' + oldest + ' BCE</span><span>~' + newest + ' BCE</span></div>';
+      const track = tl.querySelector('.tl-track');
+      points.forEach((p, i) => {
+        const pct = Math.min(96, Math.max(4, ((oldest - p.year) / (oldest - newest)) * 100));
+        const dot = document.createElement('a');
+        dot.className = 'tl-dot ' + (i % 2 ? 'down' : 'up');
+        dot.href = '#' + p.id;
+        dot.style.left = pct + '%';
+        dot.setAttribute('aria-label', p.name + ', born around ' + p.year + ' BCE');
+        dot.innerHTML = '<span class="tl-name">' + p.name.split(' ')[0] + '</span>';
+        track.appendChild(dot);
+      });
+      toc.insertAdjacentElement('afterend', tl);
+    }
+  }
+});

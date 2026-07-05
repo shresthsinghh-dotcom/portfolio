@@ -104,6 +104,11 @@ with nested `<details class="sub-appendix">`. Deep-link via
 - Focus mode: corner button hides nav/breadcrumb/mini-TOC; Esc exits
 - Print: `@media print` gives a clean, chapter-per-page document
 - Resume-reading chip on the cover
+- Running header ("BOOK I · Chapter") in the navbar once past the cover (≥900px)
+- Era timeline built from each chapter's `.chapter-dates` (needs 3+ chapters
+  with distinct years; dots deep-link to chapters)
+- "Contents" link injected into every chapter foot nav
+- The TOC is a `<details id="toc">`: open on desktop, collapsed on mobile
 
 ## Rules
 1. No inline `style=""` — if a style is needed twice, it becomes a class here.

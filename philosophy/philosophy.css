@@ -385,6 +385,75 @@ figure.pfig figcaption::before {
 }
 .appendix-jump:hover { color:var(--c-accent-2); }
 
+
+/* --- PAGE HERO (title block at top of hub pages) --------------------*/
+.page-hero { padding:2rem 0 var(--s-section); }
+.page-hero h1 { margin-bottom:1rem; }
+.hero-text { color:var(--c-text-dim); font-size:1.05rem; line-height:1.8; }
+p.hero-text + p.hero-text { margin-top:1rem; }
+.page-sub { color:var(--c-text-dim); font-size:0.95rem; }
+
+/* --- SECTION INTRO (centered label + heading + blurb) ---------------*/
+.section-intro { text-align:center; margin-bottom:2.5rem; }
+.section-intro > p { color:var(--c-text-dim); max-width:600px; margin:0.75rem auto 0; }
+
+/* --- BAND (full-width alternate-background section) ------------------*/
+.band {
+  padding:var(--s-section) 0;
+  background:var(--c-bg-alt);
+  border-top:1px solid var(--c-border);
+  border-bottom:1px solid var(--c-border);
+}
+
+/* --- CONTAINER WIDTHS -------------------------------------------------*/
+.container-prose   { max-width:800px; text-align:center; }
+.container-reading { max-width:800px; }
+.container-tight   { max-width:700px; }
+
+/* --- LARGE PROSE (long-form reflection paragraphs) --------------------*/
+.prose-lg { font-size:clamp(1rem, 1.6vw, 1.15rem); line-height:1.8; margin-bottom:1rem; }
+.prose-lg:last-of-type { margin-bottom:0; }
+.section-blurb { color:var(--c-text-dim); max-width:620px; margin:0 auto 1rem; }
+
+/* --- STATUS CARD (current reading status, Library page) ---------------*/
+.status-card {
+  text-align:left;
+  background:var(--c-bg);
+  border:1px solid var(--c-border);
+  border-radius:var(--radius);
+  padding:1.25rem 1.5rem;
+  margin:1.5rem 0;
+  font-size:0.85rem;
+}
+.status-card p { margin-bottom:0.5rem; }
+.status-card p:last-child { margin-bottom:0; }
+.status-card strong { color:var(--c-heading); }
+.status-card span { color:var(--c-text-dim); }
+.status-lead { font-size:0.92rem; margin-top:1rem; margin-bottom:0.5rem; }
+.status-lead strong { color:var(--c-heading); }
+
+/* --- LINEAGE CARD DETAILS ----------------------------------------------*/
+.p-card.current-read { border-color:var(--c-accent); border-style:dashed; }
+.no-texts { font-style:italic; opacity:0.5; }
+.card-cf { font-size:0.72rem; color:var(--c-text-dim); opacity:0.7; margin:0.5rem 0 0; line-height:1.4; }
+.more-planned { font-size:0.7rem; opacity:0.4; margin-top:0.2rem; }
+
+/* --- DRAFT CHAPTER (essay coming soon) -----------------------------------*/
+.chapter.draft h2,
+.chapter.draft .chapter-thesis { opacity:0.6; }
+.draft-note { color:var(--c-text-dim); font-style:italic; }
+
+/* --- UTILITIES -------------------------------------------------------------*/
+.text-center { text-align:center; }
+.hl { color:var(--c-heading); }
+.label-block { color:var(--c-heading); display:block; font-size:0.95rem; }
+.link-sm { font-size:0.88rem; }
+.btn-block { width:100%; justify-content:center; }
+.mb-05 { margin-bottom:0.5rem; }
+.mb-1  { margin-bottom:1rem; }
+.mb-15 { margin-bottom:1.5rem; }
+.mb-2  { margin-bottom:2rem; }
+
 /* --- CHAPTER FOOT NAV ---------------------------------------------------*/
 .chapter-foot-nav {
   display:flex;
@@ -410,6 +479,11 @@ figure.pfig figcaption::before {
 
 /* --- BOOK-END NAV (between books) --------------------------------------*/
 .book-end-nav {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:1rem;
+  flex-wrap:wrap;
   text-align:center;
   padding:3rem 0 1rem;
 }

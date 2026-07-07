@@ -64,64 +64,73 @@
           <li><a href="#melissus">Melissus</a></li>
         </ol>
       </details>
+        <!-- Timelines: small multiples view -->
+    <div id="timelines-wrapper" data-force-compact="true"></div>
+        <div id="timeline-master" class="timeline-master" aria-label="Master timeline overview"></div>
+
+        <!-- Small multiples: left column names, right column aligned bars -->
+        <div id="timeline-multiples" class="timeline-multiples" role="list" aria-label="Thinkers lifespans">
+          <!-- JS will populate rows here -->
+        </div>
 
       <!-- BOOK BODY -->
       <div class="book-body">
 
-          <!-- ============ CHAPTER 1: THALES ============ -->
-          <article class="chapter reveal" id="thales">
-            <span class="chapter-number">Chapter I</span>
-            <div class="chapter-head">
-              <img src="../images/thales.png" alt="Bust of Thales of Miletus" class="chapter-portrait" loading="lazy">
-              <div>
-                <h2>Thales of Miletus</h2>
-                <p class="chapter-dates">~624–546 BCE · Miletus, Ionia</p>
-                <p class="chapter-thesis">Thales determines that the world is of water — and with that single claim, myth gives way to argument.</p>
-              </div>
+         <!-- ============ CHAPTER 1: THALES ============ -->
+        <article class="chapter reveal" id="thales" data-school="Milesian" data-start="-624" data-end="-546">
+          <span class="chapter-number">Chapter I</span>
+          <div class="chapter-head">
+            <img src="../images/thales.png" alt="Bust of Thales of Miletus" class="chapter-portrait" loading="lazy">
+            <div>
+              <h2>Thales of Miletus</h2>
+              <p class="chapter-dates">~624–546 BCE · Miletus, Ionia</p>
+              <p class="chapter-thesis">Thales determines that the world is of water — and with that single claim, myth gives way to argument.</p>
             </div>
-            <div class="chapter-tags">
-              <span class="chapter-tag">Cosmology</span>
-              <span class="chapter-tag">First Philosopher</span>
-              <span class="chapter-tag">Water as Arche</span>
-            </div>
-            <span class="chapter-readtime">⏱ 3 min read</span>
+          </div>
+          <div class="chapter-tags">
+            <span class="chapter-tag">Cosmology</span>
+            <span class="chapter-tag">First Philosopher</span>
+            <span class="chapter-tag">Water as Arche</span>
+          </div>
+          <span class="chapter-readtime">⏱ 3 min read</span>
 
-            <div class="chapter-body clearfix">
-              <p class="lead">If everything has a beginning, everything has to come from something. It is this question that Thales of Miletus sought to answer. He is unanimously regarded as the first real philosopher, as we imagine them in the western world. To answer the big question, Thales first asks: if a small rock falls, and a large boulder falls too, then why does the Earth, the largest boulder of all, not plummet down eternally? Furthermore, how was it even created? It is here that Thales attempts to confront existence. Although he was a deeply intelligent mathematician and orator, no works of his survive today. In fact, almost all we know of him is as a result of Aristotle's works and historians like Diogenes Laertius. We are left with but four snippets:</p>
+          <div class="chapter-body clearfix">
+            <p class="lead">If everything has a beginning, everything has to come from something. It is this question that Thales of Miletus sought to answer. He is unanimously regarded as the first real philosopher, as we imagine them in the western world. To answer the big question, Thales first asks: if a small rock falls, and a large boulder falls too, then why does the Earth, the largest boulder of all, not plummet down eternally? Furthermore, how was it even created? It is here that Thales attempts to confront existence. Although he was a deeply intelligent mathematician and orator, no works of his survive today. In fact, almost all we know of him is as a result of Aristotle's works and historians like Diogenes Laertius. We are left with but four snippets:</p>
 
-              <div class="fragment"><span class="fnum">Fragment 1</span><p>The World derives from <strong>water</strong>.</p></div>
-              <div class="fragment"><span class="fnum">Fragment 2</span><p>The World rests on <strong>water</strong>.</p></div>
-              <div class="fragment"><span class="fnum">Fragment 3</span><p>The world is full of <strong>gods</strong>.</p></div>
-              <div class="fragment"><span class="fnum">Fragment 4</span><p><strong>Soul</strong> produces motion.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 1</span><p>The World derives from <strong>water</strong>.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 2</span><p>The World rests on <strong>water</strong>.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 3</span><p>The world is full of <strong>gods</strong>.</p></div>
+            <div class="fragment"><span class="fnum">Fragment 4</span><p><strong>Soul</strong> produces motion.</p></div>
 
-              <figure class="pfig float-right">
-                <img src="../images/earthwater.png" alt="Diagram of Thales' cosmology: Earth floating on Ocean" loading="lazy">
-                <figcaption>Thales' earth floating on water.</figcaption>
-              </figure>
+            <figure class="pfig float-right">
+              <img src="../images/earthwater.png" alt="Diagram of Thales' cosmology: Earth floating on Ocean" loading="lazy">
+              <figcaption>Thales' earth floating on water.</figcaption>
+            </figure>
 
-              <p>The world is of water, and it comes from the water it rests upon. Thales' belief in the universal property of water is justified through the fact that life cannot exist without it. The earth, he holds, does not plummet because it is buoyant, floating upon water.</p>
+            <p>The world is of water, and it comes from the water it rests upon. Thales' belief in the universal property of water is justified through the fact that life cannot exist without it. The earth, he holds, does not plummet because it is buoyant, floating upon water.</p>
 
-              <p>Like us, Thales is gripped by the power of nature, and the fragility of our existence. Thus he concludes that if everything is of water, its divine nature cannot be denied. It makes sense that Thales claims the world is full of gods, for it is composed of the divine. The last fragment appears to reference the Milesian idea that motion is proof of life, and thus the soul is the source of motion. Thales is foundational in the study of cosmology, and his teachings lay the groundwork for the generations of philosophers who follow. His attempts to define reality empirically echo through the natural philosophers who come after him for centuries.</p>
+            <p>Like us, Thales is gripped by the power of nature, and the fragility of our existence. Thus he concludes that if everything is of water, its divine nature cannot be denied. It makes sense that Thales claims the world is full of gods, for it is composed of the divine. The last fragment appears to reference the Milesian idea that motion is proof of life, and thus the soul is the source of motion. Thales is foundational in the study of cosmology, and his teachings lay the groundwork for the generations of philosophers who follow. His attempts to define reality empirically echo through the natural philosophers who come after him for centuries.</p>
 
-              <p>To appreciate the importance of Thales, one must understand what he represents beyond his fragments. What does it mean to be the first philosopher? It means to replace an earth held up by Atlas, a sea governed by Poseidon, a sky ruled by Zeus, with argument and logic. Thales presents a real theory; a tangible idea. His neighbors mock philosophy's supposed impracticality, questioning why reality needs deciphering. He silences critique by predicting a bumper olive harvest, cornering the market and securing his fortune. He reportedly predicts a solar eclipse in 585 BCE, demonstrating that the cosmos operates by principles that can be known and anticipated.</p>
+            <p>To appreciate the importance of Thales, one must understand what he represents beyond his fragments. What does it mean to be the first philosopher? It means to replace an earth held up by Atlas, a sea governed by Poseidon, a sky ruled by Zeus, with argument and logic. Thales presents a real theory; a tangible idea. His neighbors mock philosophy's supposed impracticality, questioning why reality needs deciphering. He silences critique by predicting a bumper olive harvest, cornering the market and securing his fortune. He reportedly predicts a solar eclipse in 585 BCE, demonstrating that the cosmos operates by principles that can be known and anticipated.</p>
 
-              <p>Thales proves that wisdom is not abstract removal from the world, but in fact the deepest possible engagement with it. For the rest of his life, his gaze remains fixed outward: on water and stars and the earth beneath his feet. The question he never reaches is the one that will come to define everything that follows: not what the world is made of, but how we ought to live within it.</p>
-            </div>
+            <p>Thales proves that wisdom is not abstract removal from the world, but in fact the deepest possible engagement with it. For the rest of his life, his gaze remains fixed outward: on water and stars and the earth beneath his feet. The question he never reaches is the one that will come to define everything that follows: not what the world is made of, but how we ought to live within it.</p>
+          </div>
 
-            <div class="chapter-foot-nav">
-              <span></span>
-              <a class="next" href="#anaximander">Anaximander &rarr;</a>
-            </div>
-          </article>
+          <div class="chapter-foot-nav">
+            <span></span>
+            <a class="next" href="#anaximander">Anaximander &rarr;</a>
+          </div>
+        </article>
+
 
           <!-- ============ CHAPTER 2: ANAXIMANDER ============ -->
-          <article class="chapter reveal" id="anaximander">
+          <article class="chapter reveal" id="anaximander" data-school="Milesian" data-start="-624" data-end="-546">
             <span class="chapter-number">Chapter II</span>
             <div class="chapter-head">
               <img src="../images/Anaximander.png" alt="Anaximander, detail from The School of Athens" class="chapter-portrait" loading="lazy">
               <div>
                 <h2>Anaximander</h2>
-                <p class="chapter-dates">~610–546 BCE · Miletus, Ionia</p>
+                <p class="chapter-dates">~610-546 BCE · Miletus, Ionia</p>
                 <p class="chapter-thesis">A finite existence is constructed from the infinite.</p>
               </div>
             </div>
@@ -152,13 +161,13 @@
           </article>
 
           <!-- ============ CHAPTER 3: ANAXIMENES ============ -->
-          <article class="chapter reveal" id="anaximenes">
+          <article class="chapter reveal" id="anaximenes" data-school="Milesian" data-start="-586" data-end="-526">
             <span class="chapter-number">Chapter III</span>
             <div class="chapter-head">
               <img src="../images/anaximenes.png" alt="Engraving of Anaximenes of Miletus" class="chapter-portrait" loading="lazy">
               <div>
                 <h2>Anaximenes</h2>
-                <p class="chapter-dates">~546 BCE · Miletus, Ionia</p>
+                <p class="chapter-dates">~586–526 BCE · Miletus, Ionia</p>
                 <p class="chapter-thesis">As breath holds the body together, Aer holds the universe together.</p>
               </div>
             </div>
@@ -181,7 +190,7 @@
           </article>
 
           <!-- ============ CHAPTER 4: THE MILESIAN ARC ============ -->
-          <article class="chapter reveal" id="milesian-arc">
+          <article class="chapter reveal" id="milesian-arc" data-school="Milesian">
             <span class="chapter-number">Chapter IV · Interlude</span>
             <div class="chapter-head">
               <div class="chapter-glyph">
@@ -224,13 +233,13 @@
           </article>
 
           <!-- ============ CHAPTER 5: PYTHAGORAS ============ -->
-          <article class="chapter reveal" id="pythagoras">
+          <article class="chapter reveal" id="pythagoras" data-school="Pythagorean" data-start="-571" data-end="-495">
             <span class="chapter-number">Chapter V</span>
             <div class="chapter-head">
               <img src="../images/pythagoras.png" alt="Painting of Pythagoras holding a geometric solid" class="chapter-portrait" loading="lazy">
               <div>
                 <h2>Pythagoras</h2>
-                <p class="chapter-dates">~571–497 BCE · Samos / Croton</p>
+                <p class="chapter-dates">~571–495 BCE · Samos / Croton</p>
                 <p class="chapter-thesis">If music can be expressed with mathematics, then perhaps all of reality is rational.</p>
               </div>
             </div>
@@ -265,7 +274,7 @@
           </article>
 
           <!-- ============ CHAPTER 6: XENOPHANES ============ -->
-          <article class="chapter reveal" id="xenophanes">
+          <article class="chapter reveal" id="xenophanes" data-school="Eleatic" data-start="-570" data-end="-478">
             <span class="chapter-number">Chapter VI</span>
             <div class="chapter-head">
               <img src="../images/xenophanes.jpg" alt="Engraving of Xenophanes of Colophon" class="chapter-portrait" loading="lazy">
@@ -380,8 +389,8 @@
           </article>
 
           <!-- ============ CHAPTER 7: HERACLITUS ============ -->
-          <article class="chapter reveal" id="heraclitus">
-            <span class="chapter-number">Chapter 07</span>
+          <article class="chapter reveal" id="heraclitus" data-school="Heraclitean" data-start="-540" data-end="-480">
+            <span class="chapter-number">Chapter VII</span>
             <div class="chapter-head">
               <img src="../images/heraclitus.jpg" alt="Bust traditionally identified as Heraclitus of Ephesus" class="chapter-portrait" loading="lazy">
               <div>
@@ -568,15 +577,15 @@
 
 
           <!-- ============ CHAPTER 8: PARMENIDES ============ -->
-          <article class="chapter reveal" id="parmenides">
-            <span class="chapter-number">Chapter 08</span>
+          <article class="chapter reveal" id="parmenides" data-school="Eleatic" data-start="-515" data-end="-450">
+            <span class="chapter-number">Chapter VIII</span>
             <div class="chapter-head">
               <div class="chapter-glyph">
                 <span>Π</span>
               </div>
               <div>
                 <h2>Parmenides Of Elea</h2>
-                <p class="chapter-dates">~515 BCE · Elea</p>
+                <p class="chapter-dates">~515-450 BCE · Elea</p>
                 <p class="chapter-thesis">What is, is Being. What is not, cannot be thought — and so cannot be at all.</p>
               </div>
             </div>
@@ -633,15 +642,15 @@
           </article>
 
           <!-- ============ CHAPTER 9: MELISSUS ============ -->
-          <article class="chapter reveal" id="melissus">
-            <span class="chapter-number">Chapter 09</span>
+          <article class="chapter reveal" id="melissus" data-school="Eleatic" data-start="-500" data-end="-430">
+            <span class="chapter-number">Chapter IX</span>
             <div class="chapter-head">
               <div class="chapter-glyph">
                 <span>Μ</span>
               </div>
               <div>
                 <h2>Melissus</h2>
-                <p class="chapter-dates">~470–430 BCE · Samos</p>
+                <p class="chapter-dates">~500–430 BCE · Samos</p>
                 <p class="chapter-thesis">If Being cannot come from Non-Being, it must be infinite, eternal, and one.</p>
               </div>
             </div>
@@ -683,18 +692,231 @@
                   <div class="fragment"><span class="fnum">Fragment 10</span><p>If Reality is divided it moves, but if it moves, it cannot be reality.</p></div>
                 </div>
               </details>
-
-              <h3>Toward Plato</h3>
-              <p>Plato, the most prominent author of the next generation of philosophers, and a student of the great Socrates, wrote down many dialogues between Socrates and himself. He was heavily influenced by Parmenides, and many of his own ideas and thoughts were derived from Heraclitus as well.</p>
-              <p>It is here his work will be explored on our journey. Socrates, his teacher, is in reality the next after Parmenides and Heraclitus. Like the aforementioned, he taught through verse. Unlike them, however, nothing of his work was actually written down by himself, but rather by his student Plato. Thus, we explore several of Plato's dialogues, spanning 428–347 BCE.</p>
-            </div>
-
-            <div class="chapter-foot-nav">
+              <div class="chapter-foot-nav">
               <a class="prev" href="#parmenides">&larr; Parmenides</a>
+              <a class="next" href="#zeno">Zeno &rarr;</a>
               <span></span>
             </div>
           </article>
 
+          <!-- ============ CHAPTER 10: ZENO ============ -->
+          <article class="chapter reveal" id="zeno" data-school="Eleatic" data-start="-495" data-end="-430">
+            <span class="chapter-number">Chapter X</span>
+            <div class="chapter-head">
+              <div class="chapter-glyph">
+                <span>Ζ</span>
+              </div>
+              <div>
+                <h2>Zeno of Elea</h2>
+                <p class="chapter-dates">~495-430 BCE · Elea</p>
+                <p class="chapter-thesis">Motion and plurality lead to logical contradictions.</p>
+              </div>
+            </div>
+            <div class="chapter-tags">
+              <span class="chapter-tag">Eleatic School</span>
+              <span class="chapter-tag">Paradoxes</span>
+              <span class="chapter-tag">Denial of Void</span>
+            </div>
+            <span class="chapter-readtime">⏱ 4 min read</span>
+
+            <div class="chapter-body">
+              <p class="lead">
+                To be written.
+              </p>
+            </div>
+            <div class="chapter-foot-nav">
+              <a class="prev" href="#melissus">&larr; Melissus</a>
+              <a class="next" href="#empedocles">Empedocles &rarr;</a>
+              <span></span>
+            </div>
+          </article>
+          <!-- ============ CHAPTER 11: Empedocles ============ -->
+          <article class="chapter reveal" id="empedocles" data-school="Pluralist" data-start="-494" data-end="-434">
+            <span class="chapter-number">Chapter XI</span>
+            <div class="chapter-head">
+              <div class="chapter-glyph">
+                <span>Ε</span>
+              </div>
+              <div>
+                <h2>Empedocles</h2>
+                <p class="chapter-dates">~494-434 BCE · Acragas, Sicily</p>
+                <p class="chapter-thesis">The universe is composed of four elements governed by Love and Strife.</p>
+              </div>
+            </div>
+            <div class="chapter-tags">
+              <span class="chapter-tag">Acragantine School</span>
+              <span class="chapter-tag">Four Elements</span>
+              <span class="chapter-tag">Denial of Void</span>
+            </div>
+            <span class="chapter-readtime">⏱ 4 min read</span>
+
+            <div class="chapter-body">
+              <p class="lead">
+                To be written.
+              </p>
+            </div>
+            <div class="chapter-foot-nav">
+              <a class="prev" href="#zeno">&larr; Zeno</a>
+              <a class="next" href="#anaxagoras">Anaxagoras &rarr;</a>
+              <span></span>
+            </div>
+          </article>
+          <!-- ============ CHAPTER 12: Anaxagoras ============ -->
+          <article class="chapter reveal" id="anaxagoras" data-school="Pluralist" data-start="-500" data-end="-428">
+            <span class="chapter-number">Chapter XII</span>
+            <div class="chapter-head">
+              <div class="chapter-glyph">
+                <span>Α</span>
+              </div>
+              <div>
+                <h2>Anaxagoras</h2>
+                <p class="chapter-dates">~500-428 BCE · Clazomenae, Asia Minor</p>
+                <p class="chapter-thesis">The universe is composed of all things, each in infinite quantity.</p>
+              </div>
+            </div>
+            <div class="chapter-tags">
+              <span class="chapter-tag">Clazomenae School</span>
+              <span class="chapter-tag">Mind (Nous)</span>
+              <span class="chapter-tag">Denial of Void</span>
+            </div>
+            <span class="chapter-readtime">⏱ 4 min read</span>
+
+            <div class="chapter-body">
+              <p class="lead">
+                To be written.
+              </p>
+            </div>
+            <div class="chapter-foot-nav">
+              <a class="prev" href="#empedocles">&larr; Empedocles</a>
+              <a class="next" href="#anaxagoras">Anaxagoras &rarr;</a>
+              <span></span>
+            </div>
+          </article>
+          <!-- ============ CHAPTER 13: Leucippus ============ -->
+          <article class="chapter reveal" id="leucippus" data-school="Atomist" data-start="-490" data-end="-420">
+            <span class="chapter-number">Chapter XIII</span>
+            <div class="chapter-head">
+              <div class="chapter-glyph">
+                <span>Λ</span>
+              </div>
+              <div>
+                <h2>Leucippus</h2>
+                <p class="chapter-dates">~490-420 BCE · Miletus, Ionia</p>
+                <p class="chapter-thesis">The universe is composed of indivisible particles (atoms) moving in a void.</p>
+              </div>
+            </div>
+            <div class="chapter-tags">
+              <span class="chapter-tag">Miletan School</span>
+              <span class="chapter-tag">Atomic Theory</span>
+              <span class="chapter-tag">Denial of Void</span>
+            </div>
+            <span class="chapter-readtime">⏱ 4 min read</span>
+
+            <div class="chapter-body">
+              <p class="lead">
+                To be written.
+              </p>
+            </div>
+            <div class="chapter-foot-nav">
+              <a class="prev" href="#anaxagoras">&larr; Anaxagoras</a>
+              <a class="next" href="#democritus">Democritus &rarr;</a>
+              <span></span>
+            </div>
+          </article>
+          <!-- ============ CHAPTER 14: Democritus ============ -->
+          <article class="chapter reveal" id="democritus" data-school="Atomist" data-start="-460" data-end="-370">
+            <span class="chapter-number">Chapter XIV</span>
+            <div class="chapter-head">
+              <div class="chapter-glyph">
+                <span>Δ</span>
+              </div>
+              <div>
+                <h2>Democritus</h2>
+                <p class="chapter-dates">~460-370 BCE · Abdera, Thrace</p>
+                <p class="chapter-thesis">The universe is composed of indivisible particles (atoms) moving in a void.</p>
+              </div>
+            </div>
+            <div class="chapter-tags">
+              <span class="chapter-tag">Abderan School</span>
+              <span class="chapter-tag">Atomic Theory</span>
+              <span class="chapter-tag">Denial of Void</span>
+            </div>
+            <span class="chapter-readtime">⏱ 4 min read</span>  
+            <div class="chapter-body">
+              <p class="lead">
+                To be written.
+              </p>
+            </div>
+            <div class="chapter-foot-nav">
+              <a class="prev" href="#leucippus">&larr; Leucippus</a>
+              <a class="next" href="#protagoras">Protagoras &rarr;</a>
+
+              <span></span>
+            </div>
+          </article>
+          <!-- ============ CHAPTER 15: Protagoras ============ -->
+          <article class="chapter reveal" id="protagoras" data-school="Sophist" data-start="-490" data-end="-420">
+            <span class="chapter-number">Chapter XV</span>
+            <div class="chapter-head">
+              <div class="chapter-glyph">
+                <span>Π</span>
+              </div>
+              <div>
+                <h2>Protagoras</h2>
+                <p class="chapter-dates">~490-420 BCE · Abdera, Thrace</p>
+                <p class="chapter-thesis">Man is the measure of all things.</p>
+              </div>
+            </div>
+            <div class="chapter-tags">
+              <span class="chapter-tag">Abderan School</span>
+              <span class="chapter-tag">Relativism</span>
+              <span class="chapter-tag">Denial of Void</span>
+            </div>
+            <span class="chapter-readtime">⏱ 4 min read</span>  
+            <div class="chapter-body">
+              <p class="lead">
+                To be written.
+              </p>
+            </div>
+            <div class="chapter-foot-nav">
+              <a class="prev" href="#democritus">&larr; Democritus</a>
+              <a class="next" href="#gorgias">Gorgias &rarr;</a>
+            <span></span>
+            </div>
+          </article>
+              <!-- ============ CHAPTER 16: Gorgias ============ -->
+          <article class="chapter reveal" id="gorgias" data-school="Sophist" data-start="-483" data-end="-375">
+            <span class="chapter-number">Chapter XVI</span>
+            <div class="chapter-head">
+              <div class="chapter-glyph">
+                <span>Γ</span>
+              </div>
+              <div>
+                <h2>Gorgias</h2>
+                <p class="chapter-dates">~483-375 BCE · Leontini, Sicily</p>
+                <p class="chapter-thesis">Nothing exists, and if it did, it could not be known or communicated.</p>
+              </div>
+            </div>
+            <div class="chapter-tags">
+              <span class="chapter-tag">Sophist</span>
+              <span class="chapter-tag">Relativism</span>
+              <span class="chapter-tag">Denial of Void</span>
+            </div>
+            <span class="chapter-readtime">⏱ 4 min read</span>  
+            <div class="chapter-body">
+              <p class="lead">
+                To be written.
+              </p>
+            </div>
+            <div class="chapter-foot-nav">
+              <a class="prev" href="#protagoras">&larr; Protagoras</a>
+              <a class="next" href="socrates.html">Towards Socrates: Book II &rarr;</a>
+
+              <span></span>
+            </div>
+          </article>
+
+              
         </div><!-- /book-body -->
 
       <div class="book-end-nav reveal">

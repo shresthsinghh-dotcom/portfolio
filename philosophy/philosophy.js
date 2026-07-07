@@ -213,34 +213,197 @@ document.addEventListener('DOMContentLoaded', () => {
     rhToggle();
   }
 
-  /* --- Timeline: auto-built from chapter dates --- */
-  if (toc && chapters.length > 2) {
-    const points = chapters.map(ch => {
-      const d = ch.querySelector('.chapter-dates');
-      const t = ch.querySelector('h2');
-      const m = d && d.textContent.match(/(\d{3})/);
-      return m ? { id: ch.id, name: t ? t.textContent : ch.id, year: parseInt(m[1], 10) } : null;
-    }).filter(Boolean);
+/* Multi-timeline builder: master + grouped timelines */
+/* Small multiples timeline: one row per thinker with visible names */
+(function buildSmallMultiplesTimeline() {
+  if (!toc) return;
 
-    const oldest = points.length ? Math.max(...points.map(p => p.year)) : 0;
-    const newest = points.length ? Math.min(...points.map(p => p.year)) : 0;
-    if (points.length > 2 && oldest !== newest) {
-      const tl = document.createElement('div');
-      tl.className = 'book-timeline';
-      tl.innerHTML = '<span class="tl-label">Timeline</span><div class="tl-track"></div>' +
-        '<div class="tl-ends"><span>~' + oldest + ' BCE</span><span>~' + newest + ' BCE</span></div>';
-      const track = tl.querySelector('.tl-track');
-      points.forEach((p, i) => {
-        const pct = Math.min(96, Math.max(4, ((oldest - p.year) / (oldest - newest)) * 100));
-        const dot = document.createElement('a');
-        dot.className = 'tl-dot ' + (i % 2 ? 'down' : 'up');
-        dot.href = '#' + p.id;
-        dot.style.left = pct + '%';
-        dot.setAttribute('aria-label', p.name + ', born around ' + p.year + ' BCE');
-        dot.innerHTML = '<span class="tl-name">' + p.name.split(' ')[0] + '</span>';
-        track.appendChild(dot);
-      });
-      toc.insertAdjacentElement('afterend', tl);
+  // collect chapters (ensure chapters NodeList exists)
+  const chapterEls = Array.from(chapters || document.querySelectorAll('.chapter'));
+  const thinkers = chapterEls.map(ch => {
+    // ensure id
+    if (!ch.id) {
+      const h = ch.querySelector('h2');
+      ch.id = h ? h.textContent.trim().toLowerCase().replace(/\s+/g,'-') : '';
     }
+    // prefer explicit data-start/data-end
+    let start = ch.dataset.start ? parseInt(ch.dataset.start, 10) : null;
+    let end   = ch.dataset.end   ? parseInt(ch.dataset.end, 10)   : null;
+
+    // fallback parse from .chapter-dates
+    if (start == null || end == null) {
+      const raw = (ch.querySelector('.chapter-dates')?.textContent || '');
+      const nums = raw.match(/\d{2,4}/g) || [];
+      const isBCE = /BCE|BC/i.test(raw);
+      const sign = isBCE ? -1 : 1;
+      if (nums.length >= 1 && start == null) start = sign * parseInt(nums[0], 10);
+      if (nums.length >= 2 && end == null) end = sign * parseInt(nums[1], 10);
+      if (nums.length === 1 && end == null) end = start;
+    }
+
+    if (start == null || end == null) return null;
+
+    const h = ch.querySelector('h2');
+    return {
+      id: ch.id,
+      name: h ? h.textContent.trim() : ch.id,
+      start: Math.min(start, end),
+      end: Math.max(start, end),
+      el: ch
+    };
+  }).filter(Boolean);
+
+  if (thinkers.length <= 1) return;
+
+  // compute global range
+  const minYear = Math.min(...thinkers.map(t => t.start));
+  const maxYear = Math.max(...thinkers.map(t => t.end));
+  if (minYear === maxYear) return;
+  const totalSpan = maxYear - minYear;
+
+  // create containers if not present
+  const wrapper = document.getElementById('timelines-wrapper') || document.createElement('div');
+  const master = document.getElementById('timeline-master') || document.createElement('div');
+  const multiples = document.getElementById('timeline-multiples') || document.createElement('div');
+
+  master.id = 'timeline-master';
+  multiples.id = 'timeline-multiples';
+  wrapper.id = 'timelines-wrapper';
+  wrapper.classList.add('timelines-wrapper');
+
+  // ensure wrapper is inserted after toc
+  if (!document.getElementById('timelines-wrapper')) {
+    toc.insertAdjacentElement('afterend', wrapper);
+    wrapper.appendChild(master);
+    wrapper.appendChild(multiples);
   }
-});
+
+  // helper: convert year to percent
+  function yearToPct(y) {
+    return ((y - minYear) / totalSpan) * 100;
+  }
+
+  // render master overview (compact)
+  master.innerHTML = '<div class="tl-label">Overview</div><div class="tl-track" role="img" aria-label="Overview of thinkers timeline"></div>';
+  const masterTrack = master.querySelector('.tl-track');
+  thinkers.forEach(t => {
+    const pct = yearToPct((t.start + t.end) / 2);
+    const dot = document.createElement('span');
+    dot.className = 'tl-span';
+    dot.style.left = pct + '%';
+    dot.title = `${t.name} (${Math.abs(t.start)}–${Math.abs(t.end)} ${t.start < 0 ? 'BCE' : 'CE'})`;
+    masterTrack.appendChild(dot);
+  });
+
+  // clear multiples
+  multiples.innerHTML = '';
+
+  // render each thinker row
+  thinkers.forEach((t) => {
+    const row = document.createElement('div');
+    row.className = 'timeline-row';
+    row.setAttribute('role', 'listitem');
+    row.dataset.id = t.id;
+
+    const nameCol = document.createElement('div');
+    nameCol.className = 'timeline-name';
+    nameCol.textContent = t.name;
+
+    const trackCol = document.createElement('div');
+    trackCol.className = 'timeline-track';
+
+    // compute left and width
+    const leftPct = yearToPct(t.start);
+    const rightPct = yearToPct(t.end);
+    const widthPct = Math.max(0.6, rightPct - leftPct);
+
+    const bar = document.createElement('button');
+    bar.className = 'timeline-bar';
+    bar.style.left = leftPct + '%';
+    bar.style.width = widthPct + '%';
+    bar.setAttribute('aria-label', `${t.name} lifespan ${Math.abs(t.start)} to ${Math.abs(t.end)} ${t.start<0?'BCE':'CE'}`);
+    bar.tabIndex = 0;
+
+    // label inside bar for hover/focus
+    const barLabel = document.createElement('span');
+    barLabel.className = 'bar-label';
+    barLabel.textContent = `${t.name} — ${Math.abs(t.start)}–${Math.abs(t.end)} ${t.start<0?'BCE':'CE'}`;
+    bar.appendChild(barLabel);
+
+    // start/end dots
+    const dotStart = document.createElement('span');
+    dotStart.className = 'timeline-dot';
+    dotStart.style.left = leftPct + '%';
+    const dotEnd = document.createElement('span');
+    dotEnd.className = 'timeline-dot';
+    dotEnd.style.left = (leftPct + widthPct) + '%';
+
+    // click/keyboard: highlight and scroll to chapter
+    function activate() {
+      document.querySelectorAll('.timeline-row.tl-active').forEach(r => r.classList.remove('tl-active'));
+      row.classList.add('tl-active');
+      // highlight corresponding chapter in page
+      const target = document.getElementById(t.id);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    bar.addEventListener('click', activate);
+    bar.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); activate(); } });
+
+    trackCol.appendChild(bar);
+    trackCol.appendChild(dotStart);
+    trackCol.appendChild(dotEnd);
+
+    row.appendChild(nameCol);
+    row.appendChild(trackCol);
+    multiples.appendChild(row);
+  });
+
+  // optional: highlight row when chapter enters viewport
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        const id = en.target.id;
+        document.querySelectorAll('.timeline-row.tl-active').forEach(r => r.classList.remove('tl-active'));
+        const row = document.querySelector(`.timeline-row[data-id="${id}"]`);
+        if (row) row.classList.add('tl-active');
+      }
+    });
+  }, { threshold: 0.45 });
+
+  thinkers.forEach(t => {
+    const el = document.getElementById(t.id);
+    if (el) observer.observe(el);
+  });
+// Compact mode toggle: enable when many thinkers or small viewport
+    (function enableCompactTimelineMode() {
+      const wrapper = document.getElementById('timelines-wrapper');
+      if (!wrapper) return;
+
+      // heuristics: enable compact if >12 thinkers or viewport height < 800px
+      const count = document.querySelectorAll('.timeline-row').length;
+      const smallViewport = window.innerHeight < 800;
+
+      if (count > 12 || smallViewport) {
+        wrapper.classList.add('compact');
+      } else {
+        wrapper.classList.remove('compact');
+      }
+
+      // allow manual toggle via data-attribute on wrapper
+      if (wrapper.dataset.forceCompact === 'true') wrapper.classList.add('compact');
+
+      // re-evaluate on resize (debounced)
+      let t;
+      window.addEventListener('resize', () => {
+        clearTimeout(t);
+        t = setTimeout(() => {
+          if (window.innerHeight < 800 || document.querySelectorAll('.timeline-row').length > 12) {
+            wrapper.classList.add('compact');
+          } else {
+            wrapper.classList.remove('compact');
+          }
+        }, 150);
+      });
+    })();
+
+})();})

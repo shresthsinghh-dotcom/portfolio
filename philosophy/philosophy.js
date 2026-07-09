@@ -406,4 +406,29 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     })();
 
-})();})
+})();
+/* ---------- Stadium Paradox ---------- */
+
+document.querySelectorAll(".stadium-frame").forEach(frame=>{
+
+    frame.addEventListener("click",()=>{
+
+        const demo=frame.closest(".stadium-demo");
+
+        demo.classList.add("started");
+
+        demo.classList.remove("animate");
+
+        void demo.offsetWidth;
+
+        demo.classList.add("animate");
+
+        setTimeout(()=>{
+
+            demo.classList.remove("animate");
+
+        },1200);
+
+    });
+
+});})

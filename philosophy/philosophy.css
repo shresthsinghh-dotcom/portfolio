@@ -15,6 +15,36 @@
 .breadcrumb .current { color:var(--c-heading); }
 .book-label { display:flex; justify-content:center; }
 .book-section { padding-top:2.5rem; }
+
+/* --- SPREAD NAV (Part One / Part Two switcher) --- */
+.spread-nav {
+  display:flex;
+  gap:0.6rem;
+  justify-content:center;
+  margin:0 auto 2rem;
+  max-width:460px;
+}
+.spread-tab {
+  flex:1;
+  text-align:center;
+  padding:0.7rem 1rem;
+  border-radius:var(--radius);
+  border:1px solid var(--c-border);
+  background:var(--c-surface);
+  font-family:var(--f-display);
+  font-weight:600;
+  font-size:0.85rem;
+  color:var(--c-text-dim);
+  text-decoration:none;
+  transition:border-color .2s, color .2s, background .2s;
+  display:flex;
+  flex-direction:column;
+  gap:0.15rem;
+}
+.spread-tab .st-label { font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; opacity:0.7; }
+.spread-tab:hover { border-color:var(--c-accent); color:var(--c-heading); }
+.spread-tab.active { background:var(--c-accent-glow); border-color:var(--c-accent); color:var(--c-accent); }
+.spread-tab.active .st-label { opacity:1; }
 /* The reading column. Phase 3 typography tuning happens here, once. */
 .book-container { max-width:720px; }
 

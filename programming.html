@@ -58,16 +58,62 @@
   </section>
 
 
-  <!-- TUNGSTEN QUEEN RESEARCH PROJECT -->
-  <section class="research-section" style="padding: 4rem 0;">
+  <!-- DUKE DATA+ RESEARCH — MINE-WASTE VOLUME (ANCHOR) -->
+  <section class="research-section" style="padding: 4rem 0 1.5rem;">
+    <div class="container-main">
+      <div style="text-align:center; max-width: 760px; margin: 0 auto 2.5rem;" class="reveal">
+        <span class="section-label">Duke Data+ Research</span>
+        <h2 style="margin: 0.75rem 0 0.75rem;">Critical Materials &mdash; sizing the nation's abandoned mine waste.</h2>
+        <p style="color: var(--c-text-dim); line-height: 1.8; margin: 0;">
+          My Data+ research asks whether abandoned mine-waste dumps hold recoverable critical minerals &mdash; a question that turns on two unknowns: how much material is there, and how rich it is. The two projects below tackle each in turn.
+        </p>
+      </div>
+
+      <article class="project-card reveal" style="border: 1px solid var(--c-border); background: var(--c-bg); border-radius: 24px; padding: clamp(1.5rem, 3vw, 2.5rem); box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);">
+        <div style="display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.8fr); gap: 2rem; align-items: start;">
+          <div>
+            <span class="section-label">Research &middot; Volume</span>
+            <h2 style="margin-top: 0.75rem; margin-bottom: 0.5rem;">Estimating Mine-Waste Volumes from Elevation Data</h2>
+            <p style="color: var(--c-text-dim); margin-top: 0; font-size: 0.95rem;">
+              Duke Data+ 2026 &middot; Critical Materials
+            </p>
+            <p style="color: var(--c-text-dim); margin-top: 1rem; line-height: 1.8;">
+              The value of a dump is, roughly, <em>Value = Volume &times; Grade &times; Price &times; Recovery</em>, and volume is the term that is missing at scale, because while the inventory gives footprints, it rarely gives depths. I built a pipeline to supply that one number &mdash; volume &mdash; from remote elevation data alone: reconstructing the buried ground beneath a dump with a thin-plate spline fit to the surrounding terrain, then subtracting it from the exterior surface. Benchmarked against USGS field volumes across 100 sites in four states, the result is more honest and more useful than tuning: a fully characterized method with a stated domain of validity, and a rigorous account of exactly where and why it fails.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem;">
+              <a href="projects/mine_waste_volume.html" class="btn-outline-custom">View Case Study &rarr;</a>
+              <a href="https://bigdata.duke.edu/people/shresth-singh/" class="btn-outline-custom" target="_blank" rel="noopener">Duke Data+ Profile &nearr;</a>
+            </div>
+          </div>
+
+          <div>
+            <div class="tech-stack" style="justify-content: flex-start; margin-bottom: 1.5rem;">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">GeoPandas</span>
+              <span class="tech-tag">rioxarray</span>
+              <span class="tech-tag">SciPy</span>
+              <span class="tech-tag">USGS 3DEP</span>
+              <span class="tech-tag">Jupyter</span>
+            </div>
+            <div style="border-left: 3px solid var(--c-border); padding-left: 1.25rem; color: var(--c-text-dim); font-size: 0.95rem; line-height: 1.75;">
+              <strong style="color: var(--c-text);">Focus:</strong> remote-sensing volume estimation, thin-plate-spline surface reconstruction, held-out validation, and rigorous characterization of a method's limits.
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- TUNGSTEN QUEEN RESEARCH PROJECT (COMPANION — GRADE) -->
+  <section class="research-section" style="padding: 1.5rem 0 4rem;">
     <div class="container-main">
       <article class="project-card reveal" style="border: 1px solid var(--c-border); background: var(--c-bg); border-radius: 24px; padding: clamp(1.5rem, 3vw, 2.5rem); box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);">
         <div style="display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.8fr); gap: 2rem; align-items: start;">
           <div>
-            <span class="section-label">Research</span>
+            <span class="section-label">Research &middot; Grade</span>
             <h2 style="margin-top: 0.75rem; margin-bottom: 0.5rem;">Tungsten Queen Mine Geochemistry Analysis</h2>
             <p style="color: var(--c-text-dim); margin-top: 0; font-size: 0.95rem;">
-              Duke Data+ Research &middot; Week 1 Exploratory Analysis
+              Duke Data+ 2026 &middot; Companion single-site study
             </p>
             <p style="color: var(--c-text-dim); margin-top: 1rem; line-height: 1.8;">
               As part of my Duke Data+ research work, I analyzed a public geochemistry dataset from the Tungsten Queen Mine, an abandoned tungsten mine and critical-mineral tailings site in North Carolina. This exploratory notebook cleaned below-detection-limit values, summarized elemental concentrations, mapped sample locations, and visualized tungsten patterns across depth, sample type, and correlated elements. The project served as a compact research-computing exercise in Python, combining data cleaning, statistical comparison, geospatial visualization, and scientific interpretation.

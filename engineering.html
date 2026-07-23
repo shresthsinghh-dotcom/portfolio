@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Engineering — Shresth Singh</title>
-  <link rel="stylesheet" href="css/styles.css?v=2">
+  <meta name="description" content="Engineering work by Shresth Singh: Formula SAE vehicle dynamics, carbon-fiber rocketry fabrication and FEA, and electromechanical design projects at Duke University.">
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
 <body>
 
@@ -50,7 +51,10 @@
             I believe that engineering is art. In my work, I strive for artistic expression through excellence in utility. 
           </p>
           <p>
-            Within and beyond my coursework, I have developed a strong sense of the engineering process, iterative testing, and teamwork. Ultimately, as an aspiring aerospace engineer, I aim to sharpen these skills and apply them to the real world, whether that be through research, industry, or entrepreneurship.
+            Within and beyond my coursework, I have developed a strong sense of the engineering process, iterative testing, and teamwork. Ultimately, as a mechanical engineer, I aim to sharpen these skills and apply them to the real world, whether that be through research, industry, or entrepreneurship.
+          </p>
+          <p>
+            This past summer I carried that into research, joining Duke's Data+ program to work on critical materials &mdash; estimating how much recoverable mineral sits in abandoned mine waste. That project is written up on the <a href="programming.html">Programming</a> page.
           </p>
         </div>
       </div>
@@ -92,15 +96,15 @@
         </div>
       </div>
 
-      <!-- MIDDLE: Forged Parts — image RIGHT -->
+      <!-- MIDDLE: Nose Cone FEA — image RIGHT -->
       <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; padding: var(--s-section) 0; border-bottom: 1px solid var(--c-border);">
         <div style="order: 2;">
           <div class="mini-carousel" data-carousel>
             <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 16/9; border: 1px solid var(--c-border); background: var(--c-surface);">
               <img src="images/Rocket_Nose_Cone.png" class="mini-slide active" alt="Nose Cone" loading="lazy">
-              <img src="images/Equivalent_Stress.png" class="mini-slide" alt="Equivalent Stress" loading="lazy">'
-              <img src="images/Equivalent_Elastic_Strain.png" class="mini-slide active" alt="Equivalent Elastic Strain" loading="lazy">
-              <img src="images/Total_Deformation.png" class="mini-slide" alt="Total Deformation" loading="lazy">'
+              <img src="images/Equivalent_Stress.png" class="mini-slide" alt="Equivalent Stress" loading="lazy">
+              <img src="images/Equivalent_Elastic_Strain.png" class="mini-slide" alt="Equivalent Elastic Strain" loading="lazy">
+              <img src="images/Total_Deformation.png" class="mini-slide" alt="Total Deformation" loading="lazy">
               <div style="position:absolute; bottom:1rem; right:1rem; display:flex; gap:0.4rem; z-index:5;">
                 <button class="carousel-btn" data-prev aria-label="Previous">&#8249;</button>
                 <button class="carousel-btn" data-next aria-label="Next">&#8250;</button>
@@ -113,10 +117,10 @@
           <h3 style="margin-bottom: 1rem;">Finite Element Analysis</h3>
           <hr class="divider">
           <p style="color: var(--c-text-dim);">
-            Before constructing the nose cone, I had to ensure that its shape would actually hold up to the stresses of supersonic flight. Thus, I took the CAD file and uploaded it to ANSYS workbench, assigned its various components the right materials, and conducted a number of important finite element analyses for stress and deformation.
+            Before constructing the nose cone, I had to ensure that its shape would actually hold up to the stresses of supersonic flight. Thus, I took the CAD file and uploaded it to ANSYS workbench, assigned its various components the right materials, and conducted a number of important finite element analyses for stress and deformation. The results agreed with the physical constraints to within about 2%.
           </p>
           <p style="color: var(--c-text-dim);">
-            Note that the first image is the cone itself; the tip is 6061 arospace-grade aluminum with high strength-to-weight ratios. The rest of the cone is woven carbon fiber. The images show the equivalent stress, equivalent elastic strain, and total deformation under the applied load. 
+            Note that the first image is the cone itself; the tip is 6061 aerospace-grade aluminum with high strength-to-weight ratios. The rest of the cone is woven carbon fiber. The images show the equivalent stress, equivalent elastic strain, and total deformation under the applied load. 
           </p>
         </div>
       </div>
@@ -176,6 +180,87 @@
     </div>
   </section>
 
+
+  <!-- DUKE MOTORSPORTS — FORMULA SAE -->
+  <section style="padding: var(--s-section) 0;">
+    <div class="container-main">
+      <div style="text-align:center; margin-bottom: 3rem;" class="reveal">
+        <span class="section-label">Team Project</span>
+        <h2>Duke Motorsports &mdash; Formula SAE</h2>
+        <p style="color: var(--c-text-dim); max-width: 640px; margin: 1rem auto 0;">
+          Vehicle Dynamics &mdash; Wheel Assemblies. Competed at Formula SAE Michigan, May 2026.
+        </p>
+        <hr class="divider divider--center">
+      </div>
+
+      <!-- TOP: Corner package — image LEFT -->
+      <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; padding-bottom: var(--s-section); border-bottom: 1px solid var(--c-border);">
+        <div class="mini-carousel" data-carousel>
+          <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 16/9; border: 1px solid var(--c-border); background: var(--c-surface);">
+            <img src="images/front.png" class="mini-slide active" alt="CAD render of the front corner assembly: upright, control arms, tie rod and pushrod" loading="lazy">
+            <img src="images/side.png" class="mini-slide" alt="Side view CAD render of the wheel assembly and suspension linkages" loading="lazy">
+            <div style="position:absolute; bottom:1rem; right:1rem; display:flex; gap:0.4rem; z-index:5;">
+              <button class="carousel-btn" data-prev aria-label="Previous">&#8249;</button>
+              <button class="carousel-btn" data-next aria-label="Next">&#8250;</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="section-label">Wheel Assembly</span>
+          <h3 style="margin-bottom: 1rem;">The Front Corner</h3>
+          <hr class="divider">
+          <p style="color: var(--c-text-dim);">
+            As a vehicle dynamics engineer, my work centers on the front corner: the upright and wheel-hub assembly that ties the tire to the chassis through a double-wishbone linkage. Every as the tire generates cornering, braking, or bump loads, they pass through this package before it reaches the frame, which makes it one of those crucial areas on the car where a modeling error shows up as a broken part.
+          </p>
+          <p style="color: var(--c-text-dim);">
+            My contributions covered the analysis that sizes the upright, the automation that made that analysis repeatable, and a design study on where camber adjustment should live. I also revised the upright itself, relocating the wheel-speed sensor to improve mechanical adjustability at the corner.
+          </p>
+        </div>
+      </div>
+
+      <!-- MIDDLE: Load cases + automation — image RIGHT -->
+      <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; padding: var(--s-section) 0; border-bottom: 1px solid var(--c-border);">
+        <div style="order: 2;">
+          <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 16/9; border: 1px solid var(--c-border); background: var(--c-surface);">
+            <img src="images/side.png" alt="CAD render of the wheel assembly used for load case analysis" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+        </div>
+        <div style="order: 1;">
+          <span class="section-label">Analysis</span>
+          <h3 style="margin-bottom: 1rem;">Load Cases &amp; FEA Automation</h3>
+          <hr class="divider">
+          <p style="color: var(--c-text-dim);">
+            The uprights needed new finite element analysis against this season's numbers. I took the previous year's g-g envelope (the convex hull of lateral and longitudinal accelerations the car actually sees) and scaled it by a factor of 1.15, as the car was expected to be more aggressive this season, and ran all 28 resulting load cases through the team's suspension-force model to extract the per-corner member forces: upper and lower fore-aft, push/pull, and tie/toe. Those forces are what the SolidWorks upright analysis is built on.
+          </p>
+          <p style="color: var(--c-text-dim);">
+            Running 28 cases by hand is slow and easy to get wrong, so I wrote a Python script that drives Excel directly, steps through every load case, waits for each recalculation to settle, and writes the results out to a single clean workbook. I validated both the script and its numbers against the previous year's load cases before trusting any of it downstream.
+          </p>
+          <a href="projects/create_fea_workbook_excel_com_v3.py" class="btn-outline-custom" target="_blank" rel="noopener">View the automation script</a>
+        </div>
+      </div>
+
+      <!-- BOTTOM: Shims study — image LEFT -->
+      <div class="reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; padding-top: var(--s-section);">
+        <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3/4; border: 1px solid var(--c-border); background: var(--c-surface);">
+          <img src="images/shim_evidence1.jpg" alt="Photograph of a competitor car showing camber shims stacked at the upper control arm mount" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div>
+          <span class="section-label">Design Study</span>
+          <h3 style="margin-bottom: 1rem;">Where Camber Shims Belong</h3>
+          <hr class="divider">
+          <p style="color: var(--c-text-dim);">
+            Two questions drove this report: why does Formula Duke place camber shims on the lower arm, and why do most teams place theirs on the upper control arm mount? The mechanism is straightforward: shimming a mount pushes that ball joint outboard, away from the chassis. Adding shims at the lower mount pushes the bottom outboard, tilting the top of the wheel inward for more negative camber, which is how our setup behaves.
+          </p>
+          <p style="color: var(--c-text-dim);">
+            The shim mass is negligible either way, so the substantive trade-offs are serviceability and load path. Our lower clevis accommodates spacer packs and gives excellent tool access, whereas the upper pickup sits in a much denser region of the upright. Teams that shim up top gain a cleaner load path &mdash; the upper ball joint carries less load than the lower &mdash; and adjust camber with far less disturbance to scrub radius and kingpin inclination. Both choices are well founded; ours is driven by serviceability and manufacturability.
+          </p>
+          <a href="projects/Shims_Report.pdf" class="btn-outline-custom" target="_blank" rel="noopener">Read the full shims report</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- WATERFORMS -->
   <section style="padding: var(--s-section) 0;">
     <div class="container-main">
@@ -190,10 +275,10 @@
           <h3 style="margin-bottom: 1rem;">Final Project for EGR 121</h3>
           <hr class="divider">
           <p style="color: var(--c-text-dim);">
-            This Rube-Goldberg contraption was the capstone project for EGR 121, a course centered around engineering design and innovation. During the 2 weeks alloted to complete this intense project, I led and coordinated a team of 12 students over 4 subteams to design, prototype and build this machine.
+            This Rube-Goldberg contraption was the capstone project for EGR 121, a course centered around engineering design and innovation. During the 2 weeks allotted to complete this intense project, I led and coordinated a team of 12 students over 4 subteams to design, prototype and build this machine.
           </p>
           <p style="color: var(--c-text-dim);">
-            We planned and constructed 8 electric circuits, 4 of which used traditional components like 555 times and 339 comparators, and 4 of which used Arduinos for more complex control. I brainstormed the idea of the water cycle, and especially headed the subteam responsible for the mountain circuitry.
+            We planned and constructed 8 electric circuits, 4 of which used traditional components like 555 timers and 339 comparators, and 4 of which used Arduinos for more complex control. I brainstormed the idea of the water cycle, and especially headed the subteam responsible for the mountain circuitry.
           </p>
         </div>
         <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3/4; border: 1px solid var(--c-border); background: var(--c-surface);">
@@ -264,22 +349,6 @@
     </div>
   </section>
 
-  <!-- TECHNICAL DOCUMENTATION -->
-  <section class="embed-section">
-    <div class="container-main">
-      <div style="text-align:center; margin-bottom: 2.5rem;" class="reveal">
-        <span class="section-label">Documentation</span>
-        <h2>Technical Poster</h2>
-        <p style="color: var(--c-text-dim); max-width: 650px; margin: 1rem auto 0;">
-          This document summarizes the engineering design process, key mechanical and electrical subsystems, testing approach, and measured performance results for the adaptive ball launcher.
-        </p>
-      </div>
-      <div class="embed-frame reveal">
-        <iframe src="images/Poster.pdf" width="100%" height="800" style="border:none;"></iframe>
-      </div>
-    </div>
-  </section>
-
   <!-- CAD: PLUG DESIGN -->
   <section style="padding: var(--s-section) 0; background: var(--c-bg-alt); border-top: 1px solid var(--c-border); border-bottom: 1px solid var(--c-border);">
     <div class="container-main">
@@ -302,11 +371,27 @@
     </div>
   </section>
 
+  <!-- TECHNICAL DOCUMENTATION -->
+  <section class="embed-section">
+    <div class="container-main">
+      <div style="text-align:center; margin-bottom: 2.5rem;" class="reveal">
+        <span class="section-label">Documentation</span>
+        <h2>Technical Poster</h2>
+        <p style="color: var(--c-text-dim); max-width: 650px; margin: 1rem auto 0;">
+          This document summarizes the engineering design process, key mechanical and electrical subsystems, testing approach, and measured performance results for the adaptive ball launcher.
+        </p>
+      </div>
+      <div class="embed-frame reveal">
+        <iframe src="images/Poster.pdf" width="100%" height="800" style="border:none;"></iframe>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container-main">
       <div class="footer-inner">
-        <p class="footer-copy">&copy; 2025 Shresth Singh — Engineering Portfolio</p>
+        <p class="footer-copy">&copy; 2026 Shresth Singh — Engineering Portfolio</p>
         <div class="footer-social">
           <a href="https://www.linkedin.com/in/shresth-singh-achieve/" target="_blank" rel="noopener" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -318,6 +403,6 @@
 
   <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>

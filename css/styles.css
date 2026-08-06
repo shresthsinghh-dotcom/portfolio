@@ -7,9 +7,11 @@
 /* --- IMPORTS ------------------------------------------------ */
 @import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&display=swap');
 
-/* Responsive <picture> wrappers must be transparent to layout so the inner
-   <img> keeps behaving as a direct child (width:100%, absolute carousels). */
-picture { display: contents; }
+/* Responsive <picture> wrappers act as a block-level stand-in for the inner
+   <img>, so grid/flex/figure rules that targeted the image keep working.
+   max-width guards against any image forcing its container past the viewport. */
+picture { display: block; }
+img, picture { max-width: 100%; }
 
 /* --- CUSTOM PROPERTIES: DARK (default) ---------------------- */
 :root {
@@ -733,13 +735,14 @@ p { margin-bottom: 1rem; }
 /* --- LEADERSHIP ITEMS --------------------------------------- */
 .leadership-item {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
   gap: clamp(2rem, 4vw, 4rem);
   align-items: center;
   padding: var(--s-section) 0;
   border-bottom: 1px solid var(--c-border);
 }
 
+.leadership-item > * { min-width: 0; }
 .leadership-item:nth-child(even) { direction: rtl; }
 .leadership-item:nth-child(even) > * { direction: ltr; }
 .leadership-item:last-child { border-bottom: none; }

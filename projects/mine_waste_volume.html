@@ -1,636 +1,974 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estimating Mine-Waste Volumes — Shresth Singh</title>
-  <meta name="description" content="Estimating abandoned mine-waste volumes from USGS 3DEP elevation data using thin-plate-spline surface reconstruction. Duke Data+ critical-materials research by Shresth Singh.">
-  <link rel="stylesheet" href="../css/styles.css?v=8">
-  <style>
-    :root {
-      --tq-card-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
-      --tq-radius-lg: 28px;
-      --tq-radius-md: 20px;
-    }
-
-    .project-hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.85rem;
-      margin-top: 2rem;
-    }
-
-    .project-shell {
-      padding: 4.5rem 0;
-    }
-
-    .project-shell.alt {
-      background: var(--c-bg-alt);
-      border-top: 1px solid var(--c-border);
-      border-bottom: 1px solid var(--c-border);
-    }
-
-    .case-intro {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
-      gap: clamp(1.5rem, 4vw, 3rem);
-      align-items: start;
-    }
-
-    .case-copy p {
-      color: var(--c-text-dim);
-      line-height: 1.85;
-      margin: 0 0 1.1rem;
-    }
-
-    .case-card {
-      border: 1px solid var(--c-border);
-      background: var(--c-bg);
-      border-radius: var(--tq-radius-lg);
-      padding: clamp(1.35rem, 3vw, 2rem);
-      box-shadow: var(--tq-card-shadow);
-    }
-
-    .meta-list {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1.25rem;
-    }
-
-    .meta-item {
-      border-left: 3px solid var(--c-border);
-      padding-left: 1rem;
-    }
-
-    .meta-item strong {
-      display: block;
-      color: var(--c-text);
-      font-size: 0.9rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .meta-item span {
-      color: var(--c-text-dim);
-      font-size: 0.94rem;
-      line-height: 1.6;
-    }
-
-    .meta-item a {
-      color: var(--c-text);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .metric-card {
-      border: 1px solid var(--c-border);
-      border-radius: var(--tq-radius-md);
-      background: var(--c-bg);
-      padding: 1.35rem;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
-    }
-
-    .metric-card .metric-value {
-      display: block;
-      color: var(--c-text);
-      font-size: clamp(1.6rem, 3vw, 2.25rem);
-      font-weight: 700;
-      line-height: 1;
-      margin-bottom: 0.6rem;
-    }
-
-    .metric-card .metric-label {
-      color: var(--c-text-dim);
-      font-size: 0.92rem;
-      line-height: 1.55;
-    }
-
-    .method-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .method-card {
-      border: 1px solid var(--c-border);
-      border-radius: var(--tq-radius-md);
-      background: var(--c-bg);
-      padding: 1.35rem;
-    }
-
-    .method-card h3 {
-      font-size: 1.02rem;
-      margin: 0 0 0.65rem;
-      color: var(--c-text);
-    }
-
-    .method-card p {
-      margin: 0;
-      color: var(--c-text-dim);
-      line-height: 1.7;
-      font-size: 0.94rem;
-    }
-
-    .section-heading {
-      max-width: 760px;
-      margin-bottom: 2rem;
-    }
-
-    .section-heading.center {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .section-heading h2 {
-      margin: 0.75rem 0 0.75rem;
-    }
-
-    .section-heading p {
-      color: var(--c-text-dim);
-      line-height: 1.8;
-      margin: 0;
-    }
-
-    .figure-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem;
-    }
-
-    .figure-card {
-      border: 1px solid var(--c-border);
-      background: var(--c-bg);
-      border-radius: var(--tq-radius-lg);
-      overflow: hidden;
-      box-shadow: var(--tq-card-shadow);
-    }
-
-    .figure-card.wide {
-      grid-column: 1 / -1;
-    }
-
-    .figure-media {
-      background: #fff;
-      border-bottom: 1px solid var(--c-border);
-      padding: 1rem;
-    }
-
-    .figure-media img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 14px;
-    }
-
-    .figure-caption {
-      padding: 1.2rem 1.35rem 1.35rem;
-    }
-
-    .figure-caption h3 {
-      margin: 0 0 0.5rem;
-      color: var(--c-text);
-      font-size: 1.06rem;
-    }
-
-    .figure-caption p {
-      margin: 0;
-      color: var(--c-text-dim);
-      line-height: 1.7;
-      font-size: 0.95rem;
-    }
-
-    .insight-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .insight-card {
-      border: 1px solid var(--c-border);
-      background: var(--c-bg);
-      border-radius: var(--tq-radius-md);
-      padding: 1.35rem;
-    }
-
-    .insight-card h3 {
-      margin: 0 0 0.6rem;
-      font-size: 1.02rem;
-      color: var(--c-text);
-    }
-
-    .insight-card p {
-      margin: 0;
-      color: var(--c-text-dim);
-      line-height: 1.7;
-      font-size: 0.95rem;
-    }
-
-    .workflow {
-      display: grid;
-      gap: 0.85rem;
-      margin-top: 2rem;
-    }
-
-    .workflow details {
-      border: 1px solid var(--c-border);
-      border-radius: 18px;
-      background: var(--c-bg);
-      padding: 1rem 1.15rem;
-    }
-
-    .workflow summary {
-      cursor: pointer;
-      color: var(--c-text);
-      font-weight: 650;
-    }
-
-    .workflow details p {
-      color: var(--c-text-dim);
-      line-height: 1.7;
-      margin: 0.8rem 0 0;
-    }
-
-    .note-card {
-      border: 1px solid var(--c-border);
-      border-radius: var(--tq-radius-lg);
-      background: var(--c-bg);
-      padding: clamp(1.35rem, 3vw, 2rem);
-      box-shadow: var(--tq-card-shadow);
-    }
-
-    .note-card p {
-      color: var(--c-text-dim);
-      line-height: 1.85;
-      margin: 0 0 1.1rem;
-    }
-
-    .note-card p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Affiliation block — official Duke links + team credit */
-    .affil-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin: 1.5rem 0 0.5rem;
-    }
-
-    .affil-credit {
-      margin-top: 1.5rem;
-      padding-top: 1.4rem;
-      border-top: 1px solid var(--c-border);
-      color: var(--c-text-dim);
-      font-size: 0.92rem;
-      line-height: 1.7;
-    }
-
-    .affil-credit strong {
-      color: var(--c-text);
-    }
-
-    @media (max-width: 900px) {
-      .case-intro,
-      .figure-grid,
-      .insight-grid {
-        grid-template-columns: 1fr;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estimating Mine-Waste Volumes — Shresth Singh</title>
+    <meta
+      name="description"
+      content="Estimating abandoned mine-waste volumes from USGS 3DEP elevation data using thin-plate-spline surface reconstruction. Duke Data+ critical-materials research by Shresth Singh."
+    />
+    <link rel="stylesheet" href="../css/styles.css?v=9" />
+    <style>
+      :root {
+        --tq-card-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+        --tq-radius-lg: 28px;
+        --tq-radius-md: 20px;
       }
 
-      .metric-grid,
-      .method-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 560px) {
-      .metric-grid,
-      .method-grid {
-        grid-template-columns: 1fr;
+      .project-hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.85rem;
+        margin-top: 2rem;
       }
 
       .project-shell {
-        padding: 3.25rem 0;
+        padding: 4.5rem 0;
       }
-    }
-  </style>
-</head>
-<body>
 
-  <!-- NAVIGATION -->
-  <nav class="site-nav">
-    <div class="nav-inner">
-      <a href="../index.html" class="nav-logo">
-        <span class="logo-dot"></span> Shresth Singh
-      </a>
-      <button class="nav-toggle" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../engineering.html">Engineering</a></li>
-        <li><a href="../programming.html" class="active">Programming</a></li>
-        <li><a href="../leadership.html">Leadership</a></li>
-        <li><a href="../philosophy.html">About Me</a></li>
-      </ul>
-      <button class="theme-toggle" aria-label="Toggle theme">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      </button>
-    </div>
-  </nav>
+      .project-shell.alt {
+        background: var(--c-bg-alt);
+        border-top: 1px solid var(--c-border);
+        border-bottom: 1px solid var(--c-border);
+      }
 
-  <!-- PAGE HEADER -->
-  <header class="page-header">
-    <div class="page-header-content">
-      <span class="section-label reveal">Duke Data+ 2026 &middot; Critical Materials</span>
-      <h1 class="reveal reveal-delay-1">Estimating Mine-Waste Volumes from Elevation Data</h1>
-      <p class="reveal reveal-delay-2">The project set out to tune a terrain-based volume estimator toward USGS. What it produced is more honest and more useful than tuning: a fully characterized method with a stated domain of validity, and a rigorous account of exactly where and why it fails.</p>
-      <div class="project-hero-actions reveal reveal-delay-2">
-        <a href="../programming.html" class="btn-outline-custom">&larr; Back to Programming</a>
-        <a href="#figures" class="btn-outline-custom">View Visual Results &rarr;</a>
-        <a href="https://bigdata.duke.edu/people/shresth-singh/" class="btn-outline-custom" target="_blank" rel="noopener">Duke Data+ Profile &nearr;</a>
+      .case-intro {
+        display: grid;
+        grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
+        gap: clamp(1.5rem, 4vw, 3rem);
+        align-items: start;
+      }
+
+      .case-copy p {
+        color: var(--c-text-dim);
+        line-height: 1.85;
+        margin: 0 0 1.1rem;
+      }
+
+      .case-card {
+        border: 1px solid var(--c-border);
+        background: var(--c-bg);
+        border-radius: var(--tq-radius-lg);
+        padding: clamp(1.35rem, 3vw, 2rem);
+        box-shadow: var(--tq-card-shadow);
+      }
+
+      .meta-list {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1.25rem;
+      }
+
+      .meta-item {
+        border-left: 3px solid var(--c-border);
+        padding-left: 1rem;
+      }
+
+      .meta-item strong {
+        display: block;
+        color: var(--c-text);
+        font-size: 0.9rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .meta-item span {
+        color: var(--c-text-dim);
+        font-size: 0.94rem;
+        line-height: 1.6;
+      }
+
+      .meta-item a {
+        color: var(--c-text);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .metric-card {
+        border: 1px solid var(--c-border);
+        border-radius: var(--tq-radius-md);
+        background: var(--c-bg);
+        padding: 1.35rem;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+      }
+
+      .metric-card .metric-value {
+        display: block;
+        color: var(--c-text);
+        font-size: clamp(1.6rem, 3vw, 2.25rem);
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 0.6rem;
+      }
+
+      .metric-card .metric-label {
+        color: var(--c-text-dim);
+        font-size: 0.92rem;
+        line-height: 1.55;
+      }
+
+      .method-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .method-card {
+        border: 1px solid var(--c-border);
+        border-radius: var(--tq-radius-md);
+        background: var(--c-bg);
+        padding: 1.35rem;
+      }
+
+      .method-card h3 {
+        font-size: 1.02rem;
+        margin: 0 0 0.65rem;
+        color: var(--c-text);
+      }
+
+      .method-card p {
+        margin: 0;
+        color: var(--c-text-dim);
+        line-height: 1.7;
+        font-size: 0.94rem;
+      }
+
+      .section-heading {
+        max-width: 760px;
+        margin-bottom: 2rem;
+      }
+
+      .section-heading.center {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .section-heading h2 {
+        margin: 0.75rem 0 0.75rem;
+      }
+
+      .section-heading p {
+        color: var(--c-text-dim);
+        line-height: 1.8;
+        margin: 0;
+      }
+
+      .figure-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+
+      .figure-card {
+        border: 1px solid var(--c-border);
+        background: var(--c-bg);
+        border-radius: var(--tq-radius-lg);
+        overflow: hidden;
+        box-shadow: var(--tq-card-shadow);
+      }
+
+      .figure-card.wide {
+        grid-column: 1 / -1;
+      }
+
+      .figure-media {
+        background: #fff;
+        border-bottom: 1px solid var(--c-border);
+        padding: 1rem;
+      }
+
+      .figure-media img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+      }
+
+      .figure-caption {
+        padding: 1.2rem 1.35rem 1.35rem;
+      }
+
+      .figure-caption h3 {
+        margin: 0 0 0.5rem;
+        color: var(--c-text);
+        font-size: 1.06rem;
+      }
+
+      .figure-caption p {
+        margin: 0;
+        color: var(--c-text-dim);
+        line-height: 1.7;
+        font-size: 0.95rem;
+      }
+
+      .insight-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .insight-card {
+        border: 1px solid var(--c-border);
+        background: var(--c-bg);
+        border-radius: var(--tq-radius-md);
+        padding: 1.35rem;
+      }
+
+      .insight-card h3 {
+        margin: 0 0 0.6rem;
+        font-size: 1.02rem;
+        color: var(--c-text);
+      }
+
+      .insight-card p {
+        margin: 0;
+        color: var(--c-text-dim);
+        line-height: 1.7;
+        font-size: 0.95rem;
+      }
+
+      .workflow {
+        display: grid;
+        gap: 0.85rem;
+        margin-top: 2rem;
+      }
+
+      .workflow details {
+        border: 1px solid var(--c-border);
+        border-radius: 18px;
+        background: var(--c-bg);
+        padding: 1rem 1.15rem;
+      }
+
+      .workflow summary {
+        cursor: pointer;
+        color: var(--c-text);
+        font-weight: 650;
+      }
+
+      .workflow details p {
+        color: var(--c-text-dim);
+        line-height: 1.7;
+        margin: 0.8rem 0 0;
+      }
+
+      .note-card {
+        border: 1px solid var(--c-border);
+        border-radius: var(--tq-radius-lg);
+        background: var(--c-bg);
+        padding: clamp(1.35rem, 3vw, 2rem);
+        box-shadow: var(--tq-card-shadow);
+      }
+
+      .note-card p {
+        color: var(--c-text-dim);
+        line-height: 1.85;
+        margin: 0 0 1.1rem;
+      }
+
+      .note-card p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Affiliation block — official Duke links + team credit */
+      .affil-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin: 1.5rem 0 0.5rem;
+      }
+
+      .affil-credit {
+        margin-top: 1.5rem;
+        padding-top: 1.4rem;
+        border-top: 1px solid var(--c-border);
+        color: var(--c-text-dim);
+        font-size: 0.92rem;
+        line-height: 1.7;
+      }
+
+      .affil-credit strong {
+        color: var(--c-text);
+      }
+
+      @media (max-width: 900px) {
+        .case-intro,
+        .figure-grid,
+        .insight-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .metric-grid,
+        .method-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 560px) {
+        .metric-grid,
+        .method-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .project-shell {
+          padding: 3.25rem 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">
+          <span class="logo-dot"></span> Shresth Singh
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../engineering.html">Engineering</a></li>
+          <li><a href="../programming.html" class="active">Programming</a></li>
+          <li><a href="../leadership.html">Leadership</a></li>
+          <li><a href="../philosophy.html">About Me</a></li>
+        </ul>
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <svg
+            class="icon-moon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg
+            class="icon-sun"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+        </button>
       </div>
-    </div>
-  </header>
+    </nav>
 
-  <!-- OVERVIEW -->
-  <section class="project-shell">
-    <div class="container-main">
-      <div class="case-intro reveal">
-        <div class="case-copy">
-          <span class="section-label">Overview</span>
-          <h2>Volume is the term that is missing at scale.</h2>
-          <p>
-            There are hundreds of thousands of mines across the continental United States: tungsten, gold, coal, and more. The central hypothesis of this critical-materials hub is that each of these mines has waste dumps, and that these dumps may contain both highly abundant and accessible amounts of critical materials. But although locations and rough polygons for thousands of mine features — chief among which are the waste dumps — are available, the volumes of many of these sites are genuinely a mystery.
-          </p>
-          <p>
-            The value of a dump is, roughly, <em>Value = Volume &times; Grade &times; Price &times; Recovery</em> — cubic metres of waste, times critical-mineral concentration, times commodity price, times the fraction economically extractable. Grade comes from assays; price from markets; recovery from metallurgy. Volume is the term that is missing at scale, because while the inventory gives footprints, it rarely gives depths. Everything that follows is an attempt to supply that one number — volume — from remote elevation data alone, so that a prospector holding a grade estimate can convert a map polygon into a defensible tonnage.
-          </p>
-          <p>
-            This project delivers one term in that valuation. It is the companion to my <a href="tungsten_queen_analysis_polished.html">Tungsten Queen geochemistry study</a> — that work looks closely at a single site's <em>grade</em>; this one supplies the <em>volume</em> across a hundred sites in four states.
-          </p>
-        </div>
-
-        <aside class="case-card">
-          <span class="section-label">Project Details</span>
-          <div class="meta-list">
-            <div class="meta-item">
-              <strong>Role</strong>
-              <span>Data+ researcher &mdash; designed and built the full geospatial pipeline, experiments, and analysis in Python.</span>
-            </div>
-            <div class="meta-item">
-              <strong>Program</strong>
-              <span><a href="https://bigdata.duke.edu/projects/critical-materials/" target="_blank" rel="noopener">Critical Materials</a>, a Duke Data+ team within the Duke Critical Minerals Hub &amp; Climate+.</span>
-            </div>
-            <div class="meta-item">
-              <strong>Benchmark</strong>
-              <span>USGS National Mine Waste Inventory field-derived volumes across AZ, NC, VA &amp; MT.</span>
-            </div>
-            <div class="meta-item">
-              <strong>Tools</strong>
-              <span>Python, GeoPandas, rioxarray / rasterio, SciPy (thin-plate spline), py3dep, USGS 3DEP DEMs, Jupyter.</span>
-            </div>
-          </div>
-        </aside>
-      </div>
-
-      <div class="metric-grid reveal">
-        <div class="metric-card">
-          <span class="metric-value">100</span>
-          <span class="metric-label">USGS-benchmarked sites, scaled from 19 to establish that the floor is real.</span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-value">~50%</span>
-          <span class="metric-label">The per-site median error &mdash; a floor that does not fall no matter what is added.</span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-value">&minus;4 to &minus;6%</span>
-          <span class="metric-label">The corrected regional total vs USGS, from a raw pipeline that under-counts by roughly half.</span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-value">5</span>
-          <span class="metric-label">Lines of attack converging on the same floor: sample size, error model, resolution, kernel, gating.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- METHOD -->
-  <section class="project-shell alt">
-    <div class="container-main">
-      <div class="section-heading center reveal">
-        <span class="section-label">The Method</span>
-        <h2>To find the volume, we need two things: the exterior shape of the feature, and the ground beneath it.</h2>
-        <p>Without previously drawn maps of the mine before mining began, it is impossible to know what the ground looks like using imaging alone. Therefore it must be extrapolated using the surrounding exposed surface — and subtracting the exterior from that extrapolated ground provides the volume of the site.</p>
-      </div>
-
-      <div class="method-grid reveal">
-        <div class="method-card">
-          <h3>1. Footprint &amp; DEM</h3>
-          <p>DEMs are three-dimensional maps of the ground surface, derived from airborne lidar and photogrammetry rather than from satellite photographs. We pull the dump footprint plus a surrounding buffer and download the DEM.</p>
-        </div>
-        <div class="method-card">
-          <h3>2. Reconstruct the base</h3>
-          <p>A thin-plate spline fits a perfectly smooth surface across scattered points — the shape a flexible, infinitely thin sheet of metal would take, pinned to specific heights and left to bend with minimal resistance. Anchored to the natural ground ringing the dump, it rebuilds the buried base.</p>
-        </div>
-        <div class="method-card">
-          <h3>3. Integrate the volume</h3>
-          <p>Subtract the extrapolated base from the current exterior surface and integrate the positive difference across the footprint — the material the dump added.</p>
-        </div>
-        <div class="method-card">
-          <h3>4. Validate</h3>
-          <p>A series of validation squares — one steep, one normal, one flat patch of natural ground — reveal that the algorithm is adequately successful at recreating ground from nearby data.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FIGURES -->
-  <section class="project-shell" id="figures">
-    <div class="container-main">
-      <div class="section-heading reveal">
-        <span class="section-label">Visual Results</span>
-        <h2>What the pipeline produces, and what it reveals.</h2>
-        <p>Every site is processed into a diagnostic that shows the reconstruction, the validation, and the volume — making both the successes and the failures legible at a glance.</p>
-      </div>
-
-      <div class="figure-grid">
-        <article class="figure-card wide reveal">
-          <div class="figure-media">
-            <img src="../images/mw_reconstruction.webp" alt="Reconstruction of the Hallman-Beam site: validation squares on the slope, the current surface draped over the reconstructed base, the mining-added thickness, and a cross-section at the thickest point." loading="lazy">
-          </div>
-          <div class="figure-caption">
-            <h3>Reconstructing the buried surface</h3>
-            <p>A render of the Hallman-Beam site as it was processed. The green lines indicate the buffer for the extrapolation, the squares revealing the validation, the mask in orange. The DEM data is overlayed over the extrapolated ground, and the cross-section shows the current surface over the reconstructed base — the shaded gap the dump fill.</p>
-          </div>
-        </article>
-
-        <article class="figure-card reveal">
-          <div class="figure-media">
-            <img src="../images/mw_validation.webp" alt="Validation squares comparing the real DEM against the predicted floor for flat, normal, and steep natural ground, with the volumetric difference shown as heatmaps." loading="lazy">
-          </div>
-          <div class="figure-caption">
-            <h3>Does it recreate real ground?</h3>
-            <p>Held-out validation squares give bias &minus;0.11 m (flat), &minus;0.19 m (normal), &minus;0.20 m (steep). The spline reproduces undisturbed ground to within ~0.2 m even on the steepest natural patch available. The reconstruction is accurate, not suspect — loud colors would mean loud errors, and steep extrapolations do struggle only a bit.</p>
-          </div>
-        </article>
-
-        <article class="figure-card reveal">
-          <div class="figure-media">
-            <img src="../images/mw_recovery.webp" alt="Stacked bar chart comparing the USGS reference total, the raw estimate recovering 42%, and the regression-corrected estimate recovering 96%." loading="lazy">
-          </div>
-          <div class="figure-caption">
-            <h3>Regional scale: correcting the bias</h3>
-            <p>Raw, the method recovers 42% of the reference — the raw pipeline under-counts total regional waste by roughly half (&minus;58%). The log-ratio correction lands the corrected total within &minus;4 to &minus;6% of the USGS sum: a usable answer to how much waste is in a region.</p>
-          </div>
-        </article>
-
-        <article class="figure-card wide reveal">
-          <div class="figure-media">
-            <img src="../images/mw_twinbuttes.webp" alt="Twin Buttes diagnostic panel showing imagery, disturbance mask, DEM, slope gradient, flow accumulation, and perimeter elevation profile for an in-band result." loading="lazy">
-          </div>
-          <div class="figure-caption">
-            <h3>When it works: flat &amp; plateau dumps</h3>
-            <p>Twin Buttes, one of the more successful entries — estimate 2,619,397 m³, within +1.0% of USGS, in-band. A dump sitting on a flat plain has low perimeter relief: walk around its base and the ground stays at roughly the same height, so the surrounding ground is a reliable guide to what lies buried.</p>
-          </div>
-        </article>
-
-        <article class="figure-card reveal">
-          <div class="figure-media">
-            <img src="../images/mw_resolution.webp" alt="Mission Complex reconstructed base and cross-section volume at 10 m versus 1 m DEM resolution, showing a negligible change." loading="lazy">
-          </div>
-          <div class="figure-caption">
-            <h3>Ruling out resolution</h3>
-            <p>A hundred-fold increase in resolution — 10 m to 1 m — changed the reconstructed base and the volume negligibly (&minus;14.5% to &minus;14.6% here). Resolution is not the bottleneck; the spline is the same, and the buried deficit lies beneath it.</p>
-          </div>
-        </article>
-
-        <article class="figure-card reveal">
-          <div class="figure-media">
-            <img src="../images/mw_domain.webp" alt="Scatter of percent error against perimeter relief, with in-method plateau sites separated from flagged valley and hillslope sites." loading="lazy">
-          </div>
-          <div class="figure-caption">
-            <h3>Knowing what it can measure</h3>
-            <p>Perimeter relief is a rough proxy for how trustworthy the buried-ground estimate is. In-method plateau dumps cluster near zero; flagged valley and hillslope fills, where the buried surface is more likely to plunge in ways the edges cannot reveal, fall far below — reported as brackets, not measurements.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- FINDINGS -->
-  <section class="project-shell alt">
-    <div class="container-main">
-      <div class="section-heading center reveal">
-        <span class="section-label">What It Establishes</span>
-        <h2>A bounded result, not an unfinished one.</h2>
-        <p>In short, the work is not unfinished so much as bounded: it has done what surface data permits, characterized precisely where that runs out, and built the mechanism to continue the moment the missing data becomes available.</p>
-      </div>
-
-      <div class="insight-grid reveal">
-        <div class="insight-card">
-          <h3>A characterized limit</h3>
-          <p>The method works for flat-lying and plateau dumps, where the perimeter approximates pre-mining ground and the residual is a modest base-definition offset. It fails, structurally, on valley and hillslope fills, where the buried valley floor plunges below the perimeter the spline is anchored to — a void surface terrain cannot see. That failure is not a bug to be fixed with a better spline, a finer DEM, a drainage heuristic, or more training sites; each was tried and each hit the same wall.</p>
-        </div>
-        <div class="insight-card">
-          <h3>Usable at regional scale</h3>
-          <p>Surface observables can proxy the buried deficit well enough to halve the aggregate bias, but cannot recover per-site volume, because the missing information is not on the surface. At the basin scale, the log-ratio correction reduces aggregate bias from &minus;58% to within &minus;4 to &minus;6% of the USGS total — a usable answer to how much waste is in a region.</p>
-        </div>
-        <div class="insight-card">
-          <h3>Built to cross the gap</h3>
-          <p>On a synthetic valley fill with known ground truth, folding real interior control moved the estimate from &minus;13% to +11% — the mechanism reshapes the base as intended. The control-point hook stands ready to cross the floor the moment field data exists, matching USGS where truth is available and falling back to a characterized estimate everywhere else.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WORKFLOW -->
-  <section class="project-shell">
-    <div class="container-main">
-      <div class="section-heading reveal">
-        <span class="section-label">The Research Arc</span>
-        <h2>The dead ends are load-bearing.</h2>
-        <p>This is a research record: each dead end rules out a hypothesis and sharpens <em>why</em> the problem is hard. The full write-up and diagnostic poster are linked below.</p>
-      </div>
-
-      <div class="workflow reveal">
-        <details>
-          <summary>Site selection &amp; DEM sourcing</summary>
-          <p>The first step is to find the best possible sites to build an algorithm around: sites that are very large, with easily distinguishable footprints, and a flat surrounding terrain. Arizona and North Carolina offer significantly less terrain challenge than the mountainous regions of Virginia and Montana, and mine dumps are easier than tailings — tailings ponds specifically being a negative elevation relative to their surroundings. For these reasons the focus was kept to mine dumps in North Carolina and Arizona.</p>
-        </details>
-        <details>
-          <summary>Base reconstruction — the core method</summary>
-          <p>The disturbance mask would not be used to extrapolate; it is not natural ground. Instead the bounding box is enlarged and a buffer created around the mask to provide adequate data. The reconstruction is accurate — yet Hallman-Beam still came in ~14% below USGS, and that gap proved robust: going from a 300 m ring to a 600 m ring plus a 300 m topo collar moved the estimate about 0.3 points. The gap is robust to how much surrounding terrain the spline sees.</p>
-        </details>
-        <details>
-          <summary>The drainage hypothesis — an instructive dead end</summary>
-          <p>It was a reasonable idea, and on idealized test cases it worked. But on real sites it made the estimates worse, for a fundamental reason: the modern stream, seen in the elevation data, has been diverted <em>around</em> the dump, so it no longer marks where the buried channel actually ran. The conclusion was not "drainage doesn't matter" but "the buried channel cannot be recovered from the surface alone." So the hypothesis was documented as an instructive dead end rather than a fix — it sharpened <em>why</em> the problem is hard, which is itself a result.</p>
-        </details>
-        <details>
-          <summary>Empirical correction &amp; the error floor</summary>
-          <p>A log-ratio model — ln(USGS/estimate) on perimeter relief and the "blue" clip fraction — reached R²&nbsp;=&nbsp;0.86 and a median near 34%. Perimeter relief alone carried no predictive signal (R²&nbsp;=&nbsp;0.00); only combined with the blue-clip fraction did a usable model emerge. Scaling from 20 to 100 sites, adding predictors moved the leave-one-out error negligibly while in-sample R² crept up — the textbook signature of a model that has reached its ceiling.</p>
-        </details>
-        <details>
-          <summary>Ruling out the usual suspects</summary>
-          <p>A hundred-fold increase in resolution changed the volume negligibly; resolution is not the bottleneck. And refitting the identical control points with five kernels, the four stable kernels agree with thin-plate at the median to the rounding — a 0.0% typical shift. Thin-plate is the consensus surface, not an arbitrary one; no kernel improves on it, because the residual is buried-surface and invisible to any interpolator.</p>
-        </details>
-        <details>
-          <summary>The control-point hook — field-data-ready</summary>
-          <p>USGS's own volumes are not derived from surrounding terrain but from field work — pre-mining topographic maps and drill cores that fix the true depth to contact. A modern DEM cannot manufacture any of that; what the pipeline can do is accept it when it exists. On a synthetic valley fill, folding real interior control moved the estimate from &minus;13% to +11%. No real data was available during the project, so this stands as validated infrastructure — and the single result that would most advance this work is not more code, but one real dataset.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- AFFILIATION & DOWNLOADS -->
-  <section class="project-shell alt">
-    <div class="container-main">
-      <div class="note-card reveal">
-        <span class="section-label">Affiliation</span>
-        <h2 style="margin-top: 0.75rem;">An official Duke Data+ project.</h2>
-        <p>
-          This work was carried out as part of <strong>Critical Materials</strong>, a Duke Data+ 2026 project run within the Duke Critical Minerals Hub and Climate+. The links below go to Duke's own record of the project and of my role on it.
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+      <div class="page-header-content">
+        <span class="section-label reveal"
+          >Duke Data+ 2026 &middot; Critical Materials</span
+        >
+        <h1 class="reveal reveal-delay-1">
+          Estimating Mine-Waste Volumes from Elevation Data
+        </h1>
+        <p class="reveal reveal-delay-2">
+          The project set out to tune a terrain-based volume estimator toward
+          USGS. What it produced is more honest and more useful than tuning: a
+          fully characterized method with a stated domain of validity, and a
+          rigorous account of exactly where and why it fails.
         </p>
-        <div class="affil-links">
-          <a href="https://bigdata.duke.edu/people/shresth-singh/" class="btn-outline-custom" target="_blank" rel="noopener">My Duke Data+ Profile &nearr;</a>
-          <a href="https://bigdata.duke.edu/projects/critical-materials/" class="btn-outline-custom" target="_blank" rel="noopener">Critical Materials Project &nearr;</a>
-          <a href="mine_waste_poster.pdf" class="btn-outline-custom" target="_blank" rel="noopener">Research Poster (PDF) &darr;</a>
-          <a href="mine_waste_summary.pdf" class="btn-outline-custom" target="_blank" rel="noopener">Full Write-Up (PDF) &darr;</a>
-        </div>
-        <div class="affil-credit">
-          <p style="margin: 0;"><strong>Team &amp; mentors:</strong> Dr. Patrick Dunn and Dr. Leanne Gilbertson, with thanks to Clara Park, Dr. Heileen Hsu-Kim, Dr. Anushka Mishra, and Dr. Kyle Bradbury. Data sourced from USGS 3DEP and the USGS National Mine Waste Inventory.</p>
-          <p style="margin: 0.9rem 0 0;"><strong>A note on "error":</strong> every error figure is measured against the USGS calculated volumes, which are the only authoritative reference available — yet those volumes are themselves of undocumented method and are not independently validated. Our "errors" therefore quantify <em>agreement with USGS</em>, not accuracy in an absolute sense.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container-main">
-      <div class="footer-inner">
-        <p class="footer-copy">&copy; 2026 Shresth Singh — Programming Portfolio</p>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/in/shresth-singh-achieve/" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
+        <div class="project-hero-actions reveal reveal-delay-2">
+          <a href="../programming.html" class="btn-outline-custom"
+            >&larr; Back to Programming</a
+          >
+          <a href="#figures" class="btn-outline-custom"
+            >View Visual Results &rarr;</a
+          >
+          <a
+            href="https://bigdata.duke.edu/people/shresth-singh/"
+            class="btn-outline-custom"
+            target="_blank"
+            rel="noopener"
+            >Duke Data+ Profile &nearr;</a
+          >
         </div>
       </div>
-    </div>
-  </footer>
+    </header>
 
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
+    <!-- OVERVIEW -->
+    <section class="project-shell">
+      <div class="container-main">
+        <div class="case-intro reveal">
+          <div class="case-copy">
+            <span class="section-label">Overview</span>
+            <h2>Volume is the term that is missing at scale.</h2>
+            <p>
+              There are hundreds of thousands of mines across the continental
+              United States: tungsten, gold, coal, and more. The central
+              hypothesis of this critical-materials hub is that each of these
+              mines has waste dumps, and that these dumps may contain both
+              highly abundant and accessible amounts of critical materials. But
+              although locations and rough polygons for thousands of mine
+              features — chief among which are the waste dumps — are available,
+              the volumes of many of these sites are genuinely a mystery.
+            </p>
+            <p>
+              The value of a dump is, roughly,
+              <em
+                >Value = Volume &times; Grade &times; Price &times; Recovery</em
+              >
+              — cubic metres of waste, times critical-mineral concentration,
+              times commodity price, times the fraction economically
+              extractable. Grade comes from assays; price from markets; recovery
+              from metallurgy. Volume is the term that is missing at scale,
+              because while the inventory gives footprints, it rarely gives
+              depths. Everything that follows is an attempt to supply that one
+              number — volume — from remote elevation data alone, so that a
+              prospector holding a grade estimate can convert a map polygon into
+              a defensible tonnage.
+            </p>
+            <p>
+              This project delivers one term in that valuation. It is the
+              companion to my
+              <a href="tungsten_queen_analysis_polished.html"
+                >Tungsten Queen geochemistry study</a
+              >
+              — that work looks closely at a single site's <em>grade</em>; this
+              one supplies the <em>volume</em> across a hundred sites in four
+              states.
+            </p>
+          </div>
 
-  <script src="../js/main.js?v=4"></script>
-</body>
+          <aside class="case-card">
+            <span class="section-label">Project Details</span>
+            <div class="meta-list">
+              <div class="meta-item">
+                <strong>Role</strong>
+                <span
+                  >Data+ researcher &mdash; designed and built the full
+                  geospatial pipeline, experiments, and analysis in
+                  Python.</span
+                >
+              </div>
+              <div class="meta-item">
+                <strong>Program</strong>
+                <span
+                  ><a
+                    href="https://bigdata.duke.edu/projects/critical-materials/"
+                    target="_blank"
+                    rel="noopener"
+                    >Critical Materials</a
+                  >, a Duke Data+ team within the Duke Critical Minerals Hub
+                  &amp; Climate+.</span
+                >
+              </div>
+              <div class="meta-item">
+                <strong>Benchmark</strong>
+                <span
+                  >USGS National Mine Waste Inventory field-derived volumes
+                  across AZ, NC, VA &amp; MT.</span
+                >
+              </div>
+              <div class="meta-item">
+                <strong>Tools</strong>
+                <span
+                  >Python, GeoPandas, rioxarray / rasterio, SciPy (thin-plate
+                  spline), py3dep, USGS 3DEP DEMs, Jupyter.</span
+                >
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="metric-grid reveal">
+          <div class="metric-card">
+            <span class="metric-value">100</span>
+            <span class="metric-label"
+              >USGS-benchmarked sites, scaled from 19 to establish that the
+              floor is real.</span
+            >
+          </div>
+          <div class="metric-card">
+            <span class="metric-value">~50%</span>
+            <span class="metric-label"
+              >The per-site median error &mdash; a floor that does not fall no
+              matter what is added.</span
+            >
+          </div>
+          <div class="metric-card">
+            <span class="metric-value">&minus;4 to &minus;6%</span>
+            <span class="metric-label"
+              >The corrected regional total vs USGS, from a raw pipeline that
+              under-counts by roughly half.</span
+            >
+          </div>
+          <div class="metric-card">
+            <span class="metric-value">5</span>
+            <span class="metric-label"
+              >Lines of attack converging on the same floor: sample size, error
+              model, resolution, kernel, gating.</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHOD -->
+    <section class="project-shell alt">
+      <div class="container-main">
+        <div class="section-heading center reveal">
+          <span class="section-label">The Method</span>
+          <h2>
+            To find the volume, we need two things: the exterior shape of the
+            feature, and the ground beneath it.
+          </h2>
+          <p>
+            Without previously drawn maps of the mine before mining began, it is
+            impossible to know what the ground looks like using imaging alone.
+            Therefore it must be extrapolated using the surrounding exposed
+            surface — and subtracting the exterior from that extrapolated ground
+            provides the volume of the site.
+          </p>
+        </div>
+
+        <div class="method-grid reveal">
+          <div class="method-card">
+            <h3>1. Footprint &amp; DEM</h3>
+            <p>
+              DEMs are three-dimensional maps of the ground surface, derived
+              from airborne lidar and photogrammetry rather than from satellite
+              photographs. We pull the dump footprint plus a surrounding buffer
+              and download the DEM.
+            </p>
+          </div>
+          <div class="method-card">
+            <h3>2. Reconstruct the base</h3>
+            <p>
+              A thin-plate spline fits a perfectly smooth surface across
+              scattered points — the shape a flexible, infinitely thin sheet of
+              metal would take, pinned to specific heights and left to bend with
+              minimal resistance. Anchored to the natural ground ringing the
+              dump, it rebuilds the buried base.
+            </p>
+          </div>
+          <div class="method-card">
+            <h3>3. Integrate the volume</h3>
+            <p>
+              Subtract the extrapolated base from the current exterior surface
+              and integrate the positive difference across the footprint — the
+              material the dump added.
+            </p>
+          </div>
+          <div class="method-card">
+            <h3>4. Validate</h3>
+            <p>
+              A series of validation squares — one steep, one normal, one flat
+              patch of natural ground — reveal that the algorithm is adequately
+              successful at recreating ground from nearby data.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FIGURES -->
+    <section class="project-shell" id="figures">
+      <div class="container-main">
+        <div class="section-heading reveal">
+          <span class="section-label">Visual Results</span>
+          <h2>What the pipeline produces, and what it reveals.</h2>
+          <p>
+            Every site is processed into a diagnostic that shows the
+            reconstruction, the validation, and the volume — making both the
+            successes and the failures legible at a glance.
+          </p>
+        </div>
+
+        <div class="figure-grid">
+          <article class="figure-card wide reveal">
+            <div class="figure-media">
+              <img
+                src="../images/mw_reconstruction.webp"
+                alt="Reconstruction of the Hallman-Beam site: validation squares on the slope, the current surface draped over the reconstructed base, the mining-added thickness, and a cross-section at the thickest point."
+                loading="lazy"
+              />
+            </div>
+            <div class="figure-caption">
+              <h3>Reconstructing the buried surface</h3>
+              <p>
+                A render of the Hallman-Beam site as it was processed. The green
+                lines indicate the buffer for the extrapolation, the squares
+                revealing the validation, the mask in orange. The DEM data is
+                overlayed over the extrapolated ground, and the cross-section
+                shows the current surface over the reconstructed base — the
+                shaded gap the dump fill.
+              </p>
+            </div>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-media">
+              <img
+                src="../images/mw_validation.webp"
+                alt="Validation squares comparing the real DEM against the predicted floor for flat, normal, and steep natural ground, with the volumetric difference shown as heatmaps."
+                loading="lazy"
+              />
+            </div>
+            <div class="figure-caption">
+              <h3>Does it recreate real ground?</h3>
+              <p>
+                Held-out validation squares give bias &minus;0.11 m (flat),
+                &minus;0.19 m (normal), &minus;0.20 m (steep). The spline
+                reproduces undisturbed ground to within ~0.2 m even on the
+                steepest natural patch available. The reconstruction is
+                accurate, not suspect — loud colors would mean loud errors, and
+                steep extrapolations do struggle only a bit.
+              </p>
+            </div>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-media">
+              <img
+                src="../images/mw_recovery.webp"
+                alt="Stacked bar chart comparing the USGS reference total, the raw estimate recovering 42%, and the regression-corrected estimate recovering 96%."
+                loading="lazy"
+              />
+            </div>
+            <div class="figure-caption">
+              <h3>Regional scale: correcting the bias</h3>
+              <p>
+                Raw, the method recovers 42% of the reference — the raw pipeline
+                under-counts total regional waste by roughly half (&minus;58%).
+                The log-ratio correction lands the corrected total within
+                &minus;4 to &minus;6% of the USGS sum: a usable answer to how
+                much waste is in a region.
+              </p>
+            </div>
+          </article>
+
+          <article class="figure-card wide reveal">
+            <div class="figure-media">
+              <img
+                src="../images/mw_twinbuttes.webp"
+                alt="Twin Buttes diagnostic panel showing imagery, disturbance mask, DEM, slope gradient, flow accumulation, and perimeter elevation profile for an in-band result."
+                loading="lazy"
+              />
+            </div>
+            <div class="figure-caption">
+              <h3>When it works: flat &amp; plateau dumps</h3>
+              <p>
+                Twin Buttes, one of the more successful entries — estimate
+                2,619,397 m³, within +1.0% of USGS, in-band. A dump sitting on a
+                flat plain has low perimeter relief: walk around its base and
+                the ground stays at roughly the same height, so the surrounding
+                ground is a reliable guide to what lies buried.
+              </p>
+            </div>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-media">
+              <img
+                src="../images/mw_resolution.webp"
+                alt="Mission Complex reconstructed base and cross-section volume at 10 m versus 1 m DEM resolution, showing a negligible change."
+                loading="lazy"
+              />
+            </div>
+            <div class="figure-caption">
+              <h3>Ruling out resolution</h3>
+              <p>
+                A hundred-fold increase in resolution — 10 m to 1 m — changed
+                the reconstructed base and the volume negligibly (&minus;14.5%
+                to &minus;14.6% here). Resolution is not the bottleneck; the
+                spline is the same, and the buried deficit lies beneath it.
+              </p>
+            </div>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-media">
+              <img
+                src="../images/mw_domain.webp"
+                alt="Scatter of percent error against perimeter relief, with in-method plateau sites separated from flagged valley and hillslope sites."
+                loading="lazy"
+              />
+            </div>
+            <div class="figure-caption">
+              <h3>Knowing what it can measure</h3>
+              <p>
+                Perimeter relief is a rough proxy for how trustworthy the
+                buried-ground estimate is. In-method plateau dumps cluster near
+                zero; flagged valley and hillslope fills, where the buried
+                surface is more likely to plunge in ways the edges cannot
+                reveal, fall far below — reported as brackets, not measurements.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINDINGS -->
+    <section class="project-shell alt">
+      <div class="container-main">
+        <div class="section-heading center reveal">
+          <span class="section-label">What It Establishes</span>
+          <h2>A bounded result, not an unfinished one.</h2>
+          <p>
+            In short, the work is not unfinished so much as bounded: it has done
+            what surface data permits, characterized precisely where that runs
+            out, and built the mechanism to continue the moment the missing data
+            becomes available.
+          </p>
+        </div>
+
+        <div class="insight-grid reveal">
+          <div class="insight-card">
+            <h3>A characterized limit</h3>
+            <p>
+              The method works for flat-lying and plateau dumps, where the
+              perimeter approximates pre-mining ground and the residual is a
+              modest base-definition offset. It fails, structurally, on valley
+              and hillslope fills, where the buried valley floor plunges below
+              the perimeter the spline is anchored to — a void surface terrain
+              cannot see. That failure is not a bug to be fixed with a better
+              spline, a finer DEM, a drainage heuristic, or more training sites;
+              each was tried and each hit the same wall.
+            </p>
+          </div>
+          <div class="insight-card">
+            <h3>Usable at regional scale</h3>
+            <p>
+              Surface observables can proxy the buried deficit well enough to
+              halve the aggregate bias, but cannot recover per-site volume,
+              because the missing information is not on the surface. At the
+              basin scale, the log-ratio correction reduces aggregate bias from
+              &minus;58% to within &minus;4 to &minus;6% of the USGS total — a
+              usable answer to how much waste is in a region.
+            </p>
+          </div>
+          <div class="insight-card">
+            <h3>Built to cross the gap</h3>
+            <p>
+              On a synthetic valley fill with known ground truth, folding real
+              interior control moved the estimate from &minus;13% to +11% — the
+              mechanism reshapes the base as intended. The control-point hook
+              stands ready to cross the floor the moment field data exists,
+              matching USGS where truth is available and falling back to a
+              characterized estimate everywhere else.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section class="project-shell">
+      <div class="container-main">
+        <div class="section-heading reveal">
+          <span class="section-label">The Research Arc</span>
+          <h2>The dead ends are load-bearing.</h2>
+          <p>
+            This is a research record: each dead end rules out a hypothesis and
+            sharpens <em>why</em> the problem is hard. The full write-up and
+            diagnostic poster are linked below.
+          </p>
+        </div>
+
+        <div class="workflow reveal">
+          <details>
+            <summary>Site selection &amp; DEM sourcing</summary>
+            <p>
+              The first step is to find the best possible sites to build an
+              algorithm around: sites that are very large, with easily
+              distinguishable footprints, and a flat surrounding terrain.
+              Arizona and North Carolina offer significantly less terrain
+              challenge than the mountainous regions of Virginia and Montana,
+              and mine dumps are easier than tailings — tailings ponds
+              specifically being a negative elevation relative to their
+              surroundings. For these reasons the focus was kept to mine dumps
+              in North Carolina and Arizona.
+            </p>
+          </details>
+          <details>
+            <summary>Base reconstruction — the core method</summary>
+            <p>
+              The disturbance mask would not be used to extrapolate; it is not
+              natural ground. Instead the bounding box is enlarged and a buffer
+              created around the mask to provide adequate data. The
+              reconstruction is accurate — yet Hallman-Beam still came in ~14%
+              below USGS, and that gap proved robust: going from a 300 m ring to
+              a 600 m ring plus a 300 m topo collar moved the estimate about 0.3
+              points. The gap is robust to how much surrounding terrain the
+              spline sees.
+            </p>
+          </details>
+          <details>
+            <summary>The drainage hypothesis — an instructive dead end</summary>
+            <p>
+              It was a reasonable idea, and on idealized test cases it worked.
+              But on real sites it made the estimates worse, for a fundamental
+              reason: the modern stream, seen in the elevation data, has been
+              diverted <em>around</em> the dump, so it no longer marks where the
+              buried channel actually ran. The conclusion was not "drainage
+              doesn't matter" but "the buried channel cannot be recovered from
+              the surface alone." So the hypothesis was documented as an
+              instructive dead end rather than a fix — it sharpened
+              <em>why</em> the problem is hard, which is itself a result.
+            </p>
+          </details>
+          <details>
+            <summary>Empirical correction &amp; the error floor</summary>
+            <p>
+              A log-ratio model — ln(USGS/estimate) on perimeter relief and the
+              "blue" clip fraction — reached R²&nbsp;=&nbsp;0.86 and a median
+              near 34%. Perimeter relief alone carried no predictive signal
+              (R²&nbsp;=&nbsp;0.00); only combined with the blue-clip fraction
+              did a usable model emerge. Scaling from 20 to 100 sites, adding
+              predictors moved the leave-one-out error negligibly while
+              in-sample R² crept up — the textbook signature of a model that has
+              reached its ceiling.
+            </p>
+          </details>
+          <details>
+            <summary>Ruling out the usual suspects</summary>
+            <p>
+              A hundred-fold increase in resolution changed the volume
+              negligibly; resolution is not the bottleneck. And refitting the
+              identical control points with five kernels, the four stable
+              kernels agree with thin-plate at the median to the rounding — a
+              0.0% typical shift. Thin-plate is the consensus surface, not an
+              arbitrary one; no kernel improves on it, because the residual is
+              buried-surface and invisible to any interpolator.
+            </p>
+          </details>
+          <details>
+            <summary>The control-point hook — field-data-ready</summary>
+            <p>
+              USGS's own volumes are not derived from surrounding terrain but
+              from field work — pre-mining topographic maps and drill cores that
+              fix the true depth to contact. A modern DEM cannot manufacture any
+              of that; what the pipeline can do is accept it when it exists. On
+              a synthetic valley fill, folding real interior control moved the
+              estimate from &minus;13% to +11%. No real data was available
+              during the project, so this stands as validated infrastructure —
+              and the single result that would most advance this work is not
+              more code, but one real dataset.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- AFFILIATION & DOWNLOADS -->
+    <section class="project-shell alt">
+      <div class="container-main">
+        <div class="note-card reveal">
+          <span class="section-label">Affiliation</span>
+          <h2 style="margin-top: 0.75rem">An official Duke Data+ project.</h2>
+          <p>
+            This work was carried out as part of
+            <strong>Critical Materials</strong>, a Duke Data+ 2026 project run
+            within the Duke Critical Minerals Hub and Climate+. The links below
+            go to Duke's own record of the project and of my role on it.
+          </p>
+          <div class="affil-links">
+            <a
+              href="https://bigdata.duke.edu/people/shresth-singh/"
+              class="btn-outline-custom"
+              target="_blank"
+              rel="noopener"
+              >My Duke Data+ Profile &nearr;</a
+            >
+            <a
+              href="https://bigdata.duke.edu/projects/critical-materials/"
+              class="btn-outline-custom"
+              target="_blank"
+              rel="noopener"
+              >Critical Materials Project &nearr;</a
+            >
+            <a
+              href="mine_waste_poster.pdf"
+              class="btn-outline-custom"
+              target="_blank"
+              rel="noopener"
+              >Research Poster (PDF) &darr;</a
+            >
+            <a
+              href="mine_waste_summary.pdf"
+              class="btn-outline-custom"
+              target="_blank"
+              rel="noopener"
+              >Full Write-Up (PDF) &darr;</a
+            >
+          </div>
+          <div class="affil-credit">
+            <p style="margin: 0">
+              <strong>Team &amp; mentors:</strong> Dr. Patrick Dunn and Dr.
+              Leanne Gilbertson, with thanks to Clara Park, Dr. Heileen Hsu-Kim,
+              Dr. Anushka Mishra, and Dr. Kyle Bradbury. Data sourced from USGS
+              3DEP and the USGS National Mine Waste Inventory.
+            </p>
+            <p style="margin: 0.9rem 0 0">
+              <strong>A note on "error":</strong> every error figure is measured
+              against the USGS calculated volumes, which are the only
+              authoritative reference available — yet those volumes are
+              themselves of undocumented method and are not independently
+              validated. Our "errors" therefore quantify
+              <em>agreement with USGS</em>, not accuracy in an absolute sense.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="container-main">
+        <div class="footer-inner">
+          <p class="footer-copy">
+            &copy; 2026 Shresth Singh — Programming Portfolio
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://www.linkedin.com/in/shresth-singh-achieve/"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+            >
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+      &uarr;
+    </button>
+
+    <script src="../js/main.js?v=4"></script>
+  </body>
 </html>

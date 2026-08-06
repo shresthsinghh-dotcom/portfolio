@@ -1,141 +1,304 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Presocratics · Part One — Shresth Singh</title>
-  <link rel="stylesheet" href="../css/styles.css?v=8">
-  <link rel="stylesheet" href="philosophy.css?v=7">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presocratics · Part One — Shresth Singh</title>
+    <link rel="stylesheet" href="../css/styles.css?v=9" />
+    <link rel="stylesheet" href="philosophy.css?v=7" />
+  </head>
+  <body>
+    <div class="reading-progress"></div>
 
-  <div class="reading-progress"></div>
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"
+          ><span class="logo-dot"></span> Shresth Singh</a
+        >
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <svg
+            class="icon-moon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg
+            class="icon-sun"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+        </button>
+      </div>
+    </nav>
 
-  <nav class="site-nav"><div class="nav-inner">
-    <a href="../index.html" class="nav-logo"><span class="logo-dot"></span> Shresth Singh</a>
-    <button class="theme-toggle" aria-label="Toggle theme">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-  </div></nav>
-
-  <div class="book-page"><div class="container-main">
-    <div class="breadcrumb">
-      <a href="../philosophy.html">About Me</a><span class="sep">›</span>
-      <a href="README.html">Library</a><span class="sep">›</span>
-      <span class="current">Book I: The Presocratics — Part One</span>
+    <div class="book-page">
+      <div class="container-main">
+        <div class="breadcrumb">
+          <a href="../philosophy.html">About Me</a><span class="sep">›</span>
+          <a href="README.html">Library</a><span class="sep">›</span>
+          <span class="current">Book I: The Presocratics — Part One</span>
+        </div>
+      </div>
     </div>
-  </div></div>
 
-  <!-- BOOK HEADER -->
-  <header class="book-header book-cover">
-    <div class="book-header-content reveal">
-      <span class="cover-num">Book I</span>
-      <h1>The Presocratics</h1>
-      <p class="cover-subtitle">Part One: The Ionian Awakening <span class="dot"></span> ~624&ndash;480 BCE</p>
-      <p class="cover-epigraph">On a particularly cold winter evening, I realized I did not know myself. And so, I embarked on a journey, attempting to answer questions most never think to ask. Everything has a beginning. Or does it? Such cosmological questions drove the first philosophers &mdash; the backdrop against which the brilliant color of Socratic thought would shine.</p>
-      <div class="cover-actions">
-        <a href="#thales" class="btn-primary-custom">Begin Reading</a>
-        <a href="#toc" class="cover-contents-link">Contents &darr;</a>
+    <!-- BOOK HEADER -->
+    <header class="book-header book-cover">
+      <div class="book-header-content reveal">
+        <span class="cover-num">Book I</span>
+        <h1>The Presocratics</h1>
+        <p class="cover-subtitle">
+          Part One: The Ionian Awakening
+          <span class="dot"></span> ~624&ndash;480 BCE
+        </p>
+        <p class="cover-epigraph">
+          On a particularly cold winter evening, I realized I did not know
+          myself. And so, I embarked on a journey, attempting to answer
+          questions most never think to ask. Everything has a beginning. Or does
+          it? Such cosmological questions drove the first philosophers &mdash;
+          the backdrop against which the brilliant color of Socratic thought
+          would shine.
+        </p>
+        <div class="cover-actions">
+          <a href="#thales" class="btn-primary-custom">Begin Reading</a>
+          <a href="#toc" class="cover-contents-link">Contents &darr;</a>
+        </div>
+        <div class="book-meta-row">
+          <span><span class="dot"></span> 7 Chapters</span>
+          <span><span class="dot"></span> ~19 min read</span>
+          <span><span class="dot"></span> Updated July 2026</span>
+        </div>
       </div>
-      <div class="book-meta-row">
-        <span><span class="dot"></span> 7 Chapters</span>
-        <span><span class="dot"></span> ~19 min read</span>
-        <span><span class="dot"></span> Updated July 2026</span>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <section class="section-padding book-section">
-    <div class="container-main book-container">
+    <section class="section-padding book-section">
+      <div class="container-main book-container">
+        <!-- SPREAD SELECTOR -->
+        <div class="spread-nav reveal">
+          <span class="spread-tab active"
+            ><span class="st-label">Part One</span> The Ionian Awakening</span
+          >
+          <a href="presocratics-2.html" class="spread-tab"
+            ><span class="st-label">Part Two</span> The Eleatic Reckoning</a
+          >
+        </div>
 
-      <!-- SPREAD SELECTOR -->
-      <div class="spread-nav reveal">
-        <span class="spread-tab active"><span class="st-label">Part One</span> The Ionian Awakening</span>
-        <a href="presocratics-2.html" class="spread-tab"><span class="st-label">Part Two</span> The Eleatic Reckoning</a>
-      </div>
-
-      <!-- TABLE OF CONTENTS -->
-      <details class="book-toc-block reveal" id="toc" open>
-        <summary class="toc-label">Table of Contents</summary>
-        <ol>
-          <li><a href="#thales">Thales of Miletus</a></li>
-          <li><a href="#anaximander">Anaximander</a></li>
-          <li><a href="#anaximenes">Anaximenes</a></li>
-          <li><a href="#milesian-arc">The Milesian Arc</a></li>
-          <li><a href="#pythagoras">Pythagoras</a></li>
-          <li><a href="#xenophanes">Xenophanes</a></li>
-          <li><a href="#heraclitus">Heraclitus</a></li>
-        </ol>
-      </details>
+        <!-- TABLE OF CONTENTS -->
+        <details class="book-toc-block reveal" id="toc" open>
+          <summary class="toc-label">Table of Contents</summary>
+          <ol>
+            <li><a href="#thales">Thales of Miletus</a></li>
+            <li><a href="#anaximander">Anaximander</a></li>
+            <li><a href="#anaximenes">Anaximenes</a></li>
+            <li><a href="#milesian-arc">The Milesian Arc</a></li>
+            <li><a href="#pythagoras">Pythagoras</a></li>
+            <li><a href="#xenophanes">Xenophanes</a></li>
+            <li><a href="#heraclitus">Heraclitus</a></li>
+          </ol>
+        </details>
         <!-- Timelines: small multiples view -->
-    <div id="timelines-wrapper" data-force-compact="true"></div>
-        <div id="timeline-master" class="timeline-master" aria-label="Master timeline overview"></div>
+        <div id="timelines-wrapper" data-force-compact="true"></div>
+        <div
+          id="timeline-master"
+          class="timeline-master"
+          aria-label="Master timeline overview"
+        ></div>
 
         <!-- Small multiples: left column names, right column aligned bars -->
-        <div id="timeline-multiples" class="timeline-multiples" role="list" aria-label="Thinkers lifespans">
+        <div
+          id="timeline-multiples"
+          class="timeline-multiples"
+          role="list"
+          aria-label="Thinkers lifespans"
+        >
           <!-- JS will populate rows here -->
         </div>
 
-      <!-- BOOK BODY -->
-      <div class="book-body">
-
-         <!-- ============ CHAPTER 1: THALES ============ -->
-        <article class="chapter reveal" id="thales" data-school="Milesian" data-start="-624" data-end="-546">
-          <span class="chapter-number">Chapter I</span>
-          <div class="chapter-head">
-            <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/thales-mobile.webp"><img src="../images/thales.webp" alt="Bust of Thales of Miletus" class="chapter-portrait" loading="lazy"></picture>
-            <div>
-              <h2>Thales of Miletus</h2>
-              <p class="chapter-dates">~624–546 BCE · Miletus, Ionia</p>
-              <p class="chapter-thesis">Thales determines that the world is of water — and with that single claim, myth gives way to argument.</p>
+        <!-- BOOK BODY -->
+        <div class="book-body">
+          <!-- ============ CHAPTER 1: THALES ============ -->
+          <article
+            class="chapter reveal"
+            id="thales"
+            data-school="Milesian"
+            data-start="-624"
+            data-end="-546"
+          >
+            <span class="chapter-number">Chapter I</span>
+            <div class="chapter-head">
+              <picture
+                ><source
+                  type="image/webp"
+                  media="(max-width: 768px)"
+                  srcset="../images/thales-mobile.webp" />
+                <img
+                  src="../images/thales.webp"
+                  alt="Bust of Thales of Miletus"
+                  class="chapter-portrait"
+                  loading="lazy"
+              /></picture>
+              <div>
+                <h2>Thales of Miletus</h2>
+                <p class="chapter-dates">~624–546 BCE · Miletus, Ionia</p>
+                <p class="chapter-thesis">
+                  Thales determines that the world is of water — and with that
+                  single claim, myth gives way to argument.
+                </p>
+              </div>
             </div>
-          </div>
-          <div class="chapter-tags">
-            <span class="chapter-tag">Cosmology</span>
-            <span class="chapter-tag">First Philosopher</span>
-            <span class="chapter-tag">Water as Arche</span>
-          </div>
-          <span class="chapter-readtime">⏱ 3 min read</span>
+            <div class="chapter-tags">
+              <span class="chapter-tag">Cosmology</span>
+              <span class="chapter-tag">First Philosopher</span>
+              <span class="chapter-tag">Water as Arche</span>
+            </div>
+            <span class="chapter-readtime">⏱ 3 min read</span>
 
-          <div class="chapter-body clearfix">
-            <p class="lead">If everything has a beginning, everything has to come from something. It is this question that Thales of Miletus sought to answer. He is unanimously regarded as the first real philosopher, as we imagine them in the western world. To answer the big question, Thales first asks: if a small rock falls, and a large boulder falls too, then why does the Earth, the largest boulder of all, not plummet down eternally? Furthermore, how was it even created? It is here that Thales attempts to confront existence. Although he was a deeply intelligent mathematician and orator, no works of his survive today. In fact, almost all we know of him is as a result of Aristotle's works and historians like Diogenes Laertius. We are left with but four snippets:</p>
+            <div class="chapter-body clearfix">
+              <p class="lead">
+                If everything has a beginning, everything has to come from
+                something. It is this question that Thales of Miletus sought to
+                answer. He is unanimously regarded as the first real
+                philosopher, as we imagine them in the western world. To answer
+                the big question, Thales first asks: if a small rock falls, and
+                a large boulder falls too, then why does the Earth, the largest
+                boulder of all, not plummet down eternally? Furthermore, how was
+                it even created? It is here that Thales attempts to confront
+                existence. Although he was a deeply intelligent mathematician
+                and orator, no works of his survive today. In fact, almost all
+                we know of him is as a result of Aristotle's works and
+                historians like Diogenes Laertius. We are left with but four
+                snippets:
+              </p>
 
-            <div class="fragment"><span class="fnum">Fragment 1</span><p>The World derives from <strong>water</strong>.</p></div>
-            <div class="fragment"><span class="fnum">Fragment 2</span><p>The World rests on <strong>water</strong>.</p></div>
-            <div class="fragment"><span class="fnum">Fragment 3</span><p>The world is full of <strong>gods</strong>.</p></div>
-            <div class="fragment"><span class="fnum">Fragment 4</span><p><strong>Soul</strong> produces motion.</p></div>
+              <div class="fragment">
+                <span class="fnum">Fragment 1</span>
+                <p>The World derives from <strong>water</strong>.</p>
+              </div>
+              <div class="fragment">
+                <span class="fnum">Fragment 2</span>
+                <p>The World rests on <strong>water</strong>.</p>
+              </div>
+              <div class="fragment">
+                <span class="fnum">Fragment 3</span>
+                <p>The world is full of <strong>gods</strong>.</p>
+              </div>
+              <div class="fragment">
+                <span class="fnum">Fragment 4</span>
+                <p><strong>Soul</strong> produces motion.</p>
+              </div>
 
-            <figure class="pfig float-right">
-              <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/earthwater-mobile.webp"><img src="../images/earthwater.webp" alt="Diagram of Thales' cosmology: Earth floating on Ocean" loading="lazy"></picture>
-              <figcaption>Thales' earth floating on water.</figcaption>
-            </figure>
+              <figure class="pfig float-right">
+                <picture
+                  ><source
+                    type="image/webp"
+                    media="(max-width: 768px)"
+                    srcset="../images/earthwater-mobile.webp" />
+                  <img
+                    src="../images/earthwater.webp"
+                    alt="Diagram of Thales' cosmology: Earth floating on Ocean"
+                    loading="lazy"
+                /></picture>
+                <figcaption>Thales' earth floating on water.</figcaption>
+              </figure>
 
-            <p>The world is of water, and it comes from the water it rests upon. Thales' belief in the universal property of water is justified through the fact that life cannot exist without it. The earth, he holds, does not plummet because it is buoyant, floating upon water.</p>
+              <p>
+                The world is of water, and it comes from the water it rests
+                upon. Thales' belief in the universal property of water is
+                justified through the fact that life cannot exist without it.
+                The earth, he holds, does not plummet because it is buoyant,
+                floating upon water.
+              </p>
 
-            <p>Like us, Thales is gripped by the power of nature, and the fragility of our existence. Thus he concludes that if everything is of water, its divine nature cannot be denied. It makes sense that Thales claims the world is full of gods, for it is composed of the divine. The last fragment appears to reference the Milesian idea that motion is proof of life, and thus the soul is the source of motion. Thales is foundational in the study of cosmology, and his teachings lay the groundwork for the generations of philosophers who follow. His attempts to define reality empirically echo through the natural philosophers who come after him for centuries.</p>
+              <p>
+                Like us, Thales is gripped by the power of nature, and the
+                fragility of our existence. Thus he concludes that if everything
+                is of water, its divine nature cannot be denied. It makes sense
+                that Thales claims the world is full of gods, for it is composed
+                of the divine. The last fragment appears to reference the
+                Milesian idea that motion is proof of life, and thus the soul is
+                the source of motion. Thales is foundational in the study of
+                cosmology, and his teachings lay the groundwork for the
+                generations of philosophers who follow. His attempts to define
+                reality empirically echo through the natural philosophers who
+                come after him for centuries.
+              </p>
 
-            <p>To appreciate the importance of Thales, one must understand what he represents beyond his fragments. What does it mean to be the first philosopher? It means to replace an earth held up by Atlas, a sea governed by Poseidon, a sky ruled by Zeus, with argument and logic. Thales presents a real theory; a tangible idea. His neighbors mock philosophy's supposed impracticality, questioning why reality needs deciphering. He silences critique by predicting a bumper olive harvest, cornering the market and securing his fortune. He reportedly predicts a solar eclipse in 585 BCE, demonstrating that the cosmos operates by principles that can be known and anticipated.</p>
+              <p>
+                To appreciate the importance of Thales, one must understand what
+                he represents beyond his fragments. What does it mean to be the
+                first philosopher? It means to replace an earth held up by
+                Atlas, a sea governed by Poseidon, a sky ruled by Zeus, with
+                argument and logic. Thales presents a real theory; a tangible
+                idea. His neighbors mock philosophy's supposed impracticality,
+                questioning why reality needs deciphering. He silences critique
+                by predicting a bumper olive harvest, cornering the market and
+                securing his fortune. He reportedly predicts a solar eclipse in
+                585 BCE, demonstrating that the cosmos operates by principles
+                that can be known and anticipated.
+              </p>
 
-            <p>Thales proves that wisdom is not abstract removal from the world, but in fact the deepest possible engagement with it. For the rest of his life, his gaze remains fixed outward: on water and stars and the earth beneath his feet. The question he never reaches is the one that will come to define everything that follows: not what the world is made of, but how we ought to live within it.</p>
-          </div>
+              <p>
+                Thales proves that wisdom is not abstract removal from the
+                world, but in fact the deepest possible engagement with it. For
+                the rest of his life, his gaze remains fixed outward: on water
+                and stars and the earth beneath his feet. The question he never
+                reaches is the one that will come to define everything that
+                follows: not what the world is made of, but how we ought to live
+                within it.
+              </p>
+            </div>
 
-          <div class="chapter-foot-nav">
-            <span></span>
-            <a class="next" href="#anaximander">Anaximander &rarr;</a>
-          </div>
-        </article>
-
+            <div class="chapter-foot-nav">
+              <span></span>
+              <a class="next" href="#anaximander">Anaximander &rarr;</a>
+            </div>
+          </article>
 
           <!-- ============ CHAPTER 2: ANAXIMANDER ============ -->
-          <article class="chapter reveal" id="anaximander" data-school="Milesian" data-start="-624" data-end="-546">
+          <article
+            class="chapter reveal"
+            id="anaximander"
+            data-school="Milesian"
+            data-start="-624"
+            data-end="-546"
+          >
             <span class="chapter-number">Chapter II</span>
             <div class="chapter-head">
-              <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/Anaximander-mobile.webp"><img src="../images/Anaximander.webp" alt="Anaximander, detail from The School of Athens" class="chapter-portrait" loading="lazy"></picture>
+              <picture
+                ><source
+                  type="image/webp"
+                  media="(max-width: 768px)"
+                  srcset="../images/Anaximander-mobile.webp" />
+                <img
+                  src="../images/Anaximander.webp"
+                  alt="Anaximander, detail from The School of Athens"
+                  class="chapter-portrait"
+                  loading="lazy"
+              /></picture>
               <div>
                 <h2>Anaximander</h2>
                 <p class="chapter-dates">~610-546 BCE · Miletus, Ionia</p>
-                <p class="chapter-thesis">A finite existence is constructed from the infinite.</p>
+                <p class="chapter-thesis">
+                  A finite existence is constructed from the infinite.
+                </p>
               </div>
             </div>
             <div class="chapter-tags">
@@ -146,16 +309,56 @@
             <span class="chapter-readtime">⏱ 2 min read</span>
 
             <div class="chapter-body clearfix">
-              <p class="lead">Though Thales's theory apparently answers the question of existence, it does not sit well with Anaximander of Miletus. Like his predecessor, he questions the origin and composition of the universe. However, he is unsatisfied with the origins of the universe being something as specific and seemingly arbitrary as water. Thus, he posits a much broader, yet far more sophisticated idea: Apeiron. The universe must be constituted of something limitless, infinite, undefined. This is Apeiron: the infinite. He chooses to answer the question differently, arguing that everything doesn't have a beginning; origin is undefined by definition.</p>
+              <p class="lead">
+                Though Thales's theory apparently answers the question of
+                existence, it does not sit well with Anaximander of Miletus.
+                Like his predecessor, he questions the origin and composition of
+                the universe. However, he is unsatisfied with the origins of the
+                universe being something as specific and seemingly arbitrary as
+                water. Thus, he posits a much broader, yet far more
+                sophisticated idea: Apeiron. The universe must be constituted of
+                something limitless, infinite, undefined. This is Apeiron: the
+                infinite. He chooses to answer the question differently, arguing
+                that everything doesn't have a beginning; origin is undefined by
+                definition.
+              </p>
 
               <figure class="pfig float-left">
-                <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/world_map-mobile.webp"><img src="../images/world_map.webp" alt="Ancient world map showing Europe, Asia, and Libya" loading="lazy"></picture>
+                <picture
+                  ><source
+                    type="image/webp"
+                    media="(max-width: 768px)"
+                    srcset="../images/world_map-mobile.webp" />
+                  <img
+                    src="../images/world_map.webp"
+                    alt="Ancient world map showing Europe, Asia, and Libya"
+                    loading="lazy"
+                /></picture>
                 <figcaption>Anaximander's map of the world.</figcaption>
               </figure>
 
-              <p>Anaximander is also a gifted polymath, credited with drawing one of the first world maps. Anaximander furthers the development of early cosmology, mathematics, geography, and philosophy. He proposes an early theory of evolution, noting that man would not have survived as he is today, without having come from a different form of life. Human infants are helpless, and would naturally be vulnerable to predators. Thus, it must be the case that man came from something else, positing evolution.</p>
+              <p>
+                Anaximander is also a gifted polymath, credited with drawing one
+                of the first world maps. Anaximander furthers the development of
+                early cosmology, mathematics, geography, and philosophy. He
+                proposes an early theory of evolution, noting that man would not
+                have survived as he is today, without having come from a
+                different form of life. Human infants are helpless, and would
+                naturally be vulnerable to predators. Thus, it must be the case
+                that man came from something else, positing evolution.
+              </p>
 
-              <p>Through his work, Anaximander widens the gap between the cosmos and humanity, enlarging the universe and shrinking its inhabitants. He argues that nothing has a defined origin, not the universe, nor us. We are not the eternal beings we may have hoped to be, but mere descendants from creatures we scarcely resemble. His work is crucial in defining the first philosophical confrontation with human fragility. The question is no longer simply what the world is made of. It is beginning to become: what are we?</p>
+              <p>
+                Through his work, Anaximander widens the gap between the cosmos
+                and humanity, enlarging the universe and shrinking its
+                inhabitants. He argues that nothing has a defined origin, not
+                the universe, nor us. We are not the eternal beings we may have
+                hoped to be, but mere descendants from creatures we scarcely
+                resemble. His work is crucial in defining the first
+                philosophical confrontation with human fragility. The question
+                is no longer simply what the world is made of. It is beginning
+                to become: what are we?
+              </p>
             </div>
 
             <div class="chapter-foot-nav">
@@ -165,14 +368,33 @@
           </article>
 
           <!-- ============ CHAPTER 3: ANAXIMENES ============ -->
-          <article class="chapter reveal" id="anaximenes" data-school="Milesian" data-start="-586" data-end="-526">
+          <article
+            class="chapter reveal"
+            id="anaximenes"
+            data-school="Milesian"
+            data-start="-586"
+            data-end="-526"
+          >
             <span class="chapter-number">Chapter III</span>
             <div class="chapter-head">
-              <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/anaximenes-mobile.webp"><img src="../images/anaximenes.webp" alt="Engraving of Anaximenes of Miletus" class="chapter-portrait" loading="lazy"></picture>
+              <picture
+                ><source
+                  type="image/webp"
+                  media="(max-width: 768px)"
+                  srcset="../images/anaximenes-mobile.webp" />
+                <img
+                  src="../images/anaximenes.webp"
+                  alt="Engraving of Anaximenes of Miletus"
+                  class="chapter-portrait"
+                  loading="lazy"
+              /></picture>
               <div>
                 <h2>Anaximenes</h2>
                 <p class="chapter-dates">~586–526 BCE · Miletus, Ionia</p>
-                <p class="chapter-thesis">As breath holds the body together, Aer holds the universe together.</p>
+                <p class="chapter-thesis">
+                  As breath holds the body together, Aer holds the universe
+                  together.
+                </p>
               </div>
             </div>
             <div class="chapter-tags">
@@ -182,9 +404,33 @@
             <span class="chapter-readtime">⏱ 2 min read</span>
 
             <div class="chapter-body clearfix">
-              <p class="lead">The third of Miletus' great thinkers, Anaximenes is a student of Anaximander and offers his own answer to the Milesian question. He combines the ideas of his predecessors to posit that air is the fundamental principle of the universe. In its standard form, air composes the atmosphere as we experience it. However, he also argues that when increasingly condensed, "Aer" condenses into mist, then into water, and ultimately into earth and stones. If it is rarefied, it becomes fire. This theory is important in Anaximenes' real impact: the idea that known natural processes such as condensation and rarefaction could explain the transformations of matter.</p>
+              <p class="lead">
+                The third of Miletus' great thinkers, Anaximenes is a student of
+                Anaximander and offers his own answer to the Milesian question.
+                He combines the ideas of his predecessors to posit that air is
+                the fundamental principle of the universe. In its standard form,
+                air composes the atmosphere as we experience it. However, he
+                also argues that when increasingly condensed, "Aer" condenses
+                into mist, then into water, and ultimately into earth and
+                stones. If it is rarefied, it becomes fire. This theory is
+                important in Anaximenes' real impact: the idea that known
+                natural processes such as condensation and rarefaction could
+                explain the transformations of matter.
+              </p>
 
-              <p>He elevates the life-giving substance to the very composition of the universe, providing a more comprehensive explanation for the origin of all things, to the creation of human existence. Anaximenes argues that as breath holds the human body together, Aer holds the universe together. Much like the Thalesian fragment arguing that soul produces motion, Anaximenes declares that Aer, the giver of life, or the soul, is responsible for all universal processes, thus producing motion. Anaximenes challenges traditional beliefs about the unique nature of humanity: Are we really above our existence, or are we merely reality observing itself?</p>
+              <p>
+                He elevates the life-giving substance to the very composition of
+                the universe, providing a more comprehensive explanation for the
+                origin of all things, to the creation of human existence.
+                Anaximenes argues that as breath holds the human body together,
+                Aer holds the universe together. Much like the Thalesian
+                fragment arguing that soul produces motion, Anaximenes declares
+                that Aer, the giver of life, or the soul, is responsible for all
+                universal processes, thus producing motion. Anaximenes
+                challenges traditional beliefs about the unique nature of
+                humanity: Are we really above our existence, or are we merely
+                reality observing itself?
+              </p>
             </div>
 
             <div class="chapter-foot-nav">
@@ -194,7 +440,11 @@
           </article>
 
           <!-- ============ CHAPTER 4: THE MILESIAN ARC ============ -->
-          <article class="chapter reveal" id="milesian-arc" data-school="Milesian">
+          <article
+            class="chapter reveal"
+            id="milesian-arc"
+            data-school="Milesian"
+          >
             <span class="chapter-number">Chapter IV · Interlude</span>
             <div class="chapter-head">
               <div class="chapter-glyph">
@@ -202,8 +452,13 @@
               </div>
               <div>
                 <h2>The Milesian Arc</h2>
-                <p class="chapter-dates">A synthesis of the school's first three thinkers</p>
-                <p class="chapter-thesis">Does everything have a beginning? The Milesians answered — and left new questions in their wake.</p>
+                <p class="chapter-dates">
+                  A synthesis of the school's first three thinkers
+                </p>
+                <p class="chapter-thesis">
+                  Does everything have a beginning? The Milesians answered — and
+                  left new questions in their wake.
+                </p>
               </div>
             </div>
             <div class="chapter-tags">
@@ -212,22 +467,53 @@
             <span class="chapter-readtime">⏱ 2 min read</span>
 
             <div class="chapter-body">
-              <p class="lead">Miletus stands as the birthplace of philosophy, inspiring and defining Western intellectualism. Her first thinker, Thales, lifts Greece out of its dogmatic slumber, defining a reality governed by logic, not divine mandate. He argues that everything does have a beginning, and that beginning is the substance of water, whose divinity produces motion.</p>
+              <p class="lead">
+                Miletus stands as the birthplace of philosophy, inspiring and
+                defining Western intellectualism. Her first thinker, Thales,
+                lifts Greece out of its dogmatic slumber, defining a reality
+                governed by logic, not divine mandate. He argues that everything
+                does have a beginning, and that beginning is the substance of
+                water, whose divinity produces motion.
+              </p>
 
-              <p>He is succeeded by Anaximander, who pushes reality and humanity apart, stating that origin is undefined and unbounded. His Apeiron, or the infinite, is the source of reality; although it is abstract, it deepens the inquiry into existence's origin. His student, Anaximenes, ties both ideas together. The specificity of a substance accessible to humanity is married to the power of a concept that stitches the fabric of the universe: Aer. It explains origin with greater sophistication than Thales, and yet is much closer to the nature of empirically experienced reality than Anaximander.</p>
+              <p>
+                He is succeeded by Anaximander, who pushes reality and humanity
+                apart, stating that origin is undefined and unbounded. His
+                Apeiron, or the infinite, is the source of reality; although it
+                is abstract, it deepens the inquiry into existence's origin. His
+                student, Anaximenes, ties both ideas together. The specificity
+                of a substance accessible to humanity is married to the power of
+                a concept that stitches the fabric of the universe: Aer. It
+                explains origin with greater sophistication than Thales, and yet
+                is much closer to the nature of empirically experienced reality
+                than Anaximander.
+              </p>
 
               <div class="comparison">
                 <div class="comparison-col">
                   <h4>Thales</h4>
-                  <p>A substance well understood (water). Empirical, but narrow; why water specifically?</p>
+                  <p>
+                    A substance well understood (water). Empirical, but narrow;
+                    why water specifically?
+                  </p>
                 </div>
                 <div class="comparison-col">
                   <h4>Anaximander</h4>
-                  <p>Abstract principle (Apeiron). Sophisticated, but detached from comprehension.</p>
+                  <p>
+                    Abstract principle (Apeiron). Sophisticated, but detached
+                    from comprehension.
+                  </p>
                 </div>
               </div>
 
-              <p>Cosmology casts light upon the nature of the universe, yet it leaves behind many shadows. The Milesians sought to answer the question that opened this journey: Does everything have a beginning? And yet, they left behind questions of their own: what are we, how we ought to live, and whether we can even separate ourselves from reality?</p>
+              <p>
+                Cosmology casts light upon the nature of the universe, yet it
+                leaves behind many shadows. The Milesians sought to answer the
+                question that opened this journey: Does everything have a
+                beginning? And yet, they left behind questions of their own:
+                what are we, how we ought to live, and whether we can even
+                separate ourselves from reality?
+              </p>
             </div>
 
             <div class="chapter-foot-nav">
@@ -237,14 +523,33 @@
           </article>
 
           <!-- ============ CHAPTER 5: PYTHAGORAS ============ -->
-          <article class="chapter reveal" id="pythagoras" data-school="Pythagorean" data-start="-571" data-end="-495">
+          <article
+            class="chapter reveal"
+            id="pythagoras"
+            data-school="Pythagorean"
+            data-start="-571"
+            data-end="-495"
+          >
             <span class="chapter-number">Chapter V</span>
             <div class="chapter-head">
-              <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/pythagoras-mobile.webp"><img src="../images/pythagoras.webp" alt="Painting of Pythagoras holding a geometric solid" class="chapter-portrait" loading="lazy"></picture>
+              <picture
+                ><source
+                  type="image/webp"
+                  media="(max-width: 768px)"
+                  srcset="../images/pythagoras-mobile.webp" />
+                <img
+                  src="../images/pythagoras.webp"
+                  alt="Painting of Pythagoras holding a geometric solid"
+                  class="chapter-portrait"
+                  loading="lazy"
+              /></picture>
               <div>
                 <h2>Pythagoras</h2>
                 <p class="chapter-dates">~571–495 BCE · Samos / Croton</p>
-                <p class="chapter-thesis">If music can be expressed with mathematics, then perhaps all of reality is rational.</p>
+                <p class="chapter-thesis">
+                  If music can be expressed with mathematics, then perhaps all
+                  of reality is rational.
+                </p>
               </div>
             </div>
             <div class="chapter-tags">
@@ -255,20 +560,74 @@
             <span class="chapter-readtime">⏱ 3 min read</span>
 
             <div class="chapter-body clearfix">
-              <p class="lead">Pythagoras is widely considered the first true mathematician in the Western tradition. Though he writes nothing himself, he is instrumental in establishing the Pythagorean school of thought. Nevertheless, through the writing of his followers, we learn that Pythagoras is also fascinated by the nature of reality. However, he is not satisfied with the empirical perspective.</p>
+              <p class="lead">
+                Pythagoras is widely considered the first true mathematician in
+                the Western tradition. Though he writes nothing himself, he is
+                instrumental in establishing the Pythagorean school of thought.
+                Nevertheless, through the writing of his followers, we learn
+                that Pythagoras is also fascinated by the nature of reality.
+                However, he is not satisfied with the empirical perspective.
+              </p>
 
               <figure class="pfig float-right">
-                <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/hammers-mobile.webp"><img src="../images/hammers.webp" alt="Medieval woodcut of Pythagoras testing harmonic ratios with hammers, bells, glasses, and strings" loading="lazy"></picture>
+                <picture
+                  ><source
+                    type="image/webp"
+                    media="(max-width: 768px)"
+                    srcset="../images/hammers-mobile.webp" />
+                  <img
+                    src="../images/hammers.webp"
+                    alt="Medieval woodcut of Pythagoras testing harmonic ratios with hammers, bells, glasses, and strings"
+                    loading="lazy"
+                /></picture>
                 <figcaption>Pythagoras' epiphany.</figcaption>
               </figure>
 
-              <p>One afternoon, Pythagoras, grappling with a math problem, walks past a blacksmith's shop. The blacksmith, busy at work, bangs his hammers upon an anvil, and on occasion, strikes hammers of different weights together. The harmonies they make are not random, and this catches the attention of one very mathematically-minded Pythagoras. He notes that when a hammer is struck by another half its size, an octave is emitted. When the ratio between two hammers is 3:2, a perfect fifth chord is emitted. 4:3 yields a fourth, and as the blacksmith forges his blade, Pythagoras forges a new understanding of reality.</p>
+              <p>
+                One afternoon, Pythagoras, grappling with a math problem, walks
+                past a blacksmith's shop. The blacksmith, busy at work, bangs
+                his hammers upon an anvil, and on occasion, strikes hammers of
+                different weights together. The harmonies they make are not
+                random, and this catches the attention of one very
+                mathematically-minded Pythagoras. He notes that when a hammer is
+                struck by another half its size, an octave is emitted. When the
+                ratio between two hammers is 3:2, a perfect fifth chord is
+                emitted. 4:3 yields a fourth, and as the blacksmith forges his
+                blade, Pythagoras forges a new understanding of reality.
+              </p>
 
-              <p>He rushes home, and quickly constructs the same ratios, this time with stretched strings. He is able to replicate the exact harmonies, and comes to a realization. If music, such a seemingly subjective aspect of nature and reality, can be expressed with mathematics, then perhaps it wasn't subjective to begin with. Perhaps all reality is rational. Pythagoras devotes the rest of his life to deciphering existence with mathematics, and when he founds his school of Pythagorean thought, he teaches his followers that numbers are reality in its most fundamental components.</p>
+              <p>
+                He rushes home, and quickly constructs the same ratios, this
+                time with stretched strings. He is able to replicate the exact
+                harmonies, and comes to a realization. If music, such a
+                seemingly subjective aspect of nature and reality, can be
+                expressed with mathematics, then perhaps it wasn't subjective to
+                begin with. Perhaps all reality is rational. Pythagoras devotes
+                the rest of his life to deciphering existence with mathematics,
+                and when he founds his school of Pythagorean thought, he teaches
+                his followers that numbers are reality in its most fundamental
+                components.
+              </p>
 
-              <p>Pythagorean ideas are not without controversy, however. One of his followers, Hippasus, demonstrates that the diagonal of a square cannot be expressed with a rational number, and is allegedly drowned for this heinous crime against Pythagoreanism. Rational dissent apparently is not tolerated in ancient Greece, as would famously be reasserted centuries later by Socrates.</p>
+              <p>
+                Pythagorean ideas are not without controversy, however. One of
+                his followers, Hippasus, demonstrates that the diagonal of a
+                square cannot be expressed with a rational number, and is
+                allegedly drowned for this heinous crime against Pythagoreanism.
+                Rational dissent apparently is not tolerated in ancient Greece,
+                as would famously be reasserted centuries later by Socrates.
+              </p>
 
-              <p>Nevertheless, Pythagorean thought is transformative. It is more than a mathematical framework; it is the first attempt to translate philosophy, and its teachings, into a way of life. However, it is controversial, and many of Pythagoras' philosopher contemporaries, such as Heraclitus, scoff at its rigidity and inability to answer questions about virtue and wisdom. Pythagoras' story raises a question that would not be answered until long after his death: Is knowledge wisdom?</p>
+              <p>
+                Nevertheless, Pythagorean thought is transformative. It is more
+                than a mathematical framework; it is the first attempt to
+                translate philosophy, and its teachings, into a way of life.
+                However, it is controversial, and many of Pythagoras'
+                philosopher contemporaries, such as Heraclitus, scoff at its
+                rigidity and inability to answer questions about virtue and
+                wisdom. Pythagoras' story raises a question that would not be
+                answered until long after his death: Is knowledge wisdom?
+              </p>
             </div>
 
             <div class="chapter-foot-nav">
@@ -278,14 +637,32 @@
           </article>
 
           <!-- ============ CHAPTER 6: XENOPHANES ============ -->
-          <article class="chapter reveal" id="xenophanes" data-school="Eleatic" data-start="-570" data-end="-478">
+          <article
+            class="chapter reveal"
+            id="xenophanes"
+            data-school="Eleatic"
+            data-start="-570"
+            data-end="-478"
+          >
             <span class="chapter-number">Chapter VI</span>
             <div class="chapter-head">
-              <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/xenophanes-mobile.webp"><img src="../images/xenophanes.webp" alt="Engraving of Xenophanes of Colophon" class="chapter-portrait" loading="lazy"></picture>
+              <picture
+                ><source
+                  type="image/webp"
+                  media="(max-width: 768px)"
+                  srcset="../images/xenophanes-mobile.webp" />
+                <img
+                  src="../images/xenophanes.webp"
+                  alt="Engraving of Xenophanes of Colophon"
+                  class="chapter-portrait"
+                  loading="lazy"
+              /></picture>
               <div>
                 <h2>Xenophanes</h2>
                 <p class="chapter-dates">~570–478 BCE · Colophon</p>
-                <p class="chapter-thesis">If one can recognize his limits, his knowledge is wisdom.</p>
+                <p class="chapter-thesis">
+                  If one can recognize his limits, his knowledge is wisdom.
+                </p>
               </div>
             </div>
             <div class="chapter-tags">
@@ -296,92 +673,425 @@
             <span class="chapter-readtime">⏱ 5 min read</span>
 
             <div class="chapter-body clearfix">
-              <p class="lead">~570–478 BCE · Rational thought has set Greece intellectually ablaze. The Milesians have spent decades attempting to decipher the nature of the cosmos, and the Pythagoreans, reality through mathematics. These teachings and ideas spread, rousing the interest of a young Xenophanes from Colophon, who leaves his home and spends much of his life traveling through Greece, learning its many schools of thought before turning them against the philosophers themselves.</p>
+              <p class="lead">
+                ~570–478 BCE · Rational thought has set Greece intellectually
+                ablaze. The Milesians have spent decades attempting to decipher
+                the nature of the cosmos, and the Pythagoreans, reality through
+                mathematics. These teachings and ideas spread, rousing the
+                interest of a young Xenophanes from Colophon, who leaves his
+                home and spends much of his life traveling through Greece,
+                learning its many schools of thought before turning them against
+                the philosophers themselves.
+              </p>
 
-              <p>As Xenophanes travels, he ponders too the Milesian question. In fact, his cosmological thoughts draw from so many of the same threads as the Milesians, it gives us pause to wonder whether they were a trilogy after all, or a tetralogy. Like the Milesians before him, Xenophanes also asks the ancient question of origin. His answer is earth: from earth we come, and to earth we return. Yet unlike the Milesians, cosmology is no longer his destination. It becomes only the beginning of a broader inquiry into human belief itself. (<a class="appendix-jump" href="#appendix-iii">See fragment appendix III</a>.)</p>
+              <p>
+                As Xenophanes travels, he ponders too the Milesian question. In
+                fact, his cosmological thoughts draw from so many of the same
+                threads as the Milesians, it gives us pause to wonder whether
+                they were a trilogy after all, or a tetralogy. Like the
+                Milesians before him, Xenophanes also asks the ancient question
+                of origin. His answer is earth: from earth we come, and to earth
+                we return. Yet unlike the Milesians, cosmology is no longer his
+                destination. It becomes only the beginning of a broader inquiry
+                into human belief itself. (<a
+                  class="appendix-jump"
+                  href="#appendix-iii"
+                  >See fragment appendix III</a
+                >.)
+              </p>
 
-              <p>He observes many Greek customs and it becomes clear to him that knowledge must be grounded in reality. He isn't just concerned with cosmic truth, but with practical conduct. Xenophanes becomes dissatisfied with many Greek custom, and decides to spread his teachings. He demonstrates how one ought to live, in precise and careful detail. His traditionalist fragments illustrate both his vision of proper Greek existence and the details of his own wandering life. (<a class="appendix-jump" href="#appendix-i">See fragment appendix I</a>.)</p>
+              <p>
+                He observes many Greek customs and it becomes clear to him that
+                knowledge must be grounded in reality. He isn't just concerned
+                with cosmic truth, but with practical conduct. Xenophanes
+                becomes dissatisfied with many Greek custom, and decides to
+                spread his teachings. He demonstrates how one ought to live, in
+                precise and careful detail. His traditionalist fragments
+                illustrate both his vision of proper Greek existence and the
+                details of his own wandering life. (<a
+                  class="appendix-jump"
+                  href="#appendix-i"
+                  >See fragment appendix I</a
+                >.)
+              </p>
 
               <figure class="pfig float-left">
-                <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/horses-mobile.webp"><img src="../images/horses.webp" alt="Rubens' Fall of Phaeton — gods and horses tumbling from the heavens" loading="lazy"></picture>
+                <picture
+                  ><source
+                    type="image/webp"
+                    media="(max-width: 768px)"
+                    srcset="../images/horses-mobile.webp" />
+                  <img
+                    src="../images/horses.webp"
+                    alt="Rubens' Fall of Phaeton — gods and horses tumbling from the heavens"
+                    loading="lazy"
+                /></picture>
                 <figcaption>Xenophanes' gods of horses.</figcaption>
               </figure>
 
-              <p>Xenophanes is not merely a traveler or historian. He is a mirror. He turns humanity's arrogance upon itself, forcing us to contend with our gods, our champions, and ourselves. Beneath the traditionalist emerges a preacher and fiery critic. His authoritative critiques of the society around him reveal a man unafraid of his intellectual rivals. To debate how one should live, and to question the dogma of one's day, are core tenets of Presocratic philosophy. These critiques form a sizable portion of his surviving work, and they lay early groundwork for the gadfly of Athens. (<a class="appendix-jump" href="#appendix-ii">See fragment appendix II</a>.)</p>
+              <p>
+                Xenophanes is not merely a traveler or historian. He is a
+                mirror. He turns humanity's arrogance upon itself, forcing us to
+                contend with our gods, our champions, and ourselves. Beneath the
+                traditionalist emerges a preacher and fiery critic. His
+                authoritative critiques of the society around him reveal a man
+                unafraid of his intellectual rivals. To debate how one should
+                live, and to question the dogma of one's day, are core tenets of
+                Presocratic philosophy. These critiques form a sizable portion
+                of his surviving work, and they lay early groundwork for the
+                gadfly of Athens. (<a class="appendix-jump" href="#appendix-ii"
+                  >See fragment appendix II</a
+                >.)
+              </p>
 
-              <p>A man "tossed about" Greece, he conjures the image of the knowledgeable traveler, wizened by long years and sharpened by observation. He carries a curious legacy: historian and philosopher in one. With argument and critique, he resists inherited belief; with cautious reflection, he reveals humility before his own existence.</p>
+              <p>
+                A man "tossed about" Greece, he conjures the image of the
+                knowledgeable traveler, wizened by long years and sharpened by
+                observation. He carries a curious legacy: historian and
+                philosopher in one. With argument and critique, he resists
+                inherited belief; with cautious reflection, he reveals humility
+                before his own existence.
+              </p>
 
-              <p>Much like his predecessors in spirit, Xenophanes challenges whatever is accepted without rational examination. From his ideas spring several empirical concepts strong enough to stand against the vastness of Greek theology. He tears down traditionally held views and offers alternatives in the same breath. Yet he does not merely replace old myths with new certainty. In several fragments, he examines whether reality can ever be fully comprehended at all. Perhaps it cannot be possessed, only pursued.</p>
+              <p>
+                Much like his predecessors in spirit, Xenophanes challenges
+                whatever is accepted without rational examination. From his
+                ideas spring several empirical concepts strong enough to stand
+                against the vastness of Greek theology. He tears down
+                traditionally held views and offers alternatives in the same
+                breath. Yet he does not merely replace old myths with new
+                certainty. In several fragments, he examines whether reality can
+                ever be fully comprehended at all. Perhaps it cannot be
+                possessed, only pursued.
+              </p>
 
-              <p>In this suspicion of ordinary belief, Xenophanes begins to approach the terrain later occupied by Parmenides: the divide between what mortals say and what reality may actually be. His observations make clear the narrow range of intellect humanity can access, while his practical teachings suggest how one might live despite that limitation. (<a class="appendix-jump" href="#appendix-iv">See fragment appendix IV</a>.)</p>
+              <p>
+                In this suspicion of ordinary belief, Xenophanes begins to
+                approach the terrain later occupied by Parmenides: the divide
+                between what mortals say and what reality may actually be. His
+                observations make clear the narrow range of intellect humanity
+                can access, while his practical teachings suggest how one might
+                live despite that limitation. (<a
+                  class="appendix-jump"
+                  href="#appendix-iv"
+                  >See fragment appendix IV</a
+                >.)
+              </p>
 
-              <p>Xenophanes answers the question Pythagoras left behind. Knowledge alone is not wisdom. Wisdom begins when knowledge recognizes its own limits. Perhaps a certain Athenian philosopher, famous for claiming to know nothing, would have understood Xenophanes perfectly. Before philosophy could examine justice, virtue, or courage, it first had to learn humility.</p>
+              <p>
+                Xenophanes answers the question Pythagoras left behind.
+                Knowledge alone is not wisdom. Wisdom begins when knowledge
+                recognizes its own limits. Perhaps a certain Athenian
+                philosopher, famous for claiming to know nothing, would have
+                understood Xenophanes perfectly. Before philosophy could examine
+                justice, virtue, or courage, it first had to learn humility.
+              </p>
 
               <!-- APPENDIX -->
               <details class="appendix-block">
                 <summary>Fragment Appendix</summary>
                 <div class="appendix-content">
-
                   <details class="sub-appendix" id="appendix-i">
                     <summary>I — Traditionalist Fragments</summary>
                     <div class="sub-appendix-content">
-                      <p><strong>Fragment 1</strong> — Through this fragment, which is really almost a full poem, Xenophanes describes in detail an ideal Greek Symposium, which is a gathering centered around drinking. This fragment in particular is more of a set of instructions. The floor, hands, and cup are all purified, and servants are adorned in sweet perfumes, incense, and garlands. Tables are stocked with bread, cheese, and thick honey. Xenophanes also notes that piety should take precedence chronologically. Libations are poured out, and prayers to the gods for the ability to do right are made. Finally, the poem moves to the drinking itself. Able men should drink as much as they can hold, and be expected to reach home unaided. Talks of war or titans should be refrained, and instead guests should praise the man who, after drinking, brings 'noble thoughts' to light, striving for excellence.</p>
-                      <p><strong>Fragment 4</strong> — Too short of a fragment to interpret much further than: an acknowledgement of a debate in whether Phaedon the Archive or the Lydians were the first to mint coins of silver and gold.</p>
-                      <p><strong>Fragment 5</strong> — Xenophanes explains the proper process of diluting wine with water, as drinking it neat was considered a barbarous practice that led to madness.</p>
-                      <p><strong>Fragment 8</strong> — A crucial fragment in dating Xenophanes' life, this sentence serves as Xenophanes recounting his life of 92 years, having spent 67 years wandering and "tossing my thinking" across Greece, and having the first 25 years of his life within his home town of Colophon.</p>
-                      <p><strong>Fragment 9</strong> — A wry remark at the advancement of his own age.</p>
-                      <p><strong>Fragment 20</strong> — Xenophanes states that Epimenides died at the age of 154. It is important to note the historical context here: most fables around the seer, Epimenides, claimed that he had supernatural powers and died at 300. This fragment is Xenophanes acknowledging the truthfully sage-like status of Epimenides, while grounding his story in reality.</p>
-                      <p><strong>Fragments 21a/22</strong> — These fragments record the fact that Xenophanes fled his home in Ionia after a Persian invasion, and a poem describing a Greek symposium by a fire, where he is asked "how old were you, when the Mede (Persians) came?"</p>
-                      <p><strong>Fragments 42/44</strong> — Perhaps something to do with Xenophanes detailing the proper manner of Greek life.</p>
+                      <p>
+                        <strong>Fragment 1</strong> — Through this fragment,
+                        which is really almost a full poem, Xenophanes describes
+                        in detail an ideal Greek Symposium, which is a gathering
+                        centered around drinking. This fragment in particular is
+                        more of a set of instructions. The floor, hands, and cup
+                        are all purified, and servants are adorned in sweet
+                        perfumes, incense, and garlands. Tables are stocked with
+                        bread, cheese, and thick honey. Xenophanes also notes
+                        that piety should take precedence chronologically.
+                        Libations are poured out, and prayers to the gods for
+                        the ability to do right are made. Finally, the poem
+                        moves to the drinking itself. Able men should drink as
+                        much as they can hold, and be expected to reach home
+                        unaided. Talks of war or titans should be refrained, and
+                        instead guests should praise the man who, after
+                        drinking, brings 'noble thoughts' to light, striving for
+                        excellence.
+                      </p>
+                      <p>
+                        <strong>Fragment 4</strong> — Too short of a fragment to
+                        interpret much further than: an acknowledgement of a
+                        debate in whether Phaedon the Archive or the Lydians
+                        were the first to mint coins of silver and gold.
+                      </p>
+                      <p>
+                        <strong>Fragment 5</strong> — Xenophanes explains the
+                        proper process of diluting wine with water, as drinking
+                        it neat was considered a barbarous practice that led to
+                        madness.
+                      </p>
+                      <p>
+                        <strong>Fragment 8</strong> — A crucial fragment in
+                        dating Xenophanes' life, this sentence serves as
+                        Xenophanes recounting his life of 92 years, having spent
+                        67 years wandering and "tossing my thinking" across
+                        Greece, and having the first 25 years of his life within
+                        his home town of Colophon.
+                      </p>
+                      <p>
+                        <strong>Fragment 9</strong> — A wry remark at the
+                        advancement of his own age.
+                      </p>
+                      <p>
+                        <strong>Fragment 20</strong> — Xenophanes states that
+                        Epimenides died at the age of 154. It is important to
+                        note the historical context here: most fables around the
+                        seer, Epimenides, claimed that he had supernatural
+                        powers and died at 300. This fragment is Xenophanes
+                        acknowledging the truthfully sage-like status of
+                        Epimenides, while grounding his story in reality.
+                      </p>
+                      <p>
+                        <strong>Fragments 21a/22</strong> — These fragments
+                        record the fact that Xenophanes fled his home in Ionia
+                        after a Persian invasion, and a poem describing a Greek
+                        symposium by a fire, where he is asked "how old were
+                        you, when the Mede (Persians) came?"
+                      </p>
+                      <p>
+                        <strong>Fragments 42/44</strong> — Perhaps something to
+                        do with Xenophanes detailing the proper manner of Greek
+                        life.
+                      </p>
                     </div>
                   </details>
 
                   <details class="sub-appendix" id="appendix-ii">
                     <summary>II — A Preacher</summary>
                     <div class="sub-appendix-content">
-                      <p><strong>Fragment 2</strong> — Xenophanes delivers a critique of the Greek obsession with athleticism. He notes that he who holds strength, or speed within his body, or he who may survive a "grievous boxing match" would be showered with praise, reward, treasure, glory, and front seats at the Olympic games. And yet, what does he actually offer Greece? What wealth has he brought to his people? His fame is undeserved, and he is less worthy than Xenophanes, whose intellect actually does serve Colophon.</p>
-                      <p><strong>Fragment 3</strong> — Xenophanes in this fragment laments the decay of his hometown, disappointed in his fellow aristocrats, with whom he shares blood but not a way of life. He notes that even before his people suffered under the 'hateful tyranny' of the Persians, their ostentatious lifestyle had already doomed them. They adopted decadent follies from the Lydians, a thousand (likely the entire Colophonic Aristocrat class), wearing lavish purple robes, and adorning expensive, strongly perfumed hair. This self-indulgence spelled their eventual downfall.</p>
-                      <p><strong>Fragment 6</strong> — This fragment serves as a sharp critique of a man's shallow gift of mediocre meat, expecting Pan-Hellenic glory in return. Though his gift was lack-luster, this act will be immortalized through the power of the poetry that Xenophanes has now recorded.</p>
-                      <p><strong>Fragment 7</strong> — Xenophanes delivers another critique, this time of Pythagoreanism, where he recounts a story of Pythagoras walking past a puppy being beaten. Pythagoras exclaims: "Stop! Don't beat it! For it is the soul of a friend that I recognized when I heard its voice."</p>
-                      <p><strong>Fragments 10/11</strong> — Xenophanes expresses a strong disdain for the writings of Homer and Hesiod. He believes that anthropomorphizing the gods, and attributing crimes such as adultery, theft, and deceit to flawed gods is to degrade the very essence of the divine.</p>
-                      <p><strong>Fragments 12/13</strong> — Xenophanes further notes that in the stories of Homer and Hesiod, portraying the gods as having committed the aforementioned acts is immoral, acting as the backbone of his broader gripes with Greek religious beliefs. He notes that Homer was older than Hesiod.</p>
-                      <p><strong>Fragments 14/15</strong> — Xenophanes challenges the paradigm of Greek religion, stating that men imagine their gods in their own image, being "born from themselves." However, he argues that if animals could draw, we would see gods of oxen, of horses, and of cattle.</p>
-                      <p><strong>Fragment 16</strong> — He provides further evidence for the argument that humans create gods of their own image, noting that the Ethiopians worship black gods with flat noses and Thracians gods of red hair and blue eyes.</p>
-                      <p><strong>Fragment 17</strong> — A brief critique of religion, asking how protection of a god could possibly inhabit a piece of wood hung outside a house.</p>
-                      <p><strong>Fragment 18</strong> — This short sentence houses two fundamental ideas of Xenophanes. Firstly, it pushes back on the Greek belief that advancement was given in revelations to man (e.g. Prometheus bringing fire to civilization). However, it also highlights the Milesian method of empirical observation, urging us to observe, and that knowledge of the world would only increase through the human struggle of observing it.</p>
-                      <p><strong>Fragment 21</strong> — Another critique, this time mocking a popular poet, Simonides, who charged fees for his recitations. Xenophanes believed virtue was in humility and modesty, hence his disdain.</p>
-                      <p><strong>Fragment 33</strong> — Much as fragment 29 demanded, this sentence strips humanity of any divine origins, and forces us to confront our fragility, noting that we are of the earth and the sea, not of God.</p>
+                      <p>
+                        <strong>Fragment 2</strong> — Xenophanes delivers a
+                        critique of the Greek obsession with athleticism. He
+                        notes that he who holds strength, or speed within his
+                        body, or he who may survive a "grievous boxing match"
+                        would be showered with praise, reward, treasure, glory,
+                        and front seats at the Olympic games. And yet, what does
+                        he actually offer Greece? What wealth has he brought to
+                        his people? His fame is undeserved, and he is less
+                        worthy than Xenophanes, whose intellect actually does
+                        serve Colophon.
+                      </p>
+                      <p>
+                        <strong>Fragment 3</strong> — Xenophanes in this
+                        fragment laments the decay of his hometown, disappointed
+                        in his fellow aristocrats, with whom he shares blood but
+                        not a way of life. He notes that even before his people
+                        suffered under the 'hateful tyranny' of the Persians,
+                        their ostentatious lifestyle had already doomed them.
+                        They adopted decadent follies from the Lydians, a
+                        thousand (likely the entire Colophonic Aristocrat
+                        class), wearing lavish purple robes, and adorning
+                        expensive, strongly perfumed hair. This self-indulgence
+                        spelled their eventual downfall.
+                      </p>
+                      <p>
+                        <strong>Fragment 6</strong> — This fragment serves as a
+                        sharp critique of a man's shallow gift of mediocre meat,
+                        expecting Pan-Hellenic glory in return. Though his gift
+                        was lack-luster, this act will be immortalized through
+                        the power of the poetry that Xenophanes has now
+                        recorded.
+                      </p>
+                      <p>
+                        <strong>Fragment 7</strong> — Xenophanes delivers
+                        another critique, this time of Pythagoreanism, where he
+                        recounts a story of Pythagoras walking past a puppy
+                        being beaten. Pythagoras exclaims: "Stop! Don't beat it!
+                        For it is the soul of a friend that I recognized when I
+                        heard its voice."
+                      </p>
+                      <p>
+                        <strong>Fragments 10/11</strong> — Xenophanes expresses
+                        a strong disdain for the writings of Homer and Hesiod.
+                        He believes that anthropomorphizing the gods, and
+                        attributing crimes such as adultery, theft, and deceit
+                        to flawed gods is to degrade the very essence of the
+                        divine.
+                      </p>
+                      <p>
+                        <strong>Fragments 12/13</strong> — Xenophanes further
+                        notes that in the stories of Homer and Hesiod,
+                        portraying the gods as having committed the
+                        aforementioned acts is immoral, acting as the backbone
+                        of his broader gripes with Greek religious beliefs. He
+                        notes that Homer was older than Hesiod.
+                      </p>
+                      <p>
+                        <strong>Fragments 14/15</strong> — Xenophanes challenges
+                        the paradigm of Greek religion, stating that men imagine
+                        their gods in their own image, being "born from
+                        themselves." However, he argues that if animals could
+                        draw, we would see gods of oxen, of horses, and of
+                        cattle.
+                      </p>
+                      <p>
+                        <strong>Fragment 16</strong> — He provides further
+                        evidence for the argument that humans create gods of
+                        their own image, noting that the Ethiopians worship
+                        black gods with flat noses and Thracians gods of red
+                        hair and blue eyes.
+                      </p>
+                      <p>
+                        <strong>Fragment 17</strong> — A brief critique of
+                        religion, asking how protection of a god could possibly
+                        inhabit a piece of wood hung outside a house.
+                      </p>
+                      <p>
+                        <strong>Fragment 18</strong> — This short sentence
+                        houses two fundamental ideas of Xenophanes. Firstly, it
+                        pushes back on the Greek belief that advancement was
+                        given in revelations to man (e.g. Prometheus bringing
+                        fire to civilization). However, it also highlights the
+                        Milesian method of empirical observation, urging us to
+                        observe, and that knowledge of the world would only
+                        increase through the human struggle of observing it.
+                      </p>
+                      <p>
+                        <strong>Fragment 21</strong> — Another critique, this
+                        time mocking a popular poet, Simonides, who charged fees
+                        for his recitations. Xenophanes believed virtue was in
+                        humility and modesty, hence his disdain.
+                      </p>
+                      <p>
+                        <strong>Fragment 33</strong> — Much as fragment 29
+                        demanded, this sentence strips humanity of any divine
+                        origins, and forces us to confront our fragility, noting
+                        that we are of the earth and the sea, not of God.
+                      </p>
                     </div>
                   </details>
 
                   <details class="sub-appendix" id="appendix-iii">
                     <summary>III — Milesian in Cosmology</summary>
                     <div class="sub-appendix-content">
-                      <p><strong>Fragment 19</strong> — Xenophanes was not from Miletus, though he is considered the spiritual successor to the Milesian trinity of thought. This fragment is Xenophanes praising Thales for his incredible ability to rationalize reality and predict solar eclipses with calculations.</p>
-                      <p><strong>Fragment 27</strong> — Xenophanes, ever the model Milesian successor, answers the question that started philosophy: Do things have a beginning? Where do they come from? His answer lies in the earth. This fragment is Xenophanes arguing that it is not water, not Apeiron, not Aer, but earthen element that is the beginning and end of all things.</p>
-                      <p><strong>Fragment 28</strong> — He systematically eliminates the arguments of his predecessors, claiming that the earth stretches down limitlessly. Thus, it cannot float upon water or air, as the Milesians believed, and is not held up by Tartarus, as Homer or Hesiod would claim.</p>
-                      <p><strong>Fragment 30</strong> — Thales would be proud — Xenophanes claims in this fragment that the Great Sea is the origin of the wind, of the flow of rivers, clouds, rain, and such things. A surprisingly modern response: the oceans are indeed responsible for weather circulation and climate regulation.</p>
-                      <p><strong>Fragment 31</strong> — Xenophanes attributes warmth of the Earth to the sun, going over its surface. Though such statements appear straightforward to the modern, secular mind, the fact is: a philosopher two millennia ago demystified processes of life in revolutionary fashion.</p>
-                      <p><strong>Fragment 37</strong> — Water drips from some caves, which reinforces the idea that earth and water are related, and that they originate things.</p>
+                      <p>
+                        <strong>Fragment 19</strong> — Xenophanes was not from
+                        Miletus, though he is considered the spiritual successor
+                        to the Milesian trinity of thought. This fragment is
+                        Xenophanes praising Thales for his incredible ability to
+                        rationalize reality and predict solar eclipses with
+                        calculations.
+                      </p>
+                      <p>
+                        <strong>Fragment 27</strong> — Xenophanes, ever the
+                        model Milesian successor, answers the question that
+                        started philosophy: Do things have a beginning? Where do
+                        they come from? His answer lies in the earth. This
+                        fragment is Xenophanes arguing that it is not water, not
+                        Apeiron, not Aer, but earthen element that is the
+                        beginning and end of all things.
+                      </p>
+                      <p>
+                        <strong>Fragment 28</strong> — He systematically
+                        eliminates the arguments of his predecessors, claiming
+                        that the earth stretches down limitlessly. Thus, it
+                        cannot float upon water or air, as the Milesians
+                        believed, and is not held up by Tartarus, as Homer or
+                        Hesiod would claim.
+                      </p>
+                      <p>
+                        <strong>Fragment 30</strong> — Thales would be proud —
+                        Xenophanes claims in this fragment that the Great Sea is
+                        the origin of the wind, of the flow of rivers, clouds,
+                        rain, and such things. A surprisingly modern response:
+                        the oceans are indeed responsible for weather
+                        circulation and climate regulation.
+                      </p>
+                      <p>
+                        <strong>Fragment 31</strong> — Xenophanes attributes
+                        warmth of the Earth to the sun, going over its surface.
+                        Though such statements appear straightforward to the
+                        modern, secular mind, the fact is: a philosopher two
+                        millennia ago demystified processes of life in
+                        revolutionary fashion.
+                      </p>
+                      <p>
+                        <strong>Fragment 37</strong> — Water drips from some
+                        caves, which reinforces the idea that earth and water
+                        are related, and that they originate things.
+                      </p>
                     </div>
                   </details>
 
                   <details class="sub-appendix" id="appendix-iv">
                     <summary>IV — Challenger of Faith</summary>
                     <div class="sub-appendix-content">
-                      <p><strong>Fragments 23–26</strong> — Xenophanes describes what he believes god is. There isn't a flawed, human-like pantheon of deities running the world, but rather one god, unrecognizable to humans in body and mind. He can see, think, and hear everything without physical organs. Supreme power means it requires no physical or mental exertion for him to enact influence of any kind upon the universe. He needs not to move; it is unbecoming of a being of this magnitude to move back and forth.</p>
-                      <p><strong>Fragment 29</strong> — Revolutionarily grounded thought for his time, and even by today's standards. Rather than being of divine or unique descent, humans, and really all life, are but earth and water. Xenophanes pushes back against Greek religion, with a rational, Milesian response.</p>
-                      <p><strong>Fragment 32</strong> — Rainbows in Xenophanes's world are multicolored clouds, once again supplanting mystery with logic.</p>
-                      <p><strong>Fragment 34</strong> — A strangely Parmenidean fragment, this particularly profound piece places human capacity to comprehend the true nature of the universe as an impossibility. Even if we, by sheer chance, guessed the truth, we would never comprehend it.</p>
-                      <p><strong>Fragment 35</strong> — Reality can be opined by man, not defined.</p>
-                      <p><strong>Fragment 36</strong> — Once again, very similar to On Nature by Parmenides: we can only understand reality to a limit. However, unlike him, Xenophanes makes it clear that we must depend upon our senses to grapple with reality.</p>
-                      <p><strong>Fragment 38</strong> — A double edged sword. Firstly, this fragment asserts that the human experience is only dictated by the senses and subjectivity, not hard facts. For if the sweeter honey did not exist, then our opinions would lead us to believe that figs are sweeter. Second, it echoes the rest of Xenophanes' ideology, asserting one god, and reminding us that humans' discovery of things leads to the furthering of knowledge.</p>
-                      <p><strong>Fragments 39/40</strong> — Proof that Xenophanes was a natural philosopher, speaking about cherry trees and frogs.</p>
-                      <p><strong>Fragment 41</strong> — Many things are inferior to intellect: perhaps physical strength, and perhaps humans themselves, underneath the supreme intellect of the one God.</p>
-                      <p><strong>Fragment 45</strong> — A final, solemn reflection of Xenophanes' life.</p>
+                      <p>
+                        <strong>Fragments 23–26</strong> — Xenophanes describes
+                        what he believes god is. There isn't a flawed,
+                        human-like pantheon of deities running the world, but
+                        rather one god, unrecognizable to humans in body and
+                        mind. He can see, think, and hear everything without
+                        physical organs. Supreme power means it requires no
+                        physical or mental exertion for him to enact influence
+                        of any kind upon the universe. He needs not to move; it
+                        is unbecoming of a being of this magnitude to move back
+                        and forth.
+                      </p>
+                      <p>
+                        <strong>Fragment 29</strong> — Revolutionarily grounded
+                        thought for his time, and even by today's standards.
+                        Rather than being of divine or unique descent, humans,
+                        and really all life, are but earth and water. Xenophanes
+                        pushes back against Greek religion, with a rational,
+                        Milesian response.
+                      </p>
+                      <p>
+                        <strong>Fragment 32</strong> — Rainbows in Xenophanes's
+                        world are multicolored clouds, once again supplanting
+                        mystery with logic.
+                      </p>
+                      <p>
+                        <strong>Fragment 34</strong> — A strangely Parmenidean
+                        fragment, this particularly profound piece places human
+                        capacity to comprehend the true nature of the universe
+                        as an impossibility. Even if we, by sheer chance,
+                        guessed the truth, we would never comprehend it.
+                      </p>
+                      <p>
+                        <strong>Fragment 35</strong> — Reality can be opined by
+                        man, not defined.
+                      </p>
+                      <p>
+                        <strong>Fragment 36</strong> — Once again, very similar
+                        to On Nature by Parmenides: we can only understand
+                        reality to a limit. However, unlike him, Xenophanes
+                        makes it clear that we must depend upon our senses to
+                        grapple with reality.
+                      </p>
+                      <p>
+                        <strong>Fragment 38</strong> — A double edged sword.
+                        Firstly, this fragment asserts that the human experience
+                        is only dictated by the senses and subjectivity, not
+                        hard facts. For if the sweeter honey did not exist, then
+                        our opinions would lead us to believe that figs are
+                        sweeter. Second, it echoes the rest of Xenophanes'
+                        ideology, asserting one god, and reminding us that
+                        humans' discovery of things leads to the furthering of
+                        knowledge.
+                      </p>
+                      <p>
+                        <strong>Fragments 39/40</strong> — Proof that Xenophanes
+                        was a natural philosopher, speaking about cherry trees
+                        and frogs.
+                      </p>
+                      <p>
+                        <strong>Fragment 41</strong> — Many things are inferior
+                        to intellect: perhaps physical strength, and perhaps
+                        humans themselves, underneath the supreme intellect of
+                        the one God.
+                      </p>
+                      <p>
+                        <strong>Fragment 45</strong> — A final, solemn
+                        reflection of Xenophanes' life.
+                      </p>
                     </div>
                   </details>
-
                 </div>
               </details>
             </div>
@@ -393,14 +1103,33 @@
           </article>
 
           <!-- ============ CHAPTER 7: HERACLITUS ============ -->
-          <article class="chapter reveal" id="heraclitus" data-school="Heraclitean" data-start="-540" data-end="-480">
+          <article
+            class="chapter reveal"
+            id="heraclitus"
+            data-school="Heraclitean"
+            data-start="-540"
+            data-end="-480"
+          >
             <span class="chapter-number">Chapter VII</span>
             <div class="chapter-head">
-              <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/heraclitus-mobile.webp"><img src="../images/heraclitus.webp" alt="Bust traditionally identified as Heraclitus of Ephesus" class="chapter-portrait" loading="lazy"></picture>
+              <picture
+                ><source
+                  type="image/webp"
+                  media="(max-width: 768px)"
+                  srcset="../images/heraclitus-mobile.webp" />
+                <img
+                  src="../images/heraclitus.webp"
+                  alt="Bust traditionally identified as Heraclitus of Ephesus"
+                  class="chapter-portrait"
+                  loading="lazy"
+              /></picture>
               <div>
                 <h2>Heraclitus</h2>
                 <p class="chapter-dates">~540–480 BCE · Ephesus</p>
-                <p class="chapter-thesis">Panta rhei — everything flows. Flux and order are not at odds; flux is the order.</p>
+                <p class="chapter-thesis">
+                  Panta rhei — everything flows. Flux and order are not at odds;
+                  flux is the order.
+                </p>
               </div>
             </div>
             <div class="chapter-tags">
@@ -411,190 +1140,836 @@
             <span class="chapter-readtime">⏱ 8 min read</span>
 
             <div class="chapter-body">
-              <p class="lead no-dropcap">~540 BCE · The fires of rational inquiry have reached every corner of Greece. Xenophanes fanned them, attempting to burn away inherited certainty. In his footsteps, philosophers have spread teachings across Greece. Some speak of nature, others of virtue, others of the gods. Long before the Sophists would make argument into a profession, Heraclitus of Ephesus decides that Greece has tolerated enough "false" wisdom. It is time, he believes, to educate his contemporaries. The fire, he knows, represents far more than just thought.</p>
+              <p class="lead no-dropcap">
+                ~540 BCE · The fires of rational inquiry have reached every
+                corner of Greece. Xenophanes fanned them, attempting to burn
+                away inherited certainty. In his footsteps, philosophers have
+                spread teachings across Greece. Some speak of nature, others of
+                virtue, others of the gods. Long before the Sophists would make
+                argument into a profession, Heraclitus of Ephesus decides that
+                Greece has tolerated enough "false" wisdom. It is time, he
+                believes, to educate his contemporaries. The fire, he knows,
+                represents far more than just thought.
+              </p>
 
-              <p>It is around this time that cosmology and existence find a home in metaphysics. Heraclitus looks not just to that what he can observe, but what he can deduce. And what he realizes is genuinely astounding. Rather than water, Apeiron, air, or mathematics, Heraclitus posits a new principle: Logos.</p>
+              <p>
+                It is around this time that cosmology and existence find a home
+                in metaphysics. Heraclitus looks not just to that what he can
+                observe, but what he can deduce. And what he realizes is
+                genuinely astounding. Rather than water, Apeiron, air, or
+                mathematics, Heraclitus posits a new principle: Logos.
+              </p>
 
-              <p>Heraclitus sees a form of Logos in everything. The tides break on the Mediterranean coast ceaselessly, without pattern. Unpredictable storms sink ships; the sun never seems to stop, even for a mere moment, in the sky. And much like that ball of fire in the heavens, the light of his own fireplace dances without pattern, in flux. Heraclitus realizes its power. Fire represents the flux of the universe, it gives and takes in the same moment. It advances and retires.</p>
+              <p>
+                Heraclitus sees a form of Logos in everything. The tides break
+                on the Mediterranean coast ceaselessly, without pattern.
+                Unpredictable storms sink ships; the sun never seems to stop,
+                even for a mere moment, in the sky. And much like that ball of
+                fire in the heavens, the light of his own fireplace dances
+                without pattern, in flux. Heraclitus realizes its power. Fire
+                represents the flux of the universe, it gives and takes in the
+                same moment. It advances and retires.
+              </p>
 
-              <p>He argues that every law, every idea, every facet of existence exists only for an instant, constantly changing, constantly replaced by a facsimile changed ever so slightly. And yet as everything changes, the universe doesn't collapse into chaos. Something holds the reins; this hidden law, this authority of permanence in change is Logos.</p>
+              <p>
+                He argues that every law, every idea, every facet of existence
+                exists only for an instant, constantly changing, constantly
+                replaced by a facsimile changed ever so slightly. And yet as
+                everything changes, the universe doesn't collapse into chaos.
+                Something holds the reins; this hidden law, this authority of
+                permanence in change is Logos.
+              </p>
 
-              <p>Across his life, Heraclitus teaches many other ideas, yet they revolve around this central thought. Existence is not order set in a metaphysical stone, but ordered change. Stasis belongs to death; movement belongs to life. What appears to us as disorder is not the absence of structure, but the form this grand structure takes when viewed by a limited mind. (<a class="appendix-jump" href="#appendix-logos">See fragment appendix: Logos</a>.)</p>
+              <p>
+                Across his life, Heraclitus teaches many other ideas, yet they
+                revolve around this central thought. Existence is not order set
+                in a metaphysical stone, but ordered change. Stasis belongs to
+                death; movement belongs to life. What appears to us as disorder
+                is not the absence of structure, but the form this grand
+                structure takes when viewed by a limited mind. (<a
+                  class="appendix-jump"
+                  href="#appendix-logos"
+                  >See fragment appendix: Logos</a
+                >.)
+              </p>
 
-              <p>Later tradition compresses this insight into the phrase panta rhei: everything flows. Just like dancing flames, nothing remains fixed. Everything changes, forming whatever shape existence demands of it. One can step into a river but once, for the river is ever-changing, as is the one stepping into it. A universe of constant flux may appear disordered, but Heraclitus refuses this conclusion. Flux and order are not at odds with each other. Flux is the order. (<a class="appendix-jump" href="#appendix-pantarhei">See fragment appendix: Panta Rhei</a>.)</p>
+              <p>
+                Later tradition compresses this insight into the phrase panta
+                rhei: everything flows. Just like dancing flames, nothing
+                remains fixed. Everything changes, forming whatever shape
+                existence demands of it. One can step into a river but once, for
+                the river is ever-changing, as is the one stepping into it. A
+                universe of constant flux may appear disordered, but Heraclitus
+                refuses this conclusion. Flux and order are not at odds with
+                each other. Flux is the order. (<a
+                  class="appendix-jump"
+                  href="#appendix-pantarhei"
+                  >See fragment appendix: Panta Rhei</a
+                >.)
+              </p>
 
               <figure class="pfig full">
-                <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/river-mobile.webp"><img src="../images/river.webp" alt="A mountain river in constant motion beneath shifting clouds" loading="lazy"></picture>
-                <figcaption>One can never step into the same river twice...</figcaption>
+                <picture
+                  ><source
+                    type="image/webp"
+                    media="(max-width: 768px)"
+                    srcset="../images/river-mobile.webp" />
+                  <img
+                    src="../images/river.webp"
+                    alt="A mountain river in constant motion beneath shifting clouds"
+                    loading="lazy"
+                /></picture>
+                <figcaption>
+                  One can never step into the same river twice...
+                </figcaption>
               </figure>
 
-              <p>Humanity is however ignorant to this truth, trying to force clean divisions onto a universe governed by Logos, naming things good and bad, useful and harmful, just and unjust. Heraclitus resists these divisions. What we call opposites are bound together beneath the surface. They are not illusions, but relations: each becomes intelligible through the other. Heat means nothing without cold. Justice is invisible without injustice. Life is understood only against death. (<a class="appendix-jump" href="#appendix-opposites">See fragment appendix: The Unity of Opposites</a>.)</p>
+              <p>
+                Humanity is however ignorant to this truth, trying to force
+                clean divisions onto a universe governed by Logos, naming things
+                good and bad, useful and harmful, just and unjust. Heraclitus
+                resists these divisions. What we call opposites are bound
+                together beneath the surface. They are not illusions, but
+                relations: each becomes intelligible through the other. Heat
+                means nothing without cold. Justice is invisible without
+                injustice. Life is understood only against death. (<a
+                  class="appendix-jump"
+                  href="#appendix-opposites"
+                  >See fragment appendix: The Unity of Opposites</a
+                >.)
+              </p>
 
-              <p>Naturally, Heraclitus builds an air of controversy. He asserts the irrelevance of ordinary human opinion, directly attacking Pythagoras and resenting the authority of Homer and Hesiod, much like Xenophanes before him. Where Xenophanes turned his criticism against poets, gods, athletes, and inherited customs, Heraclitus expands the attack into a broader condemnation of ordinary judgment. He insists that polymathy proves nothing of wisdom, and laments that most people follow reputation, rhetoric, and the shallow confidence of the many. Later tradition would remember him as the Weeping Philosopher. (<a class="appendix-jump" href="#appendix-tears">See fragment appendix: The Tears of the Thinker</a>.)</p>
+              <p>
+                Naturally, Heraclitus builds an air of controversy. He asserts
+                the irrelevance of ordinary human opinion, directly attacking
+                Pythagoras and resenting the authority of Homer and Hesiod, much
+                like Xenophanes before him. Where Xenophanes turned his
+                criticism against poets, gods, athletes, and inherited customs,
+                Heraclitus expands the attack into a broader condemnation of
+                ordinary judgment. He insists that polymathy proves nothing of
+                wisdom, and laments that most people follow reputation,
+                rhetoric, and the shallow confidence of the many. Later
+                tradition would remember him as the Weeping Philosopher. (<a
+                  class="appendix-jump"
+                  href="#appendix-tears"
+                  >See fragment appendix: The Tears of the Thinker</a
+                >.)
+              </p>
 
-              <p>Heraclitus does not reject every aspect of Greek existence. He believes that humanity's closest image of the universe's generative tension is war, the father of civilization. Struggle within oneself, and friction between and within societies, becomes the spark that ignites civilization's fire. Even in times of peace, he urges one to remain as disciplined as a soldier. (<a class="appendix-jump" href="#appendix-war">See fragment appendix: War Is the Father</a> and <a class="appendix-jump" href="#appendix-discipline">Discipline Is the Son</a>.)</p>
+              <p>
+                Heraclitus does not reject every aspect of Greek existence. He
+                believes that humanity's closest image of the universe's
+                generative tension is war, the father of civilization. Struggle
+                within oneself, and friction between and within societies,
+                becomes the spark that ignites civilization's fire. Even in
+                times of peace, he urges one to remain as disciplined as a
+                soldier. (<a class="appendix-jump" href="#appendix-war"
+                  >See fragment appendix: War Is the Father</a
+                >
+                and
+                <a class="appendix-jump" href="#appendix-discipline"
+                  >Discipline Is the Son</a
+                >.)
+              </p>
 
-              <p>It is especially through the tolls of war that the impermanence of life becomes evident. Heraclitus argues, however, that death is not merely an end of life, but its reflection. Death is not the negation of life. Like every other apparent opposite, it belongs to the same Logos. Life becomes intelligible only because death exists to define it. Just as the sleeper mistakes a dream for reality, the living may mistake life for permanence. Death is not merely an interruption of life; it is the form through which life is understood. (<a class="appendix-jump" href="#appendix-death">See fragment appendix: Death</a>.)</p>
+              <p>
+                It is especially through the tolls of war that the impermanence
+                of life becomes evident. Heraclitus argues, however, that death
+                is not merely an end of life, but its reflection. Death is not
+                the negation of life. Like every other apparent opposite, it
+                belongs to the same Logos. Life becomes intelligible only
+                because death exists to define it. Just as the sleeper mistakes
+                a dream for reality, the living may mistake life for permanence.
+                Death is not merely an interruption of life; it is the form
+                through which life is understood. (<a
+                  class="appendix-jump"
+                  href="#appendix-death"
+                  >See fragment appendix: Death</a
+                >.)
+              </p>
 
-              <p>Heraclitus sees the flames Xenophanes fanned, and harnesses them to burn down the very idea of stasis; the only permanence within the universe is its relentlessly changing nature. He does not merely write cosmic doctrine; he provides a new lens through which to view change, conflict, war, and death. His humility lies not in gentleness, but in severity: he refuses to pretend that human opinion can master what it barely perceives.</p>
+              <p>
+                Heraclitus sees the flames Xenophanes fanned, and harnesses them
+                to burn down the very idea of stasis; the only permanence within
+                the universe is its relentlessly changing nature. He does not
+                merely write cosmic doctrine; he provides a new lens through
+                which to view change, conflict, war, and death. His humility
+                lies not in gentleness, but in severity: he refuses to pretend
+                that human opinion can master what it barely perceives.
+              </p>
 
-              <p>Heraclitus does not yet become the one who would stand in the marketplace asking men to define courage, justice, or piety. But he reveals the wound that later philosophers would press. If polymathy is not wisdom, if the opinions of many are just that, and not the truth indeed, then those claiming to preach wisdom are already suspect. If the soul must learn discipline and humility before it can learn to understand, then perhaps it must first accept that it knows nothing. Athens would soon produce a man who made that confession the beginning of philosophy.</p>
+              <p>
+                Heraclitus does not yet become the one who would stand in the
+                marketplace asking men to define courage, justice, or piety. But
+                he reveals the wound that later philosophers would press. If
+                polymathy is not wisdom, if the opinions of many are just that,
+                and not the truth indeed, then those claiming to preach wisdom
+                are already suspect. If the soul must learn discipline and
+                humility before it can learn to understand, then perhaps it must
+                first accept that it knows nothing. Athens would soon produce a
+                man who made that confession the beginning of philosophy.
+              </p>
 
               <!-- FRAGMENT APPENDIX -->
               <details class="appendix-block">
                 <summary>Fragment Appendix</summary>
                 <div class="appendix-content">
-
                   <details class="sub-appendix" id="appendix-logos">
                     <summary>Logos</summary>
                     <div class="sub-appendix-content">
-                      <div class="fragment"><span class="fnum">Fragment 1</span><p>We know what it means to be <strong>better</strong>, and yet we choose not to, for this is what it means to be human: to be <strong>capable</strong> of higher thought and limited only in <strong>action</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 2</span><p>We think we are all our own genius; the ubiquitous truth is the <strong>only</strong> reality.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 7</span><p>Everything is of <strong>Logos</strong>, and thus has essence. If everything changed and burned, their essence would still be distinguished by our nostrils.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 50</span><p><strong>One</strong> truth, Logos, exists. Heraclitus's teachings are meaningless without it.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 52</span><p>Time builds and burns; it is <strong>unfeeling</strong> to you as a child to sandcastles.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 64</span><p>The thunderbolt is to Zeus, as <strong>Logos</strong> runs in all things.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 84</span><p>Stasis is the <strong>death</strong> of life; true stability is found in dynamic existence.</p></div>
-                      <div class="fragment"><span class="fnum">Fragments 90–91</span><p>The universe is <strong>fire</strong>, it gives and takes, it advances and retires.</p></div>
-                      <div class="fragment"><span class="fnum">Fragments 92–94</span><p>Truth is rarely apparent, and truth is the divine order to which <strong>everything</strong> yields.</p></div>
-                      <div class="fragment"><span class="fnum">Fragments 124–126</span><p>What looks to be disordered trash to man is the true cyclical <strong>beauty</strong> of the universe.</p></div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 1</span>
+                        <p>
+                          We know what it means to be <strong>better</strong>,
+                          and yet we choose not to, for this is what it means to
+                          be human: to be <strong>capable</strong> of higher
+                          thought and limited only in <strong>action</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 2</span>
+                        <p>
+                          We think we are all our own genius; the ubiquitous
+                          truth is the <strong>only</strong> reality.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 7</span>
+                        <p>
+                          Everything is of <strong>Logos</strong>, and thus has
+                          essence. If everything changed and burned, their
+                          essence would still be distinguished by our nostrils.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 50</span>
+                        <p>
+                          <strong>One</strong> truth, Logos, exists.
+                          Heraclitus's teachings are meaningless without it.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 52</span>
+                        <p>
+                          Time builds and burns; it is
+                          <strong>unfeeling</strong> to you as a child to
+                          sandcastles.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 64</span>
+                        <p>
+                          The thunderbolt is to Zeus, as
+                          <strong>Logos</strong> runs in all things.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 84</span>
+                        <p>
+                          Stasis is the <strong>death</strong> of life; true
+                          stability is found in dynamic existence.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragments 90–91</span>
+                        <p>
+                          The universe is <strong>fire</strong>, it gives and
+                          takes, it advances and retires.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragments 92–94</span>
+                        <p>
+                          Truth is rarely apparent, and truth is the divine
+                          order to which <strong>everything</strong> yields.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragments 124–126</span>
+                        <p>
+                          What looks to be disordered trash to man is the true
+                          cyclical <strong>beauty</strong> of the universe.
+                        </p>
+                      </div>
                     </div>
                   </details>
 
                   <details class="sub-appendix" id="appendix-pantarhei">
                     <summary>Panta Rhei</summary>
                     <div class="sub-appendix-content">
-                      <div class="fragment"><span class="fnum">Fragment 6</span><p>Though things repeat, nothing is truly the same twice. <strong>Life</strong> is in constant flux.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 12</span><p>One cannot ever live the same experience <strong>twice</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 49a</span><p>Everything is <strong>changing</strong>; nothing will be the same.</p></div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 6</span>
+                        <p>
+                          Though things repeat, nothing is truly the same twice.
+                          <strong>Life</strong> is in constant flux.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 12</span>
+                        <p>
+                          One cannot ever live the same experience
+                          <strong>twice</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 49a</span>
+                        <p>
+                          Everything is <strong>changing</strong>; nothing will
+                          be the same.
+                        </p>
+                      </div>
                     </div>
                   </details>
 
                   <details class="sub-appendix" id="appendix-opposites">
                     <summary>The Unity of Opposites</summary>
                     <div class="sub-appendix-content">
-                      <div class="fragment"><span class="fnum">Fragment 10</span><p>Opposites are parts of a <strong>larger</strong> whole (Logos). Work/Rest, Night/Day, Balance/Discord are but necessary parts of the whole universe.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 23</span><p>Without <strong>injustice</strong>, man would not know justice.</p></div>
-                      <div class="fragment"><span class="fnum">Fragments 57–60</span><p>He who follows the universal truth, Logos, believes in the <strong>Unity of Opposites</strong>. Those which are most unlike each other on the surface are still related under the surface.</p></div>
-                      <div class="fragment"><span class="fnum">Fragments 65–66</span><p>Fire represents the underlying flux of the universe; <strong>nothing</strong> remains.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 67</span><p><strong>Everything</strong> is underlyingly connected.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 102</span><p>To the universe, everything has a purpose; it is <strong>man</strong> who "judges" things good or bad.</p></div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 10</span>
+                        <p>
+                          Opposites are parts of a <strong>larger</strong> whole
+                          (Logos). Work/Rest, Night/Day, Balance/Discord are but
+                          necessary parts of the whole universe.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 23</span>
+                        <p>
+                          Without <strong>injustice</strong>, man would not know
+                          justice.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragments 57–60</span>
+                        <p>
+                          He who follows the universal truth, Logos, believes in
+                          the <strong>Unity of Opposites</strong>. Those which
+                          are most unlike each other on the surface are still
+                          related under the surface.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragments 65–66</span>
+                        <p>
+                          Fire represents the underlying flux of the universe;
+                          <strong>nothing</strong> remains.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 67</span>
+                        <p>
+                          <strong>Everything</strong> is underlyingly connected.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 102</span>
+                        <p>
+                          To the universe, everything has a purpose; it is
+                          <strong>man</strong> who "judges" things good or bad.
+                        </p>
+                      </div>
                     </div>
                   </details>
 
                   <details class="sub-appendix" id="appendix-tears">
                     <summary>The Tears of the Thinker</summary>
                     <div class="sub-appendix-content">
-                      <div class="fragment"><span class="fnum">Fragment 3</span><p>We can only view the world through <strong>our</strong> own perception.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 4</span><p>If fulfilling needs equates to joy, then surely oxen are <strong>happy</strong> when they find bitter vetches to eat.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 8</span><p>It is often not what we want that ends up being what we <strong>need</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 9</span><p>Gold is to man as straw is to an ass. Value is <strong>subjective</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 13</span><p>...to seek <strong>worldly pleasures</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 17</span><p>Many believe they learned their lessons, yet attentively fail to see the <strong>root</strong> of their problems.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 20</span><p>Life is a cycle of <strong>meaningless</strong> symbols.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 22</span><p>Everything is subjective. For but a few grams of gold, man destroys <strong>mountains</strong> of earth.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 27</span><p>Few choose the path of internal peace. Most are <strong>lost</strong> to the world.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 32</span><p>Even as early as pre-Socratic Greece, some doubted the idea of <strong>god</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 33</span><p>Better to follow the universal truth than to follow the <strong>masses</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 34</span><p>The deaf cannot perceive sound the way the fool cannot perceive <strong>knowledge</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 35</span><p>He who loves wisdom must <strong>understand</strong> and appreciate many things indeed.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 39</span><p>Most men are <strong>bad</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 40</span><p>Accumulation of knowledge is <strong>not the same</strong> as understanding.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 41</span><p>Wisdom is not polymathy, but rather knowing the <strong>one</strong> universal truth.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 43</span><p>Cruelty is pointless and dangerous to the structure of human <strong>society</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 46</span><p>Surface level thought, like surface level sight, is a <strong>deceitful</strong> sickness.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 47</span><p>Semantics and conjecture do little to perceive the <strong>deeper</strong> truth.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 56</span><p>Those who fail to see underlying truths fall victim to <strong>superficial</strong> lies.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 61</span><p>Nothing is inherently useful; that which gives life to fish, gives <strong>death</strong> to man.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 54</span><p>Reality's underlying harmony is closer to the truth than what is <strong>apparent</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 70</span><p>Human opinions are symbolic and <strong>meaningless</strong> without the universal truth.</p></div>
-                      <div class="fragment"><span class="fnum">Fragments 71–73</span><p>Without the truth, which he experiences every day, he has <strong>lost his way</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 74</span><p>Tradition is meaningless if accepted without <strong>rational</strong> justification.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 77</span><p>A weakened, "moist" soul falls prey to alcohol, and the <strong>dry</strong> soul finds truth.</p></div>
-                      <div class="fragment"><span class="fnum">Fragments 78–79</span><p>Men are to god what children are to men. <strong>Blind</strong> to the truth.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 81</span><p>Rhetoric is the <strong>prince</strong> of liars.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 86</span><p>The wise aren't known, because the common man praises not truth but <strong>belief</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 87</span><p>The fool hangs onto every new story, instead of grounding his <strong>deeper</strong> beliefs.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 89</span><p>The wise have one Logos, but each sleeping fool lives in a world of his <strong>own</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 95</span><p>People try to keep superficial composure, and yet drink undoes their <strong>lying</strong> tongues.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 97</span><p>Fear, ignorance, and anger stem from unfamiliarity, instinctively rejecting the <strong>unknown</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 104</span><p>The masses lack true wisdom, because they follow the shallow many over the wise <strong>few</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 107</span><p>The eyes and ears of those without wisdom are <strong>useless</strong> to be communicated with.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 108</span><p>Accumulating knowledge from others is not pursuing <strong>wisdom</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragments 117–118</span><p>The drunk man has a moist soul; estranging himself from the <strong>dry fire</strong> that is Logos.</p></div>
-                      <div class="fragment"><span class="fnum">Fragments 127–128</span><p>Organized religion is paradoxical and blind to the real <strong>divine</strong> truth.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 129</span><p>Even though Pythagoras was a man of deep knowledge, mere knowledge is <strong>not wisdom</strong>.</p></div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 3</span>
+                        <p>
+                          We can only view the world through
+                          <strong>our</strong> own perception.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 4</span>
+                        <p>
+                          If fulfilling needs equates to joy, then surely oxen
+                          are <strong>happy</strong> when they find bitter
+                          vetches to eat.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 8</span>
+                        <p>
+                          It is often not what we want that ends up being what
+                          we <strong>need</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 9</span>
+                        <p>
+                          Gold is to man as straw is to an ass. Value is
+                          <strong>subjective</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 13</span>
+                        <p>...to seek <strong>worldly pleasures</strong>.</p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 17</span>
+                        <p>
+                          Many believe they learned their lessons, yet
+                          attentively fail to see the <strong>root</strong> of
+                          their problems.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 20</span>
+                        <p>
+                          Life is a cycle of
+                          <strong>meaningless</strong> symbols.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 22</span>
+                        <p>
+                          Everything is subjective. For but a few grams of gold,
+                          man destroys <strong>mountains</strong> of earth.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 27</span>
+                        <p>
+                          Few choose the path of internal peace. Most are
+                          <strong>lost</strong> to the world.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 32</span>
+                        <p>
+                          Even as early as pre-Socratic Greece, some doubted the
+                          idea of <strong>god</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 33</span>
+                        <p>
+                          Better to follow the universal truth than to follow
+                          the <strong>masses</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 34</span>
+                        <p>
+                          The deaf cannot perceive sound the way the fool cannot
+                          perceive <strong>knowledge</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 35</span>
+                        <p>
+                          He who loves wisdom must
+                          <strong>understand</strong> and appreciate many things
+                          indeed.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 39</span>
+                        <p>Most men are <strong>bad</strong>.</p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 40</span>
+                        <p>
+                          Accumulation of knowledge is
+                          <strong>not the same</strong> as understanding.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 41</span>
+                        <p>
+                          Wisdom is not polymathy, but rather knowing the
+                          <strong>one</strong> universal truth.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 43</span>
+                        <p>
+                          Cruelty is pointless and dangerous to the structure of
+                          human <strong>society</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 46</span>
+                        <p>
+                          Surface level thought, like surface level sight, is a
+                          <strong>deceitful</strong> sickness.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 47</span>
+                        <p>
+                          Semantics and conjecture do little to perceive the
+                          <strong>deeper</strong> truth.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 56</span>
+                        <p>
+                          Those who fail to see underlying truths fall victim to
+                          <strong>superficial</strong> lies.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 61</span>
+                        <p>
+                          Nothing is inherently useful; that which gives life to
+                          fish, gives <strong>death</strong> to man.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 54</span>
+                        <p>
+                          Reality's underlying harmony is closer to the truth
+                          than what is <strong>apparent</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 70</span>
+                        <p>
+                          Human opinions are symbolic and
+                          <strong>meaningless</strong> without the universal
+                          truth.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragments 71–73</span>
+                        <p>
+                          Without the truth, which he experiences every day, he
+                          has <strong>lost his way</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 74</span>
+                        <p>
+                          Tradition is meaningless if accepted without
+                          <strong>rational</strong> justification.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 77</span>
+                        <p>
+                          A weakened, "moist" soul falls prey to alcohol, and
+                          the <strong>dry</strong> soul finds truth.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragments 78–79</span>
+                        <p>
+                          Men are to god what children are to men.
+                          <strong>Blind</strong> to the truth.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 81</span>
+                        <p>Rhetoric is the <strong>prince</strong> of liars.</p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 86</span>
+                        <p>
+                          The wise aren't known, because the common man praises
+                          not truth but <strong>belief</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 87</span>
+                        <p>
+                          The fool hangs onto every new story, instead of
+                          grounding his <strong>deeper</strong> beliefs.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 89</span>
+                        <p>
+                          The wise have one Logos, but each sleeping fool lives
+                          in a world of his <strong>own</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 95</span>
+                        <p>
+                          People try to keep superficial composure, and yet
+                          drink undoes their <strong>lying</strong> tongues.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 97</span>
+                        <p>
+                          Fear, ignorance, and anger stem from unfamiliarity,
+                          instinctively rejecting the <strong>unknown</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 104</span>
+                        <p>
+                          The masses lack true wisdom, because they follow the
+                          shallow many over the wise <strong>few</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 107</span>
+                        <p>
+                          The eyes and ears of those without wisdom are
+                          <strong>useless</strong> to be communicated with.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 108</span>
+                        <p>
+                          Accumulating knowledge from others is not pursuing
+                          <strong>wisdom</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragments 117–118</span>
+                        <p>
+                          The drunk man has a moist soul; estranging himself
+                          from the <strong>dry fire</strong> that is Logos.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragments 127–128</span>
+                        <p>
+                          Organized religion is paradoxical and blind to the
+                          real <strong>divine</strong> truth.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 129</span>
+                        <p>
+                          Even though Pythagoras was a man of deep knowledge,
+                          mere knowledge is <strong>not wisdom</strong>.
+                        </p>
+                      </div>
                     </div>
                   </details>
 
                   <details class="sub-appendix" id="appendix-war">
                     <summary>War Is the Father</summary>
                     <div class="sub-appendix-content">
-                      <div class="fragment"><span class="fnum">Fragment 11</span><p>War and strife are necessary for order; the people must be <strong>coerced</strong> to obey.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 24</span><p>War is the <strong>father</strong> of all. Strife is the path to order, strife is the path to justice.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 44</span><p>Strife is necessary to achieve law, for laws are the <strong>walls</strong> between civilization and the animals.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 53</span><p>War has made everything. Without strife, man could not achieve <strong>anything</strong>.</p></div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 11</span>
+                        <p>
+                          War and strife are necessary for order; the people
+                          must be <strong>coerced</strong> to obey.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 24</span>
+                        <p>
+                          War is the <strong>father</strong> of all. Strife is
+                          the path to order, strife is the path to justice.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 44</span>
+                        <p>
+                          Strife is necessary to achieve law, for laws are the
+                          <strong>walls</strong> between civilization and the
+                          animals.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 53</span>
+                        <p>
+                          War has made everything. Without strife, man could not
+                          achieve <strong>anything</strong>.
+                        </p>
+                      </div>
                     </div>
                   </details>
 
                   <details class="sub-appendix" id="appendix-discipline">
                     <summary>Discipline Is the Son</summary>
                     <div class="sub-appendix-content">
-                      <div class="fragment"><span class="fnum">Fragment 16</span><p>You cannot <strong>hide</strong> from duty, for the light of virtue never sets.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 18</span><p>If you cannot <strong>imagine</strong> it, you cannot achieve it.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 25</span><p>The greater the death, the greater is deemed the <strong>life</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 26</span><p>One can try to hide from virtue, but <strong>justice</strong> finds its reckoning eventually.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 45</span><p>The human soul is <strong>limitless</strong>. If one tapped into it, then their mind will join it.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 49</span><p>One is ten thousand to me, if he be the <strong>best</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 55</span><p>Gained knowledge is more valuable through <strong>first-hand</strong> experience.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 85</span><p>Abstinence is incredibly <strong>difficult</strong>, yet giving in is giving up one's soul.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 101</span><p>Delphi says: "Know thyself." Heraclitus answers: "<strong>I have sought for myself.</strong>"</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 101a</span><p>What you see is much more <strong>trustworthy</strong> than what you hear.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 109</span><p>It's better to conceal ignorance than to <strong>expose</strong> it.</p></div>
-                      <div class="fragment"><span class="fnum">Fragments 110–112</span><p>Want drives desire; sickness provides value to health, dark to light, and so forth. Thus, by choosing <strong>not to indulge</strong> in worldly pleasures allows one to find deeper joy; it is the highest virtue.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 113</span><p>Logos is available to all, and accessible to those that <strong>look</strong> for the truth.</p></div>
-                      <div class="fragment"><span class="fnum">Fragments 114–115</span><p>The truly wise govern themselves through Logos, like a city to its own <strong>fundamental</strong> laws.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 116</span><p>It behooves the wise man to learn <strong>self-control</strong>, and to know oneself.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 119</span><p>A man's choices and actions determine his <strong>fate</strong>, not the gods or luck.</p></div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 16</span>
+                        <p>
+                          You cannot <strong>hide</strong> from duty, for the
+                          light of virtue never sets.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 18</span>
+                        <p>
+                          If you cannot <strong>imagine</strong> it, you cannot
+                          achieve it.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 25</span>
+                        <p>
+                          The greater the death, the greater is deemed the
+                          <strong>life</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 26</span>
+                        <p>
+                          One can try to hide from virtue, but
+                          <strong>justice</strong> finds its reckoning
+                          eventually.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 45</span>
+                        <p>
+                          The human soul is <strong>limitless</strong>. If one
+                          tapped into it, then their mind will join it.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 49</span>
+                        <p>
+                          One is ten thousand to me, if he be the
+                          <strong>best</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 55</span>
+                        <p>
+                          Gained knowledge is more valuable through
+                          <strong>first-hand</strong> experience.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 85</span>
+                        <p>
+                          Abstinence is incredibly <strong>difficult</strong>,
+                          yet giving in is giving up one's soul.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 101</span>
+                        <p>
+                          Delphi says: "Know thyself." Heraclitus answers:
+                          "<strong>I have sought for myself.</strong>"
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 101a</span>
+                        <p>
+                          What you see is much more
+                          <strong>trustworthy</strong> than what you hear.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 109</span>
+                        <p>
+                          It's better to conceal ignorance than to
+                          <strong>expose</strong> it.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragments 110–112</span>
+                        <p>
+                          Want drives desire; sickness provides value to health,
+                          dark to light, and so forth. Thus, by choosing
+                          <strong>not to indulge</strong> in worldly pleasures
+                          allows one to find deeper joy; it is the highest
+                          virtue.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 113</span>
+                        <p>
+                          Logos is available to all, and accessible to those
+                          that <strong>look</strong> for the truth.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragments 114–115</span>
+                        <p>
+                          The truly wise govern themselves through Logos, like a
+                          city to its own <strong>fundamental</strong> laws.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 116</span>
+                        <p>
+                          It behooves the wise man to learn
+                          <strong>self-control</strong>, and to know oneself.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 119</span>
+                        <p>
+                          A man's choices and actions determine his
+                          <strong>fate</strong>, not the gods or luck.
+                        </p>
+                      </div>
                     </div>
                   </details>
 
                   <details class="sub-appendix" id="appendix-death">
                     <summary>Death</summary>
                     <div class="sub-appendix-content">
-                      <div class="fragment"><span class="fnum">Fragment 21</span><p>If all seen in slumber is a dream, then perhaps all we see in life is <strong>death staring us in the face</strong>.</p></div>
-                      <div class="fragment"><span class="fnum">Fragment 62</span><p>As dreams were sleep, <strong>life is death</strong>. Thus, to be mortal, you lived the immortal's death (life), and died the immortal's life (death).</p></div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 21</span>
+                        <p>
+                          If all seen in slumber is a dream, then perhaps all we
+                          see in life is
+                          <strong>death staring us in the face</strong>.
+                        </p>
+                      </div>
+                      <div class="fragment">
+                        <span class="fnum">Fragment 62</span>
+                        <p>
+                          As dreams were sleep, <strong>life is death</strong>.
+                          Thus, to be mortal, you lived the immortal's death
+                          (life), and died the immortal's life (death).
+                        </p>
+                      </div>
                     </div>
                   </details>
-
                 </div>
               </details>
-
             </div>
 
             <div class="chapter-foot-nav">
               <a class="prev" href="#xenophanes">&larr; Xenophanes</a>
-              <a class="next" href="presocratics-2.html#parmenides">Parmenides &rarr;</a>
+              <a class="next" href="presocratics-2.html#parmenides"
+                >Parmenides &rarr;</a
+              >
             </div>
           </article>
+        </div>
+        <!-- /book-body -->
 
-        </div><!-- /book-body -->
-
-      <div class="book-end-nav reveal">
-        <a href="README.html" class="cover-contents-link">The Library</a>
-        <a href="presocratics-2.html" class="btn-primary-custom">Continue to Part Two: The Eleatic Reckoning &rarr;</a>
+        <div class="book-end-nav reveal">
+          <a href="README.html" class="cover-contents-link">The Library</a>
+          <a href="presocratics-2.html" class="btn-primary-custom"
+            >Continue to Part Two: The Eleatic Reckoning &rarr;</a
+          >
+        </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <footer class="site-footer">
+      <div class="container-main">
+        <div class="footer-inner">
+          <p class="footer-copy">&copy; 2025 Shresth Singh — Philosophy</p>
+          <div class="footer-social">
+            <a
+              href="https://www.linkedin.com/in/shresth-singh-achieve/"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+              ><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                /></svg
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-  <footer class="site-footer"><div class="container-main"><div class="footer-inner">
-    <p class="footer-copy">&copy; 2025 Shresth Singh — Philosophy</p>
-    <div class="footer-social"><a href="https://www.linkedin.com/in/shresth-singh-achieve/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
-  </div></div></footer>
-
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
-  <script src="../js/main.js"></script>
-  <script src="philosophy.js?v=3"></script>
-</body>
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+      &uarr;
+    </button>
+    <script src="../js/main.js"></script>
+    <script src="philosophy.js?v=3"></script>
+  </body>
 </html>

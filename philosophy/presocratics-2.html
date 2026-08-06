@@ -1,97 +1,168 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Presocratics · Part Two — Shresth Singh</title>
-  <link rel="stylesheet" href="../css/styles.css?v=8">
-  <link rel="stylesheet" href="philosophy.css?v=7">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presocratics · Part Two — Shresth Singh</title>
+    <link rel="stylesheet" href="../css/styles.css?v=9" />
+    <link rel="stylesheet" href="philosophy.css?v=7" />
+  </head>
+  <body>
+    <div class="reading-progress"></div>
 
-  <div class="reading-progress"></div>
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"
+          ><span class="logo-dot"></span> Shresth Singh</a
+        >
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <svg
+            class="icon-moon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg
+            class="icon-sun"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+        </button>
+      </div>
+    </nav>
 
-  <nav class="site-nav"><div class="nav-inner">
-    <a href="../index.html" class="nav-logo"><span class="logo-dot"></span> Shresth Singh</a>
-    <button class="theme-toggle" aria-label="Toggle theme">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-  </div></nav>
-
-  <div class="book-page"><div class="container-main">
-    <div class="breadcrumb">
-      <a href="../philosophy.html">About Me</a><span class="sep">›</span>
-      <a href="README.html">Library</a><span class="sep">›</span>
-      <span class="current">Book I: The Presocratics — Part Two</span>
+    <div class="book-page">
+      <div class="container-main">
+        <div class="breadcrumb">
+          <a href="../philosophy.html">About Me</a><span class="sep">›</span>
+          <a href="README.html">Library</a><span class="sep">›</span>
+          <span class="current">Book I: The Presocratics — Part Two</span>
+        </div>
+      </div>
     </div>
-  </div></div>
 
-  <!-- BOOK HEADER -->
-  <header class="book-header book-cover">
-    <div class="book-header-content reveal">
-      <span class="cover-num">Book I</span>
-      <h1>The Presocratics</h1>
-      <p class="cover-subtitle">Part Two: The Eleatic Reckoning <span class="dot"></span> ~515&ndash;375 BCE</p>
-      <p class="cover-epigraph">Heraclitus left Greece with a wound: if the many mistake opinion for truth, then those who claim knowledge are already suspect. From Elea comes an answer that could not be more opposed &mdash; and from that opposition, an entire second act of Presocratic thought unfolds.</p>
-      <div class="cover-actions">
-        <a href="#parmenides" class="btn-primary-custom">Begin Reading</a>
-        <a href="#toc" class="cover-contents-link">Contents &darr;</a>
+    <!-- BOOK HEADER -->
+    <header class="book-header book-cover">
+      <div class="book-header-content reveal">
+        <span class="cover-num">Book I</span>
+        <h1>The Presocratics</h1>
+        <p class="cover-subtitle">
+          Part Two: The Eleatic Reckoning
+          <span class="dot"></span> ~515&ndash;375 BCE
+        </p>
+        <p class="cover-epigraph">
+          Heraclitus left Greece with a wound: if the many mistake opinion for
+          truth, then those who claim knowledge are already suspect. From Elea
+          comes an answer that could not be more opposed &mdash; and from that
+          opposition, an entire second act of Presocratic thought unfolds.
+        </p>
+        <div class="cover-actions">
+          <a href="#parmenides" class="btn-primary-custom">Begin Reading</a>
+          <a href="#toc" class="cover-contents-link">Contents &darr;</a>
+        </div>
+        <div class="book-meta-row">
+          <span><span class="dot"></span> 9 Chapters</span>
+          <span><span class="dot"></span> ~15 min read</span>
+          <span><span class="dot"></span> Updated July 2026</span>
+        </div>
       </div>
-      <div class="book-meta-row">
-        <span><span class="dot"></span> 9 Chapters</span>
-        <span><span class="dot"></span> ~15 min read</span>
-        <span><span class="dot"></span> Updated July 2026</span>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <section class="section-padding book-section">
-    <div class="container-main book-container">
+    <section class="section-padding book-section">
+      <div class="container-main book-container">
+        <!-- SPREAD SELECTOR -->
+        <div class="spread-nav reveal">
+          <a href="presocratics.html" class="spread-tab"
+            ><span class="st-label">Part One</span> The Ionian Awakening</a
+          >
+          <span class="spread-tab active"
+            ><span class="st-label">Part Two</span> The Eleatic Reckoning</span
+          >
+        </div>
 
-      <!-- SPREAD SELECTOR -->
-      <div class="spread-nav reveal">
-        <a href="presocratics.html" class="spread-tab"><span class="st-label">Part One</span> The Ionian Awakening</a>
-        <span class="spread-tab active"><span class="st-label">Part Two</span> The Eleatic Reckoning</span>
-      </div>
-
-      <!-- TABLE OF CONTENTS -->
-      <details class="book-toc-block reveal" id="toc" open>
-        <summary class="toc-label">Table of Contents</summary>
-        <ol>
-          <li><a href="#parmenides">Parmenides</a></li>
-          <li><a href="#melissus">Melissus</a></li>
-          <li><a href="#zeno">Zeno</a></li>
-          <li><a href="#empedocles">Empedocles</a></li>
-          <li><a href="#anaxagoras">Anaxagoras</a></li>
-          <li><a href="#leucippus">Leucippus</a></li>
-          <li><a href="#democritus">Democritus</a></li>
-          <li><a href="#protagoras">Protagoras</a></li>
-          <li><a href="#gorgias">Gorgias</a></li>
-        </ol>
-      </details>
+        <!-- TABLE OF CONTENTS -->
+        <details class="book-toc-block reveal" id="toc" open>
+          <summary class="toc-label">Table of Contents</summary>
+          <ol>
+            <li><a href="#parmenides">Parmenides</a></li>
+            <li><a href="#melissus">Melissus</a></li>
+            <li><a href="#zeno">Zeno</a></li>
+            <li><a href="#empedocles">Empedocles</a></li>
+            <li><a href="#anaxagoras">Anaxagoras</a></li>
+            <li><a href="#leucippus">Leucippus</a></li>
+            <li><a href="#democritus">Democritus</a></li>
+            <li><a href="#protagoras">Protagoras</a></li>
+            <li><a href="#gorgias">Gorgias</a></li>
+          </ol>
+        </details>
         <!-- Timelines: small multiples view -->
-    <div id="timelines-wrapper" data-force-compact="true"></div>
-        <div id="timeline-master" class="timeline-master" aria-label="Master timeline overview"></div>
+        <div id="timelines-wrapper" data-force-compact="true"></div>
+        <div
+          id="timeline-master"
+          class="timeline-master"
+          aria-label="Master timeline overview"
+        ></div>
 
         <!-- Small multiples: left column names, right column aligned bars -->
-        <div id="timeline-multiples" class="timeline-multiples" role="list" aria-label="Thinkers lifespans">
+        <div
+          id="timeline-multiples"
+          class="timeline-multiples"
+          role="list"
+          aria-label="Thinkers lifespans"
+        >
           <!-- JS will populate rows here -->
         </div>
 
-      <!-- BOOK BODY -->
-      <div class="book-body">
-
-          <article class="chapter reveal" id="parmenides" data-school="Eleatic" data-start="-515" data-end="-450">
+        <!-- BOOK BODY -->
+        <div class="book-body">
+          <article
+            class="chapter reveal"
+            id="parmenides"
+            data-school="Eleatic"
+            data-start="-515"
+            data-end="-450"
+          >
             <span class="chapter-number">Chapter VIII</span>
             <div class="chapter-head">
               <div class="chapter-head">
-              <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/parmenides-mobile.webp"><img src="../images/parmenides.webp" alt="Bust of Parmenides of Elea" class="chapter-portrait" loading="lazy"></picture>
+                <picture
+                  ><source
+                    type="image/webp"
+                    media="(max-width: 768px)"
+                    srcset="../images/parmenides-mobile.webp" />
+                  <img
+                    src="../images/parmenides.webp"
+                    alt="Bust of Parmenides of Elea"
+                    class="chapter-portrait"
+                    loading="lazy"
+                /></picture>
               </div>
               <div>
                 <h2>Parmenides Of Elea</h2>
                 <p class="chapter-dates">~515-450 BCE · Elea</p>
-                <p class="chapter-thesis">What is, is Being. What is not, cannot be thought — and so cannot be at all.</p>
+                <p class="chapter-thesis">
+                  What is, is Being. What is not, cannot be thought — and so
+                  cannot be at all.
+                </p>
               </div>
             </div>
             <div class="chapter-tags">
@@ -102,62 +173,223 @@
             <span class="chapter-readtime">⏱ 5 min read</span>
 
             <div class="chapter-body">
-              <p class="lead">The <i>Logos</i> has begun its ever-constant flow through Greece, carrying philosophy away from elemental substance and toward Being itself. In their place, a new force of thought is emerging rapidly: Metaphysics. Heraclitus had already shifted philosophy toward metaphysical questions, arguing for a universe of ordered flux. However, a student of Xenophanes by the name Parmenides of Elea, develops this very framework. Through his writings, he decidedly delivers a refutation of an ever changing universe, and cements his place as the Father of Metaphysics.</p>
+              <p class="lead">
+                The <i>Logos</i> has begun its ever-constant flow through
+                Greece, carrying philosophy away from elemental substance and
+                toward Being itself. In their place, a new force of thought is
+                emerging rapidly: Metaphysics. Heraclitus had already shifted
+                philosophy toward metaphysical questions, arguing for a universe
+                of ordered flux. However, a student of Xenophanes by the name
+                Parmenides of Elea, develops this very framework. Through his
+                writings, he decidedly delivers a refutation of an ever changing
+                universe, and cements his place as the Father of Metaphysics.
+              </p>
 
               <h3>Introduction</h3>
-              <p>Parmenides’ teachings are delivered exclusively through verse, and thus lost to time. However, his poem, <i>On Nature</i>, remains the only fragment of his teachings left. It begins with an introduction, where Parmenides presents himself as receiving revelation from a goddess. It is noteworthy that this text is Parmenides writing about his own birth, where the goddess Justice speaks with him. She asserts that the way of Justice and Light is considered far from the path of mortals, unless they learn the truth in absolute conviction, “vanquishing” the test of worthiness. Perhaps this is Parmenides subtly priming his followers to heed him, for he carries the words of Justice herself.</p>
+              <p>
+                Parmenides’ teachings are delivered exclusively through verse,
+                and thus lost to time. However, his poem, <i>On Nature</i>,
+                remains the only fragment of his teachings left. It begins with
+                an introduction, where Parmenides presents himself as receiving
+                revelation from a goddess. It is noteworthy that this text is
+                Parmenides writing about his own birth, where the goddess
+                Justice speaks with him. She asserts that the way of Justice and
+                Light is considered far from the path of mortals, unless they
+                learn the truth in absolute conviction, “vanquishing” the test
+                of worthiness. Perhaps this is Parmenides subtly priming his
+                followers to heed him, for he carries the words of Justice
+                herself.
+              </p>
 
               <h3>On Truth</h3>
-              <p>He begins with On Truth, where Mother Nature instructs him of two “paths of research that are open to thinking”. There is the path that “Being must be, and Non-being is not”, and the one that “Being is not, and Non-Being must be”. </p>
-              <p>The path of Being, or reality, is the only one we can conceive. The other is the path of Non-Being, which cannot be constructed by the mind. This argument stipulates that there is no such thing as “not-is”, because nothing can be thought of that has no being. This leads us to the conclusion that thinking and being are the same thing, and that the mind lies not in the devices of sensation. Thought belongs to Being rather than sensation; it exists in itself, pure and untapped. On the other hand, sensation is fleeting, and unreliable.</p>
-              <p>The argument furthers itself here. If existence leads to itself, then it doesn’t matter where one starts. There are objects of greater and less importance, and undoubtedly a hierarchy in their union. However, Parmenides argues that “Being approaches to Being”, thus it is to him indifferent whence he begins, for thither again thou shalt find him returning. All genuine thought derives from reality, and thus the exploration of thought becomes an exploration of reality itself.</p>
-              <p>What is, is Being, what is not, is Non-Being. Once again, all thought is of Being itself. It cannot come from Non-Being, because Being (thought) cannot be a product of nothing. The nature of reality is indivisible, eternal, and so reality is perfect, because it is bound by great chains of limit. For it to be truly perfect, it must have an ending. What was and what shall be cannot be what is, for Being does not change. Intellect is eternal; sensation is illusory.</p>
-              <p>Infinity cannot be comprehended; it is senseless and meaningless, for it lacks naught. The Universe, like a sphere, is all alike distant from the center. One simply cannot find something outside of being, because the very idea of thinking is Being. To think outside it is to use Being to find Non-Being, which is absurd. </p>
-              <p>Throughout this text, Parmenides also paints a dull picture of “Deaf and dumb and blind and stupid, unreasoning cattle” – those led astray by Doubt and Perplexity, ignoring Justice to believe that Being is Non-Being. Although he doesn’t explicitly clarify what he means here, the answer is made apparent in the second half of the poem.</p>
+              <p>
+                He begins with On Truth, where Mother Nature instructs him of
+                two “paths of research that are open to thinking”. There is the
+                path that “Being must be, and Non-being is not”, and the one
+                that “Being is not, and Non-Being must be”.
+              </p>
+              <p>
+                The path of Being, or reality, is the only one we can conceive.
+                The other is the path of Non-Being, which cannot be constructed
+                by the mind. This argument stipulates that there is no such
+                thing as “not-is”, because nothing can be thought of that has no
+                being. This leads us to the conclusion that thinking and being
+                are the same thing, and that the mind lies not in the devices of
+                sensation. Thought belongs to Being rather than sensation; it
+                exists in itself, pure and untapped. On the other hand,
+                sensation is fleeting, and unreliable.
+              </p>
+              <p>
+                The argument furthers itself here. If existence leads to itself,
+                then it doesn’t matter where one starts. There are objects of
+                greater and less importance, and undoubtedly a hierarchy in
+                their union. However, Parmenides argues that “Being approaches
+                to Being”, thus it is to him indifferent whence he begins, for
+                thither again thou shalt find him returning. All genuine thought
+                derives from reality, and thus the exploration of thought
+                becomes an exploration of reality itself.
+              </p>
+              <p>
+                What is, is Being, what is not, is Non-Being. Once again, all
+                thought is of Being itself. It cannot come from Non-Being,
+                because Being (thought) cannot be a product of nothing. The
+                nature of reality is indivisible, eternal, and so reality is
+                perfect, because it is bound by great chains of limit. For it to
+                be truly perfect, it must have an ending. What was and what
+                shall be cannot be what is, for Being does not change. Intellect
+                is eternal; sensation is illusory.
+              </p>
+              <p>
+                Infinity cannot be comprehended; it is senseless and
+                meaningless, for it lacks naught. The Universe, like a sphere,
+                is all alike distant from the center. One simply cannot find
+                something outside of being, because the very idea of thinking is
+                Being. To think outside it is to use Being to find Non-Being,
+                which is absurd.
+              </p>
+              <p>
+                Throughout this text, Parmenides also paints a dull picture of
+                “Deaf and dumb and blind and stupid, unreasoning cattle” – those
+                led astray by Doubt and Perplexity, ignoring Justice to believe
+                that Being is Non-Being. Although he doesn’t explicitly clarify
+                what he means here, the answer is made apparent in the second
+                half of the poem.
+              </p>
               <figure class="pfig full">
-                <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/Being_Parmenides-mobile.webp"><img src="../images/Being_Parmenides.webp" alt="A perfect sphere." loading="lazy"></picture>
-                <figcaption>The doctrine of <i>Alethia</i> demands the shape of Being thus.</figcaption>
+                <picture
+                  ><source
+                    type="image/webp"
+                    media="(max-width: 768px)"
+                    srcset="../images/Being_Parmenides-mobile.webp" />
+                  <img
+                    src="../images/Being_Parmenides.webp"
+                    alt="A perfect sphere."
+                    loading="lazy"
+                /></picture>
+                <figcaption>
+                  The doctrine of <i>Alethia</i> demands the shape of Being
+                  thus.
+                </figcaption>
               </figure>
               <h3>On Opinion</h3>
-              <p>Parmenides’ most controversial idea is reached here. Men set up for themselves twin shapes, and name them through opinion, despite the fact that they cannot reach one of them. Parmenides likens these twin shapes then to be the paths of existence and of Non-Being, thus humanity cannot reach the second shape.</p>
-              <p>Many examples are listed as opposites: for example, Fire/Light and Night/Darkness. Our minds account for this multiplicity, believing things can exist and change, which is proven in Alethia (On Truth) to be contradictory. Birth and Death are impossible, for to come from nothing or to become nothing is to believe that Being is of Non-Being. </p>
-              <p>Men falsely believe in the illusory idea of change, paradoxically acknowledging Being and Non-Being. Our primitive ideas of opposites hide the truth; all is only of the purity of Being, nothing ever more. </p>
-              <p>Parmenides uses Doxa (On Opinion) to contrast his path, the path claimed to be truth in conviction, with flawed empirical evidence. He challenges astronomical theory, traditional belief, and borrows from his teacher that Opinion belongs to appearances; truth belongs only to Being.</p>
+              <p>
+                Parmenides’ most controversial idea is reached here. Men set up
+                for themselves twin shapes, and name them through opinion,
+                despite the fact that they cannot reach one of them. Parmenides
+                likens these twin shapes then to be the paths of existence and
+                of Non-Being, thus humanity cannot reach the second shape.
+              </p>
+              <p>
+                Many examples are listed as opposites: for example, Fire/Light
+                and Night/Darkness. Our minds account for this multiplicity,
+                believing things can exist and change, which is proven in
+                Alethia (On Truth) to be contradictory. Birth and Death are
+                impossible, for to come from nothing or to become nothing is to
+                believe that Being is of Non-Being.
+              </p>
+              <p>
+                Men falsely believe in the illusory idea of change,
+                paradoxically acknowledging Being and Non-Being. Our primitive
+                ideas of opposites hide the truth; all is only of the purity of
+                Being, nothing ever more.
+              </p>
+              <p>
+                Parmenides uses Doxa (On Opinion) to contrast his path, the path
+                claimed to be truth in conviction, with flawed empirical
+                evidence. He challenges astronomical theory, traditional belief,
+                and borrows from his teacher that Opinion belongs to
+                appearances; truth belongs only to Being.
+              </p>
 
               <h3>Conflict Emerges</h3>
-              <p>Parmenides is considered the Father of Metaphysics. His ideas of Alethia versus Doxa are a fundamental issue metaphysics attempts to grapple. Being becomes the foundation upon which metaphysics itself is built. This sets up one of the fundamental conflicts that exists in philosophy: Heraclitus' Logos, where change is universal and ever-present, or Parmenides' Aletheia, where nothing changes at all, because the stable universe is ever-present.</p>
+              <p>
+                Parmenides is considered the Father of Metaphysics. His ideas of
+                Alethia versus Doxa are a fundamental issue metaphysics attempts
+                to grapple. Being becomes the foundation upon which metaphysics
+                itself is built. This sets up one of the fundamental conflicts
+                that exists in philosophy: Heraclitus' Logos, where change is
+                universal and ever-present, or Parmenides' Aletheia, where
+                nothing changes at all, because the stable universe is
+                ever-present.
+              </p>
 
               <div class="comparison">
                 <div class="comparison-col">
                   <h4>Heraclitus</h4>
-                  <p>Panta Rhei — everything flows. Reality is defined by constant change; stasis is death.</p>
+                  <p>
+                    Panta Rhei — everything flows. Reality is defined by
+                    constant change; stasis is death.
+                  </p>
                 </div>
                 <div class="comparison-col">
                   <h4>Parmenides</h4>
-                  <p>Being is one, eternal, unchanging. Change is an illusion of the senses, not of reality.</p>
+                  <p>
+                    Being is one, eternal, unchanging. Change is an illusion of
+                    the senses, not of reality.
+                  </p>
                 </div>
               </div>
 
-              <p>Yet these seemingly irreconcilable philosophers share surprising foundations. Both believe that the way of man is not the way of justice. Both disregard sensations for their universal truth. Parmenides' belief in a non-corporeal intellect is concurred with Heraclitus' Fragment 45. Both distrust sensation. Both distinguish truth from ordinary opinion. Both believe the many mistake appearance for reality. Yet where Heraclitus discovers permanence within change, Parmenides discovers permanence by denying change altogether.</p>
+              <p>
+                Yet these seemingly irreconcilable philosophers share surprising
+                foundations. Both believe that the way of man is not the way of
+                justice. Both disregard sensations for their universal truth.
+                Parmenides' belief in a non-corporeal intellect is concurred
+                with Heraclitus' Fragment 45. Both distrust sensation. Both
+                distinguish truth from ordinary opinion. Both believe the many
+                mistake appearance for reality. Yet where Heraclitus discovers
+                permanence within change, Parmenides discovers permanence by
+                denying change altogether.
+              </p>
 
-              <p>Many such similarities can be found between the two; however, though their conclusions upon man and life are similar, the origins of their thought are ultimately irreconcilable. This is the first great crossroads of philosophy. Every thinker who follows must choose, in one form or another, how Heraclitus and Parmenides are to be reconciled. These paths will cross again—and they will continue crossing long after our own journey has ended.</p>
+              <p>
+                Many such similarities can be found between the two; however,
+                though their conclusions upon man and life are similar, the
+                origins of their thought are ultimately irreconcilable. This is
+                the first great crossroads of philosophy. Every thinker who
+                follows must choose, in one form or another, how Heraclitus and
+                Parmenides are to be reconciled. These paths will cross
+                again—and they will continue crossing long after our own journey
+                has ended.
+              </p>
             </div>
 
             <div class="chapter-foot-nav">
-              <a class="prev" href="presocratics.html#heraclitus">&larr; Heraclitus</a>
+              <a class="prev" href="presocratics.html#heraclitus"
+                >&larr; Heraclitus</a
+              >
               <a class="next" href="#melissus">Melissus &rarr;</a>
             </div>
           </article>
 
           <!-- ============ CHAPTER 9: MELISSUS ============ -->
-          <article class="chapter reveal" id="melissus" data-school="Eleatic" data-start="-500" data-end="-430">
+          <article
+            class="chapter reveal"
+            id="melissus"
+            data-school="Eleatic"
+            data-start="-500"
+            data-end="-430"
+          >
             <span class="chapter-number">Chapter IX</span>
             <div class="chapter-head">
-              <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/Melissus_Nuremberg_Chronicle-mobile.webp"><img src="../images/Melissus_Nuremberg_Chronicle.webp" alt="Bust of Melissus of Samos" class="chapter-portrait" loading="lazy"></picture>
+              <picture
+                ><source
+                  type="image/webp"
+                  media="(max-width: 768px)"
+                  srcset="../images/Melissus_Nuremberg_Chronicle-mobile.webp" />
+                <img
+                  src="../images/Melissus_Nuremberg_Chronicle.webp"
+                  alt="Bust of Melissus of Samos"
+                  class="chapter-portrait"
+                  loading="lazy"
+              /></picture>
               <div>
                 <h2>Melissus</h2>
                 <p class="chapter-dates">~500–430 BCE · Samos</p>
-                <p class="chapter-thesis">If Being cannot come from Non-Being, it must be infinite, eternal, and one.</p>
+                <p class="chapter-thesis">
+                  If Being cannot come from Non-Being, it must be infinite,
+                  eternal, and one.
+                </p>
               </div>
             </div>
             <div class="chapter-tags">
@@ -168,34 +400,187 @@
             <span class="chapter-readtime">⏱ 4 min read</span>
 
             <div class="chapter-body">
-              <p class="lead">As Thales founded the Milesian School, and Pythagoras his Pythagoreanism, from Xenophanes emerges Parmenides to found a school of his own: the Eleatic. Those who hold shared belief in Parmenides' Alethia immediately must pick up where he leaves off — among them a Samian general, formerly of the Ionian school, Melissus of Samos.</p>
+              <p class="lead">
+                As Thales founded the Milesian School, and Pythagoras his
+                Pythagoreanism, from Xenophanes emerges Parmenides to found a
+                school of his own: the Eleatic. Those who hold shared belief in
+                Parmenides' Alethia immediately must pick up where he leaves off
+                — among them a Samian general, formerly of the Ionian school,
+                Melissus of Samos.
+              </p>
 
-              <p>If Parmenides declared change impossible, Melissus refused to leave even the smallest opening through which it might return. Alethia, although first articulated by Parmenides, is developed and expanded to logical extremes by Melissus, who makes no attempt to reconcile intellectually between his mentor and Heraclitus. It isn't just that reality is unchanging; it's that change is quite literally impossible in any form. The conclusions Melissus reaches stem from an interpretation of Alethia that pushes far beyond Parmenides' own formulation.</p>
+              <p>
+                If Parmenides declared change impossible, Melissus refused to
+                leave even the smallest opening through which it might return.
+                Alethia, although first articulated by Parmenides, is developed
+                and expanded to logical extremes by Melissus, who makes no
+                attempt to reconcile intellectually between his mentor and
+                Heraclitus. It isn't just that reality is unchanging; it's that
+                change is quite literally impossible in any form. The
+                conclusions Melissus reaches stem from an interpretation of
+                Alethia that pushes far beyond Parmenides' own formulation.
+              </p>
 
-              <p>If reality, if Being cannot come from Non-Being, then it must have always existed. It is not bounded by time, which is why it cannot diminish or disappear. It has no beginning, and no end; it is infinite. Where Parmenides believed that Being approaches Being, his student argues that reality must be infinite if it is truly unbound. The universe thus must be one, a single undivided whole.</p>
+              <p>
+                If reality, if Being cannot come from Non-Being, then it must
+                have always existed. It is not bounded by time, which is why it
+                cannot diminish or disappear. It has no beginning, and no end;
+                it is infinite. Where Parmenides believed that Being approaches
+                Being, his student argues that reality must be infinite if it is
+                truly unbound. The universe thus must be one, a single undivided
+                whole.
+              </p>
 
-              <p>A universe that is one has no parts. It has nothing that can move within it, for it has no empty space for any object to move into, or expand into. It has no parts, no iron, no gold, no warmth or cool, no living or dead, for all these things are made to resemble one another with the passage of time. They appear bound to time, and thus they are not representations of the unified universe, instead merely illusory descriptions conjured by our limited senses. Anything that changes cannot belong to ultimate reality, for change presupposes imperfection. Reality therefore cannot truly possess the distinctions our senses perceive.</p>
+              <p>
+                A universe that is one has no parts. It has nothing that can
+                move within it, for it has no empty space for any object to move
+                into, or expand into. It has no parts, no iron, no gold, no
+                warmth or cool, no living or dead, for all these things are made
+                to resemble one another with the passage of time. They appear
+                bound to time, and thus they are not representations of the
+                unified universe, instead merely illusory descriptions conjured
+                by our limited senses. Anything that changes cannot belong to
+                ultimate reality, for change presupposes imperfection. Reality
+                therefore cannot truly possess the distinctions our senses
+                perceive.
+              </p>
 
-              <p>Melissus argues for a single unchanging, static, unified reality unbounded by time or space, and further posits that human sensation cannot possibly comprehend this idea. Not only does this extend far beyond Parmenides' view of reality, it further drives the Eleatic school into irreconcilability with Heraclitus. His fragments take Alethia to a logical extreme, transforming Parmenides' metaphysics into a closed logical system, leaving no room for change, plurality, or sensation.</p>
+              <p>
+                Melissus argues for a single unchanging, static, unified reality
+                unbounded by time or space, and further posits that human
+                sensation cannot possibly comprehend this idea. Not only does
+                this extend far beyond Parmenides' view of reality, it further
+                drives the Eleatic school into irreconcilability with
+                Heraclitus. His fragments take Alethia to a logical extreme,
+                transforming Parmenides' metaphysics into a closed logical
+                system, leaving no room for change, plurality, or sensation.
+              </p>
 
-              <p>Unlike the secluded Parmenides, Melissus spent much of his life commanding fleets. Perhaps this is why he writes in such a complete, undergirded fashion, anticipating every contradictory attack upon his ideology and eliminating it.</p>
+              <p>
+                Unlike the secluded Parmenides, Melissus spent much of his life
+                commanding fleets. Perhaps this is why he writes in such a
+                complete, undergirded fashion, anticipating every contradictory
+                attack upon his ideology and eliminating it.
+              </p>
 
-              <div class="callout">Ironically, Melissus' denial of empty space would become one of the greatest gifts he could give the Atomists. By forcing Eleatic metaphysics to its logical extreme, he also forced the next generation to answer it. Melissus believed he had closed philosophy's greatest question. Instead, he sharpened it. By denying empty space absolutely, he compelled the Atomists to defend its existence with equal rigor. Some philosophers solve problems. Others create the next generation's. Melissus did both.</div>
+              <div class="callout">
+                Ironically, Melissus' denial of empty space would become one of
+                the greatest gifts he could give the Atomists. By forcing
+                Eleatic metaphysics to its logical extreme, he also forced the
+                next generation to answer it. Melissus believed he had closed
+                philosophy's greatest question. Instead, he sharpened it. By
+                denying empty space absolutely, he compelled the Atomists to
+                defend its existence with equal rigor. Some philosophers solve
+                problems. Others create the next generation's. Melissus did
+                both.
+              </div>
 
               <!-- APPENDIX -->
               <details class="appendix-block">
                 <summary>Fragment Appendix</summary>
                 <div class="appendix-content">
-                  <div class="fragment"><span class="fnum">Fragment 1a</span><p>If nothing, as in the idea of no-thing, exists, what can be said of it as something real? Melissus argues that we cannot even acknowledge Non-Being with any substance, because it has no substance, nor characteristics to actually analyze and observe.</p></div>
-                  <div class="fragment"><span class="fnum">Fragment 1</span><p>What exists, was is, has always been. For it to have "come into being" would require something to emerge from nothing. Nothing comes from nothing.</p></div>
-                  <div class="fragment"><span class="fnum">Fragment 2</span><p>Because reality never "came into being", it must exist forever without beginning or end, limitless. And since all of existence is being, everything shares the property — nothing can be created.</p></div>
-                  <div class="fragment"><span class="fnum">Fragment 3</span><p>If Being is not created, and has no beginning, then it is not bounded by time, and must therefore be eternal. It cannot be bounded by space either, making it infinite. This is vastly different to Parmenides' bounded, perfect universe.</p></div>
-                  <div class="fragment"><span class="fnum">Fragment 4</span><p>If something has a beginning, it is bounded by time, and thus it will always have an end.</p></div>
-                  <div class="fragment"><span class="fnum">Fragments 5/6–6a</span><p>This is Melissus' idea of the doctrine later called Monism: the idea that the entirety of the Universe is one thing. For if there were more than one thing, they must border each other, entailing borders, and therefore not being infinite. For it to be one thing, it must be alike all throughout.</p></div>
-                  <div class="fragment"><span class="fnum">Fragment 7</span><p>Melissus develops reality through a set of remarkable logical moves. His universe is infinite, eternal, and all alike throughout. Change in such a space cannot occur, for that implies two things in time, which implies bounding by time, which would lead to the diminishing and disappearance of the Universe. Furthermore, pain or grief is not possible for such a reality, because it is all alike and eternal, and so lacks vulnerability. He develops an incredible idea that empty space is Non-Being, and so empty space cannot exist in a reality entirely of Being. This means that motion is impossible, and so is density, because to move is to enter empty space, and to be rarefied is to have pockets of empty space within, neither of which are possible.</p></div>
-                  <div class="fragment"><span class="fnum">Fragment 8</span><p>Melissus delivers a refutation of common arguments against this theory. He argues that if the Monistic universe was incorrect, that things really were black and white, and that there was iron and gold and earth and water and the living and the dead, that these things would all remain eternal. And yet they all change, as warm becomes cold with time, and warm again, that the living join the dead, and beings are born. These apparent changes alter nothing at all, and are mere illusions to the true, one, Being.</p></div>
-                  <div class="fragment"><span class="fnum">Fragment 9</span><p>That which exists is only one, not a body, for a body has parts, and thus not one.</p></div>
-                  <div class="fragment"><span class="fnum">Fragment 10</span><p>If Reality is divided it moves, but if it moves, it cannot be reality.</p></div>
+                  <div class="fragment">
+                    <span class="fnum">Fragment 1a</span>
+                    <p>
+                      If nothing, as in the idea of no-thing, exists, what can
+                      be said of it as something real? Melissus argues that we
+                      cannot even acknowledge Non-Being with any substance,
+                      because it has no substance, nor characteristics to
+                      actually analyze and observe.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Fragment 1</span>
+                    <p>
+                      What exists, was is, has always been. For it to have "come
+                      into being" would require something to emerge from
+                      nothing. Nothing comes from nothing.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Fragment 2</span>
+                    <p>
+                      Because reality never "came into being", it must exist
+                      forever without beginning or end, limitless. And since all
+                      of existence is being, everything shares the property —
+                      nothing can be created.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Fragment 3</span>
+                    <p>
+                      If Being is not created, and has no beginning, then it is
+                      not bounded by time, and must therefore be eternal. It
+                      cannot be bounded by space either, making it infinite.
+                      This is vastly different to Parmenides' bounded, perfect
+                      universe.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Fragment 4</span>
+                    <p>
+                      If something has a beginning, it is bounded by time, and
+                      thus it will always have an end.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Fragments 5/6–6a</span>
+                    <p>
+                      This is Melissus' idea of the doctrine later called
+                      Monism: the idea that the entirety of the Universe is one
+                      thing. For if there were more than one thing, they must
+                      border each other, entailing borders, and therefore not
+                      being infinite. For it to be one thing, it must be alike
+                      all throughout.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Fragment 7</span>
+                    <p>
+                      Melissus develops reality through a set of remarkable
+                      logical moves. His universe is infinite, eternal, and all
+                      alike throughout. Change in such a space cannot occur, for
+                      that implies two things in time, which implies bounding by
+                      time, which would lead to the diminishing and
+                      disappearance of the Universe. Furthermore, pain or grief
+                      is not possible for such a reality, because it is all
+                      alike and eternal, and so lacks vulnerability. He develops
+                      an incredible idea that empty space is Non-Being, and so
+                      empty space cannot exist in a reality entirely of Being.
+                      This means that motion is impossible, and so is density,
+                      because to move is to enter empty space, and to be
+                      rarefied is to have pockets of empty space within, neither
+                      of which are possible.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Fragment 8</span>
+                    <p>
+                      Melissus delivers a refutation of common arguments against
+                      this theory. He argues that if the Monistic universe was
+                      incorrect, that things really were black and white, and
+                      that there was iron and gold and earth and water and the
+                      living and the dead, that these things would all remain
+                      eternal. And yet they all change, as warm becomes cold
+                      with time, and warm again, that the living join the dead,
+                      and beings are born. These apparent changes alter nothing
+                      at all, and are mere illusions to the true, one, Being.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Fragment 9</span>
+                    <p>
+                      That which exists is only one, not a body, for a body has
+                      parts, and thus not one.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Fragment 10</span>
+                    <p>
+                      If Reality is divided it moves, but if it moves, it cannot
+                      be reality.
+                    </p>
+                  </div>
                 </div>
               </details>
             </div>
@@ -208,18 +593,36 @@
           </article>
 
           <!-- ============ CHAPTER 10: ZENO ============ -->
-          <article class="chapter reveal" id="zeno" data-school="Eleatic" data-start="-495" data-end="-430">
+          <article
+            class="chapter reveal"
+            id="zeno"
+            data-school="Eleatic"
+            data-start="-495"
+            data-end="-430"
+          >
             <span class="chapter-number">Chapter X</span>
             <div class="chapter-head">
               <div class="chapter-head">
                 <div class="chapter-head">
-              <picture><source type="image/webp" media="(max-width: 768px)" srcset="../images/zeno_elea-mobile.webp"><img src="../images/zeno_elea.webp" alt="Bust of Zeno of Elea" class="chapter-portrait" loading="lazy"></picture>
-              </div>
+                  <picture
+                    ><source
+                      type="image/webp"
+                      media="(max-width: 768px)"
+                      srcset="../images/zeno_elea-mobile.webp" />
+                    <img
+                      src="../images/zeno_elea.webp"
+                      alt="Bust of Zeno of Elea"
+                      class="chapter-portrait"
+                      loading="lazy"
+                  /></picture>
+                </div>
               </div>
               <div>
                 <h2>Zeno of Elea</h2>
                 <p class="chapter-dates">~495-430 BCE · Elea</p>
-                <p class="chapter-thesis">Stretching reality what is known deep into the unknowable.</p>
+                <p class="chapter-thesis">
+                  Stretching reality what is known deep into the unknowable.
+                </p>
               </div>
             </div>
             <div class="chapter-tags">
@@ -231,55 +634,213 @@
 
             <div class="chapter-body">
               <p class="lead">
-                 By the time the Eleatics had reached their second generation, the philosophical world had divided itself. To Parmenides’ defense come two men. One of those men, Melissus defends Alethia with logic and deduction. Another man, a prominent member of the Eleatic school, also defends Parmenidean reality – through the offense. Zeno of Elea, a brilliant mathematician, chooses to defend his contemporary with a series of devastating, terrifying elegant paradoxes, challenging a traditional view of reality in favor of a Monic universe. 
+                By the time the Eleatics had reached their second generation,
+                the philosophical world had divided itself. To Parmenides’
+                defense come two men. One of those men, Melissus defends Alethia
+                with logic and deduction. Another man, a prominent member of the
+                Eleatic school, also defends Parmenidean reality – through the
+                offense. Zeno of Elea, a brilliant mathematician, chooses to
+                defend his contemporary with a series of devastating, terrifying
+                elegant paradoxes, challenging a traditional view of reality in
+                favor of a Monic universe.
               </p>
 
-              <p>Although Zeno writes nothing himself, it is through Aristotle, we learn precisely what his refutations are. Zeno chooses not to defend his views at all – he chooses to accept his opponents’ point of view, and stretches his opponents’ own beliefs to logical extremes. For the first time, philosophy stops arguing from observation and begins arguing from contradiction. It isn’t enough to use the logic of Being to prove Being. No, the beliefs of his intellectual adversaries must be used to destroy themselves. If their reasoning ends in contradiction, then the original belief must be false. Rather than defending Parmenides through observation, Zeno defends him through impossibility.</p>
+              <p>
+                Although Zeno writes nothing himself, it is through Aristotle,
+                we learn precisely what his refutations are. Zeno chooses not to
+                defend his views at all – he chooses to accept his opponents’
+                point of view, and stretches his opponents’ own beliefs to
+                logical extremes. For the first time, philosophy stops arguing
+                from observation and begins arguing from contradiction. It isn’t
+                enough to use the logic of Being to prove Being. No, the beliefs
+                of his intellectual adversaries must be used to destroy
+                themselves. If their reasoning ends in contradiction, then the
+                original belief must be false. Rather than defending Parmenides
+                through observation, Zeno defends him through impossibility.
+              </p>
 
-              <p>Zeno begins transforming philosophy into something resembling mathematics. His paradoxes, although mostly refutations of the Pluralists and defenders of motion, raise many uncomfortable questions: how does one deal with infinity? are there solutions to supertasks? Ironically, just like Melissus, Zeno unintentionally gives a great deal of inspiration to his dissenters: His paradoxes forced later Atomists to explain how infinite division could be avoided. </p>
+              <p>
+                Zeno begins transforming philosophy into something resembling
+                mathematics. His paradoxes, although mostly refutations of the
+                Pluralists and defenders of motion, raise many uncomfortable
+                questions: how does one deal with infinity? are there solutions
+                to supertasks? Ironically, just like Melissus, Zeno
+                unintentionally gives a great deal of inspiration to his
+                dissenters: His paradoxes forced later Atomists to explain how
+                infinite division could be avoided.
+              </p>
 
-              <p>Before Zeno, it was easy to claim that sensation was illusory, that reality was not what it appeared to us. It was another thing entirely to assert with logic that motion could not be proven with common sense – it was downright horrific to realize that reason could even overturn the evidence of the senses. He may not have directly challenged ideas of virtue, but Zeno laid the foundation for the method that would. Before the one who claimed to know nothing disarmed exposed the contradictions of Athens’ elite, Zeno has shown that contradiction was philosophy’s sharpest instrument. He proved to Greece that the best way to challenge an idea was not to attack it, but follow it until it collapsed. Although his writings didn’t survive, his legacy is immortal: Zeno remains the first philosopher to discover that reason can travel somewhere the senses cannot follow.</p>
+              <p>
+                Before Zeno, it was easy to claim that sensation was illusory,
+                that reality was not what it appeared to us. It was another
+                thing entirely to assert with logic that motion could not be
+                proven with common sense – it was downright horrific to realize
+                that reason could even overturn the evidence of the senses. He
+                may not have directly challenged ideas of virtue, but Zeno laid
+                the foundation for the method that would. Before the one who
+                claimed to know nothing disarmed exposed the contradictions of
+                Athens’ elite, Zeno has shown that contradiction was
+                philosophy’s sharpest instrument. He proved to Greece that the
+                best way to challenge an idea was not to attack it, but follow
+                it until it collapsed. Although his writings didn’t survive, his
+                legacy is immortal: Zeno remains the first philosopher to
+                discover that reason can travel somewhere the senses cannot
+                follow.
+              </p>
 
               <details class="appendix-block">
                 <summary>Paradox Appendix</summary>
                 <div class="appendix-content">
-                  <div class="fragment"><span class="fnum">Paradox of Plurality</span><p>If reality really does consist of more than one thing, of the many, then they must be as many as they are, no more, no less. Thus, finite. However, if they are many, then there must be borders between them. Yet there must be infinite things, for between the borders of two things lies another, and another in between that border, and so on. Zeno uses Parmenides’ teachings to assert that the Universe must be one single whole, or what is known as Monic. Further, he supports his claim with Melissus’ conclusion that empty space is impossible, stating that between the borders of two things empty space cannot exist, and therefore a third thing, also with borders, must exist. This process must extend infinitely, thus a universe that isn’t one, is infinite, and finite, paradoxically at the same time. </p></div>
-                  <div class="fragment"><span class="fnum">Paradox of Magnitude</span><p>If there are many things, their infinitude must extend to the fact that they have no size at all, for infinite objects in a finite space must all equally take up no space at all. And subtracting or adding one of those objects would make no difference at all, because subtracting zero is irrelevant. Zeno follows with a sub-argument, noting that if somehow objects existed and actually took up space, they would be divisible, and thus infinitely so. And these infinite portions would have to take up some space, otherwise the previous argument holds. Therefore, infinite portions of an object take up infinite space. Zeno then concludes within his logic that if the Monic Universe is incorrect, then reality must consist of infinitely small or infinitely large objects. </p></div>
-                  <div class="fragment"><span class="fnum">Paradox of Divisions</span><p>If an object with magnitude is divided, it must be either divided into another set of objects with magnitude, or a set of points, each without magnitude. If the object is divided into subdivisions with magnitude, then the problem repeats- the subdivisions must be divided yet again into further subdivisions. If the object is divided into points of no magnitude, then it doesn’t matter how many points there are: their sum also has no magnitude. This paradox serves as a further refutation of pluralist ideology, denying the existence of objects and divisibility.</p></div>
-                  <div class="fragment"><span class="fnum">Achilles and the Tortoise</span><p>Similar to the thought experiment presented before, this paradox presents a race. Achilles, and a tortoise. If the tortoise is given a head start, and motion really does exist, then Achilles can never win the race. If the tortoise moves first, once Achilles starts, he must move towards the point the tortoise was when he started. By the time he reaches that point, however, the tortoise has moved forward, so he must catch up to the point the tortoise was when he caught up the to previous point, and so on and so on. The point is to disprove motion, and although Zeno’s conclusions are discomforting, they do serve to undergird and support Parmenides’ ideas, as well as Melissus’ conclusions. </p></div>
-                  <div class="fragment"><span class="fnum">The Impossible Arrow</span><p>An arrow appearing to travel through the air is not traveling anywhere at all, for motion is impossible as mentioned in the above paradoxes. Time is composed of instants, and within each instant, no time passes. As a result, during each instant, the arrow cannot move, for it occupies the whole space during that instant. So how can the arrow travel forward? Every instant appears motionless. Zeno argues that motion is an illusion, and proves thus with the arrow.</p></div>
-                  <div class="fragment"><span class="fnum">Paradox of the Stadium</span><p>– Imagine three rows initially oriented in the figure below. Note that the middle row is offset only by one character, whereas the second row is offset by two characters. Zeno posits that if the middle row and the bottom row both move within the same amount of time, then the middle row has traveled half the distance of the top row while travelling the entire distance of the bottom row. How could it travel both half the distance and the whole distance at once? Zeno stipulates that this must be because none of the rows actually moved, because motion is an illusion.</p></div>
-                    <div class="stadium-demo">
+                  <div class="fragment">
+                    <span class="fnum">Paradox of Plurality</span>
+                    <p>
+                      If reality really does consist of more than one thing, of
+                      the many, then they must be as many as they are, no more,
+                      no less. Thus, finite. However, if they are many, then
+                      there must be borders between them. Yet there must be
+                      infinite things, for between the borders of two things
+                      lies another, and another in between that border, and so
+                      on. Zeno uses Parmenides’ teachings to assert that the
+                      Universe must be one single whole, or what is known as
+                      Monic. Further, he supports his claim with Melissus’
+                      conclusion that empty space is impossible, stating that
+                      between the borders of two things empty space cannot
+                      exist, and therefore a third thing, also with borders,
+                      must exist. This process must extend infinitely, thus a
+                      universe that isn’t one, is infinite, and finite,
+                      paradoxically at the same time.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Paradox of Magnitude</span>
+                    <p>
+                      If there are many things, their infinitude must extend to
+                      the fact that they have no size at all, for infinite
+                      objects in a finite space must all equally take up no
+                      space at all. And subtracting or adding one of those
+                      objects would make no difference at all, because
+                      subtracting zero is irrelevant. Zeno follows with a
+                      sub-argument, noting that if somehow objects existed and
+                      actually took up space, they would be divisible, and thus
+                      infinitely so. And these infinite portions would have to
+                      take up some space, otherwise the previous argument holds.
+                      Therefore, infinite portions of an object take up infinite
+                      space. Zeno then concludes within his logic that if the
+                      Monic Universe is incorrect, then reality must consist of
+                      infinitely small or infinitely large objects.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Paradox of Divisions</span>
+                    <p>
+                      If an object with magnitude is divided, it must be either
+                      divided into another set of objects with magnitude, or a
+                      set of points, each without magnitude. If the object is
+                      divided into subdivisions with magnitude, then the problem
+                      repeats- the subdivisions must be divided yet again into
+                      further subdivisions. If the object is divided into points
+                      of no magnitude, then it doesn’t matter how many points
+                      there are: their sum also has no magnitude. This paradox
+                      serves as a further refutation of pluralist ideology,
+                      denying the existence of objects and divisibility.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Achilles and the Tortoise</span>
+                    <p>
+                      Similar to the thought experiment presented before, this
+                      paradox presents a race. Achilles, and a tortoise. If the
+                      tortoise is given a head start, and motion really does
+                      exist, then Achilles can never win the race. If the
+                      tortoise moves first, once Achilles starts, he must move
+                      towards the point the tortoise was when he started. By the
+                      time he reaches that point, however, the tortoise has
+                      moved forward, so he must catch up to the point the
+                      tortoise was when he caught up the to previous point, and
+                      so on and so on. The point is to disprove motion, and
+                      although Zeno’s conclusions are discomforting, they do
+                      serve to undergird and support Parmenides’ ideas, as well
+                      as Melissus’ conclusions.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">The Impossible Arrow</span>
+                    <p>
+                      An arrow appearing to travel through the air is not
+                      traveling anywhere at all, for motion is impossible as
+                      mentioned in the above paradoxes. Time is composed of
+                      instants, and within each instant, no time passes. As a
+                      result, during each instant, the arrow cannot move, for it
+                      occupies the whole space during that instant. So how can
+                      the arrow travel forward? Every instant appears
+                      motionless. Zeno argues that motion is an illusion, and
+                      proves thus with the arrow.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Paradox of the Stadium</span>
+                    <p>
+                      – Imagine three rows initially oriented in the figure
+                      below. Note that the middle row is offset only by one
+                      character, whereas the second row is offset by two
+                      characters. Zeno posits that if the middle row and the
+                      bottom row both move within the same amount of time, then
+                      the middle row has traveled half the distance of the top
+                      row while travelling the entire distance of the bottom
+                      row. How could it travel both half the distance and the
+                      whole distance at once? Zeno stipulates that this must be
+                      because none of the rows actually moved, because motion is
+                      an illusion.
+                    </p>
+                  </div>
+                  <div class="stadium-demo">
+                    <div class="stadium-frame" tabindex="0">
+                      <div class="stadium-row row-a">
+                        <span class="hint">CLICK</span>
+                        <span class="letters">AAA</span>
+                      </div>
 
-                        <div class="stadium-frame" tabindex="0">
+                      <div class="stadium-row row-b">
+                        <span class="hint">THE</span>
+                        <span class="letters">BBB</span>
+                      </div>
 
-                        <div class="stadium-row row-a">
-                            <span class="hint">CLICK</span>
-                            <span class="letters">AAA</span>
-                        </div>
+                      <div class="stadium-row row-c">
+                        <span class="hint">DIAGRAM</span>
+                        <span class="letters">CCC</span>
+                      </div>
+                    </div>
 
-                        <div class="stadium-row row-b">
-                            <span class="hint">THE</span>
-                            <span class="letters">BBB</span>
-                        </div>
-
-                        <div class="stadium-row row-c">
-                            <span class="hint">DIAGRAM</span>
-                            <span class="letters">CCC</span>
-                        </div>
-
-                        </div>
-
-                        <p class="stadium-caption">
-                            <strong>Question.</strong>
-                            If the middle row moves one unit relative to A,
-                            yet two units relative to C during the same interval,
-                            how can both measurements be true?
-                        </p>
-                     </div>            
-                  <div class="fragment"><span class="fnum">Paradox of Place</span><p>– If something has a place, then that place has a place, and that place’s place has a place, ad infinitum! The universe must be infinite, as Melissus argues.</p></div>
-                  <div class="fragment"><span class="fnum">Paradox of Grain</span><p>A bushel of grain falls, and it makes a sound. Yet when a grain falls, it is silent. When does the sound occur?</p></div>
-                  <div class="callout">It should be noted that Aristotle is the source of most of these paradoxes, and so we have neither Zeno’s own words on them, or even a neutral recounting of them, for Aristotle brings them up solely to refute the Eleatics. As such, if these paradoxes appear obvious to the modern reader, their contexts should be made clear.</div>
+                    <p class="stadium-caption">
+                      <strong>Question.</strong>
+                      If the middle row moves one unit relative to A, yet two
+                      units relative to C during the same interval, how can both
+                      measurements be true?
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Paradox of Place</span>
+                    <p>
+                      – If something has a place, then that place has a place,
+                      and that place’s place has a place, ad infinitum! The
+                      universe must be infinite, as Melissus argues.
+                    </p>
+                  </div>
+                  <div class="fragment">
+                    <span class="fnum">Paradox of Grain</span>
+                    <p>
+                      A bushel of grain falls, and it makes a sound. Yet when a
+                      grain falls, it is silent. When does the sound occur?
+                    </p>
+                  </div>
+                  <div class="callout">
+                    It should be noted that Aristotle is the source of most of
+                    these paradoxes, and so we have neither Zeno’s own words on
+                    them, or even a neutral recounting of them, for Aristotle
+                    brings them up solely to refute the Eleatics. As such, if
+                    these paradoxes appear obvious to the modern reader, their
+                    contexts should be made clear.
+                  </div>
                 </div>
               </details>
             </div>
@@ -290,7 +851,13 @@
             </div>
           </article>
           <!-- ============ CHAPTER 11: Empedocles ============ -->
-          <article class="chapter reveal" id="empedocles" data-school="Pluralist" data-start="-494" data-end="-434">
+          <article
+            class="chapter reveal"
+            id="empedocles"
+            data-school="Pluralist"
+            data-start="-494"
+            data-end="-434"
+          >
             <span class="chapter-number">Chapter XI</span>
             <div class="chapter-head">
               <div class="chapter-glyph">
@@ -299,7 +866,10 @@
               <div>
                 <h2>Empedocles</h2>
                 <p class="chapter-dates">~494-434 BCE · Acragas, Sicily</p>
-                <p class="chapter-thesis">The universe is composed of four elements governed by Love and Strife.</p>
+                <p class="chapter-thesis">
+                  The universe is composed of four elements governed by Love and
+                  Strife.
+                </p>
               </div>
             </div>
             <div class="chapter-tags">
@@ -310,9 +880,7 @@
             <span class="chapter-readtime">⏱ 4 min read</span>
 
             <div class="chapter-body">
-              <p class="lead">
-                To be written.
-              </p>
+              <p class="lead">To be written.</p>
             </div>
             <div class="chapter-foot-nav">
               <a class="prev" href="#zeno">&larr; Zeno</a>
@@ -321,7 +889,13 @@
             </div>
           </article>
           <!-- ============ CHAPTER 12: Anaxagoras ============ -->
-          <article class="chapter reveal" id="anaxagoras" data-school="Pluralist" data-start="-500" data-end="-428">
+          <article
+            class="chapter reveal"
+            id="anaxagoras"
+            data-school="Pluralist"
+            data-start="-500"
+            data-end="-428"
+          >
             <span class="chapter-number">Chapter XII</span>
             <div class="chapter-head">
               <div class="chapter-glyph">
@@ -329,8 +903,13 @@
               </div>
               <div>
                 <h2>Anaxagoras</h2>
-                <p class="chapter-dates">~500-428 BCE · Clazomenae, Asia Minor</p>
-                <p class="chapter-thesis">The universe is composed of all things, each in infinite quantity.</p>
+                <p class="chapter-dates">
+                  ~500-428 BCE · Clazomenae, Asia Minor
+                </p>
+                <p class="chapter-thesis">
+                  The universe is composed of all things, each in infinite
+                  quantity.
+                </p>
               </div>
             </div>
             <div class="chapter-tags">
@@ -341,9 +920,7 @@
             <span class="chapter-readtime">⏱ 4 min read</span>
 
             <div class="chapter-body">
-              <p class="lead">
-                To be written.
-              </p>
+              <p class="lead">To be written.</p>
             </div>
             <div class="chapter-foot-nav">
               <a class="prev" href="#empedocles">&larr; Empedocles</a>
@@ -352,7 +929,13 @@
             </div>
           </article>
           <!-- ============ CHAPTER 13: Leucippus ============ -->
-          <article class="chapter reveal" id="leucippus" data-school="Atomist" data-start="-490" data-end="-420">
+          <article
+            class="chapter reveal"
+            id="leucippus"
+            data-school="Atomist"
+            data-start="-490"
+            data-end="-420"
+          >
             <span class="chapter-number">Chapter XIII</span>
             <div class="chapter-head">
               <div class="chapter-glyph">
@@ -361,7 +944,10 @@
               <div>
                 <h2>Leucippus</h2>
                 <p class="chapter-dates">~490-420 BCE · Miletus, Ionia</p>
-                <p class="chapter-thesis">The universe is composed of indivisible particles (atoms) moving in a void.</p>
+                <p class="chapter-thesis">
+                  The universe is composed of indivisible particles (atoms)
+                  moving in a void.
+                </p>
               </div>
             </div>
             <div class="chapter-tags">
@@ -372,9 +958,7 @@
             <span class="chapter-readtime">⏱ 4 min read</span>
 
             <div class="chapter-body">
-              <p class="lead">
-                To be written.
-              </p>
+              <p class="lead">To be written.</p>
             </div>
             <div class="chapter-foot-nav">
               <a class="prev" href="#anaxagoras">&larr; Anaxagoras</a>
@@ -383,7 +967,13 @@
             </div>
           </article>
           <!-- ============ CHAPTER 14: Democritus ============ -->
-          <article class="chapter reveal" id="democritus" data-school="Atomist" data-start="-460" data-end="-370">
+          <article
+            class="chapter reveal"
+            id="democritus"
+            data-school="Atomist"
+            data-start="-460"
+            data-end="-370"
+          >
             <span class="chapter-number">Chapter XIV</span>
             <div class="chapter-head">
               <div class="chapter-glyph">
@@ -392,7 +982,10 @@
               <div>
                 <h2>Democritus</h2>
                 <p class="chapter-dates">~460-370 BCE · Abdera, Thrace</p>
-                <p class="chapter-thesis">The universe is composed of indivisible particles (atoms) moving in a void.</p>
+                <p class="chapter-thesis">
+                  The universe is composed of indivisible particles (atoms)
+                  moving in a void.
+                </p>
               </div>
             </div>
             <div class="chapter-tags">
@@ -400,11 +993,9 @@
               <span class="chapter-tag">Atomic Theory</span>
               <span class="chapter-tag">Denial of Void</span>
             </div>
-            <span class="chapter-readtime">⏱ 4 min read</span>  
+            <span class="chapter-readtime">⏱ 4 min read</span>
             <div class="chapter-body">
-              <p class="lead">
-                To be written.
-              </p>
+              <p class="lead">To be written.</p>
             </div>
             <div class="chapter-foot-nav">
               <a class="prev" href="#leucippus">&larr; Leucippus</a>
@@ -414,7 +1005,13 @@
             </div>
           </article>
           <!-- ============ CHAPTER 15: Protagoras ============ -->
-          <article class="chapter reveal" id="protagoras" data-school="Sophist" data-start="-490" data-end="-420">
+          <article
+            class="chapter reveal"
+            id="protagoras"
+            data-school="Sophist"
+            data-start="-490"
+            data-end="-420"
+          >
             <span class="chapter-number">Chapter XV</span>
             <div class="chapter-head">
               <div class="chapter-glyph">
@@ -431,20 +1028,24 @@
               <span class="chapter-tag">Relativism</span>
               <span class="chapter-tag">Denial of Void</span>
             </div>
-            <span class="chapter-readtime">⏱ 4 min read</span>  
+            <span class="chapter-readtime">⏱ 4 min read</span>
             <div class="chapter-body">
-              <p class="lead">
-                To be written.
-              </p>
+              <p class="lead">To be written.</p>
             </div>
             <div class="chapter-foot-nav">
               <a class="prev" href="#democritus">&larr; Democritus</a>
               <a class="next" href="#gorgias">Gorgias &rarr;</a>
-            <span></span>
+              <span></span>
             </div>
           </article>
-              <!-- ============ CHAPTER 16: Gorgias ============ -->
-          <article class="chapter reveal" id="gorgias" data-school="Sophist" data-start="-483" data-end="-375">
+          <!-- ============ CHAPTER 16: Gorgias ============ -->
+          <article
+            class="chapter reveal"
+            id="gorgias"
+            data-school="Sophist"
+            data-start="-483"
+            data-end="-375"
+          >
             <span class="chapter-number">Chapter XVI</span>
             <div class="chapter-head">
               <div class="chapter-glyph">
@@ -453,7 +1054,10 @@
               <div>
                 <h2>Gorgias</h2>
                 <p class="chapter-dates">~483-375 BCE · Leontini, Sicily</p>
-                <p class="chapter-thesis">Nothing exists, and if it did, it could not be known or communicated.</p>
+                <p class="chapter-thesis">
+                  Nothing exists, and if it did, it could not be known or
+                  communicated.
+                </p>
               </div>
             </div>
             <div class="chapter-tags">
@@ -461,37 +1065,56 @@
               <span class="chapter-tag">Relativism</span>
               <span class="chapter-tag">Denial of Void</span>
             </div>
-            <span class="chapter-readtime">⏱ 4 min read</span>  
+            <span class="chapter-readtime">⏱ 4 min read</span>
             <div class="chapter-body">
-              <p class="lead">
-                To be written.
-              </p>
+              <p class="lead">To be written.</p>
             </div>
             <div class="chapter-foot-nav">
               <a class="prev" href="#protagoras">&larr; Protagoras</a>
-              <a class="next" href="socrates.html">Towards Socrates: Book II &rarr;</a>
+              <a class="next" href="socrates.html"
+                >Towards Socrates: Book II &rarr;</a
+              >
 
               <span></span>
             </div>
           </article>
-
-              
-        </div><!-- /book-body -->
-      <div class="book-end-nav reveal">
-        <a href="presocratics.html" class="cover-contents-link">&larr; Part One</a>
-        <a href="socrates.html" class="btn-primary-custom">Continue to Book II: Socrates &amp; the Sophists &rarr;</a>
+        </div>
+        <!-- /book-body -->
+        <div class="book-end-nav reveal">
+          <a href="presocratics.html" class="cover-contents-link"
+            >&larr; Part One</a
+          >
+          <a href="socrates.html" class="btn-primary-custom"
+            >Continue to Book II: Socrates &amp; the Sophists &rarr;</a
+          >
+        </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <footer class="site-footer">
+      <div class="container-main">
+        <div class="footer-inner">
+          <p class="footer-copy">&copy; 2025 Shresth Singh — Philosophy</p>
+          <div class="footer-social">
+            <a
+              href="https://www.linkedin.com/in/shresth-singh-achieve/"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+              ><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                /></svg
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
 
-  <footer class="site-footer"><div class="container-main"><div class="footer-inner">
-    <p class="footer-copy">&copy; 2025 Shresth Singh — Philosophy</p>
-    <div class="footer-social"><a href="https://www.linkedin.com/in/shresth-singh-achieve/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
-  </div></div></footer>
-
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
-  <script src="../js/main.js"></script>
-  <script src="philosophy.js?v=3"></script>
-</body>
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+      &uarr;
+    </button>
+    <script src="../js/main.js"></script>
+    <script src="philosophy.js?v=3"></script>
+  </body>
 </html>

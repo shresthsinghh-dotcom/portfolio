@@ -1,577 +1,1151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Philosophical Orientation — Shresth Singh</title>
-  <meta name="description" content="A philosophical orientation: the lineage of Western thought from the Pre-Socratics forward, and the six-book reading project tracing it.">
-  <link rel="stylesheet" href="../css/styles.css?v=8">
-  <style>
-    .breadcrumb { display:flex; align-items:center; gap:0.5rem; font-family:var(--f-display); font-size:0.85rem; color:var(--c-text-dim); padding:1.2rem 0; }
-    .breadcrumb a { color:var(--c-text-dim); text-decoration:none; } .breadcrumb a:hover { color:var(--c-accent); }
-    .breadcrumb .sep { opacity:0.4; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Philosophical Orientation — Shresth Singh</title>
+    <meta
+      name="description"
+      content="A philosophical orientation: the lineage of Western thought from the Pre-Socratics forward, and the six-book reading project tracing it."
+    />
+    <link rel="stylesheet" href="../css/styles.css?v=9" />
+    <style>
+      .breadcrumb {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--f-display);
+        font-size: 0.85rem;
+        color: var(--c-text-dim);
+        padding: 1.2rem 0;
+      }
+      .breadcrumb a {
+        color: var(--c-text-dim);
+        text-decoration: none;
+      }
+      .breadcrumb a:hover {
+        color: var(--c-accent);
+      }
+      .breadcrumb .sep {
+        opacity: 0.4;
+      }
 
-    .essay-card { background:var(--c-surface); border:1px solid var(--c-border); border-radius:var(--radius-lg); padding:2rem; transition:transform .3s var(--ease-out),box-shadow .3s; display:flex; flex-direction:column; text-decoration:none; }
-    .essay-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,0.25); }
-    [data-theme="light"] .essay-card:hover { box-shadow:0 16px 40px rgba(100,80,160,0.1); }
-    .essay-card .era-tag { font-family:var(--f-display); font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--c-accent); margin-bottom:0.75rem; }
-    .essay-card h3 { font-size:1.25rem; margin-bottom:0.6rem; }
-    .essay-card p { color:var(--c-text-dim); font-size:0.95rem; flex:1; }
-    .essay-card .card-link { display:inline-flex; align-items:center; gap:0.4rem; font-family:var(--f-display); font-weight:600; font-size:0.88rem; color:var(--c-accent); margin-top:1.25rem; transition:gap .25s; }
-    .essay-card:hover .card-link { gap:0.7rem; }
+      .essay-card {
+        background: var(--c-surface);
+        border: 1px solid var(--c-border);
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        transition:
+          transform 0.3s var(--ease-out),
+          box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+      }
+      .essay-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+      }
+      [data-theme="light"] .essay-card:hover {
+        box-shadow: 0 16px 40px rgba(100, 80, 160, 0.1);
+      }
+      .essay-card .era-tag {
+        font-family: var(--f-display);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--c-accent);
+        margin-bottom: 0.75rem;
+      }
+      .essay-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.6rem;
+      }
+      .essay-card p {
+        color: var(--c-text-dim);
+        font-size: 0.95rem;
+        flex: 1;
+      }
+      .essay-card .card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-family: var(--f-display);
+        font-weight: 600;
+        font-size: 0.88rem;
+        color: var(--c-accent);
+        margin-top: 1.25rem;
+        transition: gap 0.25s;
+      }
+      .essay-card:hover .card-link {
+        gap: 0.7rem;
+      }
 
-    .status-banner { background:var(--c-surface); border:1px solid var(--c-border); border-radius:var(--radius-lg); padding:2rem; text-align:center; }
-    .status-banner p { color:var(--c-text-dim); margin-bottom:0.5rem; }
-    .planned-tags { display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; margin-top:1rem; }
-    .planned-tag { font-family:var(--f-display); font-weight:500; font-size:0.78rem; padding:0.35rem 0.8rem; border-radius:20px; background:var(--c-accent-glow); border:1px solid rgba(52,211,153,0.2); color:var(--c-accent); }
-    [data-theme="light"] .planned-tag { border-color:rgba(124,92,191,0.25); }
+      .status-banner {
+        background: var(--c-surface);
+        border: 1px solid var(--c-border);
+        border-radius: var(--radius-lg);
+        padding: 2rem;
+        text-align: center;
+      }
+      .status-banner p {
+        color: var(--c-text-dim);
+        margin-bottom: 0.5rem;
+      }
+      .planned-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+      .planned-tag {
+        font-family: var(--f-display);
+        font-weight: 500;
+        font-size: 0.78rem;
+        padding: 0.35rem 0.8rem;
+        border-radius: 20px;
+        background: var(--c-accent-glow);
+        border: 1px solid rgba(52, 211, 153, 0.2);
+        color: var(--c-accent);
+      }
+      [data-theme="light"] .planned-tag {
+        border-color: rgba(124, 92, 191, 0.25);
+      }
 
-    /* === TREE === */
-    .tree-section { padding:var(--s-section) 0; overflow-x:auto; }
-    .tree { display:flex; flex-direction:column; align-items:center; gap:0; min-width:900px; padding:0 1rem; }
-    .tree-era { font-family:var(--f-display); font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--c-accent); margin:2.5rem 0 0.75rem; text-align:center; }
-    .tree-era:first-child { margin-top:0; }
+      /* === TREE === */
+      .tree-section {
+        padding: var(--s-section) 0;
+        overflow-x: auto;
+      }
+      .tree {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        min-width: 900px;
+        padding: 0 1rem;
+      }
+      .tree-era {
+        font-family: var(--f-display);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--c-accent);
+        margin: 2.5rem 0 0.75rem;
+        text-align: center;
+      }
+      .tree-era:first-child {
+        margin-top: 0;
+      }
 
-    .tree-row { display:flex; justify-content:center; gap:1.5rem; position:relative; flex-wrap:nowrap; }
+      .tree-row {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        position: relative;
+        flex-wrap: nowrap;
+      }
 
-    .tree-connector { display:flex; justify-content:center; padding:0.75rem 0; }
-    .tree-connector .vline { width:1px; height:28px; background:var(--c-border); }
+      .tree-connector {
+        display: flex;
+        justify-content: center;
+        padding: 0.75rem 0;
+      }
+      .tree-connector .vline {
+        width: 1px;
+        height: 28px;
+        background: var(--c-border);
+      }
 
-    .tree-fan { display:flex; flex-direction:column; align-items:center; padding:0.5rem 0; }
-    .tree-fan .hline { height:1px; background:var(--c-border); }
-    .tree-fan .drops { display:flex; justify-content:space-between; }
-    .tree-fan .drop { width:1px; height:16px; background:var(--c-border); }
+      .tree-fan {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem 0;
+      }
+      .tree-fan .hline {
+        height: 1px;
+        background: var(--c-border);
+      }
+      .tree-fan .drops {
+        display: flex;
+        justify-content: space-between;
+      }
+      .tree-fan .drop {
+        width: 1px;
+        height: 16px;
+        background: var(--c-border);
+      }
 
-    .p-card {
-      background:var(--c-surface);
-      border:1px solid var(--c-border);
-      border-radius:var(--radius);
-      padding:0.9rem 1.1rem;
-      min-width:130px;
-      max-width:200px;
-      text-align:center;
-      transition: transform .25s var(--ease-out), box-shadow .25s;
-      cursor:default;
-      position:relative;
-    }
-    .p-card:hover { transform:translateY(-2px); box-shadow:0 4px 20px var(--c-accent-glow), 0 8px 30px rgba(0,0,0,0.15); }
-    [data-theme="light"] .p-card:hover { box-shadow:0 4px 20px var(--c-accent-glow), 0 8px 30px rgba(100,80,160,0.08); }
-    .p-card.read { border-color:var(--c-accent); border-width:1.5px; }
+      .p-card {
+        background: var(--c-surface);
+        border: 1px solid var(--c-border);
+        border-radius: var(--radius);
+        padding: 0.9rem 1.1rem;
+        min-width: 130px;
+        max-width: 200px;
+        text-align: center;
+        transition:
+          transform 0.25s var(--ease-out),
+          box-shadow 0.25s;
+        cursor: default;
+        position: relative;
+      }
+      .p-card:hover {
+        transform: translateY(-2px);
+        box-shadow:
+          0 4px 20px var(--c-accent-glow),
+          0 8px 30px rgba(0, 0, 0, 0.15);
+      }
+      [data-theme="light"] .p-card:hover {
+        box-shadow:
+          0 4px 20px var(--c-accent-glow),
+          0 8px 30px rgba(100, 80, 160, 0.08);
+      }
+      .p-card.read {
+        border-color: var(--c-accent);
+        border-width: 1.5px;
+      }
 
-    /* Linked cards */
-    a.p-card-link { text-decoration:none; display:block; cursor:pointer; }
-    a.p-card-link .p-card { cursor:pointer; }
-    a.p-card-link:hover .p-card { border-color:var(--c-accent); }
+      /* Linked cards */
+      a.p-card-link {
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+      }
+      a.p-card-link .p-card {
+        cursor: pointer;
+      }
+      a.p-card-link:hover .p-card {
+        border-color: var(--c-accent);
+      }
 
-    /* Tooltip for unlinked cards */
-    .p-card[data-tooltip]:hover::after {
-      content:attr(data-tooltip);
-      position:absolute;
-      bottom:calc(100% + 8px);
-      left:50%;
-      transform:translateX(-50%);
-      font-family:var(--f-display);
-      font-size:0.72rem;
-      font-weight:500;
-      color:var(--c-heading);
-      background:var(--c-surface-2);
-      border:1px solid var(--c-border);
-      padding:0.3rem 0.7rem;
-      border-radius:6px;
-      white-space:nowrap;
-      z-index:10;
-      pointer-events:none;
-    }
-    .p-card h5 { font-family:var(--f-display); font-weight:600; font-size:0.88rem; color:var(--c-heading); margin-bottom:0.4rem; line-height:1.2; }
-    .p-card .p-era { font-family:var(--f-display); font-size:0.62rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--c-accent); margin-bottom:0.35rem; }
-    .p-card ul { list-style:none; padding:0; margin:0; }
-    .p-card li { font-size:0.78rem; color:var(--c-text-dim); padding:0.1rem 0; display:flex; align-items:center; justify-content:center; gap:0.3rem; }
-    .p-card li .ck { color:var(--c-accent); font-size:0.75rem; }
-    .p-card li .pn { color:var(--c-text-dim); opacity:0.35; font-size:0.75rem; }
+      /* Tooltip for unlinked cards */
+      .p-card[data-tooltip]:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        bottom: calc(100% + 8px);
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--f-display);
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: var(--c-heading);
+        background: var(--c-surface-2);
+        border: 1px solid var(--c-border);
+        padding: 0.3rem 0.7rem;
+        border-radius: 6px;
+        white-space: nowrap;
+        z-index: 10;
+        pointer-events: none;
+      }
+      .p-card h5 {
+        font-family: var(--f-display);
+        font-weight: 600;
+        font-size: 0.88rem;
+        color: var(--c-heading);
+        margin-bottom: 0.4rem;
+        line-height: 1.2;
+      }
+      .p-card .p-era {
+        font-family: var(--f-display);
+        font-size: 0.62rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--c-accent);
+        margin-bottom: 0.35rem;
+      }
+      .p-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .p-card li {
+        font-size: 0.78rem;
+        color: var(--c-text-dim);
+        padding: 0.1rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+      }
+      .p-card li .ck {
+        color: var(--c-accent);
+        font-size: 0.75rem;
+      }
+      .p-card li .pn {
+        color: var(--c-text-dim);
+        opacity: 0.35;
+        font-size: 0.75rem;
+      }
 
-    .influence-note {
-      font-family:var(--f-body);
-      font-size:0.75rem;
-      color:var(--c-text-dim);
-      opacity:0.6;
-      text-align:center;
-      margin-top:0.5rem;
-      font-style:italic;
-    }
+      .influence-note {
+        font-family: var(--f-body);
+        font-size: 0.75rem;
+        color: var(--c-text-dim);
+        opacity: 0.6;
+        text-align: center;
+        margin-top: 0.5rem;
+        font-style: italic;
+      }
 
-    @media (max-width:960px) {
-      .tree { min-width:unset; }
-      .tree-row { flex-wrap:wrap; justify-content:center; }
-    }
+      @media (max-width: 960px) {
+        .tree {
+          min-width: unset;
+        }
+        .tree-row {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      }
 
-    /* --- BOOKS INDEX --- */
-    .books-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.25rem; }
-    .book-index-card {
-      background:var(--c-surface);
-      border:1px solid var(--c-border);
-      border-radius:var(--radius-lg);
-      padding:1.5rem;
-      text-decoration:none;
-      display:flex;
-      flex-direction:column;
-      transition:transform .3s var(--ease-out), box-shadow .3s;
-      position:relative;
-      overflow:hidden;
-    }
-    .book-index-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,0.25); }
-    [data-theme="light"] .book-index-card:hover { box-shadow:0 16px 40px rgba(100,80,160,0.1); }
-    .book-index-card.locked { opacity:0.65; }
-    .book-index-card .book-num {
-      font-family:var(--f-display); font-size:0.68rem; font-weight:600; letter-spacing:0.12em;
-      text-transform:uppercase; color:var(--c-accent); margin-bottom:0.5rem;
-    }
-    .book-index-card h4 { font-size:1.1rem; margin-bottom:0.5rem; color:var(--c-heading); }
-    .book-index-card p { font-size:0.85rem; color:var(--c-text-dim); margin-bottom:0.75rem; flex:1; }
-    .book-index-card .book-status {
-      font-family:var(--f-display); font-size:0.72rem; font-weight:600;
-      display:flex; align-items:center; gap:0.4rem;
-    }
-    .book-index-card .book-status.complete { color:var(--c-accent); }
-    .book-index-card .book-status.progress { color:var(--c-text-dim); }
-    .book-index-card .status-dot2 { width:6px; height:6px; border-radius:50%; background:currentColor; }
-  </style>
-</head>
-<body>
+      /* --- BOOKS INDEX --- */
+      .books-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+      }
+      .book-index-card {
+        background: var(--c-surface);
+        border: 1px solid var(--c-border);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.3s var(--ease-out),
+          box-shadow 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .book-index-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+      }
+      [data-theme="light"] .book-index-card:hover {
+        box-shadow: 0 16px 40px rgba(100, 80, 160, 0.1);
+      }
+      .book-index-card.locked {
+        opacity: 0.65;
+      }
+      .book-index-card .book-num {
+        font-family: var(--f-display);
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--c-accent);
+        margin-bottom: 0.5rem;
+      }
+      .book-index-card h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        color: var(--c-heading);
+      }
+      .book-index-card p {
+        font-size: 0.85rem;
+        color: var(--c-text-dim);
+        margin-bottom: 0.75rem;
+        flex: 1;
+      }
+      .book-index-card .book-status {
+        font-family: var(--f-display);
+        font-size: 0.72rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .book-index-card .book-status.complete {
+        color: var(--c-accent);
+      }
+      .book-index-card .book-status.progress {
+        color: var(--c-text-dim);
+      }
+      .book-index-card .status-dot2 {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: currentColor;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo"
+          ><span class="logo-dot"></span> Shresth Singh</a
+        >
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <svg
+            class="icon-moon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg
+            class="icon-sun"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+        </button>
+      </div>
+    </nav>
 
-  <nav class="site-nav"><div class="nav-inner">
-    <a href="../index.html" class="nav-logo"><span class="logo-dot"></span> Shresth Singh</a>
-    <button class="theme-toggle" aria-label="Toggle theme">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <div style="padding-top: 5rem">
+      <div class="container-main">
+        <div class="breadcrumb">
+          <a href="../philosophy.html">About Me</a><span class="sep">›</span>
+          <span style="color: var(--c-heading)">Philosophical Orientation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTRO -->
+    <section style="padding: 2rem 0 var(--s-section)">
+      <div class="container-main" style="max-width: 800px; text-align: center">
+        <div class="reveal">
+          <h1 style="margin-bottom: 1rem">Philosophical Orientation</h1>
+          <hr class="divider divider--center" />
+          <p
+            style="
+              color: var(--c-text-dim);
+              font-size: 1.05rem;
+              line-height: 1.8;
+            "
+          >
+            In search of the truth, we have thought a great deal. To be wise is
+            to make the best decisions, and to live the best life. I do not know
+            the right path; all I know is that the attempt to find it must be
+            closer to wisdom than ignorance. Thus I embark upon this journey.
+          </p>
+          <p
+            style="
+              color: var(--c-text-dim);
+              font-size: 1.05rem;
+              line-height: 1.8;
+              margin-top: 1rem;
+            "
+          >
+            The goal is to traverse over 2,500 years of knowledge gathered from
+            three central strongholds of thought: the West, the East, and the
+            South. We begin with the West, covering nearly a millennium and
+            concluding upon the wane of the Roman Empire with its last great
+            emperor, Marcus Aurelius.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHICAL TREE -->
+    <section class="tree-section">
+      <div class="container-main">
+        <div style="text-align: center; margin-bottom: 2.5rem" class="reveal">
+          <span
+            class="section-label"
+            style="justify-content: center; display: flex"
+            >Lineage</span
+          >
+          <h2>The Philosophical Tree</h2>
+          <hr class="divider divider--center" />
+          <p style="color: var(--c-text-dim); max-width: 600px; margin: 0 auto">
+            A quick map of who influenced whom. Cards with an accent border mark
+            thinkers whose works I have read. Click any card to jump straight to
+            that thinker's chapter.
+          </p>
+        </div>
+
+        <div class="tree reveal">
+          <!-- MILESIANS -->
+          <div class="tree-era">~624–526 BCE · The Milesian School</div>
+          <div class="tree-row">
+            <a href="presocratics.html#thales" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Thales</h5>
+                <p class="p-era">Water as Arche</p>
+                <ul>
+                  <li><span class="ck">✓</span> Fragments</li>
+                </ul>
+              </div></a
+            >
+            <a href="presocratics.html#anaximander" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Anaximander</h5>
+                <p class="p-era">Apeiron</p>
+                <ul>
+                  <li><span class="ck">✓</span> Chapter Complete</li>
+                </ul>
+              </div></a
+            >
+            <a href="presocratics.html#anaximenes" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Anaximenes</h5>
+                <p class="p-era">Aer</p>
+                <ul>
+                  <li><span class="ck">✓</span> Fragments</li>
+                </ul>
+              </div></a
+            >
+          </div>
+
+          <div class="tree-connector"><div class="vline"></div></div>
+          <p class="influence-note">What is the Arche of Everything?</p>
+
+          <!-- PYTHAGORAS & XENOPHANES -->
+          <div class="tree-era">~571–478 BCE · A Revolution of Inquiry</div>
+          <div class="tree-row">
+            <a href="presocratics.html#pythagoras" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Pythagoras</h5>
+                <p class="p-era">Number as Reality</p>
+                <ul>
+                  <li style="font-style: italic; opacity: 0.5">
+                    No surviving texts
+                  </li>
+                </ul>
+              </div></a
+            >
+            <a href="presocratics.html#xenophanes" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Xenophanes</h5>
+                <p class="p-era">One God, Epistemic Limits</p>
+                <ul>
+                  <li><span class="ck">✓</span> Fragments</li>
+                </ul>
+              </div></a
+            >
+          </div>
+
+          <div class="tree-connector"><div class="vline"></div></div>
+          <p class="influence-note">What Governs Reality?</p>
+
+          <!-- THE SCHISM -->
+          <div class="tree-era">~540–450 BCE · The Great Divide</div>
+          <div class="tree-row">
+            <a href="presocratics.html#heraclitus" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Heraclitus</h5>
+                <ul>
+                  <li><span class="ck">✓</span> Fragments</li>
+                </ul>
+              </div></a
+            >
+            <a href="presocratics-2.html#parmenides" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Parmenides</h5>
+                <ul>
+                  <li><span class="ck">✓</span> On Nature</li>
+                </ul>
+              </div></a
+            >
+          </div>
+
+          <div class="tree-connector"><div class="vline"></div></div>
+          <p class="influence-note">Irreconcilable Differences</p>
+
+          <!-- ELEATICS -->
+          <div class="tree-era">~500–430 BCE · The Eleatic School</div>
+          <div class="tree-row">
+            <a href="presocratics.html#melissus" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Melissus</h5>
+                <ul>
+                  <li><span class="ck">✓</span> A Defense</li>
+                </ul>
+              </div></a
+            >
+            <a href="presocratics-2.html#zeno" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Zeno</h5>
+                <ul>
+                  <li><span class="ck">✓</span> Paradoxes</li>
+                </ul>
+              </div></a
+            >
+          </div>
+
+          <div class="tree-connector"><div class="vline"></div></div>
+          <p class="influence-note">
+            A firm defense of monic reality, albeit evolved and refined
+          </p>
+
+          <!-- PLURALISTS -->
+          <div class="tree-era">~500–428 BCE · The Pluralist School</div>
+          <div class="tree-row">
+            <a href="presocratics.html#empedocles" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Empedocles</h5>
+                <ul>
+                  <li><span class="ck">✓</span> Elements and Forces</li>
+                </ul>
+              </div></a
+            >
+            <a href="presocratics-2.html#anaxagoras" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Anaxagoras</h5>
+                <ul>
+                  <li><span class="ck">✓</span> Nature and Mind</li>
+                </ul>
+              </div></a
+            >
+          </div>
+
+          <div class="tree-connector"><div class="vline"></div></div>
+          <p class="influence-note">
+            A further evolution of Parmenides' ideas, with a complete rejection
+            of monism
+          </p>
+
+          <!-- ATOMISTS -->
+          <div class="tree-era">~490-370 BCE · The Atomist School</div>
+          <div class="tree-row">
+            <a href="presocratics.html#democritus" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Democritus</h5>
+                <ul>
+                  <li><span class="ck">✓</span> The Atomist Theory</li>
+                </ul>
+              </div></a
+            >
+            <a href="presocratics-2.html#leucippus" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Leucippus</h5>
+                <ul>
+                  <li><span class="ck">✓</span> The Atomist Theory</li>
+                </ul>
+              </div></a
+            >
+          </div>
+
+          <div class="tree-connector"><div class="vline"></div></div>
+          <p class="influence-note">
+            The Literal Building Blocks of Philosophy
+          </p>
+
+          <!-- SOPHISTS -->
+          <div class="tree-era">~490-375 BCE · The Premier Sophists</div>
+          <div class="tree-row">
+            <a href="presocratics.html#protagoras" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Protagoras</h5>
+                <ul>
+                  <li><span class="ck">✓</span> Can Virtue be Taught?</li>
+                </ul>
+              </div></a
+            >
+            <a href="presocratics-2.html#gorgias" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Gorgias</h5>
+                <ul>
+                  <li><span class="ck">✓</span> Can Anything be Known?</li>
+                </ul>
+              </div></a
+            >
+          </div>
+
+          <div class="tree-connector"><div class="vline"></div></div>
+          <p class="influence-note">
+            The Stage is set for the Socratic Revolution
+          </p>
+
+          <!-- SOCRATES -->
+          <div class="tree-era">~470–399 BCE · The Socratic Turn</div>
+          <div class="tree-row">
+            <a href="socrates.html" class="p-card-link"
+              ><div
+                class="p-card"
+                style="border-color: var(--c-accent); border-style: dashed"
+              >
+                <h5>Socrates</h5>
+                <ul>
+                  <li style="font-style: italic; opacity: 0.5">
+                    No surviving texts
+                  </li>
+                </ul>
+              </div></a
+            >
+          </div>
+
+          <div class="tree-connector"><div class="vline"></div></div>
+          <p class="influence-note">Students branch into rival schools</p>
+
+          <!-- SOCRATIC STUDENTS -->
+          <div class="tree-era">~400 BCE · Socratic Students</div>
+          <div class="tree-row">
+            <div class="p-card" data-tooltip="Essay coming soon">
+              <h5>Antisthenes</h5>
+              <p class="p-era">Cynic founder</p>
+              <ul>
+                <li><span class="pn">○</span> Lives, Book VI</li>
+              </ul>
+              <p
+                style="
+                  font-size: 0.72rem;
+                  color: var(--c-text-dim);
+                  opacity: 0.7;
+                  margin: 0.5rem 0 0;
+                  line-height: 1.4;
+                "
+              >
+                cf. Plato, Aristippus · confirmed by Diogenes, Zeno, Epictetus
+              </p>
+            </div>
+            <div class="p-card" data-tooltip="Essay coming soon">
+              <h5>Euclid of Megara</h5>
+              <p class="p-era">Megarian school</p>
+              <ul>
+                <li><span class="pn">○</span> Lives, Book II</li>
+              </ul>
+              <p
+                style="
+                  font-size: 0.72rem;
+                  color: var(--c-text-dim);
+                  opacity: 0.7;
+                  margin: 0.5rem 0 0;
+                  line-height: 1.4;
+                "
+              >
+                cf. Parmenides, Euthyphro, Laches
+              </p>
+            </div>
+            <a href="socrates.html" class="p-card-link"
+              ><div class="p-card read">
+                <h5>Plato</h5>
+                <p class="p-era">Academy</p>
+                <ul>
+                  <li><span class="ck">✓</span> The Apology</li>
+                  <li><span class="ck">✓</span> Euthyphro</li>
+                  <li><span class="ck">✓</span> Protagoras</li>
+                  <li><span class="pn">○</span> Crito</li>
+                  <li><span class="pn">○</span> Phaedo</li>
+                  <li><span class="pn">○</span> Meno</li>
+                  <li><span class="pn">○</span> Symposium</li>
+                  <li><span class="pn">○</span> The Republic</li>
+                  <li
+                    style="font-size: 0.7rem; opacity: 0.4; margin-top: 0.2rem"
+                  >
+                    + 17 more planned
+                  </li>
+                </ul>
+              </div></a
+            >
+            <div class="p-card" data-tooltip="Essay coming soon">
+              <h5>Xenophon</h5>
+              <p class="p-era">Historian</p>
+              <ul>
+                <li><span class="pn">○</span> Memorabilia</li>
+                <li><span class="pn">○</span> Apology of Socrates</li>
+              </ul>
+            </div>
+            <div class="p-card" data-tooltip="Essay coming soon">
+              <h5>Aristippus</h5>
+              <p class="p-era">Cyrenaic founder</p>
+              <ul>
+                <li><span class="pn">○</span> Lives, Book II</li>
+                <li><span class="pn">○</span> Memorabilia, Book II</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tree-connector"><div class="vline"></div></div>
+
+          <!-- SECOND GENERATION -->
+          <div class="tree-era">~350 BCE · Second Generation</div>
+          <div class="tree-row">
+            <div class="p-card" data-tooltip="Essay coming soon">
+              <h5>Diogenes of Sinope</h5>
+              <p class="p-era">Radical Cynic</p>
+              <ul>
+                <li style="font-style: italic; opacity: 0.5">
+                  Via Antisthenes
+                </li>
+              </ul>
+            </div>
+            <div class="p-card" data-tooltip="Essay coming soon">
+              <h5>Megarians</h5>
+              <p class="p-era">Logic &amp; Paradoxes</p>
+              <ul>
+                <li><span class="pn">○</span> Lives, Book II</li>
+                <li><span class="pn">○</span> Memorabilia, Book II</li>
+                <li><span class="pn">○</span> The Liar Paradox</li>
+                <li><span class="pn">○</span> Sorites Paradox</li>
+                <li><span class="pn">○</span> Diodorus' Master Argument</li>
+              </ul>
+            </div>
+            <a href="aristotle.html" class="p-card-link"
+              ><div class="p-card">
+                <h5>Aristotle</h5>
+                <p class="p-era">Via Plato</p>
+                <ul>
+                  <li><span class="pn">○</span> Nicomachean Ethics</li>
+                  <li><span class="pn">○</span> Politics</li>
+                  <li><span class="pn">○</span> De Anima</li>
+                  <li><span class="pn">○</span> Metaphysics</li>
+                  <li><span class="pn">○</span> Rhetoric</li>
+                </ul>
+              </div></a
+            >
+            <a href="plato.html" class="p-card-link"
+              ><div class="p-card">
+                <h5>Academy</h5>
+                <p class="p-era">Skeptical turn</p>
+                <ul>
+                  <li><span class="pn">○</span> De finibus, Book II</li>
+                </ul>
+              </div></a
+            >
+            <div class="p-card" data-tooltip="Essay coming soon">
+              <h5>Cyrenaics</h5>
+              <p class="p-era">Via Aristippus</p>
+              <ul>
+                <li><span class="pn">○</span> Lives, Book II</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tree-connector"><div class="vline"></div></div>
+          <p class="influence-note">Multiple streams converge into Stoicism</p>
+
+          <!-- HELLENISTIC -->
+          <div class="tree-era">~300 BCE · Hellenistic Schools</div>
+          <div class="tree-row">
+            <a href="hellenistic.html" class="p-card-link"
+              ><div class="p-card">
+                <h5>Zeno of Citium</h5>
+                <p class="p-era">Founded Stoicism</p>
+                <ul>
+                  <li><span class="pn">○</span> Lives, Book VII</li>
+                </ul>
+                <p
+                  style="
+                    font-size: 0.72rem;
+                    color: var(--c-text-dim);
+                    opacity: 0.7;
+                    margin: 0.5rem 0 0;
+                    line-height: 1.4;
+                  "
+                >
+                  Synthesis of Antisthenes, Euclid, Cyrenaics, Academy &amp;
+                  Heraclitus
+                </p>
+              </div></a
+            >
+            <a href="hellenistic.html" class="p-card-link"
+              ><div class="p-card">
+                <h5>Epicurus</h5>
+                <p class="p-era">Counter-tradition</p>
+                <ul>
+                  <li><span class="pn">○</span> Letter to Menoeceus</li>
+                  <li><span class="pn">○</span> Principal Doctrines</li>
+                </ul>
+              </div></a
+            >
+          </div>
+
+          <div class="tree-connector"><div class="vline"></div></div>
+
+          <!-- SYSTEMATIZATION -->
+          <div class="tree-era">~250 BCE · Systematization</div>
+          <div class="tree-row">
+            <a href="hellenistic.html" class="p-card-link"
+              ><div class="p-card">
+                <h5>Chrysippus</h5>
+                <p class="p-era">Stoic logic</p>
+                <ul>
+                  <li><span class="pn">○</span> De finibus (Stoic books)</li>
+                  <li><span class="pn">○</span> Lives, Book VII</li>
+                  <li><span class="pn">○</span> Against the Logicians</li>
+                </ul>
+              </div></a
+            >
+          </div>
+
+          <div class="tree-connector"><div class="vline"></div></div>
+
+          <!-- TRANSMISSION -->
+          <div class="tree-era">~100 BCE · Transmission to Rome</div>
+          <div class="tree-row">
+            <a href="hellenistic.html" class="p-card-link"
+              ><div class="p-card">
+                <h5>Cicero</h5>
+                <p class="p-era">Roman transmitter</p>
+                <ul>
+                  <li><span class="pn">○</span> De finibus</li>
+                  <li><span class="pn">○</span> Academica</li>
+                  <li><span class="pn">○</span> Tusculan Disputations</li>
+                </ul>
+              </div></a
+            >
+          </div>
+
+          <div class="tree-connector"><div class="vline"></div></div>
+
+          <!-- ROMAN STOICS -->
+          <div class="tree-era">~50–180 CE · Roman Stoicism</div>
+          <div class="tree-row">
+            <a href="roman-stoicism.html" class="p-card-link"
+              ><div class="p-card">
+                <h5>Seneca</h5>
+                <ul>
+                  <li><span class="pn">○</span> Letters to Lucilius</li>
+                </ul>
+              </div></a
+            >
+            <a href="roman-stoicism.html" class="p-card-link"
+              ><div class="p-card">
+                <h5>Epictetus</h5>
+                <ul>
+                  <li><span class="pn">○</span> Enchiridion</li>
+                  <li><span class="pn">○</span> Discourses</li>
+                </ul>
+              </div></a
+            >
+            <a href="roman-stoicism.html" class="p-card-link"
+              ><div class="p-card">
+                <h5>Marcus Aurelius</h5>
+                <ul>
+                  <li><span class="pn">○</span> Meditations</li>
+                </ul>
+              </div></a
+            >
+          </div>
+        </div>
+        <!-- /tree -->
+      </div>
+    </section>
+
+    <!-- BOOKS INDEX -->
+    <section
+      style="
+        padding: var(--s-section) 0;
+        background: var(--c-bg-alt);
+        border-top: 1px solid var(--c-border);
+        border-bottom: 1px solid var(--c-border);
+      "
+    >
+      <div class="container-main">
+        <div style="text-align: center; margin-bottom: 2.5rem" class="reveal">
+          <span
+            class="section-label"
+            style="justify-content: center; display: flex"
+            >The Library</span
+          >
+          <h2>Six Books, One Journey</h2>
+          <hr class="divider divider--center" />
+          <p style="color: var(--c-text-dim); max-width: 600px; margin: 0 auto">
+            From the first cosmologists to the last Stoic emperor — each book is
+            a continuous reading experience with its own chapters, figures, and
+            appendices.
+          </p>
+        </div>
+
+        <div class="books-grid reveal">
+          <a href="presocratics.html" class="book-index-card">
+            <span class="book-num">Book I</span>
+            <h4>The Presocratics</h4>
+            <p>
+              Thales through Parmenides — the first attempts to explain reality
+              through logic rather than myth.
+            </p>
+            <span class="book-status complete"
+              ><span class="status-dot2"></span> 9 Chapters · Complete</span
+            >
+          </a>
+          <a href="socrates.html" class="book-index-card">
+            <span class="book-num">Book II</span>
+            <h4>Socrates &amp; the Sophists</h4>
+            <p>
+              The turn from cosmology to ethics — the Apology, Euthyphro, and
+              the birth of the dialectic.
+            </p>
+            <span class="book-status progress"
+              ><span class="status-dot2"></span> 2 of 3 Chapters Live</span
+            >
+          </a>
+          <a href="plato.html" class="book-index-card locked">
+            <span class="book-num">Book III</span>
+            <h4>Plato's Academy</h4>
+            <p>
+              The Republic, the Forms, and the architecture of the ideal soul
+              and state.
+            </p>
+            <span class="book-status progress"
+              ><span class="status-dot2"></span> Planned</span
+            >
+          </a>
+          <a href="aristotle.html" class="book-index-card locked">
+            <span class="book-num">Book IV</span>
+            <h4>Aristotle</h4>
+            <p>
+              Substance, virtue, and the systematic grounding of philosophy in
+              the observable world.
+            </p>
+            <span class="book-status progress"
+              ><span class="status-dot2"></span> Planned</span
+            >
+          </a>
+          <a href="hellenistic.html" class="book-index-card locked">
+            <span class="book-num">Book V</span>
+            <h4>The Hellenistic Schools</h4>
+            <p>
+              Cynics, Cyrenaics, Epicureans, and early Stoics stake their claims
+              on how to live well.
+            </p>
+            <span class="book-status progress"
+              ><span class="status-dot2"></span> Planned</span
+            >
+          </a>
+          <a href="roman-stoicism.html" class="book-index-card locked">
+            <span class="book-num">Book VI</span>
+            <h4>Roman Stoicism</h4>
+            <p>
+              Seneca, Epictetus, and Marcus Aurelius — Stoicism tested under
+              real power and suffering.
+            </p>
+            <span class="book-status progress"
+              ><span class="status-dot2"></span> Planned</span
+            >
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATUS -->
+    <section
+      style="
+        padding: var(--s-section) 0;
+        background: var(--c-bg-alt);
+        border-top: 1px solid var(--c-border);
+        border-bottom: 1px solid var(--c-border);
+      "
+    >
+      <div class="container-main" style="max-width: 700px">
+        <div class="status-banner reveal">
+          <span
+            class="section-label"
+            style="justify-content: center; display: flex"
+            >Status</span
+          >
+          <h3 style="margin-bottom: 1rem">An Open-Ended Project</h3>
+          <p>
+            This philosophy project is intentionally open-ended. Revisions
+            reflect growth, not indecision. New essays and interpretations are
+            added as readings progress.
+          </p>
+
+          <div
+            style="
+              text-align: left;
+              background: var(--c-bg);
+              border: 1px solid var(--c-border);
+              border-radius: var(--radius);
+              padding: 1.25rem 1.5rem;
+              margin: 1.5rem 0;
+              font-size: 0.85rem;
+            "
+          >
+            <p style="margin-bottom: 0.5rem">
+              <strong style="color: var(--c-heading)"
+                >Being read currently:</strong
+              >
+              <span style="color: var(--c-text-dim)">Crito</span>
+            </p>
+            <p style="margin-bottom: 0.5rem">
+              <strong style="color: var(--c-heading)"
+                >Being interpreted:</strong
+              >
+              <span style="color: var(--c-text-dim)">Protagoras</span>
+            </p>
+            <p style="margin-bottom: 0.5rem">
+              <strong style="color: var(--c-heading)">Being revised:</strong>
+              <span style="color: var(--c-text-dim)">The Apology</span>
+            </p>
+            <p style="margin-bottom: 0.5rem">
+              <strong style="color: var(--c-heading)">Revised with:</strong>
+              <span style="color: var(--c-text-dim)"
+                >The Cambridge Companion to Plato</span
+              >
+            </p>
+            <p style="margin-bottom: 0.5rem">
+              <strong style="color: var(--c-heading)"
+                >Supplemented with:</strong
+              >
+              <span style="color: var(--c-text-dim)"
+                >The Cambridge Companion to Greek and Roman Philosophy (to p.
+                97)</span
+              >
+            </p>
+            <p style="margin-bottom: 0">
+              <strong style="color: var(--c-heading)">Interpreted with:</strong>
+              <span style="color: var(--c-text-dim)"
+                >A Companion to Ancient Philosophy (to p. 97)</span
+              >
+            </p>
+          </div>
+
+          <p
+            style="font-size: 0.92rem; margin-top: 1rem; margin-bottom: 0.5rem"
+          >
+            <strong style="color: var(--c-heading)">Planned additions:</strong>
+          </p>
+          <div class="planned-tags">
+            <span class="planned-tag">Aristotle</span>
+            <span class="planned-tag">Epicureanism</span>
+            <span class="planned-tag">Early Stoicism</span>
+            <span class="planned-tag">Roman Stoics</span>
+            <span class="planned-tag">Comparative Traditions</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container-main">
+        <div class="footer-inner">
+          <p class="footer-copy">&copy; 2026 Shresth Singh — Philosophy</p>
+          <div class="footer-social">
+            <a
+              href="https://www.linkedin.com/in/shresth-singh-achieve/"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+              ><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                /></svg
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+      &uarr;
     </button>
-  </div></nav>
-
-  <div style="padding-top:5rem;"><div class="container-main">
-    <div class="breadcrumb">
-      <a href="../philosophy.html">About Me</a><span class="sep">›</span>
-      <span style="color:var(--c-heading);">Philosophical Orientation</span>
-    </div>
-  </div></div>
-
-  <!-- INTRO -->
-  <section style="padding:2rem 0 var(--s-section);">
-    <div class="container-main" style="max-width:800px; text-align:center;">
-      <div class="reveal">
-        <h1 style="margin-bottom:1rem;">Philosophical Orientation</h1>
-        <hr class="divider divider--center">
-        <p style="color:var(--c-text-dim); font-size:1.05rem; line-height:1.8;">
-          In search of the truth, we have thought a great deal. To be wise is to make the best decisions, and to live the best life. I do not know the right path; all I know is that the attempt to find it must be closer to wisdom than ignorance. Thus I embark upon this journey.
-        </p>
-        <p style="color:var(--c-text-dim); font-size:1.05rem; line-height:1.8; margin-top:1rem;">
-          The goal is to traverse over 2,500 years of knowledge gathered from three central strongholds of thought: the West, the East, and the South. We begin with the West, covering nearly a millennium and concluding upon the wane of the Roman Empire with its last great emperor, Marcus Aurelius.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PHILOSOPHICAL TREE -->
-  <section class="tree-section">
-    <div class="container-main">
-      <div style="text-align:center; margin-bottom:2.5rem;" class="reveal">
-        <span class="section-label" style="justify-content:center; display:flex;">Lineage</span>
-        <h2>The Philosophical Tree</h2>
-        <hr class="divider divider--center">
-        <p style="color:var(--c-text-dim); max-width:600px; margin:0 auto;">A quick map of who influenced whom. Cards with an accent border mark thinkers whose works I have read. Click any card to jump straight to that thinker's chapter.</p>
-      </div>
-
-      <div class="tree reveal">
-
-        <!-- MILESIANS -->
-        <div class="tree-era">~624–526 BCE · The Milesian School</div>
-        <div class="tree-row">
-          <a href="presocratics.html#thales" class="p-card-link"><div class="p-card read">
-            <h5>Thales</h5>
-            <p class="p-era">Water as Arche</p>
-            <ul><li><span class="ck">✓</span> Fragments</li></ul>
-          </div></a>
-          <a href="presocratics.html#anaximander" class="p-card-link"><div class="p-card read">
-            <h5>Anaximander</h5>
-            <p class="p-era">Apeiron</p>
-            <ul><li><span class="ck">✓</span> Chapter Complete</li></ul>
-          </div></a>
-          <a href="presocratics.html#anaximenes" class="p-card-link"><div class="p-card read">
-            <h5>Anaximenes</h5>
-            <p class="p-era">Aer</p>
-            <ul><li><span class="ck">✓</span> Fragments</li></ul>
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-        <p class="influence-note">What is the Arche of Everything?</p>
-
-        <!-- PYTHAGORAS & XENOPHANES -->
-        <div class="tree-era">~571–478 BCE · A Revolution of Inquiry</div>
-        <div class="tree-row">
-          <a href="presocratics.html#pythagoras" class="p-card-link"><div class="p-card read">
-            <h5>Pythagoras</h5>
-            <p class="p-era">Number as Reality</p>
-            <ul><li style="font-style:italic; opacity:0.5;">No surviving texts</li></ul>
-          </div></a>
-          <a href="presocratics.html#xenophanes" class="p-card-link"><div class="p-card read">
-            <h5>Xenophanes</h5>
-            <p class="p-era">One God, Epistemic Limits</p>
-            <ul><li><span class="ck">✓</span> Fragments</li></ul>
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-        <p class="influence-note">What Governs Reality?</p>
-
-        <!-- THE SCHISM -->
-        <div class="tree-era">~540–450 BCE · The Great Divide</div>
-        <div class="tree-row">
-          <a href="presocratics.html#heraclitus" class="p-card-link"><div class="p-card read">
-            <h5>Heraclitus</h5>
-            <ul><li><span class="ck">✓</span> Fragments</li></ul>
-          </div></a>
-          <a href="presocratics-2.html#parmenides" class="p-card-link"><div class="p-card read">
-            <h5>Parmenides</h5>
-            <ul><li><span class="ck">✓</span> On Nature</li></ul>
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-        <p class="influence-note">Irreconcilable Differences</p>
-
-        <!-- ELEATICS -->
-        <div class="tree-era">~500–430 BCE · The Eleatic School</div>
-        <div class="tree-row">
-          <a href="presocratics.html#melissus" class="p-card-link"><div class="p-card read">
-            <h5>Melissus</h5>
-            <ul><li><span class="ck">✓</span> A Defense</li></ul>
-          </div></a>
-          <a href="presocratics-2.html#zeno" class="p-card-link"><div class="p-card read">
-            <h5>Zeno</h5>
-            <ul><li><span class="ck">✓</span> Paradoxes</li></ul>
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-        <p class="influence-note">A firm defense of monic reality, albeit evolved and refined</p>
-
-        <!-- PLURALISTS -->
-        <div class="tree-era">~500–428 BCE · The Pluralist School</div>
-        <div class="tree-row">
-          <a href="presocratics.html#empedocles" class="p-card-link"><div class="p-card read">
-            <h5>Empedocles</h5>
-            <ul><li><span class="ck">✓</span> Elements and Forces</li></ul>
-          </div></a>
-          <a href="presocratics-2.html#anaxagoras" class="p-card-link"><div class="p-card read">
-            <h5>Anaxagoras</h5>
-            <ul><li><span class="ck">✓</span> Nature and Mind</li></ul>
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-        <p class="influence-note">A further evolution of Parmenides' ideas, with a complete rejection of monism</p>
-
-        <!-- ATOMISTS -->
-        <div class="tree-era">~490-370 BCE · The Atomist School</div>
-        <div class="tree-row">
-          <a href="presocratics.html#democritus" class="p-card-link"><div class="p-card read">
-            <h5>Democritus</h5>
-            <ul><li><span class="ck">✓</span> The Atomist Theory</li></ul>
-          </div></a>
-          <a href="presocratics-2.html#leucippus" class="p-card-link"><div class="p-card read">
-            <h5>Leucippus</h5>
-            <ul><li><span class="ck">✓</span> The Atomist Theory</li></ul>
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-        <p class="influence-note">The Literal Building Blocks of Philosophy</p>
-
-        <!-- SOPHISTS -->
-        <div class="tree-era">~490-375 BCE · The Premier Sophists</div>
-        <div class="tree-row">
-          <a href="presocratics.html#protagoras" class="p-card-link"><div class="p-card read">
-            <h5>Protagoras</h5>
-            <ul><li><span class="ck">✓</span> Can Virtue be Taught?</li></ul>
-          </div></a>
-          <a href="presocratics-2.html#gorgias" class="p-card-link"><div class="p-card read">
-            <h5>Gorgias</h5>
-            <ul><li><span class="ck">✓</span> Can Anything be Known?</li></ul>
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-        <p class="influence-note">The Stage is set for the Socratic Revolution</p>
-
-        <!-- SOCRATES -->
-        <div class="tree-era">~470–399 BCE · The Socratic Turn</div>
-        <div class="tree-row">
-          <a href="socrates.html" class="p-card-link"><div class="p-card" style="border-color:var(--c-accent); border-style:dashed;">
-            <h5>Socrates</h5>
-            <ul><li style="font-style:italic; opacity:0.5;">No surviving texts</li></ul>
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-        <p class="influence-note">Students branch into rival schools</p>
-
-        <!-- SOCRATIC STUDENTS -->
-        <div class="tree-era">~400 BCE · Socratic Students</div>
-        <div class="tree-row">
-          <div class="p-card" data-tooltip="Essay coming soon">
-            <h5>Antisthenes</h5>
-            <p class="p-era">Cynic founder</p>
-            <ul><li><span class="pn">○</span> Lives, Book VI</li></ul>
-            <p style="font-size:0.72rem; color:var(--c-text-dim); opacity:0.7; margin:0.5rem 0 0; line-height:1.4;">cf. Plato, Aristippus · confirmed by Diogenes, Zeno, Epictetus</p>
-          </div>
-          <div class="p-card" data-tooltip="Essay coming soon">
-            <h5>Euclid of Megara</h5>
-            <p class="p-era">Megarian school</p>
-            <ul><li><span class="pn">○</span> Lives, Book II</li></ul>
-            <p style="font-size:0.72rem; color:var(--c-text-dim); opacity:0.7; margin:0.5rem 0 0; line-height:1.4;">cf. Parmenides, Euthyphro, Laches</p>
-          </div>
-          <a href="socrates.html" class="p-card-link"><div class="p-card read">
-            <h5>Plato</h5>
-            <p class="p-era">Academy</p>
-            <ul>
-              <li><span class="ck">✓</span> The Apology</li>
-              <li><span class="ck">✓</span> Euthyphro</li>
-              <li><span class="ck">✓</span> Protagoras</li>
-              <li><span class="pn">○</span> Crito</li>
-              <li><span class="pn">○</span> Phaedo</li>
-              <li><span class="pn">○</span> Meno</li>
-              <li><span class="pn">○</span> Symposium</li>
-              <li><span class="pn">○</span> The Republic</li>
-              <li style="font-size:0.7rem; opacity:0.4; margin-top:0.2rem;">+ 17 more planned</li>
-            </ul>
-          </div></a>
-          <div class="p-card" data-tooltip="Essay coming soon">
-            <h5>Xenophon</h5>
-            <p class="p-era">Historian</p>
-            <ul>
-              <li><span class="pn">○</span> Memorabilia</li>
-              <li><span class="pn">○</span> Apology of Socrates</li>
-            </ul>
-          </div>
-          <div class="p-card" data-tooltip="Essay coming soon">
-            <h5>Aristippus</h5>
-            <p class="p-era">Cyrenaic founder</p>
-            <ul>
-              <li><span class="pn">○</span> Lives, Book II</li>
-              <li><span class="pn">○</span> Memorabilia, Book II</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-
-        <!-- SECOND GENERATION -->
-        <div class="tree-era">~350 BCE · Second Generation</div>
-        <div class="tree-row">
-          <div class="p-card" data-tooltip="Essay coming soon">
-            <h5>Diogenes of Sinope</h5>
-            <p class="p-era">Radical Cynic</p>
-            <ul><li style="font-style:italic; opacity:0.5;">Via Antisthenes</li></ul>
-          </div>
-          <div class="p-card" data-tooltip="Essay coming soon">
-            <h5>Megarians</h5>
-            <p class="p-era">Logic &amp; Paradoxes</p>
-            <ul>
-              <li><span class="pn">○</span> Lives, Book II</li>
-              <li><span class="pn">○</span> Memorabilia, Book II</li>
-              <li><span class="pn">○</span> The Liar Paradox</li>
-              <li><span class="pn">○</span> Sorites Paradox</li>
-              <li><span class="pn">○</span> Diodorus' Master Argument</li>
-            </ul>
-          </div>
-          <a href="aristotle.html" class="p-card-link"><div class="p-card">
-            <h5>Aristotle</h5>
-            <p class="p-era">Via Plato</p>
-            <ul>
-              <li><span class="pn">○</span> Nicomachean Ethics</li>
-              <li><span class="pn">○</span> Politics</li>
-              <li><span class="pn">○</span> De Anima</li>
-              <li><span class="pn">○</span> Metaphysics</li>
-              <li><span class="pn">○</span> Rhetoric</li>
-            </ul>
-          </div></a>
-          <a href="plato.html" class="p-card-link"><div class="p-card">
-            <h5>Academy</h5>
-            <p class="p-era">Skeptical turn</p>
-            <ul><li><span class="pn">○</span> De finibus, Book II</li></ul>
-          </div></a>
-          <div class="p-card" data-tooltip="Essay coming soon">
-            <h5>Cyrenaics</h5>
-            <p class="p-era">Via Aristippus</p>
-            <ul><li><span class="pn">○</span> Lives, Book II</li></ul>
-          </div>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-        <p class="influence-note">Multiple streams converge into Stoicism</p>
-
-        <!-- HELLENISTIC -->
-        <div class="tree-era">~300 BCE · Hellenistic Schools</div>
-        <div class="tree-row">
-          <a href="hellenistic.html" class="p-card-link"><div class="p-card">
-            <h5>Zeno of Citium</h5>
-            <p class="p-era">Founded Stoicism</p>
-            <ul><li><span class="pn">○</span> Lives, Book VII</li></ul>
-            <p style="font-size:0.72rem; color:var(--c-text-dim); opacity:0.7; margin:0.5rem 0 0; line-height:1.4;">Synthesis of Antisthenes, Euclid, Cyrenaics, Academy &amp; Heraclitus</p>
-          </div></a>
-          <a href="hellenistic.html" class="p-card-link"><div class="p-card">
-            <h5>Epicurus</h5>
-            <p class="p-era">Counter-tradition</p>
-            <ul>
-              <li><span class="pn">○</span> Letter to Menoeceus</li>
-              <li><span class="pn">○</span> Principal Doctrines</li>
-            </ul>
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-
-        <!-- SYSTEMATIZATION -->
-        <div class="tree-era">~250 BCE · Systematization</div>
-        <div class="tree-row">
-          <a href="hellenistic.html" class="p-card-link"><div class="p-card">
-            <h5>Chrysippus</h5>
-            <p class="p-era">Stoic logic</p>
-            <ul>
-              <li><span class="pn">○</span> De finibus (Stoic books)</li>
-              <li><span class="pn">○</span> Lives, Book VII</li>
-              <li><span class="pn">○</span> Against the Logicians</li>
-            </ul>
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-
-        <!-- TRANSMISSION -->
-        <div class="tree-era">~100 BCE · Transmission to Rome</div>
-        <div class="tree-row">
-          <a href="hellenistic.html" class="p-card-link"><div class="p-card">
-            <h5>Cicero</h5>
-            <p class="p-era">Roman transmitter</p>
-            <ul>
-              <li><span class="pn">○</span> De finibus</li>
-              <li><span class="pn">○</span> Academica</li>
-              <li><span class="pn">○</span> Tusculan Disputations</li>
-            </ul>
-          </div></a>
-        </div>
-
-        <div class="tree-connector"><div class="vline"></div></div>
-
-        <!-- ROMAN STOICS -->
-        <div class="tree-era">~50–180 CE · Roman Stoicism</div>
-        <div class="tree-row">
-          <a href="roman-stoicism.html" class="p-card-link"><div class="p-card">
-            <h5>Seneca</h5>
-            <ul><li><span class="pn">○</span> Letters to Lucilius</li></ul>
-          </div></a>
-          <a href="roman-stoicism.html" class="p-card-link"><div class="p-card">
-            <h5>Epictetus</h5>
-            <ul>
-              <li><span class="pn">○</span> Enchiridion</li>
-              <li><span class="pn">○</span> Discourses</li>
-            </ul>
-          </div></a>
-          <a href="roman-stoicism.html" class="p-card-link"><div class="p-card">
-            <h5>Marcus Aurelius</h5>
-            <ul><li><span class="pn">○</span> Meditations</li></ul>
-          </div></a>
-        </div>
-
-      </div><!-- /tree -->
-    </div>
-  </section>
-
-  <!-- BOOKS INDEX -->
-  <section style="padding:var(--s-section) 0; background:var(--c-bg-alt); border-top:1px solid var(--c-border); border-bottom:1px solid var(--c-border);">
-    <div class="container-main">
-      <div style="text-align:center; margin-bottom:2.5rem;" class="reveal">
-        <span class="section-label" style="justify-content:center; display:flex;">The Library</span>
-        <h2>Six Books, One Journey</h2>
-        <hr class="divider divider--center">
-        <p style="color:var(--c-text-dim); max-width:600px; margin:0 auto;">From the first cosmologists to the last Stoic emperor — each book is a continuous reading experience with its own chapters, figures, and appendices.</p>
-      </div>
-
-      <div class="books-grid reveal">
-        <a href="presocratics.html" class="book-index-card">
-          <span class="book-num">Book I</span>
-          <h4>The Presocratics</h4>
-          <p>Thales through Parmenides — the first attempts to explain reality through logic rather than myth.</p>
-          <span class="book-status complete"><span class="status-dot2"></span> 9 Chapters · Complete</span>
-        </a>
-        <a href="socrates.html" class="book-index-card">
-          <span class="book-num">Book II</span>
-          <h4>Socrates &amp; the Sophists</h4>
-          <p>The turn from cosmology to ethics — the Apology, Euthyphro, and the birth of the dialectic.</p>
-          <span class="book-status progress"><span class="status-dot2"></span> 2 of 3 Chapters Live</span>
-        </a>
-        <a href="plato.html" class="book-index-card locked">
-          <span class="book-num">Book III</span>
-          <h4>Plato's Academy</h4>
-          <p>The Republic, the Forms, and the architecture of the ideal soul and state.</p>
-          <span class="book-status progress"><span class="status-dot2"></span> Planned</span>
-        </a>
-        <a href="aristotle.html" class="book-index-card locked">
-          <span class="book-num">Book IV</span>
-          <h4>Aristotle</h4>
-          <p>Substance, virtue, and the systematic grounding of philosophy in the observable world.</p>
-          <span class="book-status progress"><span class="status-dot2"></span> Planned</span>
-        </a>
-        <a href="hellenistic.html" class="book-index-card locked">
-          <span class="book-num">Book V</span>
-          <h4>The Hellenistic Schools</h4>
-          <p>Cynics, Cyrenaics, Epicureans, and early Stoics stake their claims on how to live well.</p>
-          <span class="book-status progress"><span class="status-dot2"></span> Planned</span>
-        </a>
-        <a href="roman-stoicism.html" class="book-index-card locked">
-          <span class="book-num">Book VI</span>
-          <h4>Roman Stoicism</h4>
-          <p>Seneca, Epictetus, and Marcus Aurelius — Stoicism tested under real power and suffering.</p>
-          <span class="book-status progress"><span class="status-dot2"></span> Planned</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATUS -->
-  <section style="padding:var(--s-section) 0; background:var(--c-bg-alt); border-top:1px solid var(--c-border); border-bottom:1px solid var(--c-border);">
-    <div class="container-main" style="max-width:700px;">
-      <div class="status-banner reveal">
-        <span class="section-label" style="justify-content:center; display:flex;">Status</span>
-        <h3 style="margin-bottom:1rem;">An Open-Ended Project</h3>
-        <p>This philosophy project is intentionally open-ended. Revisions reflect growth, not indecision. New essays and interpretations are added as readings progress.</p>
-
-        <div style="text-align:left; background:var(--c-bg); border:1px solid var(--c-border); border-radius:var(--radius); padding:1.25rem 1.5rem; margin:1.5rem 0; font-size:0.85rem;">
-          <p style="margin-bottom:0.5rem;"><strong style="color:var(--c-heading);">Being read currently:</strong> <span style="color:var(--c-text-dim);">Crito</span></p>
-          <p style="margin-bottom:0.5rem;"><strong style="color:var(--c-heading);">Being interpreted:</strong> <span style="color:var(--c-text-dim);">Protagoras</span></p>
-          <p style="margin-bottom:0.5rem;"><strong style="color:var(--c-heading);">Being revised:</strong> <span style="color:var(--c-text-dim);">The Apology</span></p>
-          <p style="margin-bottom:0.5rem;"><strong style="color:var(--c-heading);">Revised with:</strong> <span style="color:var(--c-text-dim);">The Cambridge Companion to Plato</span></p>
-          <p style="margin-bottom:0.5rem;"><strong style="color:var(--c-heading);">Supplemented with:</strong> <span style="color:var(--c-text-dim);">The Cambridge Companion to Greek and Roman Philosophy (to p. 97)</span></p>
-          <p style="margin-bottom:0;"><strong style="color:var(--c-heading);">Interpreted with:</strong> <span style="color:var(--c-text-dim);">A Companion to Ancient Philosophy (to p. 97)</span></p>
-        </div>
-
-        <p style="font-size:0.92rem; margin-top:1rem; margin-bottom:0.5rem;"><strong style="color:var(--c-heading);">Planned additions:</strong></p>
-        <div class="planned-tags">
-          <span class="planned-tag">Aristotle</span>
-          <span class="planned-tag">Epicureanism</span>
-          <span class="planned-tag">Early Stoicism</span>
-          <span class="planned-tag">Roman Stoics</span>
-          <span class="planned-tag">Comparative Traditions</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer"><div class="container-main"><div class="footer-inner">
-    <p class="footer-copy">&copy; 2026 Shresth Singh — Philosophy</p>
-    <div class="footer-social"><a href="https://www.linkedin.com/in/shresth-singh-achieve/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
-  </div></div></footer>
-
-  <button id="backToTop" class="back-to-top" aria-label="Back to top">&uarr;</button>
-  <script src="../js/main.js?v=4"></script>
-</body>
+    <script src="../js/main.js?v=4"></script>
+  </body>
 </html>

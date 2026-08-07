@@ -302,6 +302,16 @@ p { margin-bottom: 1rem; }
 @media (max-width: 768px) {
   .nav-toggle { display: block; }
 
+  /* The scrolled nav's backdrop-filter turns .site-nav into the containing
+     block for position:fixed descendants, trapping the full-screen menu
+     overlay inside the thin bar (links pile at the top, no backdrop). Drop
+     the blur on mobile so .nav-links.open can cover the whole viewport. The
+     bar keeps its background colour, and the open menu keeps its own blur. */
+  .site-nav.scrolled {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
   .nav-links {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;

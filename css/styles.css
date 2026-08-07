@@ -1008,6 +1008,25 @@ p { margin-bottom: 1rem; }
   div[style*="order: 2"] {
     order: unset !important;
   }
+
+  /* Collapse inline multi-column grids to a single column. The engineering,
+     programming and project case-study pages set grid-template-columns via
+     inline style= attributes (some with a fixed min like minmax(260px,...)),
+     which only !important can override. Stacking on phones prevents the
+     viewport-widening overflow that was killing the nav and squeezing text. */
+  [style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+  [style*="grid-template-columns"] > * {
+    min-width: 0;
+  }
+
+  /* Engineering feature rows (1fr 1fr) stack image/media ABOVE the text,
+     regardless of their desktop left/right order. Scoped to 1fr 1fr so it
+     doesn't reorder programming's content/sidebar (which is a minmax grid). */
+  [style*="grid-template-columns: 1fr 1fr"] > *:has(img) {
+    order: -1 !important;
+  }
 }
 
 /* --- REMOVE OLD TEMPLATE OVERRIDES -------------------------- */
@@ -1022,3 +1041,45 @@ p { margin-bottom: 1rem; }
 #parallax-2 {
   display: none !important;
 }
+
+/* --- LIGHTBOX (tap any content image to view full-screen) --- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.92);
+  cursor: zoom-out;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 95vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.lightbox-close:hover { background: rgba(255, 255, 255, 0.28); }

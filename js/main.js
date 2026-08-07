@@ -129,4 +129,45 @@ document.addEventListener('DOMContentLoaded', () => {
     if (next) next.addEventListener('click', () => { go(i + 1); startAuto(); });
   });
 
+  /* --- LIGHTBOX (tap a content image to view full-screen) -- */
+  const zoomables = document.querySelectorAll('[data-carousel] img, [style*="grid-template-columns"] img');
+  if (zoomables.length) {
+    const box = document.createElement('div');
+    box.className = 'lightbox';
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-modal', 'true');
+    box.innerHTML = '<button class="lightbox-close" aria-label="Close image">&times;</button><img alt="">';
+    document.body.appendChild(box);
+    const boxImg = box.querySelector('img');
+
+    const open = (src, alt) => {
+      boxImg.src = src;
+      boxImg.alt = alt || '';
+      box.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    const close = () => {
+      box.classList.remove('open');
+      document.body.style.overflow = '';
+      boxImg.src = '';
+    };
+
+    zoomables.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        // In a carousel the slides are stacked; always open the visible one.
+        const wrap = img.closest('[data-carousel]');
+        const target = wrap ? (wrap.querySelector('.mini-slide.active') || img) : img;
+        open(target.src, target.alt);
+      });
+    });
+
+    box.addEventListener('click', (e) => {
+      if (e.target === box || e.target.classList.contains('lightbox-close')) close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && box.classList.contains('open')) close();
+    });
+  }
+
 });

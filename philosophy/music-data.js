@@ -52,6 +52,7 @@ const GENRE_ORDER = [
   /* Elsewhere */
   "Reggae",
   "Instrumental Music",
+  "Hawaiian Soul"
 ];
 
 /* Every artist. Order here does not matter — cards sort alphabetically. */
@@ -112,6 +113,12 @@ const MUSIC_DATA = [
   { name: "PARTYNEXTDOOR (PND)", genre: "Rhythm & Blues", heard: true, days: 10 },
   { name: "Tory Lanez", genre: "Rhythm & Blues" },
   { name: "Yebba", genre: "Rhythm & Blues" },
+
+  /* --- Hawaiian Soul --- */
+  { name: "Israel Kamakawiwoʻole", genre: "Hawaiian Soul" },
+
+  /* --- Indie --- */
+  { name: "Tame Impala", genre: "Indie" },
 
   /* --- 21st Century Pop-Soul --- */
   { name: "Bruno Mars", genre: "21st Century Pop-Soul" },
@@ -190,7 +197,7 @@ const MUSIC_DATA = [
 
   /* --- 70s Rock Gods --- */
   { name: "AC/DC", genre: "70s Rock Gods" },
-  { name: "Aerosmith", genre: "70s Rock Gods" },
+  { name: "Aerosmith", genre: "70s Rock Gods", heard: true, days: 16 },
   { name: "Boston", genre: "70s Rock Gods" },
   { name: "Journey", genre: "70s Rock Gods" },
   { name: "Queen", genre: "70s Rock Gods" },
@@ -199,6 +206,7 @@ const MUSIC_DATA = [
   { name: "Creed", genre: "21st Century Rock" },
   { name: "Foo Fighters", genre: "21st Century Rock" },
   { name: "The HU", genre: "21st Century Rock" },
+  { name: "Yungblud", genre: "21st Century Rock" },
 
   /* --- Reggae --- */
   { name: "Bob Marley & The Wailers", genre: "Reggae" },
@@ -232,7 +240,7 @@ const MUSIC_DATA = [
   { name: "Ludwig Göransson", genre: "Instrumental Music" },
 
   /* --- Soul Legends --- */
-  { name: "Charlie Wilson", genre: "Soul Legends" },
+  { name: "Charlie Wilson", genre: "Soul Legends", heard: true, days: 9 },
   { name: "Erykah Badu", genre: "Soul Legends" },
   { name: "Marvin Gaye", genre: "Soul Legends" },
   { name: "Otis Redding", genre: "Soul Legends" },

@@ -14,9 +14,8 @@
 
 /* Hand-tracked totals. Artist count is computed automatically. */
 const MUSIC_STATS = {
-  albums:    531,
+  albums:    556,
   playlists: 50,
-  days:      530
 };
 
 /* Card order on the page. */

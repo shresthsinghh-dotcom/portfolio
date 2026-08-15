@@ -16,6 +16,7 @@
 const MUSIC_STATS = {
   albums:    556,
   playlists: 50,
+  days: 556, 
 };
 
 /* Card order on the page. */
@@ -24,7 +25,8 @@ const GENRE_ORDER = [
   "60s Rock Gods",
   "70s Rock Gods",
   "80s Rock Gods",
-  "90s Rock and Grunge Gods",
+  "90s Grunge",
+  "90s Rock Gods",
   "21st Century Rock",
   "Solo Rock Projects",
   /* Metal */
@@ -43,9 +45,7 @@ const GENRE_ORDER = [
   "Classic Rap Icons",
   "Turn-of-Century Rap Legends",
   "Lyrical & Conscious Rap",
-  "Hip-Hop Industry Juggernauts of the 2010s",
   "2010s Hip-Hop",
-  "Dominant Hip-Hop Voices of the 2020s",
   "2020s Hip-Hop",
   "Rage & Trap",
   /* Elsewhere */
@@ -90,14 +90,14 @@ const MUSIC_DATA = [
   { name: "Metallica", genre: "American Thrash", heard: true, days: 14 },
   { name: "Slayer", genre: "American Thrash", heard: true, days: 14 },
 
-  /* --- American Metal --- */
-  { name: "Alice In Chains", genre: "American Metal", heard: true, days: 7 },
-  { name: "Pantera", genre: "American Metal", heard: true, days: 9 },
+  /* --- 90s Rock Gods --- */
+  { name: "Pantera", genre: "90s Rock Gods", heard: true, days: 9 },
+  { name: "Tool", genre: "90s Rock Gods" },
 
-  /* --- 90s Rock and Grunge Gods --- */
-  { name: "Nirvana", genre: "90s Rock and Grunge Gods", heard: true, days: 3 },
-  { name: "Pearl Jam", genre: "90s Rock and Grunge Gods" },
-  { name: "Tool", genre: "90s Rock and Grunge Gods" },
+  /* --- 90s Grunge --- */
+  { name: "Nirvana", genre: "90s Grunge", heard: true, days: 3 },
+  { name: "Alice In Chains", genre: "90s Grunge", heard: true, days: 7 },
+  { name: "Pearl Jam", genre: "90s Grunge" },
 
   /* --- Pop-Soul Legends --- */
   { name: "George Michael", genre: "Pop-Soul Legends" },
@@ -165,21 +165,10 @@ const MUSIC_DATA = [
   { name: "Kendrick Lamar", genre: "Lyrical & Conscious Rap", heard: true, days: 10 },
   { name: "MF DOOM", genre: "Lyrical & Conscious Rap" },
   { name: "Pusha T", genre: "Lyrical & Conscious Rap", heard: true, days: 8 },
+  { name: "Vince Staples", genre: "Lyrical & Conscious Rap" },
+  { name: "A$AP Rocky", genre: "Lyrical & Conscious Rap" },
+  { name: "JPEGMAFIA", genre: "Lyrical & Conscious Rap" },
 
-  /* --- Hip-Hop Industry Juggernauts of the 2010s --- */
-  { name: "A$AP Rocky", genre: "Hip-Hop Industry Juggernauts of the 2010s" },
-  { name: "Drake", genre: "Hip-Hop Industry Juggernauts of the 2010s", heard: true, days: 19 },
-  { name: "Future", genre: "Hip-Hop Industry Juggernauts of the 2010s", heard: true, days: 24 },
-  { name: "Metro Boomin", genre: "Hip-Hop Industry Juggernauts of the 2010s", heard: true, days: 10 },
-  { name: "Migos", genre: "Hip-Hop Industry Juggernauts of the 2010s" },
-  { name: "Young Thug", genre: "Hip-Hop Industry Juggernauts of the 2010s" },
-
-  /* --- Dominant Hip-Hop Voices of the 2020s --- */
-  { name: "Baby Keem", genre: "Dominant Hip-Hop Voices of the 2020s", heard: true, days: 5 },
-  { name: "Don Toliver", genre: "Dominant Hip-Hop Voices of the 2020s", heard: true, days: 7 },
-  { name: "Travis Scott", genre: "Dominant Hip-Hop Voices of the 2020s", heard: true, days: 9 },
-  { name: "Tyler, the Creator", genre: "Dominant Hip-Hop Voices of the 2020s", heard: true, days: 9 },
-  { name: "Yeat", genre: "Dominant Hip-Hop Voices of the 2020s", heard: true, days: 12 },
 
   /* --- 2020s Hip-Hop --- */
   { name: "21 Savage", genre: "2020s Hip-Hop", heard: true, days: 11 },
@@ -187,6 +176,12 @@ const MUSIC_DATA = [
   { name: "King Von", genre: "2020s Hip-Hop" },
   { name: "Pop Smoke", genre: "2020s Hip-Hop", heard: true, days: 5 },
   { name: "Ty Dolla $ign", genre: "2020s Hip-Hop" },
+  { name: "Baby Keem", genre: "2020s Hip-Hop", heard: true, days: 5 },
+  { name: "Don Toliver", genre: "2020s Hip-Hop", heard: true, days: 7 },
+  { name: "Travis Scott", genre: "2020s Hip-Hop", heard: true, days: 9 },
+  { name: "Tyler, the Creator", genre: "2020s Hip-Hop", heard: true, days: 9 },
+  { name: "Yeat", genre: "2020s Hip-Hop", heard: true, days: 12 },
+
 
   /* --- Rage & Trap --- */
   { name: "EsDeeKid", genre: "Rage & Trap", heard: true, days: 2 },
@@ -249,7 +244,6 @@ const MUSIC_DATA = [
 
   /* --- 2010s Hip-Hop --- */
   { name: "Fetty Wap", genre: "2010s Hip-Hop" },
-  { name: "JPEGMAFIA", genre: "2010s Hip-Hop" },
   { name: "Kid Cudi", genre: "2010s Hip-Hop" },
   { name: "Lil Uzi Vert", genre: "2010s Hip-Hop" },
   { name: "Odd Future", genre: "2010s Hip-Hop" },
@@ -257,5 +251,9 @@ const MUSIC_DATA = [
   { name: "Quavo", genre: "2010s Hip-Hop" },
   { name: "Skepta", genre: "2010s Hip-Hop" },
   { name: "Takeoff", genre: "2010s Hip-Hop" },
-  { name: "Vince Staples", genre: "2010s Hip-Hop" },
+  { name: "Drake", genre: "2010s Hip-Hop", heard: true, days: 19 },
+  { name: "Future", genre: "2010s Hip-Hop", heard: true, days: 24 },
+  { name: "Metro Boomin", genre: "2010s Hip-Hop", heard: true, days: 10 },
+  { name: "Migos", genre: "2010s Hip-Hop" },
+  { name: "Young Thug", genre: "2010s Hip-Hop" },
 ];
